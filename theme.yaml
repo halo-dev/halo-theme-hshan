@@ -1,0 +1,9 @@
+id: ruibaby_quickstarter
+name: quickstarter
+author:
+  name: Ryan Wang
+  website: https://ryanc.cc
+description: Quick starter theme for halo
+logo:
+website: https://github.com/halo-dev/halo-theme-quick-starter
+version: 1.0
