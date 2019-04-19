@@ -1,5 +1,15 @@
+#id: 主题的唯一标识
+#name: 主题名称
+#author:
+#  name: 作者名称
+#  website: 作者网站
+#description: 主题描述
+#logo: 主题 Logo
+#website: 主题网址
+#version: 版本号
+
 id: ruibaby_quickstarter
-name: quickstarter
+name: QuickStarter
 author:
   name: Ryan Wang
   website: https://ryanc.cc
