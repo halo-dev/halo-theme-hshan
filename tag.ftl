@@ -1,6 +1,6 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <h1>文章列表</h1>
+<@layout title="${options.blog_title!} | 标签：${tag.name}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+    <h1>标签：${tag.name}</h1>
     <ul>
         <#list posts.content as post>
             <li>

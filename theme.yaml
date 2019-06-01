@@ -6,6 +6,7 @@
 #description: 主题描述
 #logo: 主题 Logo
 #website: 主题网址
+#website: 主题的 Github 仓库
 #version: 版本号
 
 id: ruibaby_quickstarter
@@ -16,4 +17,5 @@ author:
 description: Quick starter theme for halo
 logo:
 website: https://github.com/halo-dev/halo-theme-quick-starter
+repo: https://github.com/halo-dev/halo-theme-quick-starter
 version: 1.0
