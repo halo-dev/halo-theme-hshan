@@ -9,6 +9,8 @@
 #website: 主题的 Github 仓库
 #version: 版本号
 
+# 详情请参考：https://halo.run/develop/theme.html#theme-yaml
+
 id: ruibaby_quickstarter
 name: QuickStarter
 author:
