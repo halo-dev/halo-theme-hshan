@@ -1,4 +1,3 @@
-<#import "/common/macro/common_macro.ftl" as common>
 <#macro layout title,keywords,description>
 <!DOCTYPE html>
 <html lang="zh">
@@ -11,6 +10,7 @@
         公共 head 代码，详情请参考：https://halo.run/develop/theme.html#%E5%85%AC%E5%85%B1-head-%E6%A0%87%E7%AD%BE
         包含：Favicon，站点验证代码
     -->
+
     <@global.head />
 
     <title>${title}</title>
