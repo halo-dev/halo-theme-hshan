@@ -11,20 +11,17 @@
 
                 <header class="cover page-header">
                     <div class="cover-bg"
-                            <#if sheet.thumbnail?? && sheet.thumbnail!=''>
+                            <#if settings.archives_patternimg?? && settings.archives_patternimg!=''>
+                                style="background-image: url(${settings.archives_patternimg!});"
                                 <#else>
                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
                             </#if>
                     >
-                        <#if (sheet.thumbnail?? && sheet.thumbnail!='')>
-                            <img srcset="${sheet.thumbnail} 300w, ${sheet.thumbnail} 600w, ${sheet.thumbnail} 800w, ${sheet.thumbnail} 1600w, ${sheet.thumbnail} 2000w"
-                                 sizes="100vw" src="${sheet.thumbnail}" alt="${sheet.title}"/>
-                        </#if>
                     </div>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
-                            <h1 class="page-title" style="font-size: 46px;">${sheet.title!}</h1>
+                            <h1 class="page-title" style="font-size: 46px;">归档</h1>
                         </div>
                     </div>
                 </header>

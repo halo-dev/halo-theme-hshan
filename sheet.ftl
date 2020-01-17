@@ -10,6 +10,7 @@
                 <header class="cover page-header">
                     <div class="cover-bg"
                             <#if sheet.thumbnail?? && sheet.thumbnail!=''>
+                                style="background-image: url(${sheet.thumbnail!});"
                                 <#else>
                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
                             </#if>
