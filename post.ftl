@@ -36,7 +36,7 @@
                                     <img class="author-avatar"
                                          srcset="${user.avatar!}, ${user.avatar!} 2x"
                                          src="${user.avatar!}" alt=""/>
-<#--                                    <span class="post-author"><%= post.stats.words %>字</span>-->
+                                    <span class="post-author">${post.visits} 次访问</span>
                                     <time class="published"
                                           datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
                                     </time>
@@ -125,7 +125,6 @@
                     <p>Powered by <a target="_blank" href="http://halo.run">Halo</a> •
                         Theme by <a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle Galaxy</a> •
                         REFERENCE FROM <a href="https://github.com/hshanx/halo-theme-hshan.git">寒山</a></p>
-                    <@global.footer />
                 </div>
                 <div class="site-statistics">
                     <@common.statistics />

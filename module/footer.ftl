@@ -31,7 +31,6 @@
         <div class="site-statistics">
             <@common.statistics />
         </div>
-
         <a href="#page" class="arrow-up" data-scroll><span class="screen-reader-text">Back to the top</span></a>
     </div>
 </footer>

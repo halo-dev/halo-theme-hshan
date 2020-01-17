@@ -1,11 +1,11 @@
 # 详情请参考：https://halo.run/develop/theme.html#theme-yaml
-id: ruibaby_quickstarter
+id: hshan
 name: hanshan
 author:
   name: hshan
   website: https://meisen.pro
 description: 大道至简
 logo:
-website: https://github.com/halo-dev/halo-theme-quick-starter
-repo: https://github.com/halo-dev/halo-theme-quick-starter
+website: https://meisen.pro
+repo: https://github.com/hshanx/halo-theme-hshan
 version: 1.0
