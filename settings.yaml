@@ -3,8 +3,96 @@
 genernal:
   label: 基本设置
   items:
-    index_notice:
-      name: index_notice
-      label: 首页公告
+    home_title:
+      name: home_title
+      label: 首页展示博客名
+      type: text
+      placeholder: '用于首页展示名字'
+    home_description:
+      name: home_description
+      lable: 首页描述
+      type: text
+      placeholder: '用于首页描述'
+    home_cover:
+      name: home_cover
+      label: 首页背景
+      type: attachment
+      default: https://hshanx.github.io/media/images/home-cover.jpg
+    Icp:
+      name: Icp
+      label: 'ICP备案号'
+      type: text
+      placeholder: '填入ICP备案号，没有则不填'
+    PublicSecurityRecord:
+      name: PublicSecurityRecord
+      label: '网安备案号'
+      type: text
+      placeholder: '填入网安备案号代码，没有则不填'
+    QR_code_zfb:
+      name: QR_code_zfb
+      label: '支付宝二维码链接'
+      type: attachment
+      placeholder: '支付宝收款二维码链接，不填不显示'
+    QR_code_wx:
+      name: QR_code_wx
+      label: '微信二维码链接'
+      type: attachment
+      placeholder: '微信收款二维码链接，不填不显示'
+post:
+  label: 文章页
+  items:
+    post_toc:
+      name: post_toc
+      label: 目录
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    post_nepre:
+      name: post_nepre
+      label: 下一篇
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+custom:
+  label: 自定义
+  items:
+    TimeStatistics:
+      name: TimeStatistics
+      label: '站点运行时间统计'
+      type: text
+      placeholder: '填入起始时间，格式：月/日/年 时:分:秒，如08/20/2018 12:00:00'
+    Custom_css_src:
+      name: Custom_css_src
+      label: '自定义外部css文件链接'
+      type: text
+      placeholder: '填入css文件链接，不需要style标签'
+    Custom_css:
+      name: Custom_css
+      label: '自定义css代码'
       type: textarea
-      default: '欢迎来到我的博客'
+      placeholder: '写入css代码，不需要style标签'
+    Custom_js_head:
+      name: Custom_js_head
+      label: 'head结束标签前自定义js代码'
+      type: textarea
+      placeholder: '写入js代码，不需要script标签'
+    Custom_js_foot_src:
+      name: Custom_js_foot_src
+      label: 'body结束标签前自定义外部js文件链接'
+      type: text
+      placeholder: '填入js文件链接，需要script标签'
+    Custom_js_foot:
+      name: Custom_js_foot
+      label: 'body结束标签前自定义js代码'
+      type: textarea
+      placeholder: '写入js代码，不需要script标签'
