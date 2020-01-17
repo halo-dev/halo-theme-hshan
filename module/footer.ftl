@@ -10,19 +10,20 @@
         <div class="offsite-links">
             <#if settings.sina??>
                 <a href="${settings.sina!}" target="_blank" class="social-sina" title="sina"><img
-                            src="${static!}/assets/media/images/social/sina.svg"/></a>
+                            src="${static!}/assets/media/images/social/sina.png"/></a>
             </#if>
             <#if settings.qq??>
                 <a href="//wpa.qq.com/msgrd?v=3&uin=${settings.qq!}&site=qq&menu=yes" target="_blank"
-                                  title="Initiate chat ?"><img src=${static!}/assets/media/images/social/qq.svg"/></a>
+                                  title="Initiate chat ?"><img src="${static!}/assets/media/images/social/qq.png"/></a>
+
             </#if>
             <#if settings.github??>
                 <a href="${settings.github!}" target="_blank"
-                   title="github"><img src=${static!}/assets/media/images/social/github.svg"/></a>
+                   title="github"><img src="${static!}/assets/media/images/social/github.png"/></a>
             </#if>
             <#if settings.zhihu??>
                 <a href="${settings.zhihu!}" target="_blank"
-                   title="知乎"><img src=${static!}/assets/media/images/social/zhihu.svg"/></a>
+                   title="知乎"><img src=?${static!}/assets/media/images/social/zhihu.png"/></a>
             </#if>
         </div>
 
