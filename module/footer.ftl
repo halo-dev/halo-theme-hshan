@@ -22,7 +22,7 @@
             </#if>
             <#if settings.zhihu??>
                 <a href="${settings.zhihu!}" target="_blank"
-                   title="知乎"><i class="fa fa-zhihu"></i></a>
+                   title="知乎"><img src="${static!}/assets/media/images/social/zhihu.png"></a>
             </#if>
             <#if settings.mail??>
                 <a href="${settings.mail!}" target="_blank"
