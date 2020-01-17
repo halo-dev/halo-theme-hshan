@@ -9,20 +9,20 @@
         <#--        社交信息 begin-->
         <div class="offsite-links">
             <#if settings.sina??>
-                <a href="${settings.sina!}" target="_blank" class="social-sina" title="sina"><i class="fab fa-sina"></i></a>
+                <a href="${settings.sina!}" target="_blank" class="social-sina" title="sina"><i class="fa fa-weibo"></i></a>
             </#if>
             <#if settings.qq??>
                 <a href="//wpa.qq.com/msgrd?v=3&uin=${settings.qq!}&site=qq&menu=yes" target="_blank"
-                   title="Initiate chat ?"><i class="fab fa-qq"></i></a>
+                   title="Initiate chat ?"><i class="fa fa-qq"></i></a>
 
             </#if>
             <#if settings.github??>
                 <a href="${settings.github!}" target="_blank"
-                   title="github"><i class="fab fa-github"></i></a>
+                   title="github"><i class="fa fa-github"></i></a>
             </#if>
             <#if settings.zhihu??>
                 <a href="${settings.zhihu!}" target="_blank"
-                   title="知乎"><i class="fab fa-zhihu"></i></a>
+                   title="知乎"><i class="fa fa-zhihu"></i></a>
             </#if>
         </div>
 
