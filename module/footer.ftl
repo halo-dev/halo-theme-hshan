@@ -32,9 +32,6 @@
 
         <#--        社交信息 end-->
 
-        <p>
-            <@global.footer />
-        </p>
         <div class="site-info">
             <#if settings.Icp??>
                 <a href="http://beian.miit.gov.cn" target="_blank">${settings.Icp!}</a><br>
