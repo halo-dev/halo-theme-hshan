@@ -18,7 +18,7 @@
             </#if>
             <#if settings.github??>
                 <a href="${settings.github!}" target="_blank"
-                   title="github"><i class="fa fa-github"></i></a>
+                   title="github"><i class="fa fa-github" style="font-size: 24px;"></i></a>
             </#if>
             <#if settings.zhihu??>
                 <a href="${settings.zhihu!}" target="_blank"
