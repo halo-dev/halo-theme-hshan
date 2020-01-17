@@ -1,19 +1,74 @@
 <#include "module/macro.ftl">
 <@layout title="${options.blog_title!} | 归档" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <h1>归档</h1>
-    <ul>
-        <#--
-            详情请参考：https://halo.run/develop/theme.html#%E6%A0%B9%E6%8D%AE%E5%B9%B4%E4%BB%BD%E5%BD%92%E6%A1%A3
-         -->
-        <@postTag method="archiveYear">
-            <#list archives as archive>
-                <li>
-                <h2>${archive.year?c}</h2>
-                <#list archive.posts?sort_by("createTime")?reverse as post>
-                    <a href="${context!}/archives/${post.url!}">${post.title!}</a>
-                </#list>
-                </li>
-            </#list>
-        </@postTag>
-    </ul>
+
+    <body class="tag-template">
+    <div id="page" class="site">
+
+        <#include "module/header.ftl">
+
+        <main class="site-main">
+            <div class="site-content">
+
+                <header class="cover page-header">
+                    <div class="cover-bg"
+                         style="background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);"></div>
+                    <div class="cover-content">
+                        <div class="inner">
+                            <div class="post-count"></div>
+                            <h1 class="page-title" style="font-size: 46px;">归档</h1>
+                        </div>
+                    </div>
+                </header>
+
+                <@postTag method="archiveYear">
+
+                <div id="post-list" class="post-list inner">
+                    <#list archives as archive>
+
+                    <article class="post">
+                        <!-- post-header -->
+                        <header class="post-header">
+                            <div class="post-header-wrap">
+                                <div class="post-meta">
+                                    <time class="published published-txt" style="font-weight: bolder; font-size: 1.5em"
+                                          datetime="<%- year %>">
+                                        ${archive.year?c}
+                                    </time>
+                                </div>
+                                <div class="post-title archives-list">
+                                    <#list archive.posts?sort_by("createTime")?reverse as post>
+                                        <div class="read-more">
+                                            <a class="button" href="${context!}/archives/${post.url!}">
+                                                ${post.title!}
+                                                <span aria-hidden="true"></span>
+                                                <span class="line left"></span>
+                                                <span class="line top"></span>
+                                                <span class="line right"></span>
+                                                <span class="line bottom"></span>
+                                            </a>
+                                        </div>
+                                    </#list>
+
+                                    </#list>
+                                </div>
+                            </div>
+                        </header>
+                    </article>
+                    </@postTag>
+
+
+                </div>
+            </div>
+        </main>
+
+        <#include "module/footer.ftl">
+
+    </div>
+
+
+    </body>
+
+
+
+
 </@layout>
