@@ -5,7 +5,7 @@
 
 
 ## 主题预览
-![](./bg.jpg)
+![](https://github.com/hshanx/halo-theme-hshan/blob/master/bg.jpg)
 
 ## 已实现功能 
 * [x] 日志页面
