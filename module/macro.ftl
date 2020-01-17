@@ -8,7 +8,7 @@
     <meta name="keywords" content="${keywords!}"/>
     <meta name="description" content="${description!}"/>
 
-    <link rel="shortcut icon" href="${static!}/favicon.ico">
+    <@global.head />
     <link rel="stylesheet" href="${static!}/assets/styles/main.css">
     <link href="${static!}/assets/styles/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${static!}/assets/media/font-awesome/css/font-awesome.min.css" type='text/css' media='all' />
