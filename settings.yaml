@@ -96,3 +96,26 @@ custom:
       label: 'body结束标签前自定义js代码'
       type: textarea
       placeholder: '写入js代码，不需要script标签'
+social:
+  label: 社交网络
+  items:
+    wechat:
+      name: wechat
+      label: 微信二维码
+      type: attachment
+    sina:
+      name: sina
+      label: 新浪微博
+      type: text
+    qq:
+      name: qq
+      label: 腾讯QQ
+      type: text
+    github:
+      name: github
+      label: Github
+      type: text
+    zhihu:
+      name: zhihu
+      label: 知乎
+      type: text
