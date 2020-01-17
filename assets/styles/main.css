@@ -2063,6 +2063,10 @@ pre .storage {
   color: white;
   font-size: 22px;
 }
+.offsite-links a img {
+  max-width: 20px;
+  margin-bottom: 5px;
+}
 .site-info {
   color: #5a5a5a;
   font-size: 10px;
