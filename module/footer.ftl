@@ -1,11 +1,33 @@
-<#include "comment.ftl">
-<#if is_post??>
-    <@comment post,"post" />
-<#elseif is_sheet??>
+<#if !(is_post??)>
+    <#include "comment.ftl">
+</#if>
+<#if is_sheet??>
     <@comment sheet,"sheet" />
 </#if>
 <footer class="site-footer">
     <div class="inner">
+        <#--        社交信息 begin-->
+        <div class="offsite-links">
+            <#if settings.sina??>
+                <a href="${settings.sina!}" target="_blank" class="social-sina" title="sina"><img
+                            src="${static!}/assets/media/images/social/sina.svg"/></a>
+            </#if>
+            <#if settings.qq??>
+                <a href="//wpa.qq.com/msgrd?v=3&uin=${settings.qq!}&site=qq&menu=yes" target="_blank"
+                                  title="Initiate chat ?"><img src=${static!}/assets/media/images/social/qq.svg"/></a>
+            </#if>
+            <#if settings.github??>
+                <a href="${settings.github!}" target="_blank"
+                   title="github"><img src=${static!}/assets/media/images/social/github.svg"/></a>
+            </#if>
+            <#if settings.zhihu??>
+                <a href="${settings.zhihu!}" target="_blank"
+                   title="知乎"><img src=${static!}/assets/media/images/social/zhihu.svg"/></a>
+            </#if>
+        </div>
+
+        <#--        社交信息 end-->
+
         <p>
             <@global.footer />
         </p>
@@ -21,10 +43,13 @@
             <#if settings.TimeStatistics??>
                 <p>本站运行：<span id="span_dt_dt"></span></p>
             </#if>
-            <p>Copyright &copy; ${.now?string('yyyy')}<a href="${context!}"> ${options.blog_title!}<#if settings.SiteSubtitle??> - ${settings.SiteSubtitle!}</#if></a></p>
+            <p>Copyright &copy; ${.now?string('yyyy')}<a
+                        href="${context!}"> ${options.blog_title!}<#if settings.SiteSubtitle??> - ${settings.SiteSubtitle!}</#if></a>
+            </p>
             <!-- 请尊重作者，请务必保留版权 -->
             <p>Powered by <a target="_blank" href="http://halo.run">Halo</a> •
-                Theme by <a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle Galaxy</a> •
+                Theme by <a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle
+                    Galaxy</a> •
                 REFERENCE FROM <a href="https://github.com/hshanx/halo-theme-hshan.git">寒山</a></p>
             <@global.footer />
         </div>
