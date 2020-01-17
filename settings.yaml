@@ -119,3 +119,7 @@ social:
       name: zhihu
       label: 知乎
       type: text
+    mail:
+      name: mail
+      label: 邮箱
+      type: text

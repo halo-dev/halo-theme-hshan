@@ -24,6 +24,10 @@
                 <a href="${settings.zhihu!}" target="_blank"
                    title="知乎"><i class="fa fa-zhihu"></i></a>
             </#if>
+            <#if settings.mail??>
+                <a href="${settings.mail!}" target="_blank"
+                   title="邮箱"><i class="fa fa-envelope-o fa-fw"></i></a>
+            </#if>
         </div>
 
         <#--        社交信息 end-->
