@@ -9,15 +9,15 @@
             <div class="site-content">
                 <header class="cover page-header">
                     <div class="cover-bg"
-                         style="background-image:
-                                 <#if sheet.thumbnail?? && sheet.thumbnail !=''>
-                                         url(${sheet.thumbnail!})
-                                     <#else>
-                                      linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
-                                 </#if>
-                                "
-
-                    ></div>
+                            <#if !(sheet.thumbnail?? && sheet.thumbnail!='')>
+                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
+                            </#if>
+                    >
+                        <#if (sheet.thumbnail?? && sheet.thumbnail!='')>
+                            <img srcset="${sheet.thumbnail} 300w, ${sheet.thumbnail} 600w, ${sheet.thumbnail} 800w, ${sheet.thumbnail} 1600w, ${sheet.thumbnail} 2000w"
+                                 sizes="100vw" src="${sheet.thumbnail}" alt="${sheet.title}"/>
+                        </#if>
+                    </div>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
