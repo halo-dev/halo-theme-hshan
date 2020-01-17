@@ -9,7 +9,7 @@
             <div class="site-content">
                 <header class="cover page-header">
                     <div class="cover-bg"
-                         style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"></div>
+                         style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%); url(${sheet.thumbnail!})"></div>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
