@@ -45,22 +45,22 @@ head_img:
       name: archives_patternimg
       label: 归档页面头部装饰图
       type: attachment
-      links_patternimg:
-        name: links_patternimg
-        label: 友情链接页面头部装饰图
-        type: attachment
-      searh_patternimg:
-        name: searh_patternimg
-        label: 搜索页面头部装饰图
-        type: attachment
-      tag_patternimg:
-        name: tag_patternimg
-        label: 标签下文章页面头部装饰图
-        type: attachment
-      category_patternimg:
-        name: category_patternimg
-        label: 分类下文章页面头部装饰图
-        type: attachment
+    links_patternimg:
+      name: links_patternimg
+      label: 友情链接页面头部装饰图
+      type: attachment
+    searh_patternimg:
+      name: searh_patternimg
+      label: 搜索页面头部装饰图
+      type: attachment
+    tag_patternimg:
+      name: tag_patternimg
+      label: 标签下文章页面头部装饰图
+      type: attachment
+    category_patternimg:
+      name: category_patternimg
+      label: 分类下文章页面头部装饰图
+      type: attachment
 post:
   label: 文章页
   items:
@@ -122,10 +122,10 @@ custom:
 social:
   label: 社交网络
   items:
-#    wechat:
-#      name: wechat
-#      label: 微信二维码
-#      type: attachment
+    #    wechat:
+    #      name: wechat
+    #      label: 微信二维码
+    #      type: attachment
     sina:
       name: sina
       label: 新浪微博
