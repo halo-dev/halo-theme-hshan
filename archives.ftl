@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!} | 归档" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="归档 | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
 
     <body class="tag-template">
     <div id="page" class="site">
