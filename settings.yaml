@@ -137,6 +137,11 @@ title:
         label: 标签页面标题
         type: text
         default: 标签列表
+    achieve_title:
+      name: achieve_title
+      label: 归档页面标题
+      type: text
+      default: 归档
 social:
   label: 社交网络
   items:
