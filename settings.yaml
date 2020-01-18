@@ -49,17 +49,17 @@ head_img:
       name: links_patternimg
       label: 友情链接页面头部装饰图
       type: attachment
-    searh_patternimg:
-      name: searh_patternimg
-      label: 搜索页面头部装饰图
-      type: attachment
+    #    searh_patternimg:
+    #      name: searh_patternimg
+    #      label: 搜索页面头部装饰图
+    #      type: attachment
     tag_patternimg:
       name: tag_patternimg
       label: 标签下文章页面头部装饰图
       type: attachment
-    category_patternimg:
-      name: category_patternimg
-      label: 分类下文章页面头部装饰图
+    journals_patternimg:
+      name: journals_patternimg
+      label: 日志下文章页面头部装饰图
       type: attachment
 post:
   label: 文章页
@@ -119,6 +119,24 @@ custom:
       label: 'body结束标签前自定义js代码'
       type: textarea
       placeholder: '写入js代码，不需要script标签'
+title:
+  label: 页面标题
+  items:
+    links_title:
+      name: links_title
+      label: 友链页面标题
+      type: text
+      default: 友链
+    jounarls_title:
+      name: jounarls_title
+      label: 日志页面标题
+      type: text
+      default: 日志
+    tags_title:
+        name: tags_title
+        label: 标签页面标题
+        type: text
+        default: 标签列表
 social:
   label: 社交网络
   items:

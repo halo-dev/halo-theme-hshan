@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!} | ${sheet.title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${sheet.title!} |${options.blog_title!} " keywords="${options.seo_keywords!}" description="${options.seo_description!}">
     <body class="sheet-template">
     <div id="page" class="site">
 
@@ -17,7 +17,7 @@
                     >
                         <#if (sheet.thumbnail?? && sheet.thumbnail!='')>
                             <img srcset="${sheet.thumbnail} 300w, ${sheet.thumbnail} 600w, ${sheet.thumbnail} 800w, ${sheet.thumbnail} 1600w, ${sheet.thumbnail} 2000w"
-                                 sizes="100vw" src="${sheet.thumbnail}" alt="${sheet.title}"/>
+                                 sizes="100vw" src="${sheet.thumbnail}" alt="${sheet.title!}"/>
                         </#if>
                     </div>
                     <div class="cover-content">
