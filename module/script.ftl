@@ -116,7 +116,6 @@
             const scrollTop = getScrollTop();
             const fixedHeight = 700;
             if (scrollTop > fixedHeight && !(siteContent && scrollTop > siteContent)) {
-                console.log(12312312);
                 tocFixed.show(100);
             } else {
                 tocFixed.hide();
