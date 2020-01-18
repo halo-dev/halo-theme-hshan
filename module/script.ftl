@@ -66,7 +66,7 @@
 </#if>
 
 <div class="qr-code">
-    <span class="closinglayer">x</span>
+    <span class="closinglayer"><i class="fa fa-close"></i></span>
     <#if settings.QR_code_zfb??>
         <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
     </#if>
@@ -95,12 +95,29 @@
     <script src="${static!}/assets/media/scripts/tocbot.min.js"></script>
 
     <script type="application/javascript">
+        var siteContent;
+        <#if is_post?? && settings.post_nepre??>
+        siteContent = $('#siteContent').height();
+        </#if>
+        //获取滚动条距离顶部位置
+        function getScrollTop() {
+            var scrollTop = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                scrollTop = document.documentElement.scrollTop;
+            } else if (document.body) {
+                scrollTop = document.body.scrollTop;
+            }
+            return scrollTop;
+        }
+
+
         window.addEventListener('scroll', function () {
             var tocFixed =$("#toc");
-            const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            const scrollTop = getScrollTop();
             const fixedHeight = 700;
-            if (scrollTop > fixedHeight) {
-                tocFixed.show(300);
+            if (scrollTop > fixedHeight && !(siteContent && scrollTop > siteContent)) {
+                console.log(12312312);
+                tocFixed.show(100);
             } else {
                 tocFixed.hide();
             }

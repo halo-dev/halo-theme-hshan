@@ -34,7 +34,7 @@
                         </@tagTag>
                     </div>
                 </div>
-
+                <#include "module/pagination.ftl">
             </div>
         </main>
 
