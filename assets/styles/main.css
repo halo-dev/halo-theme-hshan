@@ -2728,7 +2728,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   overflow-y: auto;
   position: fixed;
   top: 10px;
-  right: 100px;
+  right: 60px;
   display: none;
 }
 .toc > .toc-list {
