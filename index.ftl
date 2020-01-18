@@ -44,7 +44,7 @@
                                             <a href="${context!}/archives/${post.url!}">${post.title!}</a>
                                         </h2>
                                         <div class="post-meta">
-                                                                                  <span class="post-author">${post.visits!} 次访问</span>
+                                            <span class="post-author">${post.visits!} 次访问</span>
                                             <time class="published"
                                                   datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
                                             </time>
@@ -68,8 +68,7 @@
                         </#list>
                     </#if>
                 </div>
-                <#--                <#include "module/pagination.ftl">-->
-
+                <#include "module/pagination.ftl">
             </div>
         </main>
 

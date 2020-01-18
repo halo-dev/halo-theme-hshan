@@ -192,7 +192,6 @@ table {
  * ----------------------------------------------------------------------------
  */
 html {
-  font-size: 112.5%;
   font-family: 'Lato', sans-serif;
 }
 body {
@@ -353,16 +352,6 @@ th {
   font-weight: bold;
 }
 @media only screen and (max-width: 640px) {
-  html {
-    font-size: 95%;
-  }
-  h1 {
-    font-size: 85%;
-  }
-  h2,
-  blockquote {
-    font-size: 85%;
-  }
   h3 {
     font-size: 20px;
   }
@@ -2745,6 +2734,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   position: fixed;
   top: 10px;
   right: 100px;
+  display: none;
 }
 .toc > .toc-list {
   overflow: hidden;

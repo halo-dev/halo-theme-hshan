@@ -46,7 +46,7 @@
                         <!-- post-content -->
                         <div class="post-content">
                             <div class="read-more">
-                                <a class="button" href="<%= post.link %>">
+                                <a class="button" href="${context!}/archives/${post.url!}">
                                     Read More
                                     <span aria-hidden="true"> </span>
                                     <span class="line left"></span>
@@ -60,8 +60,6 @@
                     </article>
                     </#list>
                 </div>
-
-               <#include "module/pagination.ftl">
 
             </div>
         </main>

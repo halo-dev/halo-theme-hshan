@@ -122,10 +122,10 @@ custom:
 social:
   label: 社交网络
   items:
-    wechat:
-      name: wechat
-      label: 微信二维码
-      type: attachment
+#    wechat:
+#      name: wechat
+#      label: 微信二维码
+#      type: attachment
     sina:
       name: sina
       label: 新浪微博
@@ -136,7 +136,7 @@ social:
       type: text
     github:
       name: github
-      label: Github
+      label: Github 名
       type: text
     zhihu:
       name: zhihu
