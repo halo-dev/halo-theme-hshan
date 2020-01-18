@@ -2262,11 +2262,6 @@ blockquote {
 .links-box > li > a:hover {
   color: #0b98ff;
 }
-.links-box > li > a:before {
-  font-family: icomoon;
-  content: ' ';
-  color: #0b98ff;
-}
 .links-box > li > a:after {
   display: none;
 }
