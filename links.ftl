@@ -33,7 +33,7 @@
                                 </#if>
                                 <ul class="links-box">
                                     <#list item.links as link>
-                                        <li><a href="${link.url!}" title="" target="_blank">${link.name!}</a></li>
+                                        <li><a href="${link.url!}" title="" target="_blank"><i class="fa fa-link"></i>&nbsp;${link.name!}</a></li>
                                     </#list>
                                 </ul>
                             </#list>
