@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.jounarls_title!"日志"} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${settings.jounarls_title!'日志'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
     <body class="links-template">
     <div id="page" class="site">
 
@@ -18,7 +18,7 @@
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
-                            <h1 class="page-title" style="font-size: 46px;">${settings.jounarls_title!"日志"} </h1>
+                            <h1 class="page-title" style="font-size: 46px;">${settings.jounarls_title!'日志'} </h1>
                         </div>
                     </div>
                 </header>

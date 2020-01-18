@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.tags_title!"标签列表"} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${settings.tags_title!'标签列表'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
     <body class="tag-template">
     <div id="page" class="site">
         <#include "module/header.ftl">
@@ -17,7 +17,7 @@
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
-                            <h1 class="page-title" style="font-size: 46px;">${settings.tags_title!"标签"}</h1>
+                            <h1 class="page-title" style="font-size: 46px;">${settings.tags_title!'标签'}</h1>
                         </div>
                     </div>
                 </header>
