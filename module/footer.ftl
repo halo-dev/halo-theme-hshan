@@ -44,7 +44,7 @@
                 </a>
             </#if>
             <#if settings.mail??>
-                <a href="${settings.mail!}" class="circle" target="_blank" rel="noopener"
+                <a href="mailto:${settings.mail!}" class="circle" target="_blank" rel="noopener"
                    title="邮箱">
                     <svg t="1579356164602" role="img" viewBox="0 0 1024 1024" version="1.1"
                          xmlns="http://www.w3.org/2000/svg" p-id="1126" xmlns:xlink="http://www.w3.org/1999/xlink">
