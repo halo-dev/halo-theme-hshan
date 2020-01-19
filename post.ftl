@@ -9,7 +9,7 @@
         <main class="site-main">
             <div class="site-content" >
                 <article class="post tag-getting-started" id="siteContent">
-                    <header class="cover post-header">
+                    <header class="cover post-header" id="postHeader">
                         <div class="cover-bg"
                                 <#if !(post.thumbnail?? && post.thumbnail!='')>
                                     style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
