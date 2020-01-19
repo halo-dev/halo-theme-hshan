@@ -97,7 +97,7 @@
     <script type="application/javascript">
         var siteContent;
         <#if is_post?? && settings.post_nepre??>
-        siteContent = $('#siteContent').height();
+        siteContent = $('#postHeader').height() + $('#postContent').height() + $('#postInfo').height();
         </#if>
         //获取滚动条距离顶部位置
         function getScrollTop() {
@@ -110,15 +110,19 @@
             return scrollTop;
         }
 
-
         window.addEventListener('scroll', function () {
             var tocFixed =$("#toc");
             const scrollTop = getScrollTop();
             const fixedHeight = $('#postHeader').height();
-            if (scrollTop > fixedHeight && !(siteContent && scrollTop > siteContent)) {
-                tocFixed.show(100);
+            if (scrollTop > fixedHeight) {
+                tocFixed.show();
             } else {
                 tocFixed.hide();
+            }
+            if (siteContent && siteContent < scrollTop) {
+                tocFixed.addClass('right-fixed');
+            } else {
+                tocFixed.removeClass('right-fixed');
             }
         }, false);
 
@@ -136,5 +140,15 @@
             scrollSmoothOffset: -80,
             headingsOffset: -500
         });
+
+        var tocLinks = $('.toc-link');
+        if (tocLinks) {
+            console.log(tocLinks);
+            for (let i = 0; i < tocLinks.length; i++) {
+                var tocLink = tocLinks[i];
+                tocLink.append(document.createElement("span"));
+            }
+        }
+
     </script>
 </#if>

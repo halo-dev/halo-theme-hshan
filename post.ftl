@@ -48,33 +48,37 @@
                             </div>
                         </div>
                     </header>
-                    <div class="inner" id="postInner">
-                        <div class="post-content">
-                            ${post.formatContent!}
+                    <div class="post-inner" >
+                        <div class="article-body">
+                            <div class="post-content" id="postContent">
+                                ${post.formatContent!}
+                            </div>
+                            <#if settings.post_toc??>
+                                <div id="toc" class="toc"></div>
+                            </#if>
                         </div>
-                        <#if settings.post_toc??>
-                            <div id="toc" class="toc"></div>
-                        </#if>
-                        <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
-                            <div class="appreciate-btn">请博主喝咖啡</div>
-                        </#if>
-                        <div class="article-copyright-info">
-                            <p>本文由 <a href="${context!}">${user.nickname!}</a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a
-                                        href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-                                        rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
-                                        href="${context!}/archives/${post.url!}">${context!}
-                                    /archives/${post.url!}</a><br>最后更新于：${post.editTime?string('yyyy-MM-dd HH:mm:ss')}
-                            </p>
+                        <div class="article-info"  id="postInfo">
+                            <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
+                                <div class="appreciate-btn">请博主喝咖啡</div>
+                            </#if>
+                            <div class="article-copyright-info">
+                                <p>本文由 <a href="${context!}">${user.nickname!}</a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a
+                                            href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                                            rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
+                                            href="${context!}/archives/${post.url!}">${context!}
+                                        /archives/${post.url!}</a><br>最后更新于：${post.editTime?string('yyyy-MM-dd HH:mm:ss')}
+                                </p>
+                            </div>
+
+                            <#include "module/comment.ftl">
+                            <#if is_post??>
+                                <@comment post,"post" />
+                            <#elseif is_sheet??>
+                                <@comment sheet,"sheet" />
+                            </#if>
                         </div>
                     </div>
                 </article>
-
-                <#include "module/comment.ftl">
-                <#if is_post??>
-                    <@comment post,"post" />
-                <#elseif is_sheet??>
-                    <@comment sheet,"sheet" />
-                </#if>
 
                 <#if settings.post_nepre!true>
                     <nav class="post-navigation" id="post-navigation">

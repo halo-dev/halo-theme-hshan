@@ -29,13 +29,37 @@
 }
 
 html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  //-ms-text-size-adjust: 100%;
+  //-webkit-text-size-adjust: 100%;
+  font-size: 14px;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';   margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0;
+  color: #34495e;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6rem;
+  letter-spacing: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+  padding: 0;
+  height: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-attachment: inherit;
+  background-origin: inherit;
+  background-clip: inherit;
+  background-color: inherit;
+  tab-size: 4;
+  background-position: inherit inherit;
+  background-repeat: inherit inherit;
 }
 
 article,
@@ -63,7 +87,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 1em;
 }
 
@@ -107,7 +131,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 dfn {
@@ -232,12 +256,12 @@ table {
 
 html {
   //font-size: 112.5%;
-  font-family: 'Lato', sans-serif;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
 }
 
 body {
   background-color: #fff;
-  color: #5a5a5a;
+  color: #34495e;
   line-height: 1.66667;
 }
 
@@ -249,7 +273,7 @@ a {
 }
 
 a:hover {
-  color: #101012;
+  color: #cd9023;
 }
 
 h1,
@@ -258,13 +282,10 @@ h3,
 h4,
 h5,
 h6 {
-  //color: #101012;
-  //font-family: 'Playfair Display', serif;
+  color: #101012;
   font-weight: 600;
-  color: #42b983;
   margin: 35px 0 20px;
   line-height: 1.33333;
-  //margin: 45px 0 30px;
   text-rendering: optimizeLegibility;
 }
 
@@ -311,14 +332,14 @@ address {
 mark,
 ins {
   background-color: #f4e1c0;
-  color: #5a5a5a;
+  color: #34495e;
   padding: 0 3px;
   text-decoration: none;
 }
 
 code,
 pre {
-  font-family: Consolas, "Andale Mono", "Courier New", Courier, monospace;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -469,8 +490,8 @@ textarea {
   box-sizing: border-box;
   border: 1px solid #d4d3d3;
   border-radius: 0;
-  color: #5a5a5a;
-  font-family: 'Lato', sans-serif;
+  color: #34495e;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 16px;
   max-width: 100%;
   padding: 8px 10px;
@@ -485,7 +506,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-  border-color: #5a5a5a;
+  border-color: #34495e;
   outline: 0;
 }
 
@@ -514,7 +535,7 @@ input[type="button"]:active,
 input[type="reset"]:hover,
 input[type="reset"]:focus,
 input[type="reset"]:active {
-  color: #5a5a5a;
+  color: #34495e;
   outline: 0;
 }
 
@@ -640,7 +661,7 @@ img {
 .kg-bookmark-container {
   border: 1px solid #d4d3d3;
   display: flex;
-  color: #5a5a5a;
+  color: #34495e;
   min-height: 140px;
 }
 
@@ -665,7 +686,7 @@ img {
 }
 
 .kg-bookmark-description {
-  color: #5a5a5a;
+  color: #34495e;
   display: -webkit-box;
   font-size: 16px;
   font-weight: normal;
@@ -867,7 +888,7 @@ img {
 
 /* Syntax Highlighter */
 pre .comment {
-  color: #5a5a5a;
+  color: #34495e;
 }
 
 pre .constant,
@@ -989,7 +1010,7 @@ pre .storage {
 }
 
 .button:hover {
-  color: #5a5a5a;
+  color: #34495e;
 }
 
 .button .line {
@@ -1097,7 +1118,7 @@ pre .storage {
 /* Circle Icons */
 .circle {
   background-color: transparent;
-  border: 1px solid #5a5a5a;
+  border: 1px solid #34495e;
   border-radius: 50%;
   color: #d4d3d3;
   display: inline-block;
@@ -1212,10 +1233,35 @@ pre .storage {
 
 .inner {
   margin: 0 auto;
-  max-width: 900px;
-  font-size: 85%;
+  max-width: 800px;
+  //padding: 0 30px;
+}
+
+.post-inner {
+  margin: 0 auto;
+  //width: 100%;
   padding: 0 30px;
 }
+.article-body {
+  position: relative;
+}
+.article-body, .article-info {
+  max-width: 800px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.article-body .right-fixed {
+  position: absolute;
+  bottom: 50%;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+//.article-body .show-toc {
+//
+//}
 
 .site {
   display: -webkit-box;
@@ -1255,7 +1301,7 @@ pre .storage {
 
 .site-title {
   font-size: 30px;
-  font-family: 'Playfair Display', serif;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-weight: normal;
   line-height: 1.33333;
   margin: 0 90px 0 30px;
@@ -1318,8 +1364,8 @@ pre .storage {
 }
 
 .sidebar .widget-area {
-  border-bottom: 1px solid #5a5a5a;
-  border-top: 1px solid #5a5a5a;
+  border-bottom: 1px solid #34495e;
+  border-top: 1px solid #34495e;
   padding-top: 45px;
 }
 
@@ -1328,7 +1374,7 @@ pre .storage {
 }
 
 .sidebar a:hover {
-  color: #5a5a5a;
+  color: #34495e;
 }
 
 .site-navigation,
@@ -1597,8 +1643,8 @@ pre .storage {
 }
 
 .post-tags {
-  color: #5a5a5a;
-  font-family: 'Playfair Display', serif;
+  color: #34495e;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
 }
 
@@ -1611,7 +1657,7 @@ pre .storage {
 }
 
 .post-tags a:hover {
-  color: #5a5a5a;
+  color: #34495e;
 }
 
 .post-header-wrap {
@@ -1649,11 +1695,11 @@ pre .storage {
 
 .post-meta {
   color: #adabac;
-  font: italic 16px/1.5 'Playfair Display', serif;
+  //font: italic 16px/1.5 'Playfair Display', serif;
 }
 
 .post-meta a {
-  color: #5a5a5a;
+  color: #34495e;
 }
 
 .post-meta a:hover {
@@ -1779,7 +1825,7 @@ pre .storage {
 }
 
 .share-post .circle:hover {
-  color: #5a5a5a;
+  color: #34495e;
 }
 
 .share-post .circle:after {
@@ -1814,7 +1860,7 @@ pre .storage {
 }
 
 .post-count {
-  font-family: 'Playfair Display', serif;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 16px;
   margin-bottom: 15px;
 }
@@ -2084,6 +2130,7 @@ pre .storage {
 
   .cover-content .inner {
     padding-bottom: 75px;
+    width: 80%;
   }
 
   .post-template .post-content,
@@ -2147,6 +2194,16 @@ pre .storage {
     font-size: 30px;
   }
 
+  .post-title,
+  .post-template .post-title,
+  .page-template .post-title,
+  .hero-title,
+  .error-code,
+  .subscribe-title,
+  .post-title .read-more {
+    margin: 5px 0;
+  }
+
   .page-header .page-title {
     font-size: 24px;
   }
@@ -2168,7 +2225,7 @@ pre .storage {
   border: 0;
   color: #101012;
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 24px;
   font-weight: normal;
   letter-spacing: normal;
@@ -2232,7 +2289,7 @@ pre .storage {
 
 .pagination a:hover:before,
 .pagination a:hover:after {
-  background-color: #5a5a5a;
+  background-color: #34495e;
 }
 
 @media only screen and (max-width: 400px) {
@@ -2327,7 +2384,7 @@ pre .storage {
 .nav-before {
   color: #cd9023;
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 14px;
   margin-bottom: 20px;
   padding-bottom: 5px;
@@ -2354,7 +2411,7 @@ pre .storage {
 .nav-title {
   color: #fff;
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   font-size: 24px;
   line-height: 1.33333;
   margin-bottom: 5px;
@@ -2439,7 +2496,7 @@ pre .storage {
 }
 
 .site-info {
-  color: #5a5a5a;
+  color: #34495e;
   font-size: 10px;
   letter-spacing: 2px;
   margin-bottom: 45px;
@@ -2452,7 +2509,7 @@ pre .storage {
 
 .site-footer .arrow-up:before,
 .site-footer .arrow-up:after {
-  background-color: #5a5a5a;
+  background-color: #34495e;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -2585,5 +2642,18 @@ pre .storage {
 
 .sheet-content h1, .sheet-content h2, .sheet-content h3, .sheet-content h4, .sheet-content h5, .sheet-content h6 {
   color: #333;
+}
+
+@media (max-width: 768px) {
+  p, li {
+    font-size: 15px;
+    letter-spacing: .2px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .post-list {
+    width: 80%;
+  }
 }
 
