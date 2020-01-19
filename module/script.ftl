@@ -97,7 +97,7 @@
     <script type="application/javascript">
         var siteContent;
         <#if is_post?? && settings.post_nepre??>
-        siteContent = $('#postHeader').height() + $('#postContent').height() + $('#postInfo').height();
+        siteContent = $('#postHeader').height() + $('#postContent').height() ;
         </#if>
         //获取滚动条距离顶部位置
         function getScrollTop() {
@@ -110,8 +110,6 @@
             return scrollTop;
         }
 
-        // var tocFixed = $('#tocFixed').offsetHeight();
-        // console.log(tocFixed);
         window.addEventListener('scroll', function () {
             var tocFixed =$("#toc");
             const scrollTop = getScrollTop();

@@ -1319,7 +1319,7 @@ pre .storage {
 }
 .article-body .right-fixed {
   position: absolute;
-  bottom: 50%;
+  bottom: 0;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
