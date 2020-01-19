@@ -57,6 +57,7 @@
                                 <div id="toc" class="toc"></div>
                             </#if>
                         </div>
+                        <div id="tocFixed"></div>
                         <div class="article-info"  id="postInfo">
                             <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
                                 <div class="appreciate-btn">请博主喝咖啡</div>
