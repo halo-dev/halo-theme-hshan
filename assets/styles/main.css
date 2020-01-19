@@ -2502,6 +2502,7 @@ pre .storage {
   max-width: 960px;
   margin: auto;
   padding: 40px 0;
+  width: 80%;
 }
 .sheet-content h1,
 .sheet-content h2,

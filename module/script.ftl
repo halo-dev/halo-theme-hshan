@@ -110,7 +110,7 @@
             return scrollTop;
         }
 
-        var tocFixed = $('#tocFixed').offsetHeight();
+        // var tocFixed = $('#tocFixed').offsetHeight();
         // console.log(tocFixed);
         window.addEventListener('scroll', function () {
             var tocFixed =$("#toc");
