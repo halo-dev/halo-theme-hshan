@@ -97,7 +97,7 @@
     <script type="application/javascript">
         var siteContent;
         <#if is_post?? && settings.post_nepre??>
-        siteContent = $('#postHeader').height() + $('#postContent').height() ;
+        siteContent = $('#postHeader').height() + $('#post-content').height() ;
         </#if>
         //获取滚动条距离顶部位置
         function getScrollTop() {
