@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="${keywords!}"/>
     <meta name="description" content="${description!}"/>
 
     <@global.head />
     <link rel="stylesheet" href="${static!}/assets/styles/main.css">
-    <link href="${static!}/assets/styles/all.min.css" rel="stylesheet">
+    <link rel="stylesheet"  href="${static!}/assets/styles/all.min.css">
     <link rel="stylesheet" href="${static!}/assets/media/font-awesome/css/font-awesome.min.css" type='text/css' media='all' />
 
     <#if settings.Custom_css_src??>
