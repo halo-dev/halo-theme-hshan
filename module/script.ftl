@@ -110,6 +110,8 @@
             return scrollTop;
         }
 
+        var tocFixed = $('#tocFixed').offsetHeight();
+        // console.log(tocFixed);
         window.addEventListener('scroll', function () {
             var tocFixed =$("#toc");
             const scrollTop = getScrollTop();
@@ -143,7 +145,6 @@
 
         var tocLinks = $('.toc-link');
         if (tocLinks) {
-            console.log(tocLinks);
             for (let i = 0; i < tocLinks.length; i++) {
                 var tocLink = tocLinks[i];
                 tocLink.append(document.createElement("span"));

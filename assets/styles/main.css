@@ -1704,6 +1704,11 @@ pre .storage {
   margin-top: -3px;
   width: 30px;
 }
+@media only screen and (max-width: 860px) {
+  .post-meta .author-avatar {
+    margin-top: 10px;
+  }
+}
 .post-meta .published,
 .post-meta .reading-time {
   font: normal 16px/1.5 'Lato', sans-serif;
