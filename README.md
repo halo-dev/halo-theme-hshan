@@ -1,7 +1,7 @@
 # Halo-theme-hshan 主题
 > 感谢使用 Halo-theme-hshan 主题
 
-原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy), 原始主题参考了「Ghost Subtle」，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录
+原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录
 
 
 ## 主题预览
