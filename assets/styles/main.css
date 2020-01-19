@@ -2725,7 +2725,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #6a737d;
 }
 .toc {
-  overflow-y: auto;
+  max-width: 200px;
+  overflow: hidden;
   position: fixed;
   top: 10px;
   right: 50px;
