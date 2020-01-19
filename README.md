@@ -1,11 +1,13 @@
-# Halo-theme-hshan 主题
+# Halo Theme [Subtle hshan]
 > 感谢使用 Halo-theme-hshan 主题
 
-原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录
+> 原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)y，原设计自Ghost Subtle主题，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录以及一些个性化配置
 
 
 ## 主题预览
-![](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
+![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
+
+[预览地址](https://meisen.pro)
 
 ## 已实现功能 
 * [x] 日志页面
