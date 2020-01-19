@@ -25,3 +25,34 @@ blockquote {
 .post-content ul:first-child {
   display:none;
 }
+
+.post-content p {
+  font-weight: 400;
+  text-indent: 0;
+  letter-spacing: .2px;
+  font-size: 1.1rem;
+  z-index: 999;
+}
+
+.post-content pre code {
+  font-size: 14px;
+}
+
+.post-content li {
+  line-height: 1.6rem;
+  word-spacing: .05rem;
+  word-break: break-word;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+}
+
+.post-content ul {
+  padding-left: 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .post-content p, .post-content li {
+    font-size: 15px;
+    letter-spacing: .2px;
+  }
+}

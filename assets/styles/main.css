@@ -2539,6 +2539,33 @@ blockquote {
 .post-content ul:first-child {
   display: none;
 }
+.post-content p {
+  font-weight: 400;
+  text-indent: 0;
+  letter-spacing: 0.2px;
+  font-size: 1.1rem;
+  z-index: 999;
+}
+.post-content pre code {
+  font-size: 14px;
+}
+.post-content li {
+  line-height: 1.6rem;
+  word-spacing: 0.05rem;
+  word-break: break-word;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+}
+.post-content ul {
+  padding-left: 2rem;
+  font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  .post-content p,
+  .post-content li {
+    font-size: 15px;
+    letter-spacing: 0.2px;
+  }
+}
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
   -webkit-background-clip: text;
@@ -2880,33 +2907,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 .hljs-strong {
   font-weight: bold;
-}
-.post-content p {
-  font-weight: 400;
-  text-indent: 0;
-  letter-spacing: 0.2px;
-  font-size: 1.1rem;
-  z-index: 999;
-}
-.post-content pre code {
-  font-size: 14px;
-}
-.post-content li {
-  line-height: 1.6rem;
-  word-spacing: 0.05rem;
-  word-break: break-word;
-  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
-}
-.post-content ul {
-  padding-left: 2rem;
-  font-size: 1.1rem;
-}
-@media (max-width: 768px) {
-  .post-content p,
-  .post-content li {
-    font-size: 15px;
-    letter-spacing: 0.2px;
-  }
 }
 .toc {
   position: fixed;
