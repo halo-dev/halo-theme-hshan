@@ -50,7 +50,7 @@
                     </header>
                     <div class="post-inner" >
                         <div class="article-body">
-                            <div class="post-content" id="postContent">
+                            <div class="post-content" id="post-content">
                                 ${post.formatContent!}
                             </div>
                             <#if settings.post_toc??>
