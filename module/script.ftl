@@ -115,6 +115,7 @@
             var tocFixed =$("#toc");
             const scrollTop = getScrollTop();
             const fixedHeight = 700;
+            console.log(siteContent + ","+scrollTop);
             if (scrollTop > fixedHeight && !(siteContent && scrollTop > siteContent)) {
                 tocFixed.show(100);
             } else {
