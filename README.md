@@ -13,6 +13,7 @@
 * [x] 文章目录且可配置
 * [x] 友链页面
 * [x] 页面标题可配置
+* [x] 适配移动端
 
 ...
 ##  后期功能
@@ -25,7 +26,7 @@
 
 
 ## 安装方法
-1. 克隆或者[下载](https://github.com/hshanx/halo-theme-hshan/releases/tag/1.0.0)。
+1. 克隆或者[下载](https://github.com/hshanx/halo-theme-hshan/releases/tag/1.0.1)。
 2. 压缩为 zip 压缩包之后在后台的主题设置直接上传即可使用。
 3. 用Halo的程序拉取 https://github.com/hshanx/halo-theme-hshan.git
 
