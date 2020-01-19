@@ -37,7 +37,7 @@
                             <div class="post-header-wrap">
                                 <div class="post-meta">
                                     <time class="published published-txt" style="font-weight: bolder; font-size: 1.5em"
-                                          datetime="<%- year %>">
+                                          datetime="{archive.year?c}">
                                         ${archive.year?c}
                                     </time>
                                 </div>
