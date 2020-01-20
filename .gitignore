@@ -1,0 +1,17 @@
+target/
+.settings/
+.classpath
+bin/
+.mymetadata
+.project
+.externalToolBuilders/
+.tern-project
+*.bak
+
+#IDEA
+.idea
+*.iml
+*rebel.xml
+.flattened-pom.xml
+.factorypath
+
