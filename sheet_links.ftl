@@ -31,7 +31,7 @@
                                     <h3>${item.team}</h3>
                                 </#if>
                                 <#list item.links as link>
-                                    <div class="links-item">
+                                    <a class="links-item" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-64x64">
@@ -48,7 +48,7 @@
                                                 <p class="link-desc">${link.description}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </#list>
                             </#list>
                         </@linkTag>
