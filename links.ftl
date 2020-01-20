@@ -25,24 +25,39 @@
                     </div>
                 </header>
                 <div class="links-box">
-                    <div class="page-content links-box">
+                    <div class="links-items">
                         <@linkTag method="listTeams">
                             <#list teams as item>
                                 <#if item.team?? && item.team!=''>
                                     <h3>${item.team}</h3>
                                 </#if>
-                                <ul class="links-box">
-                                    <#list item.links as link>
-                                        <li><a href="${link.url!}" title="" target="_blank"><i class="fa fa-link"></i>&nbsp;${link.name!}</a></li>
-                                    </#list>
-                                </ul>
+                                <#list item.links as link>
+                                    <div class="links-item">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <figure class="image is-64x64">
+                                                    <#if link.logo?? && link.logo != ''>
+                                                        <img src="${link.logo}" alt="${link.name}">
+                                                    <#else>
+                                                        <img src="${static!}/assets/media/images/placeholder.jpg"
+                                                             alt="${link.name}">
+                                                    </#if>
+                                                </figure>
+                                            </div>
+                                            <div class="media-content">
+                                                <p class="link-title">${link.name}</p>
+                                                <p class="link-desc">${link.description}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </#list>
                             </#list>
                         </@linkTag>
                     </div>
+                    <#include "module/footer.ftl">
                 </div>
             </div>
         </main>
-        <#include "module/footer.ftl">
     </div>
     </body>
 </@layout>

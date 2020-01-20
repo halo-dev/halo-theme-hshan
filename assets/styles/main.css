@@ -2581,42 +2581,110 @@ blockquote {
 .tag-page a {
   font-size: 16px;
 }
-.links-box > .page-content {
-  display: flex;
-  justify-content: center;
-}
-.links-box {
-  overflow: hidden;
-}
-.links-box > li {
-  float: left;
-  width: 25%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0;
-  padding: 0 10px 10px;
-}
-.links-box > li > a {
-  display: inline-block;
-  height: 40px;
-  width: 100%;
-  font-size: 1.2rem;
-  line-height: 40px;
-  transition: all 0.3s linear;
-}
-.links-box > li > a:hover {
-  color: #cd9023;
-}
-.links-box > li > a:after {
-  display: none;
-}
-.links-box > .page-content > ul {
-  margin: 20px 0;
+.links-box .links-items {
   display: flex;
   display: -webkit-flex;
+  width: 100%;
+  justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: center;
+  max-width: 800px;
+  margin: 20px auto;
+}
+.links-box .links-items .links-item {
+  width: 240px;
+  margin: 20px 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+  color: #4a4a4a;
+  display: block;
+  transition: all 0.3s;
+}
+.links-box .links-items .links-item:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  box-shadow: 0 0.8em 1.2em -0.125em rgba(10, 10, 10, 0.11), 0 0 0 1px rgba(8, 8, 8, 0.02);
+}
+.media-content p.link-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  max-width: 160px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.media-content p.link-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*设置显示行数，此处为2行，可设置其他数字*/
+  -webkit-box-orient: vertical;
+  font-size: 12px;
+  margin: 0;
+  max-width: 160px;
+  line-height: 14px;
+  text-overflow: ellipsis;
+  /*设置隐藏部分为省略号*/
+  overflow: hidden;
+  /*设置隐藏*/
+}
+.media {
+  align-items: flex-start;
+  display: flex;
+  text-align: left;
+}
+.media-left,
+.media-right {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.media-left {
+  margin-right: 1rem;
+}
+.image.is-96x96 {
+  height: 96px;
+  width: 96px;
+}
+.image.is-64x64 {
+  height: 64px;
+  width: 64px;
+}
+.media-left .image img {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.image {
+  display: block;
+  position: relative;
+}
+.media:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.media-content {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .media-content {
+    overflow-x: auto;
+  }
+}
+@media screen and (max-width: 580px) {
+  .links-box .links-items {
+    justify-content: center;
+  }
+  .links-box .links-items .links-item {
+    width: 100%;
+    margin: 10px;
+  }
+}
+.links-box {
+  padding: 0 30px;
+  margin: 0 auto;
 }
 .tree-hole li,
 .tree-hole ol,
@@ -3008,13 +3076,5 @@ a.toc-link {
 @media only screen and (max-width: 1360px) {
   .toc {
     display: none !important;
-  }
-}
-
-@media only screen and (max-width: 460px) {
-  .links-box>li {
-    display: block;
-    width: 100%;
-    margin-left: 30%;
   }
 }
