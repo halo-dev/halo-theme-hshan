@@ -28,7 +28,8 @@
           header部分重构优化,
           目录功能优化,
           添加搜索功能
-          
+      
+  详细更新日志请[点击](https://meisen.pro/archives/theme-update-log)        
           
 
 **新主题，大家有问题请提issues**
