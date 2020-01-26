@@ -33,10 +33,10 @@
                 <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
             </#list>
         </@menuTag>
-        <#if settings.topSearch??>
-        <div class="searchbox">
-            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
-        </div>
+        <#if settings.top_search??>
+            <div class="searchbox">
+                <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
+            </div>
         </#if>
     </div>
     <a class="sidebar-toggle" id="sidebarToggle">

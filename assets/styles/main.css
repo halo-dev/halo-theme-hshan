@@ -3102,7 +3102,7 @@ a.toc-link {
 }
 .site-header-scroll a {
   font-size: 1.1rem;
-  color: #adabac;
+  color: #504b4d;
 }
 .scroll-menu {
   height: 52px;
@@ -3197,6 +3197,10 @@ a.toc-link {
 .searchbox .fa-search {
   font-size: 15px;
   font-weight: 300;
+  color: #504b4d;
+}
+.searchbox .fa-search:hover {
+  cursor: pointer;
 }
 .search-form--modal {
   -webkit-transition: visibility 0.6s ease, opacity 0.6s ease;
