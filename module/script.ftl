@@ -91,13 +91,52 @@
     ${settings.Custom_js_foot_src!}
 </#if>
 
+<script type="application/javascript">
+    var oldScrollTop;
+
+    //获取滚动条距离顶部位置
+    function getScrollTop() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+    }
+
+
+    window.addEventListener('scroll', function () {
+        var siteHeader = $("#siteHeader");
+        var scrollMenu = $("#scrollMenu");
+        var sidebarToggle = $("#sidebarToggle");
+        const scrollTop = getScrollTop();
+        if (siteHeader&&  scrollTop > 0) {
+            siteHeader.addClass('site-header-scroll');
+            scrollMenu.show(600);
+            sidebarToggle.hide();
+        } else if (oldScrollTop > scrollTop) {
+            siteHeader.removeClass('site-header-scroll');
+            scrollMenu.hide();
+            sidebarToggle.show();
+        } else {
+            siteHeader.removeClass('site-header-scroll');
+            scrollMenu.hide();
+            sidebarToggle.show();
+        }
+        oldScrollTop = scrollTop;
+    }, false);
+
+</script>
+
 <#if is_post?? && settings.post_toc??>
     <script src="${static!}/assets/media/scripts/tocbot.min.js"></script>
 
     <script type="application/javascript">
         var siteContent;
+        var oldScrollTop;
         <#if is_post?? && settings.post_nepre??>
-        siteContent = $('#postHeader').height() + $('#post-content').height() ;
+        siteContent = $('#postHeader').height() + $('#post-content').height();
         </#if>
         //获取滚动条距离顶部位置
         function getScrollTop() {
@@ -111,7 +150,7 @@
         }
 
         window.addEventListener('scroll', function () {
-            var tocFixed =$("#toc");
+            var tocFixed = $("#toc");
             const scrollTop = getScrollTop();
             const fixedHeight = $('#postHeader').height();
             if (scrollTop > fixedHeight) {

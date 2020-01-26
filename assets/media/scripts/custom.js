@@ -39,6 +39,14 @@ if (sidebarToggle) {
 	for (let i = 0; i < sidebarToggle.length; i++) {
 		sidebarToggle[i].addEventListener('click', function (e) {
 			document.body.classList.toggle('sidebar-opened');
+			var menuCtrl = $("#sidebarToggle");
+			if (menuCtrl) {
+				menuCtrl.toggleClass('menu-ctrl-on');
+			}
+			var sidebar = $("#sidebar");
+			if (sidebar) {
+				sidebar.toggleClass('sidebar-show');
+			}
 			e.preventDefault();
 		});
 	}

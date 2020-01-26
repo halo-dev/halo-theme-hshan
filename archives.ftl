@@ -13,7 +13,7 @@
                     <div class="cover-bg"
                             <#if settings.archives_patternimg?? && settings.archives_patternimg!=''>
                                 style="background-image: url(${settings.archives_patternimg!});"
-                                <#else>
+                            <#else>
                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
                             </#if>
                     >
@@ -26,40 +26,38 @@
                     </div>
                 </header>
 
-                <@postTag method="archiveYear">
+                <@postTag method="archiveMonth">
 
-                <div id="post-list" class="post-list inner">
+                <div id="post-list" class="post-list inner" style="padding-top: 30px;margin-bottom: 30px;">
                     <#list archives as archive>
-
-                    <article class="post">
-                        <!-- post-header -->
-                        <header class="post-header">
-                            <div class="post-header-wrap">
-                                <div class="post-meta">
-                                    <time class="published published-txt" style="font-weight: bolder; font-size: 1.5em"
-                                          datetime="{archive.year?c}">
-                                        ${archive.year?c}
-                                    </time>
+                        <article class="post" style="margin-bottom: 0 !important;">
+                            <!-- post-header -->
+                            <header class="post-header" style="margin-bottom: 0 !important;">
+                                <div class="post-header-wrap">
+                                    <div class="post-meta">
+                                        <time class="published published-txt" style="font-weight: bolder;"
+                                              datetime="{archive.year?c}">
+                                            ${archive.year?c}年${archive.month!}月
+                                        </time>
+                                    </div>
+                                    <div class="post-title archives-list" style="margin-bottom: 0 !important;">
+                                        <#list archive.posts?sort_by("createTime")?reverse as post>
+                                            <div class="read-more">
+                                                <a class="button" href="${context!}/archives/${post.url!}">
+                                                    ${post.createTime?string('MM-dd')} ${post.title!}
+                                                    <span aria-hidden="true"></span>
+                                                    <span class="line left"></span>
+                                                    <span class="line top"></span>
+                                                    <span class="line right"></span>
+                                                    <span class="line bottom"></span>
+                                                </a>
+                                            </div>
+                                        </#list>
+                                    </div>
                                 </div>
-                                <div class="post-title archives-list">
-                                    <#list archive.posts?sort_by("createTime")?reverse as post>
-                                        <div class="read-more">
-                                            <a class="button" href="${context!}/archives/${post.url!}">
-                                                ${post.title!}
-                                                <span aria-hidden="true"></span>
-                                                <span class="line left"></span>
-                                                <span class="line top"></span>
-                                                <span class="line right"></span>
-                                                <span class="line bottom"></span>
-                                            </a>
-                                        </div>
-                                    </#list>
-
-                                    </#list>
-                                </div>
-                            </div>
-                        </header>
-                    </article>
+                            </header>
+                        </article>
+                    </#list>
                     </@postTag>
 
 

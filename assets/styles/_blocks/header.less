@@ -1,0 +1,116 @@
+.site-header-scroll {
+  //justify-content: space-between;
+  background-color: hsla(0,1%,100%,.7);
+  border-bottom: 1px solid rgba(30, 35, 42, .06);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+  box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+  transition: all .6s;
+  -moz-transition: all .6s;
+  -webkit-transition: all .6s;
+}
+
+.site-header-scroll a {
+  font-size: 1.1rem;
+  color: #adabac;
+}
+
+.scroll-menu {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  height: 52px;
+  min-width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  transition: all .6s;
+  -moz-transition: all .6s;
+  -webkit-transition: all .6s;
+}
+.menu-ctrl-on {
+  .icon-menu.cross:before {
+    -webkit-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    background:  #adabac;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .icon-menu.cross .middle {
+    opacity:0;
+  }
+
+  .icon-menu.cross:after {
+    -webkit-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    background:  #adabac;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.icon-menu {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 28px;
+  //top: 8px;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+    background:  #adabac;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  &:before, &:after {
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    content: '';
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+    background:  #adabac;
+  }
+
+  &:before {
+    top: 5px;
+  }
+
+  &:after {
+    bottom: 5px;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .scroll-menu {
+    display: none !important;
+  }
+
+  .sidebar-toggle {
+    display: flex !important;
+  }
+}
+
+.sidebar{
+  margin-top: 52px;
+}
+
+// 其余样式参考 style.less 第4和第5部分

@@ -30,10 +30,9 @@
                 <div class="sheet-content">
                     ${sheet.formatContent!}
                 </div>
-
+                <#include "module/footer.ftl">
             </div>
         </main>
-        <#include "module/footer.ftl">
     </div>
     </body>
 

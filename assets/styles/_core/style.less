@@ -22,10 +22,7 @@
 @font-face {
   font-family: 'icomoon';
   src: url('../media/fonts/icomoon.eot');  /* IE9 */
-  src: url('../media/fonts/icomoon.eot?#iefix') format('embedded-opentype'),  /* IE6-IE8 */
-  url('../media/fonts/icomoon.woff') format('woff'),  /* chrome、firefox */
-  url('../media/fonts/icomoon.ttf') format('truetype'),  /* chrome、firefox、opera、Safari、Android、IOS */
-  url('../media/fonts/icomoon.svg#webfont') format('svg');  /* ios 4.1 */
+  src: url('../media/fonts/icomoon.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../media/fonts/icomoon.woff') format('woff'), /* chrome、firefox */ url('../media/fonts/icomoon.ttf') format('truetype'), /* chrome、firefox、opera、Safari、Android、IOS */ url('../media/fonts/icomoon.svg#webfont') format('svg');  /* ios 4.1 */
 }
 
 html {
@@ -450,7 +447,6 @@ th {
   //html {
   //  font-size: 95%;
   //}
-
   //h1 {
   //  font-size: 85%;
   //}
@@ -459,7 +455,6 @@ th {
   //blockquote {
   //  font-size: 85%;
   //}
-
   h3 {
     font-size: 20px;
   }
@@ -1242,9 +1237,11 @@ pre .storage {
   //width: 100%;
   padding: 0 30px;
 }
+
 .article-body {
   position: relative;
 }
+
 .article-body, .article-info {
   max-width: 800px;
   margin: 0 auto;
@@ -1290,10 +1287,18 @@ pre .storage {
  */
 
 .site-header {
-  padding: 30px 0;
-  position: absolute;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
   width: 100%;
-  z-index: 997;
+  z-index: 999;
+  height: 52px;
+  transition: all .6s;
+  -moz-transition: all .6s;
+  -webkit-transition: all .6s;
 }
 
 .site-title {
@@ -1334,30 +1339,43 @@ pre .storage {
  */
 
 .sidebar {
+  position: fixed;
+  left: 0;
+  z-index: 998;
+  padding: 0;
   background-color: #101012;
   bottom: 0;
   color: #d4d3d3;
   -webkit-overflow-scrolling: touch;
-  position: absolute;
-  right: -100%;
   text-align: center;
-  top: 0;
-  -webkit-transition: right .3s;
-  transition: right .3s;
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
   width: 100%;
-  z-index: 999;
+  margin-top: 52px;
 }
 
-.sidebar-scrollable {
+.sidebar-show {
   height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
 }
+//
+//.sidebar-scrollable {
+//  height: 100%;
+//  overflow: auto;
+//  -webkit-overflow-scrolling: touch;
+//  position: relative;
+//}
 
 .sidebar .inner {
   padding-bottom: 60px;
-  padding-top: 80px;
+  padding-top: 52px;
 }
 
 .sidebar .widget-area {
@@ -1462,11 +1480,14 @@ pre .storage {
   height: 30px;
   position: absolute;
   width: 30px;
+  transition: all .6s;
+  -moz-transition: all .6s;
+  -webkit-transition: all .6s;
 }
 
 .site-header .sidebar-toggle {
   right: 30px;
-  top: 30px;
+  //top: 25px;
 }
 
 .sidebar .sidebar-toggle {
@@ -1481,7 +1502,7 @@ pre .storage {
   left: 0;
   margin-top: -1px;
   position: absolute;
-  top: 50%;
+  //top: 50%;
   width: 30px;
 }
 
@@ -2570,16 +2591,19 @@ pre .storage {
   height: 380px;
   width: 250px;
   opacity: 0;
+  z-index: 999;
   box-shadow: 0 0 100px #a9a9a9;
   border-radius: 10px;
   background-color: #fff;
   transition: all 1s;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 .qr-code-display {
   transform: translate(-50%, 540px);
   opacity: 1;
 }
+
 .closinglayer {
   position: absolute;
   top: 5px;
@@ -2589,10 +2613,11 @@ pre .storage {
   font-weight: 700;
   transition: all .5s;
 }
+
 //.closinglayer:hover {
 //  transform: rotate(360deg);
 //}
-.qr_code_zfb,.qr_code_wx {
+.qr_code_zfb, .qr_code_wx {
   position: absolute;
   top: 25px;
   left: 50%;
@@ -2602,9 +2627,11 @@ pre .storage {
   border-radius: 10px;
   transition: all .5s;
 }
+
 .qr_code_zfb {
   opacity: 1;
 }
+
 .switch-btn {
   position: absolute;
   bottom: 10px;
@@ -2613,7 +2640,8 @@ pre .storage {
   width: 100%;
   text-align: center;
 }
-.zfb-btn,.wx-btn {
+
+.zfb-btn, .wx-btn {
   display: inline-block;
   width: 30%;
   padding: 5px 0;
@@ -2624,15 +2652,18 @@ pre .storage {
   box-shadow: 0 0 20px #797979;
   transition: all .5s;
 }
+
 .zfb-btn {
   margin-right: 5px;
   background-color: #029fe6;
 }
+
 .wx-btn {
   margin-left: 5px;
   background-color: #25ab3a;
 }
-.zfb-btn:hover,.wx-btn:hover {
+
+.zfb-btn:hover, .wx-btn:hover {
   transform: translateY(-2px);
   cursor: pointer;
 }

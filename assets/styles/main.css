@@ -1350,10 +1350,18 @@ pre .storage {
  * ----------------------------------------------------------------------------
  */
 .site-header {
-  padding: 30px 0;
-  position: absolute;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
   width: 100%;
-  z-index: 997;
+  z-index: 999;
+  height: 52px;
+  transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
 }
 .site-title {
   font-size: 30px;
@@ -1386,28 +1394,34 @@ pre .storage {
  * ----------------------------------------------------------------------------
  */
 .sidebar {
+  position: fixed;
+  left: 0;
+  z-index: 998;
+  padding: 0;
   background-color: #101012;
   bottom: 0;
   color: #d4d3d3;
   -webkit-overflow-scrolling: touch;
-  position: absolute;
-  right: -100%;
   text-align: center;
-  top: 0;
-  -webkit-transition: right 0.3s;
-  transition: right 0.3s;
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
   width: 100%;
-  z-index: 999;
+  margin-top: 52px;
 }
-.sidebar-scrollable {
+.sidebar-show {
   height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
 }
 .sidebar .inner {
   padding-bottom: 60px;
-  padding-top: 80px;
+  padding-top: 52px;
 }
 .sidebar .widget-area {
   border-bottom: 1px solid #34495e;
@@ -1495,10 +1509,12 @@ pre .storage {
   height: 30px;
   position: absolute;
   width: 30px;
+  transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
 }
 .site-header .sidebar-toggle {
   right: 30px;
-  top: 30px;
 }
 .sidebar .sidebar-toggle {
   left: 50%;
@@ -1511,7 +1527,6 @@ pre .storage {
   left: 0;
   margin-top: -1px;
   position: absolute;
-  top: 50%;
   width: 30px;
 }
 .sidebar .sidebar-toggle .icon {
@@ -2432,6 +2447,7 @@ pre .storage {
   height: 380px;
   width: 250px;
   opacity: 0;
+  z-index: 999;
   box-shadow: 0 0 100px #a9a9a9;
   border-radius: 10px;
   background-color: #fff;
@@ -3077,4 +3093,102 @@ a.toc-link {
   .toc {
     display: none !important;
   }
+}
+.site-header-scroll {
+  background-color: hsla(0, 0%, 100%, 0.7);
+  border-bottom: 1px solid rgba(30, 35, 42, 0.06);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
+  box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
+  transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+}
+.site-header-scroll a {
+  font-size: 1.1rem;
+  color: #adabac;
+}
+.scroll-menu {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  height: 52px;
+  min-width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+}
+.menu-ctrl-on .icon-menu.cross:before {
+  -webkit-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  background: #adabac;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.menu-ctrl-on .icon-menu.cross .middle {
+  opacity: 0;
+}
+.menu-ctrl-on .icon-menu.cross:after {
+  -webkit-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  background: #adabac;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.icon-menu {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 28px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.icon-menu .middle {
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #adabac;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.icon-menu:before,
+.icon-menu:after {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  content: '';
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #adabac;
+}
+.icon-menu:before {
+  top: 5px;
+}
+.icon-menu:after {
+  bottom: 5px;
+}
+@media only screen and (max-width: 767px) {
+  .scroll-menu {
+    display: none !important;
+  }
+  .sidebar-toggle {
+    display: flex !important;
+  }
+}
+.sidebar {
+  margin-top: 52px;
 }
