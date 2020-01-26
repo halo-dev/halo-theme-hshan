@@ -18,6 +18,17 @@ genernal:
       label: 首页背景
       type: attachment
       default: https://hshanx.github.io/media/images/home-cover.jpg
+    top_search:
+      name: top_search
+      label: 搜索
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     Icp:
       name: Icp
       label: 'ICP备案号'
@@ -133,10 +144,10 @@ title:
       type: text
       default: 日志
     tags_title:
-        name: tags_title
-        label: 标签页面标题
-        type: text
-        default: 标签列表
+      name: tags_title
+      label: 标签页面标题
+      type: text
+      default: 标签列表
     achieve_title:
       name: achieve_title
       label: 归档页面标题

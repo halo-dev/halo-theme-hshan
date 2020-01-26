@@ -1,7 +1,7 @@
 <aside class="sidebar" id="sidebar">
-<#--    <div class="sidebar-scrollable">-->
-<#--        -->
-<#--    </div>-->
+    <#--    <div class="sidebar-scrollable">-->
+    <#--        -->
+    <#--    </div>-->
 
     <div class="inner">
         <div class="widget-area">
@@ -9,6 +9,10 @@
             <nav class="site-navigation">
                 <h2>${options.blog_title!}</h2>
                 <ul class="menu">
+                    <li class="menu-item home current-menu-item">
+                        <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
+                           style="color:#cd9023; font-size: 20px;"></i>
+                    </li>
                     <@menuTag method="tree">
                         <#list menus?sort_by('priority') as menu>
                             <li class="menu-item home current-menu-item">
@@ -29,11 +33,15 @@
                 <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
             </#list>
         </@menuTag>
+        <#if settings.topSearch??>
+        <div class="searchbox">
+            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
+        </div>
+        </#if>
     </div>
     <a class="sidebar-toggle" id="sidebarToggle">
         <span class='icon-menu cross'>
             <span class='middle' aria-hidden="true"> </span>
          </span>
-
     </a>
 </header>

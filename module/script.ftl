@@ -111,21 +111,29 @@
         var scrollMenu = $("#scrollMenu");
         var sidebarToggle = $("#sidebarToggle");
         const scrollTop = getScrollTop();
-        if (siteHeader&&  scrollTop > 0) {
+        if (siteHeader&&  scrollTop > 30 && oldScrollTop > scrollTop) {
             siteHeader.addClass('site-header-scroll');
-            scrollMenu.show(600);
+            scrollMenu.addClass('scroll-menu-show');
             sidebarToggle.hide();
-        } else if (oldScrollTop > scrollTop) {
-            siteHeader.removeClass('site-header-scroll');
-            scrollMenu.hide();
-            sidebarToggle.show();
         } else {
             siteHeader.removeClass('site-header-scroll');
-            scrollMenu.hide();
+            scrollMenu.removeClass('scroll-menu-show');
             sidebarToggle.show();
         }
         oldScrollTop = scrollTop;
     }, false);
+
+    // 搜索框
+    $('.js-toggle-search').on('click', function () {
+        $('.js-toggle-search').toggleClass('is-active');
+        $('.js-search').toggleClass('is-visible');
+    });
+    $('.search_close').on('click', function () {
+        if ($('.js-search').hasClass('is-visible')) {
+            $('.js-toggle-search').toggleClass('is-active');
+            $('.js-search').toggleClass('is-visible');
+        }
+    });
 
 </script>
 

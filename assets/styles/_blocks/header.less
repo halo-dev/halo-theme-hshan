@@ -1,12 +1,9 @@
 .site-header-scroll {
   //justify-content: space-between;
-  background-color: hsla(0,1%,100%,.7);
+  background-color: hsla(0, 1%, 100%, .7);
   border-bottom: 1px solid rgba(30, 35, 42, .06);
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
   box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
-  transition: all .6s;
-  -moz-transition: all .6s;
-  -webkit-transition: all .6s;
 }
 
 .site-header-scroll a {
@@ -15,38 +12,46 @@
 }
 
 .scroll-menu {
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
   height: 52px;
   min-width: 300px;
+  margin-right: 40px;
+  -webkit-transition: background .6s ease-in-out,padding .6s ease-in-out;
+  -o-transition: background .6s ease-in-out,padding .6s ease-in-out;
+  transition: background .6s ease-in-out,padding .6s ease-in-out;
+}
+
+.scroll-menu-show {
+  display: flex !important;
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
   justify-content: space-between;
   align-items: center;
-  margin-right: 20px;
-  transition: all .6s;
-  -moz-transition: all .6s;
-  -webkit-transition: all .6s;
 }
+
+.scroll-menu a {
+  margin-right: 10px;
+}
+
 .menu-ctrl-on {
   .icon-menu.cross:before {
     -webkit-transform-origin: 100% 50%;
     -ms-transform-origin: 100% 50%;
     transform-origin: 100% 50%;
-    background:  #adabac;
+    background: #adabac;
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
 
   .icon-menu.cross .middle {
-    opacity:0;
+    opacity: 0;
   }
 
   .icon-menu.cross:after {
     -webkit-transform-origin: 100% 50%;
     -ms-transform-origin: 100% 50%;
     transform-origin: 100% 50%;
-    background:  #adabac;
+    background: #adabac;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -59,9 +64,9 @@
   width: 20px;
   height: 28px;
   //top: 8px;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
 
   .middle {
     position: absolute;
@@ -69,10 +74,10 @@
     display: inline-block;
     width: 22px;
     height: 2px;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
-    background:  #adabac;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    background: #adabac;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -83,10 +88,10 @@
     width: 22px;
     height: 2px;
     content: '';
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
-    background:  #adabac;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    background: #adabac;
   }
 
   &:before {
@@ -109,7 +114,7 @@
   }
 }
 
-.sidebar{
+.sidebar {
   margin-top: 52px;
 }
 

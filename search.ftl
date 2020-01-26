@@ -1,32 +1,34 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="home-template">
+
+<@layout title="${keyword!} - 搜索结果 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+    <body class="search-template">
     <div id="page" class="site">
 
         <#include "module/header.ftl">
-
         <main class="site-main">
             <div class="site-content">
                 <!-- 封面 -->
-                <div class="cover hero">
+                <header class="cover page-header">
                     <div class="cover-bg"
-                         style="background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);">
-                        <img src="${settings.home_cover!'${static}/images/temp.jpg'}">
+                            <#if settings.searh_patternimg?? && settings.searh_patternimg!=''>
+                                style="background-image: url(${settings.searh_patternimg!});"
+                            <#else>
+                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
+                            </#if>
+                    >
                     </div>
+
                     <div class="cover-content">
-                        <!-- 封面内容 -->
                         <div class="inner">
-                            <h2 class="hero-title">${settings.home_title!options.blog_title!}</h2>
-                            <p class="hero-text">${settings.home_description!}</p>
-                            <a href="#post-list" class="arrow-down" data-scroll><span
-                                        class="screen-reader-text">Scroll Down</span></a>
+                            <div class="post-count"></div>
+                            <h1 class="page-title" style="font-size: 46px;">关于“ ${keyword!} ”的搜索结果</h1>
                         </div>
                     </div>
-                </div>
+                </header>
 
                 <!-- post-list -->
                 <div id="post-list" class="post-list inner">
-                    <#if posts?? && posts.getTotalElements() gt 0>
+                    <#if posts?? && posts.content?size gt 0>
                         <#list posts.content as post>
                             <article class="post">
                                 <!-- post-header -->
@@ -65,9 +67,36 @@
                                 </div>
                             </article>
                         </#list>
+                        <nav class="pagination">
+                            <h2 class="screen-reader-text">Posts Navigation</h2>
+                            <div class="inner">
+						<span class="page-number">
+							<a href="${context!}/search?keyword=${keyword!}">PAGE ${posts.number + 1} OF ${posts.totalPages!} </a>
+						</span>
+                                <#if posts.hasPrevious()>
+                                    <a class="newer-posts arrow-left"
+                                       href="${context!}/search/page/${posts.number}?keyword=${keyword!}"><span
+                                                class="screen-reader-text"></span></a>
+                                </#if>
+                                <#if posts.hasNext()>
+                                    <a class="older-posts arrow-right"
+                                       href="${context!}/search/page/${posts.number+2}?keyword=${keyword!}"><span
+                                                class="screen-reader-text"></span></a>
+                                </#if>
+                            </div>
+                        </nav>
+                    <#else>
+                        <div class="search-box">
+                            <!-- search start -->
+                            <form class="s-search">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input class="text-input" type="search" name="keyword" placeholder="Search..." required>
+                            </form>
+                            <!-- search end -->
+                        </div>
+                        <#include "module/search-none.ftl" />
                     </#if>
                 </div>
-                <#include "module/pagination.ftl">
             </div>
         </main>
         <#include "module/footer.ftl">
