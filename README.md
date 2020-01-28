@@ -30,7 +30,7 @@
           添加搜索功能
 - 2020-1-28 优化目录和菜单样式
       
-  详细更新日志请[点击](https://meisen.pro/archives/theme-update-log)        
+  详细更新日志请[点击](https://meisen.pro/s/update-log)        
           
 
 **新主题，大家有问题请提issues**
