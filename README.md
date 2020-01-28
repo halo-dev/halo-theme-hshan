@@ -28,6 +28,7 @@
           header部分重构优化,
           目录功能优化,
           添加搜索功能
+- 2020-1-28 优化目录和菜单样式
       
   详细更新日志请[点击](https://meisen.pro/archives/theme-update-log)        
           

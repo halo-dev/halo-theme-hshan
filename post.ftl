@@ -57,10 +57,9 @@
                                 <div id="toc" class="toc"></div>
                             </#if>
                         </div>
-                        <div id="tocFixed"></div>
-                        <div class="article-info"  id="postInfo">
+                        <div class="article-info" id="articleInfo">
                             <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
-                                <div class="appreciate-btn">请博主喝咖啡</div>
+                                <div class="appreciate-btn" id="walletInfo">请博主喝咖啡</div>
                             </#if>
                             <div class="article-copyright-info">
                                 <p>本文由 <a href="${context!}">${user.nickname!}</a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a

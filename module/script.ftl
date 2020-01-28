@@ -91,6 +91,7 @@
     ${settings.Custom_js_foot_src!}
 </#if>
 
+<#--公有的-->
 <script type="application/javascript">
     var oldScrollTop;
 
@@ -105,20 +106,21 @@
         return scrollTop;
     }
 
-
     window.addEventListener('scroll', function () {
         var siteHeader = $("#siteHeader");
         var scrollMenu = $("#scrollMenu");
         var sidebarToggle = $("#sidebarToggle");
         const scrollTop = getScrollTop();
-        if (siteHeader&&  scrollTop > 30 && oldScrollTop > scrollTop) {
+        // 向下滚
+        if ( oldScrollTop < scrollTop) {
+            siteHeader.hide();
+        } else if (oldScrollTop > scrollTop) {
+            // 向上滚
             siteHeader.addClass('site-header-scroll');
-            scrollMenu.addClass('scroll-menu-show');
-            sidebarToggle.hide();
+            siteHeader.show();
         } else {
             siteHeader.removeClass('site-header-scroll');
-            scrollMenu.removeClass('scroll-menu-show');
-            sidebarToggle.show();
+            siteHeader.show();
         }
         oldScrollTop = scrollTop;
     }, false);
@@ -137,15 +139,13 @@
 
 </script>
 
+<#--目录-->
 <#if is_post?? && settings.post_toc??>
     <script src="${static!}/assets/media/scripts/tocbot.min.js"></script>
 
     <script type="application/javascript">
-        var siteContent;
+        // var siteContent;
         var oldScrollTop;
-        <#if is_post?? && settings.post_nepre??>
-        siteContent = $('#postHeader').height() + $('#post-content').height();
-        </#if>
         //获取滚动条距离顶部位置
         function getScrollTop() {
             var scrollTop = 0;
@@ -156,6 +156,10 @@
             }
             return scrollTop;
         }
+        const bodyHeight = document.body.clientHeight;
+        const siteFooter = '#siteFooter';
+        const articleInfo = '#articleInfo';
+        const postNavigation = '#post-navigation';
 
         window.addEventListener('scroll', function () {
             var tocFixed = $("#toc");
@@ -166,7 +170,18 @@
             } else {
                 tocFixed.hide();
             }
-            if (siteContent && siteContent < scrollTop) {
+            var footerHeight = $(siteFooter).height();
+            var articleInfoHeight = $(articleInfo).height();
+            var navHeight = 0;
+            if ($(postNavigation)) {
+                navHeight = $(postNavigation).height();
+            }
+            var fixHeight = bodyHeight - fixedHeight - articleInfoHeight - navHeight;
+
+            const tocId = '#toc';
+            var tocEle = document.querySelector(tocId);
+            var tocHeight = tocEle.getBoundingClientRect().height;
+            if (scrollTop >= fixHeight - tocHeight) {
                 tocFixed.addClass('right-fixed');
             } else {
                 tocFixed.removeClass('right-fixed');
