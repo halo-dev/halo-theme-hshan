@@ -3184,9 +3184,6 @@ a.toc-link {
 .icon-menu:after {
   bottom: 5px;
 }
-.sidebar-toggle {
-  display: none !important;
-}
 @media only screen and (max-width: 767px) {
   .scroll-menu {
     display: none !important;

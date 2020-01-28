@@ -111,16 +111,14 @@
         var scrollMenu = $("#scrollMenu");
         var sidebarToggle = $("#sidebarToggle");
         const scrollTop = getScrollTop();
-        // 向下滚
-        if ( oldScrollTop < scrollTop) {
-            siteHeader.hide();
-        } else if (oldScrollTop > scrollTop) {
-            // 向上滚
+        if (siteHeader&&  scrollTop > 30 && oldScrollTop > scrollTop) {
             siteHeader.addClass('site-header-scroll');
-            siteHeader.show();
+            scrollMenu.addClass('scroll-menu-show');
+            sidebarToggle.hide();
         } else {
             siteHeader.removeClass('site-header-scroll');
-            siteHeader.show();
+            scrollMenu.removeClass('scroll-menu-show');
+            sidebarToggle.show();
         }
         oldScrollTop = scrollTop;
     }, false);
