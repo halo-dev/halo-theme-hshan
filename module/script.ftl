@@ -146,40 +146,42 @@
         var oldScrollTop;
         //获取滚动条距离顶部位置
         function getScrollTop() {
-            var scrollTop = 0;
-            if (document.documentElement && document.documentElement.scrollTop) {
-                scrollTop = document.documentElement.scrollTop;
-            } else if (document.body) {
-                scrollTop = document.body.scrollTop;
-            }
-            return scrollTop;
+            return document.documentElement.scrollTop || document.body.scrollTop;
         }
-        const bodyHeight = document.body.clientHeight;
         const siteFooter = '#siteFooter';
         const articleInfo = '#articleInfo';
         const postNavigation = '#post-navigation';
+        const postTemplate = '#postTemplate';
+        const postContent = '#post-content';
+        const tocFlag = '#tocFlag';
+        const bodyHeight = document.querySelector(postTemplate).getBoundingClientRect().height
+        const windowHeight = document.documentElement.clientHeight;
+        var lock = false
 
         window.addEventListener('scroll', function () {
             var tocFixed = $("#toc");
+            // 滚动条离页面顶端的距离
             const scrollTop = getScrollTop();
-            const fixedHeight = $('#postHeader').height();
-            if (scrollTop > fixedHeight) {
+            const postHeaderHeight = $('#postHeader').height();
+            if (scrollTop > postHeaderHeight) {
                 tocFixed.show();
             } else {
                 tocFixed.hide();
             }
-            var footerHeight = $(siteFooter).height();
-            var articleInfoHeight = $(articleInfo).height();
+            var footerHeight = document.querySelector(siteFooter).getBoundingClientRect().height
+            var articleInfoHeight = document.querySelector(articleInfo).getBoundingClientRect().height
             var navHeight = 0;
             if ($(postNavigation)) {
-                navHeight = $(postNavigation).height();
+                navHeight = document.querySelector(postNavigation).getBoundingClientRect().height
             }
-            var fixHeight = bodyHeight - fixedHeight - articleInfoHeight - navHeight;
+            var absoluteHeight = bodyHeight - footerHeight - articleInfoHeight - navHeight + 105;
 
+            // 如果目标元素离页面顶端的距离小于视窗高度+滚动条离页面顶端的距离
+            // 则表示已滚动到目标元素位置
             const tocId = '#toc';
             var tocEle = document.querySelector(tocId);
             var tocHeight = tocEle.getBoundingClientRect().height;
-            if (scrollTop >= fixHeight - tocHeight) {
+            if (absoluteHeight < (windowHeight + scrollTop)) {
                 tocFixed.addClass('right-fixed');
             } else {
                 tocFixed.removeClass('right-fixed');

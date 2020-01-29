@@ -1,7 +1,7 @@
 <#include "module/macro.ftl">
 <@layout title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
 
-    <body class="post-template">
+    <body class="post-template" id="postTemplate">
     <div id="page" class="site">
 
         <#include "module/header.ftl">
@@ -53,6 +53,7 @@
                             <div class="post-content" id="post-content">
                                 ${post.formatContent!}
                             </div>
+                            <div id="tocFlag"></div>
                             <#if settings.post_toc??>
                                 <div id="toc" class="toc"></div>
                             </#if>
