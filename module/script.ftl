@@ -139,7 +139,7 @@
     <#if is_journal??>
     var treeHoleBoxs = document.querySelectorAll('.tree-hole-box');
     for (let i = 0; i < treeHoleBoxs.length; i++) {
-        var childrens = treeHoleBoxs[i].children("p:empty");
+        var childrens = $(treeHoleBoxs[i]).children("p:empty");
         for (let j = 0; j < childrens.length; j++) {
             childrens[j].remove();
         }
