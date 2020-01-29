@@ -1244,10 +1244,16 @@ pre .storage {
 
 .article-body, .article-info {
   //max-width: 800px;
-  padding: 0 250px;
+  padding: 0 15%;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@media only screen and (max-width: 640px) {
+  .article-body, .article-info {
+    padding: 0;
+  }
 }
 
 .site {

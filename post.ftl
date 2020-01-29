@@ -7,7 +7,7 @@
         <#include "module/header.ftl">
 
         <main class="site-main">
-            <div class="site-content" >
+            <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
                     <header class="cover post-header" id="postHeader">
                         <div class="cover-bg"
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </header>
-                    <div class="post-inner" >
+                    <div class="post-inner">
                         <div class="article-body">
                             <div class="post-content" id="post-content">
                                 ${post.formatContent!}
@@ -84,28 +84,33 @@
                     <nav class="post-navigation" id="post-navigation">
                         <h2 class="screen-reader-text">Post navigation</h2>
                         <div class="nav-links">
-                            <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
-                                <div class="nav-bg"
-                                        <#if !(post.thumbnail?? && post.thumbnail!='')>
-                                            style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                                        </#if>
-                                >
-                                    <#if nextPost??>
+                            <#if nextPost??>
+                                <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
+                                    <div class="nav-bg"
+                                            <#if !(post.thumbnail?? && post.thumbnail!='')>
+                                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
+                                            </#if>
+                                    >
+
                                         <img srcset="${nextPost.thumbnail!} 300w, ${nextPost.thumbnail!} 600w, ${nextPost.thumbnail!} 800w, ${nextPost.thumbnail!} 1600w, ${nextPost.thumbnail!} 2000w"
                                              sizes="(max-width: 800px) 100vw, 50vw" src="${nextPost.thumbnail!}" alt=""
                                         />
-                                    </#if>
-                                </div>
-                                <div class="nav-inside">
-                                    <#if nextPost??>
+
+                                    </div>
+                                </a>
+                            </#if>
+                            <#if nextPost??>
+                                <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
+                                    <div class="nav-inside">
                                         <span class="nav-before">下一篇</span>
                                         <span class="nav-title">${nextPost.title!}</span>
                                         <span class="nav-date"><time class="published"
                                                                      datetime="${nextPost.createTime?string("yyyy-MM-dd")}">${nextPost.createTime?string("yyyy-MM-dd")}
                                         </time></span>
-                                    </#if>
-                                </div>
-                            </a>
+                                    </div>
+                                </a>
+                            </#if>
+
                         </div>
                     </nav>
                 </#if>
