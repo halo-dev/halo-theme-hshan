@@ -97,10 +97,6 @@
                                         />
 
                                     </div>
-                                </a>
-                            </#if>
-                            <#if nextPost??>
-                                <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
                                     <div class="nav-inside">
                                         <span class="nav-before">下一篇</span>
                                         <span class="nav-title">${nextPost.title!}</span>
@@ -110,7 +106,6 @@
                                     </div>
                                 </a>
                             </#if>
-
                         </div>
                     </nav>
                 </#if>
