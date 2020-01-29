@@ -136,7 +136,6 @@
     });
 
     // 删除日志中的空元素
-    <#if is_journal??>
     $(document).ready(function () {
         var treeHoleBoxs = document.querySelectorAll('.tree-hole-box');
         for (let i = 0; i < treeHoleBoxs.length; i++) {
@@ -146,7 +145,6 @@
             }
         }
     }
-    </#if>
 
 </script>
 
