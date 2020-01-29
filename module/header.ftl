@@ -9,11 +9,11 @@
             <nav class="site-navigation">
                 <h2>${options.blog_title!}</h2>
                 <ul class="menu">
-                     <#if settings.top_search??>
-                    <li class="menu-item home current-menu-item">
-                        <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
-                           style="color:#cd9023; font-size: 20px;"></i>
-                    </li>
+                    <#if settings.top_search!true>
+                        <li class="menu-item home current-menu-item">
+                            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
+                               style="color:#cd9023; font-size: 20px;"></i>
+                        </li>
                     </#if>
                     <@menuTag method="tree">
                         <#list menus?sort_by('priority') as menu>
@@ -35,7 +35,7 @@
                 <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
             </#list>
         </@menuTag>
-        <#if settings.top_search??>
+        <#if settings.top_search!true>
             <div class="searchbox">
                 <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
             </div>

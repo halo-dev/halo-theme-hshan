@@ -54,7 +54,7 @@
                                 ${post.formatContent!}
                             </div>
                             <div id="tocFlag"></div>
-                            <#if settings.post_toc??>
+                            <#if settings.post_toc!true>
                                 <div id="toc" class="toc"></div>
                             </#if>
                         </div>

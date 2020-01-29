@@ -151,7 +151,7 @@
 </script>
 
 <#--目录-->
-<#if is_post?? && settings.post_toc??>
+<#if is_post?? && settings.post_toc!true>
     <script src="${static!}/assets/media/scripts/tocbot.min.js"></script>
 
     <script type="application/javascript">
