@@ -169,36 +169,38 @@
         const tocFlag = '#tocFlag';
 
         const windowHeight = document.documentElement.clientHeight;
-        var lock = false
 
-        window.addEventListener('scroll', function () {
-            var tocFixed = $("#toc");
-            // 滚动条离页面顶端的距离
-            const scrollTop = getScrollTop();
-            const postHeaderHeight = $('#postHeader').height();
-            if (scrollTop > postHeaderHeight) {
-                tocFixed.show();
-            } else {
-                tocFixed.hide();
-            }
-            var bodyHeight = document.querySelector(postTemplate).getBoundingClientRect().height
-            var footerHeight = document.querySelector(siteFooter).getBoundingClientRect().height
-            var articleInfoHeight = document.querySelector(articleInfo).getBoundingClientRect().height
-            var navHeight = 0;
-            if ($(postNavigation)) {
-                navHeight = document.querySelector(postNavigation).getBoundingClientRect().height
-            }
-            var absoluteHeight = bodyHeight - footerHeight - articleInfoHeight - navHeight + 90;
+        function scrollTocFixed(div_id) {
+            var Obj = $('#' + div_id);
 
-            const tocId = '#toc';
-            var tocEle = document.querySelector(tocId);
-            var tocHeight = tocEle.getBoundingClientRect().height;
-            if (absoluteHeight < (windowHeight + scrollTop)) {
-                tocFixed.addClass('right-fixed');
-            } else {
-                tocFixed.removeClass('right-fixed');
-            }
-        }, false);
+            //判断元素是否存在
+            if (Obj.length != 1) { return false; }
+
+            var ObjTop = Obj.offset().top - $(window).height() * 0.5 ;
+
+            $(window).scroll(function () {
+                const tocId = '#toc';
+
+                var tocFixed = $(tocId);
+                // 滚动条离页面顶端的距离
+                const scrollTop = getScrollTop();
+                const postHeaderHeight = $('#postHeader').height();
+                if (scrollTop > postHeaderHeight) {
+                    tocFixed.show();
+                } else {
+                    tocFixed.hide();
+                }
+                var tocEle = document.querySelector(tocId);
+                var tocHeight = tocEle.getBoundingClientRect().height;
+                if ($(window).scrollTop()  > ObjTop - tocHeight * 0.5) {
+                    tocFixed.addClass('right-fixed');
+                } else {
+                    tocFixed.removeClass('right-fixed');
+                }
+            });
+        }
+
+        scrollTocFixed('tocFlag');
 
         var headerEl = 'h1,h2,h3,h4,h5,h6',  //headers
             content = '.post-content',//文章容器
