@@ -188,11 +188,8 @@
             if ($(postNavigation)) {
                 navHeight = document.querySelector(postNavigation).getBoundingClientRect().height
             }
-            console.log(bodyHeight + ',' + footerHeight + ',' + articleInfoHeight + ',' + navHeight)
             var absoluteHeight = bodyHeight - footerHeight - articleInfoHeight - navHeight + 90;
 
-            // 如果目标元素离页面顶端的距离小于视窗高度+滚动条离页面顶端的距离
-            // 则表示已滚动到目标元素位置
             const tocId = '#toc';
             var tocEle = document.querySelector(tocId);
             var tocHeight = tocEle.getBoundingClientRect().height;
