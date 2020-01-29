@@ -154,7 +154,7 @@
         const postTemplate = '#postTemplate';
         const postContent = '#post-content';
         const tocFlag = '#tocFlag';
-        const bodyHeight = document.querySelector(postTemplate).getBoundingClientRect().height
+
         const windowHeight = document.documentElement.clientHeight;
         var lock = false
 
@@ -168,13 +168,15 @@
             } else {
                 tocFixed.hide();
             }
+            var bodyHeight = document.querySelector(postTemplate).getBoundingClientRect().height
             var footerHeight = document.querySelector(siteFooter).getBoundingClientRect().height
             var articleInfoHeight = document.querySelector(articleInfo).getBoundingClientRect().height
             var navHeight = 0;
             if ($(postNavigation)) {
                 navHeight = document.querySelector(postNavigation).getBoundingClientRect().height
             }
-            var absoluteHeight = bodyHeight - footerHeight - articleInfoHeight - navHeight + 105;
+            console.log(bodyHeight + ',' + footerHeight + ',' + articleInfoHeight + ',' + navHeight)
+            var absoluteHeight = bodyHeight - footerHeight - articleInfoHeight - navHeight + 90;
 
             // 如果目标元素离页面顶端的距离小于视窗高度+滚动条离页面顶端的距离
             // 则表示已滚动到目标元素位置
