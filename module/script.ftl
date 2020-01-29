@@ -138,13 +138,15 @@
     // 删除日志中的空元素
     $(document).ready(function () {
         var treeHoleBoxs = document.querySelectorAll('.tree-hole-box');
-        for (let i = 0; i < treeHoleBoxs.length; i++) {
-            var childrens = $(treeHoleBoxs[i]).children("p:empty");
-            for (let j = 0; j < childrens.length; j++) {
-                childrens[j].remove();
+        if (treeHoleBoxs) {
+            for (let i = 0; i < treeHoleBoxs.length; i++) {
+                var childrens = $(treeHoleBoxs[i]).children("p:empty");
+                for (let j = 0; j < childrens.length; j++) {
+                    childrens[j].remove();
+                }
             }
         }
-    }
+    });
 
 </script>
 
