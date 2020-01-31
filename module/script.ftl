@@ -171,7 +171,7 @@
         const windowHeight = document.documentElement.clientHeight;
 
         function scrollTocFixed(div_id) {
-            var Obj = $('#tocFlag');
+            var Obj = $('#' + div_id);
 
             //判断元素是否存在
             if (Obj.length != 1) { return false; }
