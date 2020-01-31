@@ -171,14 +171,14 @@
         const windowHeight = document.documentElement.clientHeight;
 
         function scrollTocFixed(div_id) {
-            var Obj = $('#' + div_id);
+            var Obj = $('#tocFlag');
 
             //判断元素是否存在
             if (Obj.length != 1) { return false; }
 
             var ObjTop = Obj.offset().top - $(window).height() * 0.5 ;
 
-            $(window).scroll(function () {
+            window.addEventListener('scroll', function () {
                 const tocId = '#toc';
 
                 var tocFixed = $(tocId);
@@ -192,7 +192,7 @@
                 }
                 var tocEle = document.querySelector(tocId);
                 var tocHeight = tocEle.getBoundingClientRect().height;
-                if ($(window).scrollTop()  > ObjTop - tocHeight * 0.5) {
+                if (scrollTop  > ObjTop - tocHeight * 0.5) {
                     tocFixed.addClass('right-fixed');
                 } else {
                     tocFixed.removeClass('right-fixed');
@@ -221,7 +221,7 @@
         if (tocLinks) {
             for (let i = 0; i < tocLinks.length; i++) {
                 var tocLink = tocLinks[i];
-                tocLink.append(document.createElement("span"));
+                tocLink.after(document.createElement("span"));
             }
         }
 

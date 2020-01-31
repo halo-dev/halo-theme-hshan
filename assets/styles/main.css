@@ -3053,7 +3053,7 @@ a.toc-link {
 .toc-link::after {
   width: 0;
 }
-.toc-link span {
+.toc-link + span {
   width: 10px;
   height: 10px;
   border-radius: 10px;
@@ -3065,28 +3065,28 @@ a.toc-link {
   transition: background 0.5s;
   margin-left: 8px;
 }
-.node-name--H3 span {
+.node-name--H3 + span {
   width: 8px;
   height: 8px;
   border-radius: 8px;
 }
-.node-name--H4 span {
+.node-name--H4 + span {
   width: 6px;
   height: 6px;
   border-radius: 6px;
 }
-.node-name--H5 span {
+.node-name--H5 + span {
   width: 4px;
   height: 4px;
   border-radius: 4px;
 }
-.toc-link span:hover {
+.toc-link + span:hover {
   background-color: #8e8787 !important;
 }
 .is-active-link {
   color: #8e8787 !important;
 }
-.is-active-link span {
+.is-active-link + span {
   background-color: #8e8787 !important;
 }
 @media only screen and (max-width: 1360px) {
