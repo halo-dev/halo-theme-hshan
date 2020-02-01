@@ -50,6 +50,9 @@
                                             <#if settings.post_summary!false>
                                                 <p style="margin-top:10px;">
                                                     ${post.summary!}
+                                                    <#if post.summary?? && post.summary != ''>
+                                                        ...
+                                                    </#if>
                                                 </p>
                                             </#if>
                                         </div>
