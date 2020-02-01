@@ -3,9 +3,7 @@
 
     <body class="tag-template">
     <div id="page" class="site">
-
         <#include "module/header.ftl">
-
         <main class="site-main">
             <div class="site-content">
 
@@ -66,13 +64,6 @@
         </main>
 
         <#include "module/footer.ftl">
-
     </div>
-
-
     </body>
-
-
-
-
 </@layout>

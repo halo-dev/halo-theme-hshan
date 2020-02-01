@@ -434,13 +434,20 @@ caption {
 
 th,
 td {
-  border-bottom: 1px solid #d4d3d3;
+  border: 1px solid #d4d3d3;
   padding: 10px;
+  width: 1px;
+  word-break: break-all;
 }
 
 th {
   color: #101012;
   font-weight: bold;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
 }
 
 @media only screen and (max-width: 640px) {
