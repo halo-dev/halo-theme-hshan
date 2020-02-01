@@ -37,6 +37,9 @@
                                                 <figure class="image is-64x64">
                                                     <#if link.logo?? && link.logo != ''>
                                                         <img src="${link.logo}" alt="${link.name}">
+                                                    <#elseif settings.links_placeholder?? && settings.links_placeholder != ''>
+                                                        <img src="${settings.links_placeholder}"
+                                                             alt="${link.name}">
                                                     <#else>
                                                         <img src="${static!}/assets/media/images/placeholder.jpg"
                                                              alt="${link.name}">

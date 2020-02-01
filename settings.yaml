@@ -71,10 +71,6 @@ head_img:
       name: links_patternimg
       label: 友情链接页面头部装饰图
       type: attachment
-    #    searh_patternimg:
-    #      name: searh_patternimg
-    #      label: 搜索页面头部装饰图
-    #      type: attachment
     tag_patternimg:
       name: tag_patternimg
       label: 标签下文章页面头部装饰图
@@ -83,6 +79,11 @@ head_img:
       name: journals_patternimg
       label: 日志下文章页面头部装饰图
       type: attachment
+    links_placeholder:
+      name: links_placeholder
+      label: 友情链接默认用户头像
+      type: attachment
+      default: https://hshanx.github.io/media/images/placeholder.jpg
 post:
   label: 文章页
   items:
