@@ -2575,12 +2575,16 @@ blockquote {
   line-height: 1.6rem;
   word-spacing: 0.05rem;
   word-break: break-word;
+  font-size: 1.1rem;
   font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
   margin: 10px auto;
 }
 .post-content ul {
   padding-left: 2rem;
   font-size: 1.1rem;
+}
+.post-content em {
+  margin: 0 3px;
 }
 @media (max-width: 768px) {
   .post-content p,
