@@ -47,6 +47,11 @@
                                             <time class="published"
                                                   datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
                                             </time>
+                                            <#if settings.post_summary!false>
+                                                <p style="margin-top:10px;">
+                                                    ${post.summary!}
+                                                </p>
+                                            </#if>
                                         </div>
                                     </div>
                                 </header>

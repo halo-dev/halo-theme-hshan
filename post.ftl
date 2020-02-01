@@ -3,9 +3,7 @@
 
     <body class="post-template" id="postTemplate">
     <div id="page" class="site">
-
         <#include "module/header.ftl">
-
         <main class="site-main">
             <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
@@ -88,7 +86,7 @@
                             <#if nextPost??>
                                 <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
                                     <div class="nav-bg"
-                                            <#if !(post.thumbnail?? && post.thumbnail!='')>
+                                            <#if !(nextPost.thumbnail?? && nextPost.thumbnail!='')>
                                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
                                             </#if>
                                     >

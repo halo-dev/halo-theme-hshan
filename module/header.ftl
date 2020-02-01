@@ -1,8 +1,4 @@
 <aside class="sidebar" id="sidebar">
-    <#--    <div class="sidebar-scrollable">-->
-    <#--        -->
-    <#--    </div>-->
-
     <div class="inner">
         <div class="widget-area">
             <!-- 菜单 -->

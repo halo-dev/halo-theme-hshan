@@ -29,6 +29,17 @@ genernal:
           label: 开启
         - value: false
           label: 关闭
+    post_summary:
+      name: post_summary
+      label: 首页文章摘要
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     Icp:
       name: Icp
       label: 'ICP备案号'
