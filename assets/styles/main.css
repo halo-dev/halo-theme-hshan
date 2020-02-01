@@ -2541,7 +2541,7 @@ pre .storage {
     letter-spacing: 0.2px;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 960px) {
   .post-list {
     width: 80%;
   }
