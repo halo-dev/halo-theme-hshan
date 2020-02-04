@@ -57,9 +57,9 @@
                             </#list>
                         </@linkTag>
                     </div>
-                    <#include "module/footer.ftl">
                 </div>
             </div>
+            <#include "module/footer.ftl">
         </main>
     </div>
     </body>
