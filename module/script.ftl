@@ -176,20 +176,20 @@
             //判断元素是否存在
             if (Obj.length != 1) { return false; }
 
-            var ObjTop = Obj.offset().top - $(window).height() * 0.5 ;
-
+            const tocId = '#toc';
             window.addEventListener('scroll', function () {
-                const tocId = '#toc';
-
                 var tocFixed = $(tocId);
+                var ObjTop = Obj.offset().top - $(window).height() * 0.5 ;
+
                 // 滚动条离页面顶端的距离
-                const scrollTop = getScrollTop();
-                const postHeaderHeight = $('#postHeader').height();
+                var scrollTop = getScrollTop();
+                var postHeaderHeight = $('#postHeader').height();
                 if (scrollTop > postHeaderHeight) {
                     tocFixed.show();
                 } else {
                     tocFixed.hide();
                 }
+
                 var tocEle = document.querySelector(tocId);
                 var tocHeight = tocEle.getBoundingClientRect().height;
                 if (scrollTop  > ObjTop - tocHeight * 0.5) {
