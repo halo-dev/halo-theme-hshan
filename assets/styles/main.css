@@ -552,7 +552,7 @@ pre {
   white-space: normal;
 }
 pre {
-  background-color: #1d1f21;
+  background-color: #eceded !important;
   color: #d4d3d3;
   font-size: 16px;
   margin: 0 0 30px;
@@ -563,6 +563,7 @@ pre {
   word-break: normal;
   word-wrap: normal;
   border-radius: 0.25rem;
+  padding: 0.5em 0.5em 0.5em 0;
 }
 blockquote {
   margin: 20px 0;
@@ -2940,7 +2941,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
   color: #333;
   background: #f8f8f8;
   font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
@@ -3399,6 +3399,7 @@ table.hljs-ln {
 td.hljs-ln-numbers {
   text-align: center;
   color: #898989;
+  background-color: #eceded;
   vertical-align: top;
   padding-right: 5px;
   -webkit-touch-callout: none;
@@ -3407,4 +3408,7 @@ td.hljs-ln-numbers {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+td.hljs-ln-code {
+  padding-left: 5px !important;
 }
