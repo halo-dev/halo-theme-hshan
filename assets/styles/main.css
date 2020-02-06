@@ -563,7 +563,7 @@ pre {
   word-break: normal;
   word-wrap: normal;
   border-radius: 0.25rem;
-  padding: 0.5em 0.5em 0.5em 0;
+  padding: 0.25rem;
 }
 blockquote {
   margin: 20px 0;
