@@ -38,7 +38,7 @@ body {
   color: #34495e;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6rem;
-  letter-spacing: 0;
+  //letter-spacing: 0;
   margin: 0;
   overflow-x: hidden;
   font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
@@ -1257,6 +1257,10 @@ pre .storage {
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.article-info .inner {
+  max-width: none !important;
 }
 
 @media only screen and (max-width: 640px) {
@@ -2552,7 +2556,7 @@ pre .storage {
 }
 
 .site-footer p {
-  line-height: 1rem;
+  line-height: 1.4rem;
   margin: 0;
 }
 
@@ -2567,6 +2571,7 @@ pre .storage {
   //max-width: 900px;
   //margin: auto;
   //margin-bottom: 1rem;
+  margin: 1rem auto;
 }
 
 .appreciate-btn {
@@ -2692,6 +2697,11 @@ pre .storage {
   p, li {
     font-size: 15px;
     letter-spacing: .2px;
+  }
+
+  .site-footer p {
+    font-size: 12px;
+    letter-spacing: 2px;
   }
 }
 
