@@ -557,12 +557,12 @@ pre {
   font-size: 16px;
   margin: 0 0 30px;
   overflow: auto;
-  padding: 15px;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  border-radius: 0.25rem;
 }
 blockquote {
   margin: 20px 0;
@@ -572,9 +572,6 @@ blockquote {
   word-break: break-all;
   background: #f5f8fa;
   border-radius: 2px;
-  box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.6s;
 }
 blockquote ul {
   padding-left: 30px;
@@ -583,9 +580,6 @@ blockquote ul {
 blockquote p {
   padding: 0;
   margin: 0;
-}
-blockquote:hover {
-  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.2);
 }
 dl {
   margin: 0;
@@ -2949,6 +2943,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   padding: 0.5em;
   color: #333;
   background: #f8f8f8;
+  font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
 }
 .hljs-comment,
 .hljs-quote {
@@ -2958,7 +2953,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: #333;
+  color: #770088;
   font-weight: bold;
 }
 .hljs-number,
@@ -3389,4 +3384,27 @@ h1.not-found-title {
 }
 h1.not-found-title.mb- {
   margin-top: 100px;
+}
+.hljs table {
+  table-layout: auto;
+  margin: 0;
+}
+table.hljs-ln {
+  font-size: 14px;
+}
+.hljs th,
+.hljs td {
+  border: none;
+}
+td.hljs-ln-numbers {
+  text-align: center;
+  color: #898989;
+  vertical-align: top;
+  padding-right: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

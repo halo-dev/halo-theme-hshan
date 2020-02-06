@@ -2,6 +2,7 @@
 
 > 原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)，原设计自Ghost Subtle主题，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录以及一些个性化配置
 
+此主题目录为前端渲染,可以不用再文章开头加上`[TOC]`
 
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
@@ -15,6 +16,7 @@
 * [x] 页面标题可配置
 * [x] 适配移动端
 * [x] 搜索功能
+* [x] 代码行号显示
 
 ...
 ##  后期功能
@@ -30,7 +32,7 @@
           添加搜索功能
 - 2020-1-28 优化目录和菜单样式
 - 2020-2-1 表格响应式, 文章摘要可配置, 一些已知的问题, 友情页面友链用户头像可配置
-- 2020-2-6 添加置顶标签
+- 2020-2-6 添加置顶标签, 代码行号
       
   详细更新日志请[点击](https://meisen.pro/s/update-log)        
           

@@ -3,6 +3,7 @@
 
 <!-- highlight -->
 <script src="${static!}/assets/media/scripts/highlight.min.js"></script>
+<script src="${static!}/assets/media/scripts/highlightjs-line-numbers.min.js"></script>
 <!-- Md5 Min JS -->
 <script src="${static!}/assets/media/scripts/md5.min.js"></script>
 
@@ -11,6 +12,8 @@
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+    // 代码行号
+    hljs.initLineNumbersOnLoad();
 
     $(document).ready(function () {
         $(".appreciate-btn").on("click", function (e) {
