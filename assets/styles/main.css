@@ -375,7 +375,7 @@ abbr[title] {
 }
 b,
 strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 dfn {
   font-style: italic;
@@ -552,8 +552,6 @@ pre {
   white-space: normal;
 }
 pre {
-  background-color: #eceded !important;
-  color: #d4d3d3;
   font-size: 16px;
   margin: 0 0 30px;
   overflow: auto;
@@ -2567,7 +2565,6 @@ pre .storage {
 }
 code,
 pre {
-  background-color: #f5f5f5;
   color: #e96900;
 }
 blockquote {
@@ -2584,8 +2581,9 @@ blockquote {
   font-weight: 400;
   text-indent: 0;
   letter-spacing: 0.2px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   z-index: 999;
+  line-height: 2rem;
 }
 .post-content pre code {
   font-size: 14px;
@@ -2616,6 +2614,15 @@ blockquote {
     font-size: 15px;
     letter-spacing: 0.2px;
   }
+}
+.post-content > h1:before,
+.post-content > h2:before,
+.post-content > h3:before,
+.post-content > h4:before,
+.post-content > h5:before,
+.post-content > h6:before {
+  content: "# ";
+  color: #cd9023;
 }
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
@@ -2959,6 +2966,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs {
   display: block;
   overflow-x: auto;
+  padding: 0.5rem;
   color: #333;
   background: #f8f8f8;
   font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
@@ -3417,7 +3425,7 @@ table.hljs-ln {
 td.hljs-ln-numbers {
   text-align: center;
   color: #898989;
-  background-color: #eceded;
+  border-right: 1px solid #eceded;
   vertical-align: top;
   padding-right: 5px;
   -webkit-touch-callout: none;

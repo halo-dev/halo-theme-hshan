@@ -10,7 +10,7 @@
 //}
 
 code, pre{
-  background-color: #f5f5f5;
+  //background-color: #f5f5f5;
   color: #e96900;
 }
 
@@ -30,8 +30,9 @@ blockquote {
   font-weight: 400;
   text-indent: 0;
   letter-spacing: .2px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   z-index: 999;
+  line-height: 2rem;
 }
 
 .post-content pre code {
@@ -67,4 +68,15 @@ blockquote {
     font-size: 15px;
     letter-spacing: .2px;
   }
+}
+
+.post-content>h1:before,
+.post-content>h2:before,
+.post-content>h3:before,
+.post-content>h4:before,
+.post-content>h5:before,
+.post-content>h6:before {
+  content: "# ";
+  color: #cd9023;
+
 }
