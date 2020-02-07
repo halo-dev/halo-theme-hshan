@@ -32,7 +32,7 @@
           添加搜索功能
 - 2020-1-28 优化目录和菜单样式
 - 2020-2-1 表格响应式, 文章摘要可配置, 一些已知的问题, 友情页面友链用户头像可配置
-- 2020-2-6 添加置顶标签, 代码行号
+- 2020-2-6 添加置顶标签, 代码行号, 文章图片居中
       
   详细更新日志请[点击](https://meisen.pro/s/update-log)        
           
@@ -42,7 +42,7 @@
 
 
 ## 安装方法
-1. 克隆或者[下载](https://github.com/hshanx/halo-theme-hshan/releases/tag/1.1.0)。
+1. 克隆或者[下载](https://github.com/hshanx/halo-theme-hshan/releases/download/latest/hshan.zip)。
 2. 压缩为 zip 压缩包之后在后台的主题设置直接上传即可使用。
 3. 用Halo的程序拉取 https://github.com/hshanx/halo-theme-hshan.git
 
