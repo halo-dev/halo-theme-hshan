@@ -2,7 +2,7 @@
   display: flex;
   display: -webkit-flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   max-width: 800px;
   margin: 20px auto;
@@ -111,6 +111,12 @@
   .links-box .links-items .links-item {
     width: 100%;
     margin: 10px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .links-box .links-items {
+    justify-content: space-between;
   }
 }
 
