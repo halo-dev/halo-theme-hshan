@@ -1,12 +1,12 @@
 const nightModeId = 'nightMode';
+const nightModeSmallId = 'nightModeSmall';
 function autoNightMode() {
-    var nightMode = $('#nightMode');
+    var nightModes = $('.night-mode');
     var day = new Date();
     var D = day.getHours();
     var codeNight = $('#codeNight');
     var codeLight = $('#codeLight');
     var isNightMode = getLocalStorage(nightModeId);
-    console.log(isNightMode);
     if (D <= 18 && D > 6) {
         // 白天
         if (isNightMode === true) {
@@ -18,8 +18,11 @@ function autoNightMode() {
             codeNight.attr("rel", "alternate stylesheet");
             codeLight.attr("rel", "stylesheet");
         }
-        nightMode.addClass('fa-moon');
-        nightMode.removeClass('fa-lightbulb');
+        for (let i = 0; i < nightModes.length; i++) {
+            let nightMode = $(nightModes[i]);
+            nightMode.addClass('fa-moon');
+            nightMode.removeClass('fa-lightbulb');
+        }
         setLocalStorage(nightModeId, false)
     } else {
         // 晚上
@@ -27,22 +30,35 @@ function autoNightMode() {
             // 不是暗黑模式
             return;
         }
+
         $(document.body).addClass('night');
         if (codeNight && codeLight) {
             codeLight.attr("rel", "alternate stylesheet");
             codeNight.attr("rel", "stylesheet");
         }
-        nightMode.addClass('fa-lightbulb');
-        nightMode.removeClass('fa-moon');
+        for (let i = 0; i < nightModes.length; i++) {
+            let nightMode = $(nightModes[i]);
+            nightMode.addClass('fa-lightbulb');
+            nightMode.removeClass('fa-moon');
+        }
         setLocalStorage(nightModeId, true)
     }
 }
 
 function nightModeFuc() {
-    var nightMode = $('#nightMode');
-    if (!nightMode) {
+    var nightModes = $('.night-mode');
+    if (!nightModes) {
         return;
     }
+    console.log(nightModes);
+    for (let i = 0; i < nightModes.length; i++) {
+        var nightMode = $(nightModes[i]);
+        doFuncNightMode(nightMode);
+    }
+
+}
+
+function doFuncNightMode(nightMode) {
     if ($(document.body).hasClass('night')) {
         nightMode.addClass('fa-lightbulb');
         nightMode.removeClass('fa-moon');
@@ -64,7 +80,6 @@ function nightModeFuc() {
                 codeNight.attr("rel", "stylesheet");
             }
             setLocalStorage(nightModeId, true);
-
         } else if (nightMode.hasClass('fa-lightbulb')) {
             $(document.body).removeClass('night');
             nightMode.addClass('fa-moon');
@@ -75,6 +90,9 @@ function nightModeFuc() {
             }
             setLocalStorage('nightMode', false);
         }
+        $('#sidebar').removeClass('sidebar-show');
+        $("#sidebarToggle").removeClass('menu-ctrl-on');
+        $(document.body).removeClass('sidebar-opened');
     })
 }
 
@@ -137,6 +155,11 @@ function getLocalStorage(key) {
         return null;
     }
 }
+
+function changeNightMode() {
+
+}
+
 // 自动暗黑模式
 autoNightMode();
 

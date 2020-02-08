@@ -146,14 +146,14 @@
 
     // 搜索框
     $('.js-toggle-search').on('click', function () {
-        $('.js-toggle-search').toggleClass('is-active');
-        $('.js-search').toggleClass('is-visible');
+        openSearchPanel();
+        $('#sidebar').removeClass('sidebar-show');
+        $("#sidebarToggle").removeClass('menu-ctrl-on');
+        $(document.body).removeClass('sidebar-opened');
     });
-    $('.search_close').on('click', function () {
-        if ($('.js-search').hasClass('is-visible')) {
-            $('.js-toggle-search').toggleClass('is-active');
-            $('.js-search').toggleClass('is-visible');
-        }
+
+    $('#sidebarToggle').on('click', function () {
+        $('#sidebar').show();
     });
 
     // 删除日志中的空元素

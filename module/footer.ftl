@@ -87,14 +87,4 @@
         <a href="#page" class="arrow-up" data-scroll><span class="screen-reader-text">Back to the top</span></a>
     </div>
 </footer>
-
-<form class="js-search search-form search-form--modal" method="get" action="/search" role="search">
-    <div class="search-form__inner">
-        <div>
-            <p class="micro mb-">输入后按回车搜索 ...</p>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <input class="text-input" type="search" name="keyword" placeholder="Search" required>
-        </div>
-    </div>
-    <div class="search_close"></div>
-</form>
+<#include "search-box.ftl"/>
