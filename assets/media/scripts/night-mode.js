@@ -6,9 +6,10 @@ function autoNightMode() {
     var codeNight = $('#codeNight');
     var codeLight = $('#codeLight');
     var isNightMode = getLocalStorage(nightModeId);
+    console.log(isNightMode);
     if (D <= 18 && D > 6) {
         // 白天
-        if (isNightMode) {
+        if (isNightMode === true) {
             // 是暗黑模式
             return;
         }
@@ -22,7 +23,7 @@ function autoNightMode() {
         setLocalStorage(nightModeId, false)
     } else {
         // 晚上
-        if (!isNightMode) {
+        if (isNightMode === false) {
             // 不是暗黑模式
             return;
         }
