@@ -104,7 +104,11 @@ head_img:
       type: attachment
     tag_patternimg:
       name: tag_patternimg
-      label: 标签下文章页面头部装饰图
+      label: 标签页面头部装饰图
+      type: attachment
+    categories_patternimg:
+      name: categories_patternimg
+      label: 分类页面头部装饰图
       type: attachment
     journals_patternimg:
       name: journals_patternimg
@@ -191,6 +195,11 @@ title:
       label: 标签页面标题
       type: text
       default: 标签列表
+    categories_title:
+      name: categories_title
+      label: 分类列表页面标题
+      type: text
+      default: 分类列表
     achieve_title:
       name: achieve_title
       label: 归档页面标题
