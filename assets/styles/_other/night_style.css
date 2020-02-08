@@ -90,3 +90,16 @@ body.night {
 .night .links-box .links-items .links-item {
     background-color: rgba(0, 0, 0, .4) ;
 }
+
+.night .halo-comment .comment-form input, .night .halo-comment .comment-form textarea {
+    background-color: #101012;
+    color: #ffffff;
+}
+
+.night .searchbox .searchbox-input-wrapper .searchbox-input {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.night .ins-section-container {
+    background-color: rgba(0, 0, 0, .6);
+}

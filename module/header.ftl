@@ -5,12 +5,6 @@
             <nav class="site-navigation">
                 <h2>${options.blog_title!}</h2>
                 <ul class="menu">
-                    <#if settings.top_search!true>
-                        <li class="menu-item home current-menu-item">
-                            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
-                               style="color:#cd9023; font-size: 20px;"></i>
-                        </li>
-                    </#if>
                     <@menuTag method="tree">
                         <#list menus?sort_by('priority') as menu>
                             <li class="menu-item home current-menu-item">
@@ -18,6 +12,17 @@
                             </li>
                         </#list>
                     </@menuTag>
+                    <#if settings.night_mode!true>
+                        <li class="menu-item home current-menu-item">
+                            <i class="fa night-mode" id="nightModeSmall" aria-hidden="true"></i>
+                        </li>
+                    </#if>
+                    <#if settings.top_search!true>
+                        <li class="menu-item home current-menu-item">
+                            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
+                               style="color:#cd9023; font-size: 20px;"></i>
+                        </li>
+                    </#if>
                 </ul>
             </nav>
         </div>
@@ -48,7 +53,7 @@
                <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
             </#if>
             <#if settings.night_mode!true>
-                <i class="fa " id="nightMode" aria-hidden="true"></i>
+                <i class="fa night-mode" id="nightMode" aria-hidden="true"></i>
             </#if>
         </div>
     </div>
