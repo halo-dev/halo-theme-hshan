@@ -10,7 +10,7 @@ genernal:
       placeholder: '用于首页展示名字'
     home_description:
       name: home_description
-      lable: 首页描述
+      label: 首页描述
       type: text
       placeholder: '用于首页描述'
     home_cover:
@@ -18,6 +18,37 @@ genernal:
       label: 首页背景
       type: attachment
       default: https://hshanx.github.io/media/images/home-cover.jpg
+    header_logoimg:
+      name: header_logoimg
+      label: 菜单logo
+      type: attachment
+    header_logo_height:
+      name: header_logo_height
+      label: 菜单logo高度
+      type: text
+      placeholder: '比如: 20px'
+    auto_night_mode:
+      name: auto_night_mode
+      label: 暗夜模式总开关
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    night_mode:
+      name: night_mode
+      label: 暗夜模式开关
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     top_search:
       name: top_search
       label: 搜索

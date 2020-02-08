@@ -2,7 +2,7 @@
     list-style: none;
 }
 #tree-hole {
-    background-color: #ffffff;
+    //background-color: #ffffff;
     padding: 20px 20px 10px;
     max-width: 960px;
     margin: auto;
@@ -15,7 +15,8 @@
 .tree-hole-box {
     letter-spacing: .1em;
     font-weight: 400;
-    box-shadow: 0 0 10px #bfbfbf;
+    //box-shadow: 0 0 10px #bfbfbf;
+    background-color: rgba(0, 0, 0, .05);
 }
 
 .tree-hole-box p {
@@ -184,6 +185,18 @@
     .tree-hole-even .tree-hole-box {
         margin-left: 85px;
     }
+
+    .tree-hole-odd .tree-hole-box:before {
+        right: -10px;
+        border-width: 15px 0 5px 10px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, .05);
+    }
+
+    .tree-hole-even .tree-hole-box:before {
+        left: -10px;
+        border-width: 15px 10px 5px 0;
+        border-color: transparent rgba(0, 0, 0, .05) transparent transparent;
+    }
 }
 
 @media (max-width: 767px) {
@@ -210,6 +223,12 @@
 
     .tree-hole-box {
         margin-left: 105px;
+    }
+
+    .tree-hole-box:before {
+        left: -10px;
+        border-width: 15px 10px 5px 0;
+        border-color: transparent rgba(0, 0, 0, .05) transparent transparent;
     }
 }
 
@@ -242,4 +261,11 @@
 .comment-page {
     text-align: center;
     margin: 50px auto;
+}
+
+.tree-hole-box:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    border-style: solid;
 }
