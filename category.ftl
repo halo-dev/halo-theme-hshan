@@ -7,7 +7,7 @@
             <div class="site-content">
                 <header class="cover page-header">
                     <div class="cover-bg"
-                            <#if settings.tag_patternimg?? && settings.categories_patternimg!=''>
+                            <#if settings.categories_patternimg?? && settings.categories_patternimg!=''>
                                 style="background-image: url(${settings.categories_patternimg!});"
                             <#else>
                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
