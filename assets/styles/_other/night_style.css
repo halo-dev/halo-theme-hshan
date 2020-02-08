@@ -1,0 +1,92 @@
+body.night {
+    color: #c0c0c0 !important;
+    background-color: #101012;
+}
+
+.night h1,
+.night h2,
+.night h3,
+.night h4,
+.night h5,
+.night h6 {
+    color: #c0c0c0 !important;
+}
+
+.night .post-title a, .night .nav-title {
+    color: #c0c0c0;
+}
+
+.night .site-header-scroll {
+    background-color: #101012;
+}
+
+.night header a, .night header .fa-search {
+    color: #c0c0c0;
+}
+
+.night .appreciate-btn {
+    box-shadow: none;
+}
+
+.night blockquote {
+    background-color: #151313;
+    border-left: 5px solid #cd9023;
+}
+
+.night .hljs {
+    display: block;
+    overflow-x: auto;
+    background: #1d1f21;
+    color: #c5c8c6;
+    padding: 0.5em;
+}
+
+.night .post-content img {
+    filter: brightness(0.6) !important;
+}
+
+.night .search-form--modal {
+    background-color: #4e4e4f;
+}
+
+.night .search-form input {
+    background: #171718;
+}
+
+.night .search-form i, .night .search-form--modal .search-form__inner p {
+    color: #ffffff;
+}
+.night .search_close:before, .night .search_close:after {
+    background-color: #ffffff;
+}
+
+.night .tree-hole-author, .night .tree-hole-box a {
+    color: #ffffff;
+}
+
+.night .tree-hole-box {
+    background-color: rgba(0, 0, 0, .3);
+}
+.night .tree-hole-box:before {
+    border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
+}
+
+@media (min-width: 768px) {
+    .night .tree-hole-odd .tree-hole-box:before {
+        border-color: transparent transparent transparent rgba(0, 0, 0, .3);
+    }
+
+    .night .tree-hole-even .tree-hole-box:before {
+        border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
+    }
+}
+
+@media (max-width: 767px) {
+    .night .tree-hole-box:before {
+        border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
+    }
+}
+
+.night .links-box .links-items .links-item {
+    background-color: rgba(0, 0, 0, .4) ;
+}

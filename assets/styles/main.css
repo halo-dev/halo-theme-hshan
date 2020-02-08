@@ -2591,7 +2591,7 @@ blockquote {
 .post-content img {
   clear: both;
   display: block;
-  margin: auto;
+  margin: 1rem auto;
 }
 .post-content li {
   line-height: 1.6rem;
@@ -2756,7 +2756,6 @@ blockquote {
   list-style: none;
 }
 #tree-hole {
-  background-color: #ffffff;
   padding: 20px 20px 10px;
   max-width: 960px;
   margin: auto;
@@ -2767,7 +2766,7 @@ blockquote {
 .tree-hole-box {
   letter-spacing: 0.1em;
   font-weight: 400;
-  box-shadow: 0 0 10px #bfbfbf;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .tree-hole-box p {
   color: #7b7b7b;
@@ -2909,6 +2908,16 @@ blockquote {
   .tree-hole-even .tree-hole-box {
     margin-left: 85px;
   }
+  .tree-hole-odd .tree-hole-box:before {
+    right: -10px;
+    border-width: 15px 0 5px 10px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.05);
+  }
+  .tree-hole-even .tree-hole-box:before {
+    left: -10px;
+    border-width: 15px 10px 5px 0;
+    border-color: transparent rgba(0, 0, 0, 0.05) transparent transparent;
+  }
 }
 @media (max-width: 767px) {
   #tree-hole .comment-list:before {
@@ -2929,6 +2938,11 @@ blockquote {
   }
   .tree-hole-box {
     margin-left: 105px;
+  }
+  .tree-hole-box:before {
+    left: -10px;
+    border-width: 15px 10px 5px 0;
+    border-color: transparent rgba(0, 0, 0, 0.05) transparent transparent;
   }
 }
 .page-navigator li {
@@ -2958,88 +2972,11 @@ blockquote {
   text-align: center;
   margin: 50px auto;
 }
-/*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
-*/
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5rem;
-  color: #333;
-  background: #f8f8f8;
-  font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
-}
-.hljs-comment,
-.hljs-quote {
-  color: #998;
-  font-style: italic;
-}
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #770088;
-  font-weight: bold;
-}
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
-}
-.hljs-string,
-.hljs-doctag {
-  color: #d14;
-}
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: bold;
-}
-.hljs-subst {
-  font-weight: normal;
-}
-.hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-.hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
-}
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
-}
-.hljs-meta {
-  color: #999;
-  font-weight: bold;
-}
-.hljs-deletion {
-  background: #fdd;
-}
-.hljs-addition {
-  background: #dfd;
-}
-.hljs-emphasis {
-  font-style: italic;
-}
-.hljs-strong {
-  font-weight: bold;
+.tree-hole-box:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  border-style: solid;
 }
 .toc {
   position: fixed;
@@ -3163,7 +3100,6 @@ a.toc-link {
 .scroll-menu {
   height: 52px;
   min-width: 300px;
-  margin-right: 40px;
   -webkit-transition: background 0.6s ease-in-out, padding 0.6s ease-in-out;
   -o-transition: background 0.6s ease-in-out, padding 0.6s ease-in-out;
   transition: background 0.6s ease-in-out, padding 0.6s ease-in-out;
@@ -3250,12 +3186,29 @@ a.toc-link {
 .sidebar {
   margin-top: 52px;
 }
-.searchbox .fa-search {
+.header-inner {
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.header-inner .menu-items {
+  height: 100%;
+  line-height: 52px;
+}
+.site-header .other-ctl i {
+  margin-right: 20px;
+  font-size: 18px;
+}
+#nightMode:hover {
+  cursor: pointer;
+  color: #2474b5;
+}
+.other-ctl .fa-search {
   font-size: 15px;
   font-weight: 300;
   color: #504b4d;
 }
-.searchbox .fa-search:hover {
+.other-ctl .fa-search:hover {
   cursor: pointer;
 }
 .search-form--modal {

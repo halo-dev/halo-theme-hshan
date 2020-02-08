@@ -1,13 +1,18 @@
+<script src="${static!}/assets/media/scripts/jquery.min.js"></script>
 <script src="${static!}/assets/media/scripts/plugins.js"></script>
 <script src="${static!}/assets/media/scripts/custom.js"></script>
+
 
 <!-- highlight -->
 <script src="${static!}/assets/media/scripts/highlight.min.js"></script>
 <script src="${static!}/assets/media/scripts/highlightjs-line-numbers.min.js"></script>
 <!-- Md5 Min JS -->
 <script src="${static!}/assets/media/scripts/md5.min.js"></script>
+<#-- 暗夜模式 -->
+<#if settings.auto_night_mode!true>
+    <script src="${static!}/assets/media/scripts/night-mode.js"></script>
+</#if>
 
-<script src="${static!}/assets/media/scripts/jquery.min.js"></script>
 
 <script type="application/javascript">
     // 代码高亮
@@ -117,7 +122,17 @@
         var scrollMenu = $("#scrollMenu");
         var sidebarToggle = $("#sidebarToggle");
         const scrollTop = getScrollTop();
-        if (siteHeader&&  scrollTop > 30 && oldScrollTop > scrollTop) {
+        // if (siteHeader&&  scrollTop > 30 && oldScrollTop > scrollTop) {
+        //     siteHeader.addClass('site-header-scroll');
+        //     scrollMenu.addClass('scroll-menu-show');
+        //     sidebarToggle.hide();
+        // } else {
+        //     siteHeader.removeClass('site-header-scroll');
+        //     scrollMenu.removeClass('scroll-menu-show');
+        //     sidebarToggle.show();
+        // }
+
+        if (siteHeader && scrollTop > 0) {
             siteHeader.addClass('site-header-scroll');
             scrollMenu.addClass('scroll-menu-show');
             sidebarToggle.hide();
@@ -163,10 +178,12 @@
     <script type="application/javascript">
         // var siteContent;
         var oldScrollTop;
+
         //获取滚动条距离顶部位置
         function getScrollTop() {
             return document.documentElement.scrollTop || document.body.scrollTop;
         }
+
         const siteFooter = '#siteFooter';
         const articleInfo = '#articleInfo';
         const postNavigation = '#post-navigation';
@@ -180,12 +197,14 @@
             var Obj = $('#' + div_id);
 
             //判断元素是否存在
-            if (Obj.length != 1) { return false; }
+            if (Obj.length != 1) {
+                return false;
+            }
 
             const tocId = '#toc';
             window.addEventListener('scroll', function () {
                 var tocFixed = $(tocId);
-                var ObjTop = Obj.offset().top - $(window).height() * 0.5 ;
+                var ObjTop = Obj.offset().top - $(window).height() * 0.5;
 
                 // 滚动条离页面顶端的距离
                 var scrollTop = getScrollTop();
@@ -198,7 +217,7 @@
 
                 var tocEle = document.querySelector(tocId);
                 var tocHeight = tocEle.getBoundingClientRect().height;
-                if (scrollTop  > ObjTop - tocHeight * 0.5) {
+                if (scrollTop > ObjTop - tocHeight * 0.5) {
                     tocFixed.addClass('right-fixed');
                 } else {
                     tocFixed.removeClass('right-fixed');
