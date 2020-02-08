@@ -40,7 +40,7 @@ genernal:
           label: 关闭
     night_mode:
       name: night_mode
-      label: 暗夜模式开关
+      label: 暗夜模式顶部按钮
       type: radio
       data-type: bool
       default: true
