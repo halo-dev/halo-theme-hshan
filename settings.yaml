@@ -98,22 +98,27 @@ head_img:
       name: archives_patternimg
       label: 归档页面头部装饰图
       type: attachment
+      default: https://hshanx.github.io/media/images/placeholder.jpg
     links_patternimg:
       name: links_patternimg
       label: 友情链接页面头部装饰图
       type: attachment
+      default: https://hshanx.github.io/media/images/placeholder.jpg
     tag_patternimg:
       name: tag_patternimg
       label: 标签页面头部装饰图
       type: attachment
+      default: https://hshanx.github.io/media/images/placeholder.jpg
     categories_patternimg:
       name: categories_patternimg
       label: 分类页面头部装饰图
       type: attachment
+      default: https://hshanx.github.io/media/images/placeholder.jpg
     journals_patternimg:
       name: journals_patternimg
       label: 日志下文章页面头部装饰图
       type: attachment
+      default: https://hshanx.github.io/media/images/placeholder.jpg
     links_placeholder:
       name: links_placeholder
       label: 友情链接默认用户头像
