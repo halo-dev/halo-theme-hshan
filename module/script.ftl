@@ -77,7 +77,7 @@
 </#if>
 
 <div class="qr-code">
-    <span class="closinglayer"><i class="fa fa-close"></i></span>
+    <span class="closinglayer"><i class="fa fa-times"></i></span>
     <#if settings.QR_code_zfb??>
         <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
     </#if>
