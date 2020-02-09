@@ -123,7 +123,7 @@ head_img:
       name: links_placeholder
       label: 友情链接默认用户头像
       type: attachment
-      default: https://hshanx.github.io/media/images/placeholder.jpg
+      default: https://tva1.sinaimg.cn/large/0082zybply1gbq3zi6efej30t70t50wh.jpg
 post:
   label: 文章页
   items:
