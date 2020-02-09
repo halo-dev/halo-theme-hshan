@@ -10,7 +10,7 @@
 
     <@global.head />
     <link rel="stylesheet" href="${static!}/assets/styles/main.css">
-<#--    <link rel="stylesheet"  href="${static!}/assets/styles/all.min.css">-->
+    <link rel="stylesheet"  href="${static!}/assets/styles/all.min.css">
     <link rel="stylesheet" href="${static!}/assets/media/font-awesome/css/font-awesome.min.css" type='text/css' media='all' />
     <link rel="stylesheet" href="${static!}/assets/styles/_other/night_style.css">
     <link rel="alternate stylesheet" id="codeNight" href="${static!}/assets/styles/_other/highlight-night.css">
