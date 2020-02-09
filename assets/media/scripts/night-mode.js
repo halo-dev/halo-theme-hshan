@@ -1,4 +1,4 @@
-const nightMode = 'nightMode';
+const nightModeId = 'nightMode';
 
 function autoNightMode() {
     var nightModes = $('.night-mode');
@@ -6,7 +6,7 @@ function autoNightMode() {
     var D = day.getHours();
     var codeNight = $('#codeNight');
     var codeLight = $('#codeLight');
-    var isNightMode = getLocalStorage(nightMode);
+    var isNightMode = getLocalStorage(nightModeId);
     if (D <= 18 && D > 6) {
         // 白天
         if (isNightMode === true) {
@@ -37,7 +37,7 @@ function changeLightMode(codeNight, codeLight, nightModes) {
         nightMode.addClass('fa-moon');
         nightMode.removeClass('fa-lightbulb');
     }
-    setLocalStorage(nightMode, false)
+    setLocalStorage(nightModeId, false)
 }
 
 function changeNightMode(codeNight, codeLight, nightModes) {
@@ -51,7 +51,7 @@ function changeNightMode(codeNight, codeLight, nightModes) {
         nightMode.addClass('fa-lightbulb');
         nightMode.removeClass('fa-moon');
     }
-    setLocalStorage(nightMode, true)
+    setLocalStorage(nightModeId, true)
 }
 
 function nightModeFuc() {
@@ -89,7 +89,7 @@ function doFuncNightMode(nightMode) {
                 codeLight.attr("rel", "alternate stylesheet");
                 codeNight.attr("rel", "stylesheet");
             }
-            setLocalStorage(nightMode, true);
+            setLocalStorage(nightModeId, true);
         } else if (nightMode.hasClass('fa-lightbulb')) {
             $(document.body).removeClass('night');
             nightModeBtn.addClass('fa-moon');
@@ -98,7 +98,7 @@ function doFuncNightMode(nightMode) {
                 codeNight.attr("rel", "alternate stylesheet");
                 codeLight.attr("rel", "stylesheet");
             }
-            setLocalStorage(nightMode, false);
+            setLocalStorage(nightModeId, false);
         }
         $('#sidebar').removeClass('sidebar-show');
         $("#sidebarToggle").removeClass('menu-ctrl-on');

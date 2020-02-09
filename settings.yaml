@@ -17,7 +17,7 @@ genernal:
       name: home_cover
       label: 首页背景
       type: attachment
-      default: https://hshanx.github.io/media/images/home-cover.jpg
+      default: https://tva1.sinaimg.cn/large/0082zybply1gbq42tnu3vj31870u0wqe.jpg
     header_logoimg:
       name: header_logoimg
       label: 菜单logo
