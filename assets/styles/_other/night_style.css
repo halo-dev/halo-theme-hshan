@@ -16,6 +16,10 @@ body.night {
     color: #c0c0c0;
 }
 
+.night .post-title a:hover {
+    color: #98A9F9 !important;
+}
+
 .night .site-header-scroll {
     background-color: #101012;
 }
