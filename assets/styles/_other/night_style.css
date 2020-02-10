@@ -1,6 +1,7 @@
 body.night {
     color: #c0c0c0 !important;
     background-color: #101012;
+    transition: all .6s;
 }
 
 .night h1,
@@ -45,7 +46,7 @@ body.night {
     padding: 0.5em;
 }
 
-.night .post-content img {
+.night img {
     filter: brightness(0.6) !important;
 }
 
@@ -106,4 +107,13 @@ body.night {
 
 .night .ins-section-container {
     background-color: rgba(0, 0, 0, .6);
+}
+
+.night td.hljs-ln-numbers {
+    background-color: #101012;
+    border-bottom: 1px solid #101012;
+}
+
+.night .links-box .links-items .links-item {
+    color: #c0c0c0;
 }
