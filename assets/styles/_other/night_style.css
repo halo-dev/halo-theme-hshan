@@ -117,3 +117,6 @@ body.night {
 .night .links-box .links-items .links-item {
     color: #c0c0c0;
 }
+.night .qr-code.qr-code-display {
+    box-shadow: none;
+}
