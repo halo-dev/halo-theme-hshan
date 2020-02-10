@@ -2709,6 +2709,9 @@ blockquote {
   height: 64px;
   width: 64px;
 }
+.image.is-64x64 img {
+  height: 64px;
+}
 .media-left .image img {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
