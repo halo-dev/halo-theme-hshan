@@ -3206,6 +3206,9 @@ a.toc-link {
   cursor: pointer;
   color: #2474b5;
 }
+.fa-search:hover {
+  cursor: pointer;
+}
 .searchbox {
   display: none;
   perspective: 50em;

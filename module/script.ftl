@@ -42,6 +42,14 @@
             $(".qr_code_wx").css("opacity", "1");
             $(".qr_code_zfb").css("opacity", "0");
         });
+
+        var imgs = $(".post-content a");
+        if (imgs) {
+            for (let i = 0; i < imgs.length; i++) {
+                $(imgs[i]).attr("target", "_blank");
+
+            }
+        }
     });
 
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
