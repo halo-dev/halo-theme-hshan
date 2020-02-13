@@ -60,6 +60,17 @@ genernal:
           label: 开启
         - value: false
           label: 关闭
+    visit_statistics:
+      name: visit_statistics
+      label: 用户访问统计
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     post_summary:
       name: post_summary
       label: 首页文章摘要
@@ -75,7 +86,7 @@ genernal:
       name: Icp
       label: 'ICP备案号'
       type: text
-      placeholder: '填入ICP备案号，没有则不填'
+      placeholder: '填入ICP备案号，没有则不填. '
     PublicSecurityRecord:
       name: PublicSecurityRecord
       label: '网安备案号'

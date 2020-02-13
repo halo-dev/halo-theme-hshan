@@ -13,6 +13,9 @@
     <script src="${static!}/assets/media/scripts/night-mode.js"></script>
 </#if>
 
+<#if settings.visit_statistics!false>
+    <script async src="${static!}/assets/media/scripts/busuanzi.pure.mini.js"></script>
+</#if>
 
 <script type="application/javascript">
     // 代码高亮
@@ -77,7 +80,6 @@
                 seconds = Math.floor((e_minsold - minsold) * 60);
                 span_dt_dt.innerHTML = daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
             }
-            ;
         }
 
         show_date_time();
