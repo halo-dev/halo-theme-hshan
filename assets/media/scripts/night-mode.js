@@ -37,6 +37,8 @@ function changeLightMode(codeNight, codeLight, nightModes) {
         nightMode.addClass('fa-moon');
         nightMode.removeClass('fa-lightbulb');
     }
+    $('#nightModeComment').hide();
+    $('#lightModeComment').show();
     setLocalStorage(nightModeId, false)
 }
 
@@ -51,6 +53,8 @@ function changeNightMode(codeNight, codeLight, nightModes) {
         nightMode.addClass('fa-lightbulb');
         nightMode.removeClass('fa-moon');
     }
+    $('#nightModeComment').show();
+    $('#lightModeComment').hide();
     setLocalStorage(nightModeId, true)
 }
 
@@ -89,6 +93,8 @@ function doFuncNightMode(nightMode) {
                 codeLight.attr("rel", "alternate stylesheet");
                 codeNight.attr("rel", "stylesheet");
             }
+            $('#nightModeComment').show();
+            $('#lightModeComment').hide();
             setLocalStorage(nightModeId, true);
         } else if (nightMode.hasClass('fa-lightbulb')) {
             $(document.body).removeClass('night');
@@ -98,6 +104,9 @@ function doFuncNightMode(nightMode) {
                 codeNight.attr("rel", "alternate stylesheet");
                 codeLight.attr("rel", "stylesheet");
             }
+
+            $('#nightModeComment').hide();
+            $('#lightModeComment').show();
             setLocalStorage(nightModeId, false);
         }
         $('#sidebar').removeClass('sidebar-show');
