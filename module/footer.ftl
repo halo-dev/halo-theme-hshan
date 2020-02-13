@@ -68,18 +68,24 @@
                     <a href="http://www.beian.gov.cn" target="_blank">${settings.PublicSecurityRecord!}</a>
                 </div><br>
             </#if>
-            <#if settings.TimeStatistics??>
-                <p>本站运行：<span id="span_dt_dt"></span></p>
-            </#if>
-            <p>Copyright &copy; ${.now?string('yyyy')}<a
-                        href="${context!}"> ${options.blog_title!}<#if settings.SiteSubtitle??> - ${settings.SiteSubtitle!}</#if></a>
+            <@global.footer />
+            <p>Copyright &copy; ${.now?string('yyyy')}
+                <a href="${context!}"> ${options.blog_title!}<#if settings.SiteSubtitle??> - ${settings.SiteSubtitle!}</#if></a>
             </p>
             <!-- 请尊重作者，请务必保留版权 -->
             <p>Powered by <a target="_blank" href="http://halo.run">Halo</a> •
                 Theme by <a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle
                     Galaxy</a> •
                 REFERENCE FROM <a href="https://github.com/hshanx/halo-theme-hshan.git">寒山</a></p>
-            <@global.footer />
+            <#if settings.TimeStatistics??>
+                <p>本站运行：<span id="span_dt_dt"></span></p>
+            </#if>
+            <#if settings.visit_statistics!false>
+                <p>
+                    <span id="busuanzi_container_site_uv">感谢<span id="busuanzi_value_site_uv"></span>位小伙伴的</span>
+                    <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次访问</span>
+                </p>
+            </#if>
         </div>
         <div class="site-statistics">
             <@common.statistics />
