@@ -40,7 +40,7 @@ genernal:
           label: 关闭
     night_mode:
       name: night_mode
-      label: 暗夜模式顶部按钮
+      label: 暗夜模式顶部按钮(需要先打开暗黑模式总开关)
       type: radio
       data-type: bool
       default: true
@@ -221,6 +221,14 @@ title:
       label: 归档页面标题
       type: text
       default: 归档
+#comment:
+#  label: 评论设置
+#  items:
+#    commentConfigs:
+#      name: commentConfigs
+#      label: 评论组件
+#      type: text
+
 social:
   label: 社交网络
   items:
