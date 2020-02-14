@@ -13,7 +13,8 @@
                                 <img src="${post.thumbnail!}" alt="${post.title!}">
                             </div>
                         <#else>
-                            <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                            <div class="cover-bg"
+                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
                             </div>
                         </#if>
                         <div class="cover-content">

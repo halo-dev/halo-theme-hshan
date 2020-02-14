@@ -70,9 +70,6 @@ a.toc-link {
 }
 
 .toc-link + span {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
   background: #e5e5e5;
   display: inline-block;
   vertical-align: middle;
@@ -82,27 +79,46 @@ a.toc-link {
   margin-left: 8px;
 }
 
+.node-name--H1 + span {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+}
+
+.node-name--H2 + span {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 0 1px 0 6px;
+}
+
 .node-name--H3 + span {
   width: 8px;
   height: 8px;
   border-radius: 8px;
+  margin: 0 2px 0 8px;
 }
 
 .node-name--H4 + span {
   width: 6px;
   height: 6px;
   border-radius: 6px;
+  margin: 0 3px 0 10px;
 }
 
-.node-name--H5 + span {
+.node-name--H5 + span,.node-name--H6 + span {
   width: 4px;
   height: 4px;
   border-radius: 4px;
+  margin: 0 4px 0 12px;
 }
 
 .toc-link+span:hover {
   background-color: #8e8787 !important;
 }
+//.toc-link:hover {
+//  color: #8e8787 !important;
+//}
 
 .is-active-link {
   color: #8e8787 !important;
