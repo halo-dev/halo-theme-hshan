@@ -8,14 +8,14 @@
             <div class="site-content">
 
                 <header class="cover page-header">
-                    <div class="cover-bg"
-                            <#if settings.archives_patternimg?? && settings.archives_patternimg!=''>
-                                style="background-image: url(${settings.archives_patternimg!});"
-                            <#else>
-                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                            </#if>
-                    >
-                    </div>
+                    <#if settings.archives_patternimg?? && settings.archives_patternimg!=''>
+                        <div class="cover-bg">
+                            <img src="${settings.archives_patternimg!}" alt="${settings.achieve_title!'归档'}">
+                        </div>
+                    <#else>
+                        <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        </div>
+                    </#if>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>

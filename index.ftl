@@ -11,7 +11,7 @@
                 <div class="cover hero">
                     <div class="cover-bg"
                          style="background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);">
-                        <img src="${settings.home_cover!'${static}/images/temp.jpg'}">
+                        <img src="${settings.home_cover!'${static}/assets/media/images/home-cover.jpg'}">
                     </div>
                     <div class="cover-content">
                         <!-- 封面内容 -->
