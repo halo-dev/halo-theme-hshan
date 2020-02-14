@@ -4,7 +4,6 @@
 
 此主题目录为前端渲染,可以不用再文章开头加上`[TOC]`
 
-> 由于官方评论插件暂时不支持扩展，所以不建议开启暗夜模式
 
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
