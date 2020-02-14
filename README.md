@@ -41,7 +41,7 @@
 
 
 ## 安装方法
-1. 克隆或者[下载](https://github.com/hshanx/halo-theme-hshan/releases/download/latest/hshan.zip)。
+1. 克隆或者[下载](https://github.com/hshanx/halo-theme-hshan/releases)。
 2. 压缩为 zip 压缩包之后在后台的主题设置直接上传即可使用。
 3. 用Halo的程序拉取 https://github.com/hshanx/halo-theme-hshan.git
 
