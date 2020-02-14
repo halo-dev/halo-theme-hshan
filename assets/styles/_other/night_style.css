@@ -115,3 +115,26 @@ body.night {
 .night .qr-code.qr-code-display {
     box-shadow: none;
 }
+
+.night a.toc-link {
+    color: #8e8787;
+}
+
+.night .toc-link + span {
+    background-color: #8e8787;
+}
+
+.night .toc-link + span:hover {
+    background-color: #e5e5e5 !important;
+}
+.night .toc-link:hover {
+    color: #e5e5e5 !important;
+}
+
+.night .is-active-link {
+    color: #e5e5e5 !important;
+}
+.night .is-active-link + span {
+    background: #e5e5e5 !important;
+
+}
