@@ -28,7 +28,7 @@
                         <@linkTag method="listTeams">
                             <#list teams as item>
                                 <#if item.team?? && item.team!=''>
-                                    <h3>${item.team}</h3>
+                                    <h3 style="width: 100%; margin: 10px;">${item.team}</h3>
                                 </#if>
                                 <#list item.links as link>
                                     <div class="links-item">
