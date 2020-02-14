@@ -7,14 +7,14 @@
         <main class="site-main">
             <div class="site-content">
                 <header class="cover page-header">
-                    <div class="cover-bg"
-                            <#if settings.journals_patternimg?? && settings.journals_patternimg!=''>
-                                style="background-image: url(${settings.journals_patternimg!});"
-                            <#else>
-                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                            </#if>
-                    >
-                    </div>
+                    <#if settings.journals_patternimg?? && settings.journals_patternimg!=''>
+                        <div class="cover-bg">
+                            <img src="${settings.journals_patternimg!}" alt="${settings.jounarls_title!'日志'}">
+                        </div>
+                    <#else>
+                        <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        </div>
+                    </#if>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>

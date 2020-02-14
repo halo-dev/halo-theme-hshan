@@ -8,16 +8,14 @@
             <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
                     <header class="cover post-header" id="postHeader">
-                        <div class="cover-bg"
-                                <#if !(post.thumbnail?? && post.thumbnail!='')>
-                                    style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                                </#if>
-                        >
-                            <#if (post.thumbnail?? && post.thumbnail!='')>
-                                <img srcset="${post.thumbnail} 300w, ${post.thumbnail} 600w, ${post.thumbnail} 800w, ${post.thumbnail} 1600w, ${post.thumbnail} 2000w"
-                                     sizes="100vw" src="${post.thumbnail}" alt="${post.title}"/>
-                            </#if>
-                        </div>
+                        <#if post.thumbnail?? && post.thumbnail!=''>
+                            <div class="cover-bg">
+                                <img src="${post.thumbnail!}" alt="${post.title!}">
+                            </div>
+                        <#else>
+                            <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                            </div>
+                        </#if>
                         <div class="cover-content">
                             <div class="inner">
                                 <div class="post-tags">

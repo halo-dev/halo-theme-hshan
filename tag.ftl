@@ -9,14 +9,14 @@
             <div class="site-content">
 
                 <header class="cover page-header">
-                    <div class="cover-bg"
-                            <#if settings.tag_patternimg?? && settings.tag_patternimg!=''>
-                                style="background-image: url(${settings.tag_patternimg!});"
-                            <#else>
-                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                            </#if>
-                    >
-                    </div>
+                    <#if settings.tag_patternimg?? && settings.tag_patternimg!=''>
+                        <div class="cover-bg">
+                            <img src="${settings.tag_patternimg!}" alt="标签：${tag.name}">
+                        </div>
+                    <#else>
+                        <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        </div>
+                    </#if>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
@@ -42,10 +42,18 @@
                                     <a href="${context!}/archives/${post.url!}">${post.title!}</a>
                                 </h2>
                                 <div class="post-meta">
-                                    <#--                                      <span class="post-author">${user.useName!}</span>-->
+                                    <span class="post-author">${post.visits!} 次访问</span>
                                     <time class="published"
                                           datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
                                     </time>
+                                    <#if settings.post_summary!false>
+                                        <p style="margin-top:10px;">
+                                            ${post.summary!}
+                                            <#if post.summary?? && post.summary != ''>
+                                                ...
+                                            </#if>
+                                        </p>
+                                    </#if>
                                 </div>
                             </div>
                         </header>
@@ -66,7 +74,7 @@
                     </article>
                     </#list>
                 </div>
-
+                <#include "module/pagination.ftl">
             </div>
         </main>
 
