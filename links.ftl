@@ -8,9 +8,9 @@
         <main class="site-main">
             <div class="site-content">
                 <header class="cover page-header">
-                    <#if settings.archives_patternimg?? && settings.archives_patternimg!=''>
+                    <#if settings.links_patternimg?? && settings.links_patternimg!=''>
                         <div class="cover-bg">
-                            <img src="${settings.archives_patternimg!}" alt="${settings.links_title!'友链'}">
+                            <img src="${settings.links_patternimg!}" alt="${settings.links_title!'友链'}">
                         </div>
                     <#else>
                         <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
@@ -31,7 +31,7 @@
                                     <h3 style="width: 100%; margin: 10px;">${item.team}</h3>
                                 </#if>
                                 <#list item.links as link>
-                                    <div class="links-item">
+                                    <a class="links-item" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-64x64">
@@ -51,7 +51,7 @@
                                                 <p class="link-desc">${link.description}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </#list>
                             </#list>
                         </@linkTag>
