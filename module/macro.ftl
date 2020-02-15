@@ -11,12 +11,12 @@
     <@global.head />
     <link rel="stylesheet" href="${static!}/assets/styles/main.css">
     <link rel="stylesheet"  href="${static!}/assets/styles/all.min.css">
-    <link rel="stylesheet" href="${static!}/assets/media/font-awesome/css/font-awesome.min.css" type='text/css' media='all' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all' />
     <link rel="stylesheet" href="${static!}/assets/styles/_other/night_style.css">
     <link rel="alternate stylesheet" id="codeNight" href="${static!}/assets/styles/_other/highlight-night.css">
     <link rel="stylesheet" id="codeLight" href="${static!}/assets/styles/_other/highlight-light.css">
 
-    <script src="${static!}/assets/media/scripts/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 
 
     <#if settings.Custom_css_src??>
