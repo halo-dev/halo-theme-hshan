@@ -2153,8 +2153,10 @@ pre .storage {
  */
 .comments-area {
   border-top: 1px solid #d4d3d3;
-  padding-bottom: 45px;
-  padding-top: 45px;
+  padding: 30px;
+}
+.article-info .comments-area {
+  padding: 30px 0 !important;
 }
 #comments-show {
   background: 0;
@@ -3187,8 +3189,9 @@ a.toc-link {
 .icon-menu:after {
   bottom: 5px;
 }
-@media only screen and (max-width: 767px) {
-  .scroll-menu {
+@media only screen and (max-width: 960px) {
+  .menu-scroll-item,
+  #headerCtrl {
     display: none !important;
   }
   .sidebar-toggle {
@@ -3217,6 +3220,9 @@ a.toc-link {
 }
 .fa-search:hover {
   cursor: pointer;
+}
+.site-header a.active-current {
+  color: #2474b5;
 }
 .searchbox {
   display: none;

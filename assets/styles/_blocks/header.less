@@ -104,8 +104,12 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .scroll-menu {
+@media only screen and (max-width: 960px) {
+  //.scroll-menu {
+  //  display: none !important;
+  //}
+
+  .menu-scroll-item, #headerCtrl {
     display: none !important;
   }
 
@@ -141,6 +145,10 @@
 
 .fa-search:hover{
   cursor: pointer;
+}
+
+.site-header a.active-current {
+  color: #2474b5;
 }
 
 // 其余样式参考 style.less 第4和第5部分
