@@ -13,7 +13,8 @@
                             <img src="${sheet.thumbnail!}" alt="${sheet.title!}">
                         </div>
                     <#else>
-                        <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        <div class="cover-bg"
+                             style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
                         </div>
                     </#if>
                     <div class="cover-content">
@@ -26,8 +27,8 @@
                 <div class="sheet-content">
                     ${sheet.formatContent!}
                 </div>
-                <#include "module/footer.ftl">
             </div>
+            <#include "module/footer.ftl">
         </main>
     </div>
     </body>

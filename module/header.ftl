@@ -33,7 +33,7 @@
     <div id="scrollMenu" style="display: none;" class="scroll-menu header-inner">
         <div class="menu-items">
             <#if settings.header_logoimg?? && settings.header_logoimg!=''>
-                <a href="${context!}" style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;">
+                <a href="${context!}" style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;" onfocus="this.blur();">
                     <img src="${settings.header_logoimg}" alt="${options.blog_title!}"
                             <#if settings.header_logo_height?? && settings.header_logo_height != ''>
                                 style=" height: ${settings.header_logo_height} "
@@ -44,7 +44,7 @@
             </#if>
             <@menuTag method="tree">
                 <#list menus?sort_by('priority') as menu>
-                    <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+                    <a href="${menu.url!}" target="${menu.target!}" onfocus="this.blur();" class="menu-scroll-item">${menu.name}</a>
                 </#list>
             </@menuTag>
         </div>
