@@ -16,6 +16,8 @@
     <link rel="alternate stylesheet" id="codeNight" href="${static!}/assets/styles/_other/highlight-night.css">
     <link rel="stylesheet" id="codeLight" href="${static!}/assets/styles/_other/highlight-light.css">
 
+    <script src="${static!}/assets/media/scripts/jquery.min.js"></script>
+
 
     <#if settings.Custom_css_src??>
         <!-- 自定义css -->

@@ -1,4 +1,3 @@
-<script src="${static!}/assets/media/scripts/jquery.min.js"></script>
 <script src="${static!}/assets/media/scripts/plugins.js"></script>
 <script src="${static!}/assets/media/scripts/custom.js"></script>
 
