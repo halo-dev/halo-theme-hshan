@@ -24,6 +24,9 @@ function autoNightMode() {
         }
         changeNightMode(codeNight, codeLight, nightModes);
     }
+    if (typeof renderComment === 'function') {
+        renderComment();
+    }
 }
 
 function changeLightMode(codeNight, codeLight, nightModes) {
@@ -37,8 +40,6 @@ function changeLightMode(codeNight, codeLight, nightModes) {
         nightMode.addClass('fa-moon');
         nightMode.removeClass('fa-lightbulb');
     }
-    $('#nightModeComment').hide();
-    $('#lightModeComment').show();
     setLocalStorage(nightModeId, false)
 }
 
@@ -53,8 +54,6 @@ function changeNightMode(codeNight, codeLight, nightModes) {
         nightMode.addClass('fa-lightbulb');
         nightMode.removeClass('fa-moon');
     }
-    $('#nightModeComment').show();
-    $('#lightModeComment').hide();
     setLocalStorage(nightModeId, true)
 }
 
@@ -93,8 +92,6 @@ function doFuncNightMode(nightMode) {
                 codeLight.attr("rel", "alternate stylesheet");
                 codeNight.attr("rel", "stylesheet");
             }
-            $('#nightModeComment').show();
-            $('#lightModeComment').hide();
             setLocalStorage(nightModeId, true);
         } else if (nightMode.hasClass('fa-lightbulb')) {
             $(document.body).removeClass('night');
@@ -105,13 +102,14 @@ function doFuncNightMode(nightMode) {
                 codeLight.attr("rel", "stylesheet");
             }
 
-            $('#nightModeComment').hide();
-            $('#lightModeComment').show();
             setLocalStorage(nightModeId, false);
         }
         $('#sidebar').removeClass('sidebar-show');
         $("#sidebarToggle").removeClass('menu-ctrl-on');
         $(document.body).removeClass('sidebar-opened');
+        if (typeof renderComment === 'function') {
+            renderComment();
+        }
     })
 }
 
