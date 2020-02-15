@@ -1,10 +1,9 @@
 <script src="${static!}/assets/media/scripts/plugins.js"></script>
 <script src="${static!}/assets/media/scripts/custom.js"></script>
 
-
 <!-- highlight -->
-<script src="${static!}/assets/media/scripts/highlight.min.js"></script>
-<script src="${static!}/assets/media/scripts/highlightjs-line-numbers.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/src/highlightjs-line-numbers.min.js"></script>
 <!-- Md5 Min JS -->
 <script src="${static!}/assets/media/scripts/md5.min.js"></script>
 <#-- 暗夜模式 -->
@@ -13,7 +12,7 @@
 </#if>
 
 <#if settings.visit_statistics!false>
-    <script async src="${static!}/assets/media/scripts/busuanzi.pure.mini.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
 <script type="application/javascript">
@@ -182,7 +181,7 @@
 
 <#--目录-->
 <#if is_post?? && settings.post_toc!true>
-    <script src="${static!}/assets/media/scripts/tocbot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
 
     <script type="application/javascript">
         // 因为不使用后端渲染目录, 所以如果在发布文章的时候在文章开头加上 [TOC] 会在文章页面开头有一个ul 标签

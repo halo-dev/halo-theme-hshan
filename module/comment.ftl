@@ -1,6 +1,6 @@
 <#macro comment target,type>
     <#if !post.disallowComment!false>
-        <script src="${static!}/assets/media/scripts/vue.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
         <#if settings.auto_night_mode>
             <script src="${static!}/assets/media/scripts/halo-comment.min.js"></script>
         <#else>
