@@ -6,7 +6,9 @@
 body.night {
     /*color: #c0c0c0 */
     background-color: var(--night-background);
-    transition: all .6s;
+    -webkit-transition: background .6s ease-in-out,padding .6s ease-in-out;
+    -o-transition: background .6s ease-in-out,padding .6s ease-in-out;
+    transition: background .6s ease-in-out,padding .6s ease-in-out;
     color: var(--night-color) !important;
 }
 
@@ -65,6 +67,10 @@ body.night {
 
 .night img {
     filter: brightness(0.6) !important;
+}
+
+.night .cover-bg img {
+    filter: brightness(0.2) !important;
 }
 
 .night .search-form--modal {
