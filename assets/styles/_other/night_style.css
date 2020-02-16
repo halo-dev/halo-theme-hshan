@@ -1,8 +1,23 @@
-body.night {
-    color: #c0c0c0 !important;
-    background-color: #101012;
-    transition: all .6s;
+@charset "utf-8";
+:root {
+    --night-background: #292a2d;
+    --night-color: #a9a9b3;
 }
+body.night {
+    /*color: #c0c0c0 */
+    background-color: var(--night-background);
+    transition: all .6s;
+    color: var(--night-color) !important;
+}
+
+.night .site-footer {
+    background-color: var(--night-background);
+}
+
+.night .pagination {
+    border-top: 1px solid #d4d3d36e;
+}
+
 
 .night h1,
 .night h2,
@@ -10,11 +25,11 @@ body.night {
 .night h4,
 .night h5,
 .night h6 {
-    color: #c0c0c0 !important;
+    color: var(--night-color) !important;
 }
 
 .night .post-title a, .night .nav-title {
-    color: #c0c0c0;
+    color: var(--night-color);
 }
 
 .night .post-title a:hover {
@@ -22,11 +37,13 @@ body.night {
 }
 
 .night .site-header-scroll {
-    background-color: #101012;
+    /*background-color: #101012;*/
+    background-color: var(--night-background);
 }
 
 .night header a, .night header .fa-search {
-    color: #c0c0c0;
+    color: var(--night-color);
+
 }
 
 .night .appreciate-btn {
@@ -136,5 +153,8 @@ body.night {
 }
 .night .is-active-link + span {
     background: #e5e5e5 !important;
+}
 
+.night .comments-area {
+    border-top: 1px solid #676a6c;
 }
