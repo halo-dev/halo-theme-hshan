@@ -1,9 +1,6 @@
 <script src="${static!}/assets/media/scripts/plugins.js"></script>
 <script src="${static!}/assets/media/scripts/custom.js"></script>
 
-<!-- highlight -->
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/src/highlightjs-line-numbers.min.js"></script>
 <!-- Md5 Min JS -->
 <script src="${static!}/assets/media/scripts/md5.min.js"></script>
 <#-- 暗夜模式 -->
@@ -15,11 +12,21 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
+<!-- highlight -->
+<#if post??>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/src/highlightjs-line-numbers.min.js"></script>
+
+    <script type="application/javascript">
+        // // 代码高亮
+        hljs.initHighlightingOnLoad();
+        // 代码行号
+        hljs.initLineNumbersOnLoad();
+
+    </script>
+</#if>
+
 <script type="application/javascript">
-    // 代码高亮
-    hljs.initHighlightingOnLoad();
-    // 代码行号
-    hljs.initLineNumbersOnLoad();
 
     $(document).ready(function () {
         $(".appreciate-btn").on("click", function (e) {
