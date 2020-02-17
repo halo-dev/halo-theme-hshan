@@ -2249,12 +2249,12 @@ pre .storage {
   width: 50%;
 }
 .nav-previous {
-  float: right;
-  text-align: right;
-}
-.nav-next {
   float: left;
   text-align: left;
+}
+.nav-next {
+  float: right;
+  text-align: right;
 }
 .nav-previous:only-child,
 .nav-next:only-child {
@@ -2317,10 +2317,10 @@ pre .storage {
   width: 80px;
 }
 .nav-previous .nav-before:after {
-  right: 0;
+  left: 0;
 }
 .nav-next .nav-before:after {
-  left: 0;
+  right: 0;
 }
 .nav-title {
   color: #fff;
@@ -2345,9 +2345,9 @@ pre .storage {
     text-align: left;
     width: 100%;
   }
-  .nav-previous .nav-before:after {
+  .nav-previous .nav-before:after,
+  .nav-next .nav-before:after {
     left: 0;
-    right: auto;
   }
   .nav-next + .nav-previous {
     border-top: 1px solid rgba(90, 90, 90, 0.3);
