@@ -48,7 +48,7 @@ body.night {
 }
 
 .night .post-tags a {
-    color: #cd9023;
+    color: var(--base-color);
 }
 
 .night .site-header-scroll {
@@ -66,8 +66,9 @@ body.night {
 }
 
 .night blockquote {
-    background-color: #151313;
-    border-left: 5px solid #cd9023;
+    background-color: #232125;
+    color: #a9a9b3;
+    border-left: 5px solid var(--base-color);
 }
 
 .night .hljs {
