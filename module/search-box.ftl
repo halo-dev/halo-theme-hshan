@@ -2,7 +2,7 @@
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
             <form method="get" action="/search">
-                <input type="text" class="searchbox-input ins-search-input" name="keyword" placeholder="请输入关键字"/>
+                <input type="text" class="searchbox-input ins-search-input" name="keyword" placeholder="请输入关键字" autocomplete="off"/>
             </form>
             <span class="searchbox-close ins-close ins-selectable" onclick="closeSearchPanel()"><i
                         class="fa fa-times"></i></span>
@@ -28,7 +28,7 @@
                     <header class="ins-section-header">分类</header>
                     <div class="level">
                         <div class="columns is-multiline" <#--style="padding: 1.5em 2em"-->>
-                            <@categoryTag method="list">
+                            <@categoryTag method="list" top="5">
                                 <#list categories as category>
                                     <a href="${context!}/categories/${category.slugName!}">
                                         <#--                                        <div class="ant-tag ant-tag-purple is-primary is-focused"-->
@@ -51,7 +51,7 @@
                     <header class="ins-section-header">标签</header>
                     <div class="level">
                         <div class="columns is-multiline" <#--style="padding: 1.5em 2em"-->>
-                            <@tagTag method="list">
+                            <@tagTag method="list" top="5">
                                 <#list tags as tag>
                                     <a href="${context!}/tags/${tag.slugName!}">
 <#--                                        <div class="ant-tag ant-tag-green"-->

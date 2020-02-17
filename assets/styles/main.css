@@ -12,8 +12,8 @@
   --btn-bg-color: whitesmoke;
   --btn-color: #333333;
   --btn-hover-color: #eeeeee;
-  --link-color: #42b983;
-  --link-hover-color: #42b983;
+  --link-color: #cd9023;
+  --link-hover-color: #cd9023;
   /*code highlight*/
   --code-bg-color: #F1F3F3;
   --code-default-color: #A2A1A1;
@@ -281,13 +281,6 @@
  * normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css
  * ----------------------------------------------------------------------------
  */
-@font-face {
-  font-family: 'icomoon';
-  src: url('../media/fonts/icomoon.eot');
-  /* IE9 */
-  src: url('../media/fonts/icomoon.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../media/fonts/icomoon.woff') format('woff'), /* chrome、firefox */ url('../media/fonts/icomoon.ttf') format('truetype'), /* chrome、firefox、opera、Safari、Android、IOS */ url('../media/fonts/icomoon.svg#webfont') format('svg');
-  /* ios 4.1 */
-}
 html {
   font-size: 14px;
   font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
@@ -1644,7 +1637,8 @@ pre .storage {
 .hero-title {
   color: #fff;
   font-size: 48px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
   position: relative;
 }
 .hero-title:after {
@@ -1699,6 +1693,7 @@ pre .storage {
   margin-bottom: 15px;
   margin-top: 0;
   padding: 0;
+  font-weight: 400;
 }
 .post-title a {
   color: #101012;
@@ -1710,7 +1705,7 @@ pre .storage {
   content: "\00a0\002a";
 }
 .post-meta {
-  color: #adabac;
+  color: #5a5a5a;
 }
 .post-meta a {
   color: #34495e;
@@ -1766,7 +1761,7 @@ pre .storage {
   color: #fff;
   font-size: 48px;
   margin-bottom: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   position: relative;
 }
 .post-template .post-title:after,
@@ -2435,7 +2430,6 @@ pre .storage {
   line-height: 30px;
   text-align: center;
   color: #ff4d4d;
-  font-family: icomoon;
   font-size: 12px;
   font-weight: 700;
   margin: 30px auto;
@@ -2472,7 +2466,6 @@ pre .storage {
   position: absolute;
   top: 5px;
   right: 5px;
-  font-family: icomoon;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.6s;
@@ -2627,6 +2620,20 @@ blockquote {
 .post-content > h6:before {
   content: "# ";
   color: #cd9023;
+}
+/*阅读进度样式*/
+#readProgress {
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+/* 阅读进度的进度条颜色 */
+#readProgress .read-progress-bar {
+  background: #2474b5 !important;
+  height: 0.1875rem;
 }
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
@@ -2875,7 +2882,6 @@ blockquote {
   text-align: center;
 }
 .tree-hole-go-aircraft {
-  font-family: icomoon;
   font-size: 20px;
   color: rgba(3, 169, 244, 0.7);
 }
@@ -2959,7 +2965,6 @@ blockquote {
 }
 .page-navigator li a,
 .page-navigator li span {
-  font-family: icomoon;
   color: #8590a6;
   padding: 5px 20px;
   transition: all 0.3s linear;
@@ -3389,6 +3394,25 @@ a.toc-link {
   opacity: 0.8;
   font-weight: 400;
   text-transform: uppercase;
+}
+.s-search input {
+  font-size: 1rem;
+  padding: 12px 24px 12px 64px;
+  width: 100%;
+  outline: 0;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.s-search i {
+  font-size: 32px;
+  line-height: 1;
+  color: #ddd;
+  position: relative;
+  top: 42px;
+  margin-top: -16px;
+  left: 16px;
 }
 .hljs table {
   table-layout: auto;
