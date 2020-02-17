@@ -2,7 +2,12 @@
 :root {
     --night-background: #292a2d;
     --night-color: #a9a9b3;
+    --night-input-backgrround: #232125;
+    --night-input-color: #a9a9b3;
 }
+/*
+ * 基本样式
+ */
 body.night {
     /*color: #c0c0c0 */
     background-color: var(--night-background);
@@ -38,6 +43,14 @@ body.night {
     color: #98A9F9 !important;
 }
 
+.night .post-meta {
+    color: #adabac;
+}
+
+.night .post-tags a {
+    color: #cd9023;
+}
+
 .night .site-header-scroll {
     /*background-color: #101012;*/
     background-color: var(--night-background);
@@ -70,9 +83,11 @@ body.night {
 }
 
 .night .cover-bg img {
-    filter: brightness(0.2) !important;
+    filter: brightness(0.3) !important;
 }
-
+/*
+搜索框
+ */
 .night .search-form--modal {
     background-color: #4e4e4f;
 }
@@ -87,6 +102,15 @@ body.night {
 .night .search_close:before, .night .search_close:after {
     background-color: #ffffff;
 }
+
+.night .searchbox .searchbox-input-wrapper .searchbox-input {
+    background-color: var(--night-input-backgrround) !important;
+    color: var(--night-input-color) !important;
+}
+
+/*
+ 日志页面
+ */
 
 .night .tree-hole-author, .night .tree-hole-box a {
     color: #ffffff;
@@ -119,10 +143,6 @@ body.night {
     background-color: rgba(0, 0, 0, .4) ;
 }
 
-.night .searchbox .searchbox-input-wrapper .searchbox-input {
-    background-color: rgba(0, 0, 0, .3);
-}
-
 .night .ins-section-container {
     background-color: rgba(0, 0, 0, .6);
 }
@@ -138,6 +158,10 @@ body.night {
 .night .qr-code.qr-code-display {
     box-shadow: none;
 }
+
+/*
+ 目录
+ */
 
 .night a.toc-link {
     color: #8e8787;
@@ -161,6 +185,32 @@ body.night {
     background: #e5e5e5 !important;
 }
 
+/*
+ 评论
+ */
 .night .comments-area {
     border-top: 1px solid #676a6c;
+}
+
+
+ /*
+ 无搜索结果页面 样式
+  */
+
+.night .s-search input {
+    background-color: var(--night-input-backgrround) !important;
+    color: var(--night-input-color) !important;
+    border-color: var(--night-color);
+}
+
+.night .s-search i {
+    color: var(--night-color);
+}
+
+.night .ins-section .ins-section-header {
+    border-bottom: 1px solid #36393c;
+}
+
+.night .searchbox .searchbox-input-wrapper .searchbox-input {
+    border-bottom: 1px solid #36393c;
 }

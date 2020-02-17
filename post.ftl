@@ -4,13 +4,16 @@
     <body class="post-template" id="postTemplate">
     <div id="page" class="site">
         <#include "module/header.ftl">
-        <main class="site-main">
+        <div id="readProgress">
+            <div class="read-progress-bar" role="progressbar" style="width: 0"></div>
+        </div>
+        <main class="site-main" id="siteMain">
             <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
                     <header class="cover post-header" id="postHeader">
                         <#if post.thumbnail?? && post.thumbnail!=''>
                             <div class="cover-bg">
-                                <img src="${post.thumbnail!}" alt="${post.title!}">
+                                <img src="${post.thumbnail!}" alt="${post.title!}"/>
                             </div>
                         <#else>
                             <div class="cover-bg"

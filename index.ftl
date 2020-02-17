@@ -43,7 +43,7 @@
                                             <a href="${context!}/archives/${post.url!}">${post.title!}</a>
                                         </h2>
                                         <div class="post-meta">
-                                            <span class="post-author">${post.visits!} 次访问</span>
+                                            <span class="post-author"><i class="fa fa-eye"></i> ${post.visits!} 次访问</span>
                                             <#if post.topPriority?? && post.topPriority gt 0>
                                                 <span class="tag tag-primary">已置顶</span>
                                             </#if>
@@ -51,7 +51,7 @@
                                                   datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
                                             </time>
                                             <#if settings.post_summary!false>
-                                                <p style="margin-top:10px;">
+                                                <p style="margin-top:10px; font-size: 1.1rem;">
                                                     ${post.summary!}
                                                     <#if post.summary?? && post.summary != ''>
                                                         ...
