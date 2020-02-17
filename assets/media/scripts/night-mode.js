@@ -37,8 +37,8 @@ function changeLightMode(codeNight, codeLight, nightModes) {
     }
     for (let i = 0; i < nightModes.length; i++) {
         let nightMode = $(nightModes[i]);
-        nightMode.addClass('fa-moon');
-        nightMode.removeClass('fa-lightbulb');
+        nightMode.addClass('fa-moon-o');
+        nightMode.removeClass('fa-lightbulb-o');
     }
     setLocalStorage(nightModeId, false)
 }
@@ -51,8 +51,8 @@ function changeNightMode(codeNight, codeLight, nightModes) {
     }
     for (let i = 0; i < nightModes.length; i++) {
         let nightMode = $(nightModes[i]);
-        nightMode.addClass('fa-lightbulb');
-        nightMode.removeClass('fa-moon');
+        nightMode.addClass('fa-lightbulb-o');
+        nightMode.removeClass('fa-moon-o');
     }
     setLocalStorage(nightModeId, true)
 }
@@ -72,11 +72,11 @@ function nightModeFuc() {
 function doFuncNightMode(nightMode) {
     var nightModeBtn = $('.night-mode');
     if ($(document.body).hasClass('night')) {
-        nightModeBtn.addClass('fa-lightbulb');
-        nightModeBtn.removeClass('fa-moon');
+        nightModeBtn.addClass('fa-lightbulb-o');
+        nightModeBtn.removeClass('fa-moon-o');
     } else {
-        nightModeBtn.addClass('fa-moon');
-        nightModeBtn.removeClass('fa-lightbulb');
+        nightModeBtn.addClass('fa-moon-o');
+        nightModeBtn.removeClass('fa-lightbulb-o');
     }
 
     var codeNight = $('#codeNight');
@@ -84,19 +84,19 @@ function doFuncNightMode(nightMode) {
 
 
     nightMode.click(function (e) {
-        if (nightMode.hasClass('fa-moon')) {
+        if (nightMode.hasClass('fa-moon-o')) {
             $(document.body).addClass('night');
-            nightModeBtn.addClass('fa-lightbulb');
-            nightModeBtn.removeClass('fa-moon');
+            nightModeBtn.addClass('fa-lightbulb-o');
+            nightModeBtn.removeClass('fa-moon-o');
             if (codeNight && codeLight) {
                 codeLight.attr("rel", "alternate stylesheet");
                 codeNight.attr("rel", "stylesheet");
             }
             setLocalStorage(nightModeId, true);
-        } else if (nightMode.hasClass('fa-lightbulb')) {
+        } else if (nightMode.hasClass('fa-lightbulb-o')) {
             $(document.body).removeClass('night');
-            nightModeBtn.addClass('fa-moon');
-            nightModeBtn.removeClass('fa-lightbulb');
+            nightModeBtn.addClass('fa-moon-o');
+            nightModeBtn.removeClass('fa-lightbulb-o');
             if (codeNight && codeLight) {
                 codeNight.attr("rel", "alternate stylesheet");
                 codeLight.attr("rel", "stylesheet");

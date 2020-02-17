@@ -2,16 +2,14 @@
 <@layout title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
     <body class="home-template">
     <div id="page" class="site">
-
         <#include "module/header.ftl">
-
         <main class="site-main">
             <div class="site-content">
                 <!-- 封面 -->
                 <div class="cover hero">
                     <div class="cover-bg"
                          style="background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);">
-                        <img src="${settings.home_cover!'${static}/assets/media/images/home-cover.jpg'}">
+                        <img src="${settings.home_cover!'https://tva1.sinaimg.cn/large/0082zybply1gbzqqf63ajj31870u0wqe.jpg'}">
                     </div>
                     <div class="cover-content">
                         <!-- 封面内容 -->

@@ -13,6 +13,12 @@ genernal:
       label: 首页描述
       type: text
       placeholder: '用于首页描述'
+    base_color:
+      name: base_color
+      label: 网站主题色
+      type: color
+      default: '#2474b5'
+      placeholder: '网站主题色'
     home_cover:
       name: home_cover
       label: 首页背景
