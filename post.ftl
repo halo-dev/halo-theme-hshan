@@ -82,8 +82,30 @@
                     <nav class="post-navigation" id="post-navigation">
                         <h2 class="screen-reader-text">Post navigation</h2>
                         <div class="nav-links">
+                            <#if prePost??>
+                                <a href="${context!}/archives/${prePost.url!}" class="nav-previous">
+                                    <div class="nav-bg"
+                                            <#if !(prePost.thumbnail?? && prePost.thumbnail!='')>
+                                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
+                                            </#if>
+                                    >
+
+                                        <img srcset="${prePost.thumbnail!} 300w, ${prePost.thumbnail!} 600w, ${prePost.thumbnail!} 800w, ${prePost.thumbnail!} 1600w, ${prePost.thumbnail!} 2000w"
+                                             sizes="(max-width: 800px) 100vw, 50vw" src="${prePost.thumbnail!}" alt=""
+                                        />
+
+                                    </div>
+                                    <div class="nav-inside">
+                                        <span class="nav-before">上一篇</span>
+                                        <span class="nav-title">${prePost.title!}</span>
+                                        <span class="nav-date"><time class="published"
+                                                                     datetime="${prePost.createTime?string("yyyy-MM-dd")}">${prePost.createTime?string("yyyy-MM-dd")}
+                                        </time></span>
+                                    </div>
+                                </a>
+                            </#if>
                             <#if nextPost??>
-                                <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
+                                <a href="${context!}/archives/${nextPost.url!}" class="nav-next">
                                     <div class="nav-bg"
                                             <#if !(nextPost.thumbnail?? && nextPost.thumbnail!='')>
                                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"

@@ -2365,13 +2365,13 @@ pre .storage {
 }
 
 .nav-previous {
-  float: right;
-  text-align: right;
+  float: left;
+  text-align: left;
 }
 
 .nav-next {
-  float: left;
-  text-align: left;
+  float: right;
+  text-align: right;
 }
 
 .nav-previous:only-child,
@@ -2444,11 +2444,13 @@ pre .storage {
 }
 
 .nav-previous .nav-before:after {
-  right: 0;
+  //right: 0;
+  left: 0;
 }
 
 .nav-next .nav-before:after {
-  left: 0;
+  //left: 0;
+  right: 0;
 }
 
 .nav-title {
@@ -2477,9 +2479,8 @@ pre .storage {
     width: 100%;
   }
 
-  .nav-previous .nav-before:after {
+  .nav-previous .nav-before:after ,.nav-next .nav-before:after{
     left: 0;
-    right: auto;
   }
 
   .nav-next + .nav-previous {
