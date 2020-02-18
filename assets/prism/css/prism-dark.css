@@ -10,10 +10,10 @@ pre[class*="language-"] {
     background-color: var(--code-dark-bg-color) !important;
 }
 
-pre[class*="language-"],
-:not(pre) > code[class*="language-"] {
-    background: var(--dark-backgound);
-}
+/*pre[class*="language-"],*/
+/*:not(pre) > code[class*="language-"] {*/
+/*    background: var(--dark-backgound);*/
+/*}*/
 
 :not(pre) > code[class*="language-"] {
     border: red;
@@ -23,7 +23,7 @@ pre[class*="language-"],
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: var(--code-cdata-color);
+    color: var(--code-dark-cdata-color);
 }
 
 .token.property,
@@ -32,7 +32,7 @@ pre[class*="language-"],
 .token.number,
 .token.constant,
 .token.symbol {
-    color: var(--code-symbol-color);
+    color: var(--code-dark-symbol-color);
 }
 
 .token.selector,
@@ -41,7 +41,7 @@ pre[class*="language-"],
 .token.char,
 .token.builtin,
 .token.inserted {
-    color: var(--code-class-color);
+    color: var(--code-dark-class-color);
 }
 
 .token.operator,
@@ -50,13 +50,13 @@ pre[class*="language-"],
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-    color: var(--code-variable-color);
+    color: var(--code-dark-variable-color);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-    color: var(--code-keyworks-color);
+    color: var(--code-dark-keywords-color);
 }
 
 .token.regex,
