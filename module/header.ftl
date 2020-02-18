@@ -20,7 +20,7 @@
                     <#if settings.top_search!true>
                         <li class="menu-item home current-menu-item">
                             <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
-                               style="color:#cd9023; font-size: 20px;"></i>
+                               style="font-size: 20px;"></i>
                         </li>
                     </#if>
                 </ul>
