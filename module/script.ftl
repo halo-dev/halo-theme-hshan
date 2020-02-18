@@ -23,8 +23,23 @@
         hljs.initHighlightingOnLoad();
         // 代码行号
         hljs.initLineNumbersOnLoad();
-
     </script>
+
+    <div class="qr-code">
+        <span class="closinglayer"><i class="fa fa-times"></i></span>
+        <#if settings.QR_code_zfb??>
+            <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
+        </#if>
+        <#if settings.QR_code_wx??>
+            <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
+        </#if>
+        <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
+            <div class="switch-btn">
+                <span class="zfb-btn">支付宝</span>
+                <span class="wx-btn">微信</span>
+            </div>
+        </#if>
+    </div>
 </#if>
 
 <#--目录-->
@@ -72,22 +87,6 @@
         show_date_time();
     </script>
 </#if>
-
-<div class="qr-code">
-    <span class="closinglayer"><i class="fa fa-times"></i></span>
-    <#if settings.QR_code_zfb??>
-        <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
-    </#if>
-    <#if settings.QR_code_wx??>
-        <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
-    </#if>
-    <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
-        <div class="switch-btn">
-            <span class="zfb-btn">支付宝</span>
-            <span class="wx-btn">微信</span>
-        </div>
-    </#if>
-</div>
 
 <#if settings.Custom_js_foot??>
     <script type="text/javascript">
