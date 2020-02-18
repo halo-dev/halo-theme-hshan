@@ -20,8 +20,15 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 
         <style >
-            :root{
-                --base-color: ${settings.base_color?default('#2474b5')}
+            :root {
+                --base-color: ${settings.base_color?default('#2474b5')};
+                --index-title-color: #5f6169;
+                --base-font-color: #34495e;
+                --summary-color: #81878f;
+                --night-input-color: #a9a9b3;
+                --night-background: #292a2d;
+                --night-color: #a9a9b3;
+                --night-input-backgrround: #232125;
             }
         </style>
 
