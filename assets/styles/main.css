@@ -1153,9 +1153,9 @@ pre .storage {
 /* Circle Icons */
 .circle {
   background-color: transparent;
-  border: 1px solid #34495e;
+  border: 1px solid #d4d3d3;
   border-radius: 50%;
-  color: #d4d3d3;
+  color: #34495e;
   display: inline-block;
   font-size: 16px;
   height: 40px;
@@ -2601,7 +2601,7 @@ blockquote {
   height: 0.1875rem;
 }
 .post-item {
-  margin-bottom: 60px;
+  margin-bottom: 90px;
   position: relative;
   transition: all 0.3s;
   letter-spacing: 2px;
