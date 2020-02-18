@@ -82,12 +82,12 @@
                             <a href="${context!}">PAGE ${posts.number + 1} OF ${posts.totalPages!} </a>
                         </span>
                         <#if posts.hasPrevious()>
-                            <a class="newer-posts arrow-left" href="${context!}/tags/${tag.name}/page/${posts.number}"><span
+                            <a class="newer-posts arrow-left" href="${context!}/tags/${tag.slugName!}/page/${posts.number}"><span
                                         class="screen-reader-text"></span></a>
                         </#if>
                         <#if posts.hasNext()>
                             <a class="older-posts arrow-right"
-                               href="${context!}/tags/${tag.name}/page/${posts.number+2}"><span
+                               href="${context!}/tags/${tag.slugName!}/page/${posts.number+2}"><span
                                         class="screen-reader-text"></span></a>
                         </#if>
                     </div>

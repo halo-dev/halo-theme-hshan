@@ -31,8 +31,6 @@
                             <@categoryTag method="list" top="5">
                                 <#list categories as category>
                                     <a href="${context!}/categories/${category.slugName!}">
-                                        <#--                                        <div class="ant-tag ant-tag-purple is-primary is-focused"-->
-                                        <#--                                             style="margin-bottom: 8px;"> ${category.name!}</div>-->
                                         <div class="ins-selectable ins-search-item">
                                             <header>
                                                 <i class="fa fa-folder"></i>
@@ -54,8 +52,6 @@
                             <@tagTag method="list" top="5">
                                 <#list tags as tag>
                                     <a href="${context!}/tags/${tag.slugName!}">
-<#--                                        <div class="ant-tag ant-tag-green"-->
-<#--                                             style="margin-bottom: 8px;"> ${tag.name!}</div>-->
 
                                         <div class="ins-selectable ins-search-item">
                                             <header>
