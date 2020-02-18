@@ -1,0 +1,185 @@
+/* PrismJS 1.17.1
+https://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+javascript */
+/**
+ * prism.js Dark theme for JavaScript, CSS and HTML
+ * Based on the slides of the talk “/Reg(exp){2}lained/”
+ * @author Lea Verou
+ */
+
+code {
+	font-size: .875em;
+	font-weight: 400;
+	padding: .25em .5em .25em;
+	border-radius: 2px;
+}
+pre[class*="language-"] {
+	overflow-y: hidden;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+	font-size: 0.95rem;
+	padding-bottom: 0 !important;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+	background: none;
+	font-weight: 400;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	border-radius: 2px;
+	line-height: 2;
+	overflow-y: hidden;
+
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .15em .2em .05em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+
+
+.token.punctuation {
+	opacity: .7;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+
+
+
+
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+
+
+
+div.code-toolbar {
+	position: relative;
+}
+
+div.code-toolbar > .toolbar {
+	position: absolute;
+	top: .3em;
+	right: .2em;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+div.code-toolbar:hover > .toolbar {
+	opacity: 1;
+}
+
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+	opacity: 1;
+}
+
+div.code-toolbar > .toolbar .toolbar-item {
+	display: inline-block;
+}
+div.code-toolbar > .toolbar .toolbar-item:not(:first-child){
+	margin-left: 10px;
+}
+
+div.code-toolbar > .toolbar a {
+	cursor: pointer;
+}
+
+div.code-toolbar > .toolbar button {
+	background: none;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-user-select: none; /* for button */
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+	font-size: .8em;
+	padding: .5em 1em;
+	border-radius: 2px;
+}
+div.code-toolbar > .toolbar a:not(:first-child),
+div.code-toolbar > .toolbar button:not(:first-child),
+div.code-toolbar > .toolbar span:not(:first-child) {
+	margin-left: 10px;
+}
+
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: 1;
+}
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+	/*background-color: #403E3E;*/
+}
+pre {
+	-webkit-overflow-scrolling: touch;
+	background-color: #f5f5f5;
+	color: #4a4a4a;
+	font-size: .875em;
+	overflow-x: auto;
+	padding: 1.25rem 1.5rem;
+	white-space: pre;
+	word-wrap: normal;
+}
