@@ -217,3 +217,8 @@ body.night {
 .night .post-item .post-item-title a span{
     filter: brightness(0.6) !important;
 }
+
+.night .circle {
+    border: 1px solid #34495e;
+    color: #d4d3d3;
+}
