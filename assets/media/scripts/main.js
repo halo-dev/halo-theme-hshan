@@ -52,10 +52,6 @@ if (sidebarToggle) {
 	}
 }
 
-console.clear();
-console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
-console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
-
 $(function () {
 	function linksAddBlank() {
 		var links = $(".post-content a");

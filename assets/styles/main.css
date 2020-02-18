@@ -2547,9 +2547,6 @@ blockquote {
   z-index: 999;
   line-height: 2rem;
 }
-.post-content pre code {
-  font-size: 14px;
-}
 .post-content img {
   clear: both;
   display: block;

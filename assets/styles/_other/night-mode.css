@@ -226,3 +226,7 @@ body.night {
     border: 1px solid #34495e;
     color: #d4d3d3;
 }
+
+.night div.code-toolbar > .toolbar .toolbar-item {
+    background-color: var(--code-line-numbers-rows-color) !important;
+}
