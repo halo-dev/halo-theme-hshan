@@ -13,17 +13,10 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
+<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism.js"></script>
+<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism-line-numbers.js"></script>
 <!-- highlight -->
 <#if post??>
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/src/highlightjs-line-numbers.min.js"></script>
-
-    <script type="application/javascript">
-        // // 代码高亮
-        hljs.initHighlightingOnLoad();
-        // 代码行号
-        hljs.initLineNumbersOnLoad();
-    </script>
 
     <div class="qr-code">
         <span class="closinglayer"><i class="fa fa-times"></i></span>
