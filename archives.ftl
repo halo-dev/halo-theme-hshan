@@ -28,7 +28,7 @@
 
                 <div id="post-list" class="post-list inner" style="padding-top: 30px;margin-bottom: 30px;">
                     <#list archives as archive>
-                        <article class="post" style="margin-bottom: 0 !important;">
+                        <article class="post">
                             <!-- post-header -->
                             <header class="post-header" style="margin-bottom: 0 !important;">
                                 <div class="post-header-wrap">
