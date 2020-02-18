@@ -21,11 +21,6 @@ blockquote {
 .fab {
   font-size: 2.3rem;
 }
-
-//.post-content ul:first-child {
-//  display:none;
-//}
-
 .post-content p {
   font-weight: 400;
   text-indent: 0;
@@ -95,4 +90,50 @@ blockquote {
 #readProgress .read-progress-bar {
   background: #2474b5 !important;
   height: 0.1875rem;
+}
+
+.post-item {
+  margin-bottom: 60px;
+  position: relative;
+  transition: all 0.3s;
+  letter-spacing: 2px;
+}
+
+.post-item .post-header-wrap:before {
+  content: none !important;
+}
+.post-item .post-item-title a{
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--index-title-color);
+}
+
+.post-item .post-item-summary {
+  font-size: 13px;
+  color: var(--summary-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 992px) {
+  .post-item .post-item-title a{
+    font-size: 17px;
+    font-weight: bold;
+  }
+}
+
+.post-item .post-item-info .post-item-tags {
+  margin: 0 10px;
+}
+
+.post-item .post-item-info  {
+  font-size: .8rem;
+}
+
+.post-item:hover{
+  transform: scale(1.012);
 }

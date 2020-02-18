@@ -33,6 +33,17 @@ genernal:
       label: 菜单logo高度
       type: text
       placeholder: '比如: 20px'
+    post_list_style:
+      name: post_list_style
+      label: 首页文章风格
+      type: radio
+      data-type: string
+      default: standard
+      options:
+        - value: standard
+          label: 风格1
+        - value: simple
+          label: 风格2
     auto_night_mode:
       name: auto_night_mode
       label: 暗夜模式总开关

@@ -1,10 +1,4 @@
 @charset "utf-8";
-:root {
-    --night-background: #292a2d;
-    --night-color: #a9a9b3;
-    --night-input-backgrround: #232125;
-    --night-input-color: #a9a9b3;
-}
 /*
  * 基本样式
  */
@@ -22,7 +16,7 @@ body.night {
 }
 
 .night .pagination {
-    border-top: 1px solid #d4d3d36e;
+    /*border-bottom: 1px solid #d4d3d36e;*/
 }
 
 
@@ -214,4 +208,12 @@ body.night {
 
 .night .searchbox .searchbox-input-wrapper .searchbox-input {
     border-bottom: 1px solid #36393c;
+}
+
+.night .post-item .post-item-title a{
+    color: var(--night-color) !important;
+}
+
+.night .post-item .post-item-title a span{
+    filter: brightness(0.6) !important;
 }
