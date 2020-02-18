@@ -210,6 +210,10 @@ body.night {
     border-bottom: 1px solid #36393c;
 }
 
+.night .searchbox .searchbox-result-wrapper {
+    background-color: var(--night-input-backgrround);
+}
+
 .night .post-item .post-item-title a{
     color: var(--night-color) !important;
 }

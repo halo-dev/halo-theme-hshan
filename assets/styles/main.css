@@ -2601,7 +2601,7 @@ blockquote {
   height: 0.1875rem;
 }
 .post-item {
-  margin-bottom: 90px;
+  margin-bottom: 80px;
   position: relative;
   transition: all 0.3s;
   letter-spacing: 2px;
@@ -2615,7 +2615,8 @@ blockquote {
   color: var(--index-title-color);
 }
 .post-item .post-item-summary {
-  font-size: 13px;
+  margin: 10px 0;
+  font-size: 14px;
   color: var(--summary-color);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -2626,7 +2627,6 @@ blockquote {
 }
 @media (max-width: 992px) {
   .post-item .post-item-title a {
-    font-size: 17px;
     font-weight: bold;
   }
 }
