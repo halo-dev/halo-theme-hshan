@@ -10,11 +10,6 @@ pre[class*="language-"] {
     background-color: var(--code-dark-bg-color) !important;
 }
 
-/*pre[class*="language-"],*/
-/*:not(pre) > code[class*="language-"] {*/
-/*    background: var(--dark-backgound);*/
-/*}*/
-
 :not(pre) > code[class*="language-"] {
     border: red;
 }
