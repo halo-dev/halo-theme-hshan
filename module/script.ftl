@@ -90,3 +90,9 @@
 <#if settings.Custom_js_foot_src??>
     ${settings.Custom_js_foot_src!}
 </#if>
+
+<script type="text/javascript">
+    console.clear();
+    console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
+    console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
+</script>
