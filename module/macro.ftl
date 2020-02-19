@@ -18,8 +18,9 @@
         <style >
             :root {
                 --base-color: ${settings.base_color?default('#2474b5')};
-                --index-title-color: #5f6169;
+                --index-title-color: #555;
                 --base-font-color: #34495e;
+                /*--summary-color: #555;*/
                 --summary-color: #81878f;
                 --night-input-color: #a9a9b3;
                 --night-background: #292a2d;
@@ -71,10 +72,10 @@
             }
         </style>
 
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/css/prism.css">
-        <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/css/prism-dark.css">
-        <link rel="stylesheet" id="codeLight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/css/prism-light.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/css/prism-line-numbers.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.11/assets/prism/css/prism.css">
+        <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.11/assets/prism/css/prism-dark.css">
+<#--        <link rel="stylesheet" id="codeLight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/css/prism-light.css">-->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.11/assets/prism/css/prism-line-numbers.css">
 
 
         <#if settings.Custom_css_src??>
