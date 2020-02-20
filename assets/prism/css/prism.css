@@ -77,10 +77,6 @@ pre[class*="language-"] {
 }
 
 
-
-
-
-
 .token.important,
 .token.bold {
 	font-weight: bold;
@@ -173,7 +169,7 @@ div.code-toolbar > .toolbar span:focus {
 	text-align: right;
 	/*background-color: #403E3E;*/
 }
-pre {
+div.code-toolbar pre {
 	-webkit-overflow-scrolling: touch;
 	background-color: #f5f5f5;
 	color: #4a4a4a;
@@ -184,7 +180,7 @@ pre {
 	word-wrap: normal;
 }
 
-code {
+div.code-toolbar code {
 	color: var(--color);
 	background-color: var(--code-bg-color);
 	font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
@@ -273,7 +269,6 @@ div.code-toolbar > .toolbar a,
 div.code-toolbar > .toolbar button,
 div.code-toolbar > .toolbar span {
 	background: var(--code-toolbar-bg-color) !important;
-	/*box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);*/
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 

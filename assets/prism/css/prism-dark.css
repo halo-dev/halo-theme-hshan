@@ -1,4 +1,4 @@
-code {
+div.code-toolbar code {
     color: var(--code-dark-color);
     background-color: var(--code-dark-bg-color);
     font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
