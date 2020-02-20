@@ -99,8 +99,8 @@ function doFuncNightMode(nightMode) {
 
             setLocalStorage(nightModeId, false);
         }
-        $('#sidebar').removeClass('sidebar-show');
-        $("#sidebarToggle").removeClass('menu-ctrl-on');
+        // $('#sidebar').removeClass('sidebar-show');
+        // $("#sidebarToggle").removeClass('menu-ctrl-on');
         $(document.body).removeClass('sidebar-opened');
         if (typeof renderComment === 'function') {
             renderComment();

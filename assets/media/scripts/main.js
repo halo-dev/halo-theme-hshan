@@ -38,17 +38,26 @@ let sidebarToggle = document.querySelectorAll('.sidebar-toggle');
 if (sidebarToggle) {
 	for (let i = 0; i < sidebarToggle.length; i++) {
 		sidebarToggle[i].addEventListener('click', function (e) {
-			document.body.classList.toggle('sidebar-opened');
 			var menuCtrl = $("#sidebarToggle");
 			if (menuCtrl) {
 				menuCtrl.toggleClass('menu-ctrl-on');
 			}
-			var sidebar = $("#sidebar");
-			if (sidebar) {
-				sidebar.toggleClass('sidebar-show');
+			var scrollMenu = $('#scrollMenu');
+			if (scrollMenu) {
+				scrollMenu.toggleClass('scroll-menu-show');
 			}
-			e.preventDefault();
-		});
+			var siteHeader = $('#siteHeader');
+			if (siteHeader) {
+				siteHeader.toggleClass('site-header-scroll');
+			}
+			var sideBar = $('#sidebar');
+			if (sideBar) {
+				sideBar.toggleClass('sidebar-show');
+			}
+			e.preventDefault()
+			// 滚动条
+			$(document.body).toggleClass('cancel-scroll');
+		}, { passive: false });
 	}
 }
 
@@ -101,10 +110,7 @@ $(function () {
 			$('#sidebar').removeClass('sidebar-show');
 			$("#sidebarToggle").removeClass('menu-ctrl-on');
 			$(document.body).removeClass('sidebar-opened');
-		});
-
-		$('#sidebarToggle').on('click', function () {
-			$('#sidebar').show();
+			$(document.body).removeClass('cancel-scroll');
 		});
 	}
 

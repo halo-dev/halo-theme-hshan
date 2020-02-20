@@ -1359,8 +1359,7 @@ pre .storage {
   left: 0;
   z-index: 998;
   padding: 0;
-  background-color: #101012;
-  bottom: 0;
+  top: 0;
   color: #d4d3d3;
   -webkit-overflow-scrolling: touch;
   text-align: center;
@@ -1370,33 +1369,27 @@ pre .storage {
   transform-origin: 50% 0;
   height: 0;
   overflow: hidden;
-  -webkit-transition: all .3s;
-  -o-transition: all .3s;
-  -moz-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all .6s;
+  -o-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
   width: 100%;
-  margin-top: 52px;
+  padding-top: 52px;
 }
 
 .sidebar-show {
   height: 100%;
+  background-color: #ffffff;
 }
-//
-//.sidebar-scrollable {
-//  height: 100%;
-//  overflow: auto;
-//  -webkit-overflow-scrolling: touch;
-//  position: relative;
-//}
 
 .sidebar .inner {
   padding-bottom: 60px;
-  padding-top: 52px;
+  //padding-top: 52px;
 }
 
 .sidebar .widget-area {
-  border-bottom: 1px solid #34495e;
-  border-top: 1px solid #34495e;
+  //border-bottom: 1px solid #34495e;
+  //border-top: 1px solid #34495e;
   padding-top: 45px;
 }
 
@@ -1436,11 +1429,17 @@ pre .storage {
 }
 
 .site-navigation .menu-item {
-  font-size: 18px;
+  //font-size: 18px;
   letter-spacing: 2px;
   line-height: 1.5;
-  margin-bottom: 15px;
+  padding: 15px;
   text-transform: uppercase;
+  //border-bottom: 1px solid #efefef;
+  //line-height: 60px;
+  width: 90%;
+  margin:0 auto;
+  font-size: 1.4rem;
+
 }
 
 .site-navigation .menu-item a {
@@ -1480,12 +1479,12 @@ pre .storage {
   width: 135px;
 }
 
-.sidebar-opened .site {
-  height: 100%;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
+//.sidebar-opened .site {
+//  height: 100%;
+//  overflow: hidden;
+//  position: fixed;
+//  width: 100%;
+//}
 
 .sidebar-opened .sidebar {
   right: 0;
@@ -2731,7 +2730,7 @@ pre .storage {
 .tag {
   //display: inline-block;
   padding: .15em .4em;
-  font-size: 75%;
+  //font-size: 75%;
   font-weight: 700;
   line-height: 1;
   text-align: center;
@@ -2746,3 +2745,14 @@ pre .storage {
   background-color: var(--base-color);
 }
 
+.site-navigation h2 {
+  padding: 0;
+}
+
+.sidebar .widget-area {
+  padding-top: 20px !important;
+}
+
+.cancel-scroll {
+  overflow-y: hidden !important;
+}

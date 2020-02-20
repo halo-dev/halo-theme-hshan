@@ -77,6 +77,11 @@ body.night {
     filter: brightness(0.6) !important;
 }
 
+.night .post-content img {
+    filter: brightness(0.8) !important;
+}
+
+
 .night .cover-bg img {
     filter: brightness(0.3) !important;
 }
@@ -216,6 +221,8 @@ body.night {
 
 .night .post-item .post-item-title a{
     color: var(--night-color) !important;
+    background-image: -webkit-gradient(linear, left top, right top, from(var(--night-color)), to(var(--night-color)));
+    background-image: linear-gradient(to right, var(--night-color) 0%, var(--night-color) 100%);
 }
 
 .night .post-item .post-item-title a span{
@@ -225,4 +232,8 @@ body.night {
 .night .circle {
     border: 1px solid #34495e;
     color: #d4d3d3;
+}
+
+.night .sidebar {
+    background-color: var(--night-background);
 }
