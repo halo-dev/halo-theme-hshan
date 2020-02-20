@@ -1,12 +1,15 @@
 <#include "mathjax.ftl">
-<script src="${static!}/assets/media/scripts/plugins.js"></script>
-<script src="${static!}/assets/media/scripts/main.js"></script>
+<#--<script src="${static!}/assets/media/scripts/plugins.js"></script>-->
+<#--<script src="${static!}/assets/media/scripts/main.js"></script>-->
+<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/media/scripts/plugins.js"></script>
+<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/media/scripts/main.js"></script>
 
 <!-- Md5 Min JS -->
-<script src="${static!}/assets/media/scripts/md5.min.js"></script>
+<#--<script src="${static!}/assets/media/scripts/md5.min.js"></script>-->
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>
-    <script src="${static!}/assets/media/scripts/night-mode.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/media/scripts/night-mode.js"></script>
+<#--    <script src="${static!}/assets/media/scripts/night-mode.js"></script>-->
 </#if>
 
 <#if settings.visit_statistics!false>
