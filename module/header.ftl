@@ -3,7 +3,6 @@
         <div class="widget-area">
             <!-- 菜单 -->
             <nav class="site-navigation">
-                <h2>${options.blog_title!}</h2>
                 <ul class="menu">
                     <@menuTag method="tree">
                         <#list menus?sort_by('priority') as menu>
@@ -30,10 +29,10 @@
 </aside>
 
 <header class="site-header" id="siteHeader">
-    <div id="scrollMenu" style="display: none;" class="scroll-menu header-inner">
+    <div id="scrollMenu" class="scroll-menu header-inner">
         <div class="menu-items">
             <#if settings.header_logoimg?? && settings.header_logoimg!=''>
-                <a href="${context!}" style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;" onfocus="this.blur();">
+                <a href="${context!}" id="headerLogo" style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;" onfocus="this.blur();">
                     <img src="${settings.header_logoimg}" alt="${options.blog_title!}"
                             <#if settings.header_logo_height?? && settings.header_logo_height != ''>
                                 style=" height: ${settings.header_logo_height} "

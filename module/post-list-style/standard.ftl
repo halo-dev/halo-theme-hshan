@@ -24,11 +24,8 @@
                                   datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
                             </time>
                             <#if settings.post_summary!false>
-                                <p class="">
+                                <p class="post-item-summary">
                                     ${post.summary!}
-                                    <#if post.summary?? && post.summary != ''>
-                                        ...
-                                    </#if>
                                 </p>
                             </#if>
                         </div>

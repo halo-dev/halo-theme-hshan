@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="${static!}/assets/styles/_other/night-mode.css">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 
-        <style >
+        <style>
             :root {
                 --base-color: ${settings.base_color?default('#2474b5')};
                 --index-title-color: #555;
@@ -71,11 +71,12 @@
 
             }
         </style>
-
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.11/assets/prism/css/prism.css">
-        <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.11/assets/prism/css/prism-dark.css">
-<#--        <link rel="stylesheet" id="codeLight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/css/prism-light.css">-->
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.11/assets/prism/css/prism-line-numbers.css">
+        <link rel="stylesheet" href="${static!}/assets/prism/css/prism.css">
+        <link rel="stylesheet alternate" id="codeNight" href="${static!}/assets/prism/css/prism-dark.css">
+        <link rel="stylesheet" href="${static!}/assets/prism/css/prism-line-numbers.css">
+        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.13/assets/prism/css/prism.css">-->
+        <#--        <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.13/assets/prism/css/prism-dark.css">-->
+                <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.12/assets/prism/css/prism-line-numbers.css">
 
 
         <#if settings.Custom_css_src??>
