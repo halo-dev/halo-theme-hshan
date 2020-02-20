@@ -9,10 +9,12 @@
         <meta name="description" content="${description!}"/>
 
         <@global.head />
-        <link rel="stylesheet" href="${static!}/assets/styles/main.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"
-              type='text/css' media='all'/>
+
+<#--                <link rel="stylesheet" href="${static!}/assets/styles/main.css">-->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/main.css">
         <link rel="stylesheet" href="${static!}/assets/styles/_other/night-mode.css">
+        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/_other/night-mode.css">-->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 
         <style>
@@ -71,13 +73,11 @@
 
             }
         </style>
-<#--        <link rel="stylesheet" href="${static!}/assets/prism/css/prism.css">-->
-<#--        <link rel="stylesheet alternate" id="codeNight" href="${static!}/assets/prism/css/prism-dark.css">-->
-<#--        <link rel="stylesheet" href="${static!}/assets/prism/css/prism-line-numbers.css">-->
-                <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.14/assets/prism/css/prism.css">
-                <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.14/assets/prism/css/prism-dark.css">
-                <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.12/assets/prism/css/prism-line-numbers.css">
-
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/prism/css/prism.css">
+        <link rel="stylesheet alternate" id="codeNight"
+              href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/prism/css/prism-dark.css">
+        <link rel="stylesheet"
+              href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/prism/css/prism-line-numbers.css">
 
         <#if settings.Custom_css_src??>
             <!-- 自定义css -->

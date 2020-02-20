@@ -237,3 +237,7 @@ body.night {
 .night .sidebar {
     background-color: var(--night-background);
 }
+
+.night p code, p pre {
+    background-color: var(--code-dark-bg-color);
+}
