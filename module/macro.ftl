@@ -71,11 +71,11 @@
 
             }
         </style>
-        <link rel="stylesheet" href="${static!}/assets/prism/css/prism.css">
-        <link rel="stylesheet alternate" id="codeNight" href="${static!}/assets/prism/css/prism-dark.css">
-        <link rel="stylesheet" href="${static!}/assets/prism/css/prism-line-numbers.css">
-        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.13/assets/prism/css/prism.css">-->
-        <#--        <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.13/assets/prism/css/prism-dark.css">-->
+<#--        <link rel="stylesheet" href="${static!}/assets/prism/css/prism.css">-->
+<#--        <link rel="stylesheet alternate" id="codeNight" href="${static!}/assets/prism/css/prism-dark.css">-->
+<#--        <link rel="stylesheet" href="${static!}/assets/prism/css/prism-line-numbers.css">-->
+                <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.14/assets/prism/css/prism.css">
+                <link rel="stylesheet alternate" id="codeNight" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.14/assets/prism/css/prism-dark.css">
                 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.2.12/assets/prism/css/prism-line-numbers.css">
 
 
