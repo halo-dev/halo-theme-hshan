@@ -1422,6 +1422,7 @@ pre .storage {
   width: 90%;
   margin: 0 auto;
   font-size: 1.4rem;
+  transition: all 0.3s;
 }
 .site-navigation .menu-item a {
   color: var(--base-color);
@@ -2678,6 +2679,11 @@ blockquote {
 }
 .post-item:hover {
   transform: scale(1.012);
+}
+@media only screen and (max-width: 767px) {
+  .post-item .post-feature-image {
+    display: none !important;
+  }
 }
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
