@@ -8,6 +8,7 @@ genernal:
       label: 首页展示博客名
       type: text
       placeholder: '用于首页展示名字'
+      description: '注意：如填写，会覆盖原有博客名'
     home_description:
       name: home_description
       label: 首页描述
@@ -26,11 +27,11 @@ genernal:
       default: https://tva1.sinaimg.cn/large/0082zybply1gbzqqf63ajj31870u0wqe.jpg
     header_logoimg:
       name: header_logoimg
-      label: 菜单logo
+      label: 菜单 Logo
       type: attachment
     header_logo_height:
       name: header_logo_height
-      label: 菜单logo高度
+      label: 菜单 Logo 高度
       type: text
       placeholder: '比如: 20px'
     post_list_style:
@@ -101,9 +102,9 @@ genernal:
           label: 关闭
     Icp:
       name: Icp
-      label: 'ICP备案号'
+      label: 'ICP 备案号'
       type: text
-      placeholder: '填入ICP备案号，没有则不填. '
+      placeholder: '填入 ICP 备案号，没有则不填. '
     PublicSecurityRecord:
       name: PublicSecurityRecord
       label: '网安备案号'
@@ -194,6 +195,17 @@ post:
       type: color
       default: '#2474b5'
       placeholder: '阅读进度条颜色'
+    enabled_mathjax:
+      name: enabled_mathjax
+      label: Mathjax
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
 custom:
   label: 自定义
   items:
@@ -201,32 +213,32 @@ custom:
       name: TimeStatistics
       label: '站点运行时间统计'
       type: text
-      placeholder: '填入起始时间，格式：月/日/年 时:分:秒，如08/20/2018 12:00:00'
+      description: '填入起始时间，格式：月/日/年 时:分:秒，如08/20/2018 12:00:00'
     Custom_css_src:
       name: Custom_css_src
-      label: '自定义外部css文件链接'
+      label: '自定义外部 css 文件链接'
       type: text
-      placeholder: '填入css文件链接，不需要style标签'
+      description: '填入 css 文件链接，不需要 style 标签'
     Custom_css:
       name: Custom_css
-      label: '自定义css代码'
+      label: '自定义 css 代码'
       type: textarea
-      placeholder: '写入css代码，不需要style标签'
+      description: '写入 css 代码，不需要 style 标签'
     Custom_js_head:
       name: Custom_js_head
-      label: 'head结束标签前自定义js代码'
+      label: 'head 结束标签前自定义 js 代码'
       type: textarea
-      placeholder: '写入js代码，不需要script标签'
+      description: '写入 js 代码，不需要 script 标签'
     Custom_js_foot_src:
       name: Custom_js_foot_src
-      label: 'body结束标签前自定义外部js文件链接'
+      label: 'body 结束标签前自定义外部 js 文件链接'
       type: text
-      placeholder: '填入js文件链接，需要script标签'
+      description: '填入 js 文件链接，需要 script 标签'
     Custom_js_foot:
       name: Custom_js_foot
-      label: 'body结束标签前自定义js代码'
+      label: 'body 结束标签前自定义js代码'
       type: textarea
-      placeholder: '写入js代码，不需要script标签'
+      description: '写入 js 代码，不需要 script 标签'
 title:
   label: 页面标题
   items:
