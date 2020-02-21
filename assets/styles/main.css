@@ -2455,10 +2455,10 @@ pre .storage {
 .cancel-scroll {
   overflow-y: hidden !important;
 }
-p code,
-p pre {
+:not(pre) > code {
   background-color: #f5f5f5;
   color: #e96900;
+  transition: all 0.6s;
 }
 blockquote {
   background-color: #f5f5f5;
