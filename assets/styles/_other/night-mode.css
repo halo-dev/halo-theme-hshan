@@ -5,9 +5,9 @@
 body.night {
     /*color: #c0c0c0 */
     background-color: var(--night-background);
-    -webkit-transition: background .6s ease-in-out,padding .6s ease-in-out;
-    -o-transition: background .6s ease-in-out,padding .6s ease-in-out;
-    transition: background .6s ease-in-out,padding .6s ease-in-out;
+    -webkit-transition: background .6s ease-in-out, padding .6s ease-in-out;
+    -o-transition: background .6s ease-in-out, padding .6s ease-in-out;
+    transition: background .6s ease-in-out, padding .6s ease-in-out;
     color: var(--night-color) !important;
 }
 
@@ -86,6 +86,7 @@ body.night {
 .night .cover-bg img {
     filter: brightness(0.3) !important;
 }
+
 /*
 搜索框
  */
@@ -100,6 +101,7 @@ body.night {
 .night .search-form i, .night .search-form--modal .search-form__inner p {
     color: #ffffff;
 }
+
 .night .search_close:before, .night .search_close:after {
     background-color: #ffffff;
 }
@@ -120,6 +122,7 @@ body.night {
 .night .tree-hole-box {
     background-color: rgba(0, 0, 0, .3);
 }
+
 .night .tree-hole-box:before {
     border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
 }
@@ -141,7 +144,7 @@ body.night {
 }
 
 .night .links-box .links-items .links-item {
-    background-color: rgba(0, 0, 0, .4) ;
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .night .ins-section-container {
@@ -156,6 +159,7 @@ body.night {
 .night .links-box .links-items .links-item {
     color: #c0c0c0;
 }
+
 .night .qr-code.qr-code-display {
     box-shadow: none;
 }
@@ -175,6 +179,7 @@ body.night {
 .night .toc-link + span:hover {
     background-color: #e5e5e5 !important;
 }
+
 .night .toc-link:hover {
     color: #e5e5e5 !important;
 }
@@ -182,6 +187,7 @@ body.night {
 .night .is-active-link {
     color: #e5e5e5 !important;
 }
+
 .night .is-active-link + span {
     background: #e5e5e5 !important;
 }
@@ -194,9 +200,9 @@ body.night {
 }
 
 
- /*
- 无搜索结果页面 样式
-  */
+/*
+无搜索结果页面 样式
+ */
 
 .night .s-search input {
     background-color: var(--night-input-backgrround) !important;
@@ -220,13 +226,13 @@ body.night {
     background-color: var(--night-input-backgrround);
 }
 
-.night .post-item .post-item-title a{
+.night .post-item .post-item-title a {
     color: var(--night-color) !important;
     background-image: -webkit-gradient(linear, left top, right top, from(var(--night-color)), to(var(--night-color)));
     background-image: linear-gradient(to right, var(--night-color) 0%, var(--night-color) 100%);
 }
 
-.night .post-item .post-item-title a span{
+.night .post-item .post-item-title a span {
     filter: brightness(0.6) !important;
 }
 
@@ -239,7 +245,7 @@ body.night {
     background-color: var(--night-background);
 }
 
-.night p code, p pre {
+.night :not(pre) > code {
     background-color: var(--code-dark-bg-color);
 }
 
@@ -248,5 +254,5 @@ body.night {
 }
 
 .night table tbody tr:nth-of-type(odd) {
-    background-color: rgba(255,255,255,.05);
+    background-color: rgba(255, 255, 255, .05);
 }
