@@ -1,10 +1,12 @@
-.site-header-scroll {
-  //justify-content: space-between;
-  //background-color: hsla(0, 1%, 100%, .7);
-  background-color: #fff;
-  border-bottom: 1px solid rgba(30, 35, 42, .06);
+.site-header {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
   box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+}
+
+.site-header-scroll {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(30, 35, 42, .06);
+
 }
 
 .site-header-scroll a {
@@ -16,7 +18,6 @@
   height: 52px;
   min-width: 300px;
   display: none;
-  //margin-right: 40px;
   -webkit-transition: background .6s ease-in-out,padding .6s ease-in-out;
   -o-transition: background .6s ease-in-out,padding .6s ease-in-out;
   transition: background .6s ease-in-out,padding .6s ease-in-out;
@@ -154,4 +155,8 @@
 
 .header-logo-show {
   display: inline-block !important;
+}
+
+.sidebar-show + header.site-header .menu-items a:not(#headerLogo), .sidebar-show + header.site-header .other-ctl {
+  display: none;
 }

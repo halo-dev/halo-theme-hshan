@@ -1373,11 +1373,12 @@ pre .storage {
   -moz-transition: all 0.6s;
   transition: all 0.6s;
   width: 100%;
-  padding-top: 52px;
+  background-color: #fff;
 }
 .sidebar-show {
   height: 100%;
   background-color: #ffffff;
+  padding-top: 52px;
 }
 .sidebar .inner {
   padding-bottom: 60px;
@@ -1428,17 +1429,6 @@ pre .storage {
   color: var(--base-color);
   padding: 0 5px;
   position: relative;
-}
-.site-navigation .menu-item a:before {
-  background-color: rgba(205, 144, 35, 0.7);
-  content: "";
-  height: 1px;
-  left: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  width: 0;
 }
 .site-navigation .menu-item a:hover {
   color: var(--base-color);
@@ -3161,11 +3151,13 @@ a.toc-link {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
+.site-header {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
+  box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
+}
 .site-header-scroll {
   background-color: #fff;
   border-bottom: 1px solid rgba(30, 35, 42, 0.06);
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
-  box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
 }
 .site-header-scroll a {
   font-size: 1.1rem;
@@ -3289,6 +3281,10 @@ a.toc-link {
 }
 .header-logo-show {
   display: inline-block !important;
+}
+.sidebar-show + header.site-header .menu-items a:not(#headerLogo),
+.sidebar-show + header.site-header .other-ctl {
+  display: none;
 }
 .searchbox {
   display: none;
