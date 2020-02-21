@@ -242,3 +242,11 @@ body.night {
 .night p code, p pre {
     background-color: var(--code-dark-bg-color);
 }
+
+.night table td, .night table th, .night table thead th {
+    border-color: #454d55;
+}
+
+.night table tbody tr:nth-of-type(odd) {
+    background-color: rgba(255,255,255,.05);
+}

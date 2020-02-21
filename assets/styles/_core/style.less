@@ -437,23 +437,30 @@ caption {
   padding-left: 10px;
   text-align: left;
 }
-
-th,
-td {
-  border: 1px solid #d4d3d3;
-  padding: 10px;
-  width: 1px;
-  word-break: break-all;
-}
-
-th {
-  color: #101012;
-  font-weight: bold;
-}
-
+/**
+ ---表格样式
+ */
 table {
   table-layout: fixed;
   width: 100%;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+
+table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+table tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05);
+}
+
+table td, table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }
 
 @media only screen and (max-width: 640px) {
