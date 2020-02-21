@@ -10,7 +10,7 @@
 
         <@global.head />
 
-                <link rel="stylesheet" href="${static!}/assets/styles/main.css">
+        <link rel="stylesheet" href="${static!}/assets/styles/main.min.css">
 <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/main.css">-->
         <link rel="stylesheet" href="${static!}/assets/styles/_other/night-mode.css">
         <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/_other/night-mode.css">-->
