@@ -46,8 +46,9 @@ body.night {
 }
 
 .night .site-header-scroll {
-    /*background-color: #101012;*/
     background-color: var(--night-background);
+    -webkit-box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+    box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
 }
 
 .night header a, .night header .fa-search {
@@ -234,7 +235,7 @@ body.night {
     color: #d4d3d3;
 }
 
-.night .sidebar {
+.night .sidebar-show, .night .sidebar {
     background-color: var(--night-background);
 }
 
