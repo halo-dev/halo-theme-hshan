@@ -1,4 +1,4 @@
-<#if is_post?? || is_sheet??>
+<#if (is_post?? || is_sheet??) && settings.enabled_mathjax!false>
     <script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {

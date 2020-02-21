@@ -1,7 +1,7 @@
 <div id="post-list" class="post-list inner">
     <#if posts?? && posts.getTotalElements() gt 0>
         <#list posts.content as post>
-            <section class="post-item">
+            <article class="post-item" itemscope itemtype="http://schema.org/Article">
                 <div class="padding-left">
                     <h2 class="post-item-title">
                         <a href="${context!}/archives/${post.url!}">${post.title!}
@@ -33,7 +33,7 @@
                        style="background-image: url(${post.thumbnail!})">
                     </a>
                 </#if>
-            </section>
+            </article>
         </#list>
     </#if>
 </div>

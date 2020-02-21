@@ -9,7 +9,7 @@
         </div>
         <main class="site-main" id="siteMain">
             <div class="site-content">
-                <article class="post tag-getting-started" id="siteContent">
+                <article class="post tag-getting-started" id="siteContent" itemscope itemtype="http://schema.org/Article">
                     <header class="cover post-header" id="postHeader">
                         <#if post.thumbnail?? && post.thumbnail!=''>
                             <div class="cover-bg">
