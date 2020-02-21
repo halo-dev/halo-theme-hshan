@@ -195,6 +195,17 @@ post:
       type: color
       default: '#2474b5'
       placeholder: '阅读进度条颜色'
+    enabled_mathjax:
+      name: enabled_mathjax
+      label: Mathjax
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
 custom:
   label: 自定义
   items:

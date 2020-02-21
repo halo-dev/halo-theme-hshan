@@ -57,12 +57,9 @@
                         </article>
                     </#list>
                     </@postTag>
-
-
                 </div>
             </div>
         </main>
-
         <#include "module/footer.ftl">
     </div>
     </body>
