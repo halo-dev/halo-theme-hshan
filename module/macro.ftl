@@ -20,6 +20,8 @@
         <style>
             :root {
                 --base-color: ${settings.base_color?default('#2474b5')};
+                --header-bg-color: #fff;
+                --header-child-hover-bg-color: #f5f5f5;
                 --index-title-color: #555;
                 --base-font-color: #34495e;
                 /*--summary-color: #555;*/
