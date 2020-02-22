@@ -177,6 +177,7 @@ div.code-toolbar pre {
 	padding: 1.25rem 1.5rem 1.25rem 3.6rem;
 	white-space: pre;
 	word-wrap: normal;
+	border-radius: 2px;
 }
 
 div.code-toolbar code {

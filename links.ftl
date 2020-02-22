@@ -41,7 +41,7 @@
                                                         <img src="${settings.links_placeholder}"
                                                              alt="${link.name}">
                                                     <#else>
-                                                        <img src="https://tva1.sinaimg.cn/large/0082zybply1gbzqreajrej30t70t50wh.jpg"
+                                                        <img src="https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.1/placeholder.jpg"
                                                              alt="${link.name}">
                                                     </#if>
                                                 </figure>
