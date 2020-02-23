@@ -2466,9 +2466,9 @@ pre .storage {
           writing-mode: tb-rl;
 }
 .vertical-text p {
-  font-size: 1.4rem;
-  letter-spacing: 0.4em;
-  margin: 0 1rem;
+  font-size: 1.4rem !important;
+  letter-spacing: 0.4em !important;
+  margin: 0 1rem !important;
 }
 pre {
   background-color: var(--code-bg-color) !important;
