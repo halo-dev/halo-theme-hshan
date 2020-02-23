@@ -51,7 +51,7 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 1em;
+	/*padding: 1em;*/
 	margin: .5em 0;
 	border-radius: 2px;
 	line-height: 2;
@@ -174,7 +174,7 @@ div.code-toolbar pre {
 	background-color: #f5f5f5;
 	color: #4a4a4a;
 	overflow-x: auto;
-	padding: 1.25rem 1.5rem 1.25rem 3.6rem;
+	/*padding: 1.25rem 1.5rem 1.25rem 3.6rem;*/
 	white-space: pre;
 	word-wrap: normal;
 	border-radius: 2px;
