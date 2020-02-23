@@ -264,3 +264,7 @@ body.night {
 .night .sub-menu li a:hover {
     background-color: var(--code-dark-bg-color);
 }
+
+.night pre {
+    background-color: var(--code-dark-bg-color) !important;
+}
