@@ -3143,7 +3143,7 @@ a.toc-link {
   align-items: center;
 }
 .scroll-menu a {
-  margin-right: 20px;
+  margin-right: 20px !important;
 }
 .menu-ctrl-on .icon-menu.cross:before {
   transform-origin: 100% 50%;
