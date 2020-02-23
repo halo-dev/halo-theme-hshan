@@ -9,7 +9,7 @@ https://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+j
 code {
 	font-size: .875em;
 	font-weight: 400;
-	padding: .25em .5em .25em;
+	padding: .25em 0 .25em;
 	border-radius: 2px;
 }
 pre[class*="language-"] {
