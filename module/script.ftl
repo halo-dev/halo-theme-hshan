@@ -19,7 +19,16 @@
 <script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism.js"></script>
 <script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism-line-numbers.js"></script>
 <!-- highlight -->
-<#if post??>
+<#if is_post??>
+
+    <script src="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
+    <script type="text/javascript">
+        const gallery = new Viewer(document.getElementById('post-content'), {
+            toolbar: false,
+        });
+        // gallery.show();
+    </script>
+
 
     <div class="qr-code">
         <span class="closinglayer"><i class="fa fa-times"></i></span>
@@ -40,7 +49,7 @@
 
 <#--目录-->
 <#if is_post?? && settings.post_toc!true>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js"></script>
 </#if>
 
 <#if is_post??>

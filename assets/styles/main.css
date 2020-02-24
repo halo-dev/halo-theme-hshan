@@ -596,6 +596,7 @@ table th {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
+  word-break: break-all;
 }
 @media only screen and (max-width: 640px) {
   h3 {
@@ -1639,7 +1640,9 @@ pre .storage {
 }
 .post-template .post-content,
 .page-template .post-content {
-  padding-top: 60px;
+  padding-top: 45px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .post-template .post-tags,
 .page-template .post-tags {
@@ -2044,7 +2047,8 @@ pre .storage {
   padding: 30px;
 }
 .article-info .comments-area {
-  padding: 30px 0 !important;
+  max-width: 800px;
+  margin: 0 auto;
 }
 #comments-show {
   background: 0;
@@ -2306,6 +2310,7 @@ pre .storage {
   background-color: rgba(189, 189, 189, 0.2);
   border-left: 2px solid #354b58;
   border-radius: 5px;
+  max-width: 800px;
   margin: 1rem auto;
 }
 .appreciate-btn {
@@ -3023,7 +3028,7 @@ a.toc-link {
   color: #e5e5e5;
   display: inline-block;
   opacity: 1;
-  max-width: 180px;
+  max-width: 230px;
   vertical-align: middle;
   text-align: left;
   transition: opacity 0.5s;
