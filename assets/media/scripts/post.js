@@ -84,8 +84,9 @@ $(function () {
             //positionFixedClass: 'is-position-fixed',
             //fixedSidebarOffset: 'auto',
             scrollSmooth: true,
-            scrollSmoothOffset: -80,
-            headingsOffset: -500
+            collapseDepth: 2,
+            // scrollSmoothOffset: -52,
+            headingsOffset: 60
         });
 
         var tocLinks = $('.toc-link');

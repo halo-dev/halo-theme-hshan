@@ -11,11 +11,14 @@
         <@global.head />
 
         <link rel="stylesheet" href="${static!}/assets/styles/main.min.css">
-<#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/main.css">-->
+        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/main.css">-->
         <link rel="stylesheet" href="${static!}/assets/styles/night-mode.min.css">
         <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/_other/night-mode.css">-->
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+        <#if is_post??>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
+        </#if>
 
         <style>
             :root {
@@ -103,6 +106,7 @@
         <title>${title}</title>
     </head>
     <#nested >
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <#include "script.ftl">
     </html>
 </#macro>
