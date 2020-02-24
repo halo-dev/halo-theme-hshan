@@ -50,7 +50,7 @@
                     </header>
                     <div class="post-inner">
                         <div class="article-body">
-                            <div class="post-content" id="post-content">
+                            <div class="post-content article-content" id="post-content">
                                 ${post.formatContent!}
                             </div>
                             <div id="tocFlag"></div>

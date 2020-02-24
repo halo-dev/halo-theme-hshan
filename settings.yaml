@@ -148,6 +148,11 @@ head_img:
       label: 日志下文章页面头部装饰图
       type: attachment
       default: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.1/default-page-image.jpg
+    photos_patternimg:
+      name: photos_patternimg
+      label: 相册页面头部装饰图
+      type: attachment
+      default: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.1/default-page-image.jpg
     links_placeholder:
       name: links_placeholder
       label: 友情链接默认用户头像
@@ -267,6 +272,11 @@ title:
       label: 归档页面标题
       type: text
       default: 归档
+    photos_title:
+      name: photos_title
+      label: 相册页面标题
+      type: text
+      default: 相册
 #comment:
 #  label: 评论设置
 #  items:
