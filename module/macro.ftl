@@ -14,11 +14,17 @@
         <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/main.css">-->
         <link rel="stylesheet" href="${static!}/assets/styles/night-mode.min.css">
         <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/_other/night-mode.css">-->
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css'
+              media='all'/>
 
         <#if is_post??>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
+        <#else>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+            <link rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
         </#if>
+
 
         <style>
             :root {
@@ -78,7 +84,7 @@
 
             }
         </style>
-<#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.3/assets/prism/css/prism.css">-->
+        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.3/assets/prism/css/prism.css">-->
         <link rel="stylesheet" href="${static!}/assets/prism/css/prism.css">
         <link rel="stylesheet alternate" id="codeNight"
               href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/prism/css/prism-dark.css">

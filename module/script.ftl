@@ -18,7 +18,16 @@
 
 <script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism.js"></script>
 <script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism-line-numbers.js"></script>
-<!-- highlight -->
+
+
+<!-- gallery -->
+
+<#if !is_post??>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+    <script src="${static!}/assets/media/scripts/gallery.js"></script>
+</#if>
+
 <#if is_post??>
 
     <script src="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
@@ -26,9 +35,7 @@
         const gallery = new Viewer(document.getElementById('post-content'), {
             toolbar: false,
         });
-        // gallery.show();
     </script>
-
 
     <div class="qr-code">
         <span class="closinglayer"><i class="fa fa-times"></i></span>
@@ -89,6 +96,7 @@
                 span_dt_dt.innerHTML = daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
             }
         }
+
         show_date_time();
     </script>
 </#if>

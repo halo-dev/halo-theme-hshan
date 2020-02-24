@@ -3502,5 +3502,10 @@ ul.sub-menu li a:hover {
   margin-top: -16px;
   left: 16px;
 }
+.photos-box {
+  max-width: 1024px;
+  margin: 50px auto;
+  padding: 0 10%;
+}
 
 /*# sourceMappingURL=main.css.map */
