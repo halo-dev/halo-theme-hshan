@@ -200,6 +200,12 @@ post:
       type: color
       default: '#2474b5'
       placeholder: '阅读进度条颜色'
+    post_max_wdth:
+      name: post_max_wdth
+      label: 文章最大宽度
+      type: text
+      default: '800px'
+      placeholder: '文章最大宽度, 比如: 800px'
     enabled_mathjax:
       name: enabled_mathjax
       label: Mathjax

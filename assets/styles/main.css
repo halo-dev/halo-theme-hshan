@@ -1641,7 +1641,7 @@ pre .storage {
 .post-template .post-content,
 .page-template .post-content {
   padding-top: 45px;
-  max-width: 800px;
+  max-width: var(--post-max-width);
   margin: 0 auto;
 }
 .post-template .post-tags,
@@ -2047,7 +2047,7 @@ pre .storage {
   padding: 30px;
 }
 .article-info .comments-area {
-  max-width: 800px;
+  max-width: var(--post-max-width);
   margin: 0 auto;
 }
 #comments-show {
@@ -2310,7 +2310,7 @@ pre .storage {
   background-color: rgba(189, 189, 189, 0.2);
   border-left: 2px solid #354b58;
   border-radius: 5px;
-  max-width: 800px;
+  max-width: var(--post-max-width);
   margin: 1rem auto;
 }
 .appreciate-btn {
@@ -3283,7 +3283,7 @@ a.toc-link {
   line-height: 30px;
   color: #333;
   white-space: nowrap;
-  margin-right: 0;
+  margin-right: 0 !important;
   max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;

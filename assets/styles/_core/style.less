@@ -1751,7 +1751,7 @@ pre .storage {
 .post-template .post-content,
 .page-template .post-content {
   padding-top: 45px;
-  max-width: 800px;
+  max-width: var(--post-max-width);
   margin: 0 auto;
 }
 
@@ -2235,8 +2235,7 @@ pre .storage {
 }
 
 .article-info .comments-area {
-  //padding: 30px 0 !important;
-  max-width: 800px;
+  max-width: var(--post-max-width);
   margin: 0 auto;
 }
 
@@ -2560,7 +2559,7 @@ pre .storage {
   background-color: rgba(189, 189, 189, .2);
   border-left: 2px solid #354b58;
   border-radius: 5px;
-  max-width: 800px;
+  max-width: var(--post-max-width);
   margin: 1rem auto;
 }
 
@@ -2570,7 +2569,6 @@ pre .storage {
   line-height: 30px;
   text-align: center;
   color: #ff4d4d;
-  //font-family: icomoon;
   font-size: 12px;
   font-weight: 700;
   margin: 30px auto;
@@ -2611,15 +2609,11 @@ pre .storage {
   position: absolute;
   top: 5px;
   right: 5px;
-  //font-family: icomoon;
   font-size: 20px;
   font-weight: 700;
   transition: all .6s;
 }
 
-//.closinglayer:hover {
-//  transform: rotate(360deg);
-//}
 .qr_code_zfb, .qr_code_wx {
   position: absolute;
   top: 25px;
