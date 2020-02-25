@@ -28,12 +28,12 @@
 
         <style>
             :root {
+                --post-max-width: ${settings.post_max_wdth?default('800px')} !important;
                 --base-color: ${settings.base_color?default('#2474b5')};
                 --header-bg-color: #fff;
                 --header-child-hover-bg-color: #f5f5f5;
                 --index-title-color: #555;
                 --base-font-color: #34495e;
-                /*--summary-color: #555;*/
                 --summary-color: #81878f;
                 --night-input-color: #a9a9b3;
                 --night-background: #292a2d;
