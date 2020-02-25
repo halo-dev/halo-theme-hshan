@@ -1377,7 +1377,7 @@ pre .storage {
 .site-navigation .menu-item {
   letter-spacing: 2px;
   line-height: 1.5;
-  padding: 15px;
+  padding-bottom: 15px;
   text-transform: uppercase;
   width: 90%;
   margin: 0 auto;
