@@ -3,65 +3,49 @@
  */
 // Responsive video embeds
 var videoEmbeds = [
-	'iframe[src*="youtube.com"]',
-	'iframe[src*="vimeo.com"]',
+    'iframe[src*="youtube.com"]',
+    'iframe[src*="vimeo.com"]',
 ]
 reframe(videoEmbeds.join(','))
 
 // Smooth scroll to anchors
 var scroll = new SmoothScroll('[data-scroll]', {
-	speed: 300,
-	updateURL: false,
+    speed: 300,
+    updateURL: false,
 })
 
-// Gallery adjustments
-var images = document.querySelectorAll('.kg-gallery-image img')
-images.forEach(
-	function (image) {
-		var container = image.closest('.kg-gallery-image')
-		var width = image.attributes.width.value
-		var height = image.attributes.height.value
-		var ratio = width / height
-		container.style.flex = ratio + ' 1 0%'
-	})
-if (images.length)
-	window.addEventListener(
-		'load',
-		function () {
-			Lightense('.kg-gallery-image img', {
-				background: 'rgba(255,255,255,.9)',
-			})
-		},
-		false)
+
 
 // Sidebar toggle
 var sidebarToggle = document.querySelectorAll('.sidebar-toggle')
 if (sidebarToggle)
-	for (var i = 0; i < sidebarToggle.length; i++)
-		sidebarToggle[i].addEventListener(
-			'click',
-			function (e) {
-				var menuCtrl = $('#sidebarToggle')
-				if (menuCtrl)
-					menuCtrl.toggleClass('menu-ctrl-on')
-				var scrollMenu = $('#scrollMenu')
-				if (scrollMenu)
-					scrollMenu.toggleClass('scroll-menu-show')
-				var siteHeader = $('#siteHeader')
-				if (siteHeader)
-					siteHeader.toggleClass('site-header-scroll')
-				var sideBar = $('#sidebar')
-				if (sideBar)
-					sideBar.toggleClass('sidebar-show')
-				e.preventDefault()
+    for (var i = 0; i < sidebarToggle.length; i++)
+        sidebarToggle[i].addEventListener(
+            'click',
+            function (e) {
+                var menuCtrl = $('#sidebarToggle')
+                if (menuCtrl)
+                    menuCtrl.toggleClass('menu-ctrl-on')
+                var scrollMenu = $('#scrollMenu')
+                if (scrollMenu)
+                    scrollMenu.toggleClass('scroll-menu-show')
+                var siteHeader = $('#siteHeader')
+                if (siteHeader)
+                    siteHeader.toggleClass('site-header-scroll')
+                    siteHeader.toggleClass('site-header-bg')
+                var sideBar = $('#sidebar')
+                if (sideBar)
+                    sideBar.toggleClass('sidebar-show')
+                e.preventDefault()
 
-				// 滚动条
-				$(document.body).toggleClass('cancel-scroll')
-			},
-			{
-				passive: false,
-			})
+                // 滚动条
+                $(document.body).toggleClass('cancel-scroll')
+            },
+            {
+                passive: false,
+            })
 $(
+
 	function () {
 		function linksAddBlank() {
 			var links = $('.post-content a')
@@ -78,9 +62,8 @@ $(
 			var scrollTop = 0
 			if (document.documentElement && document.documentElement.scrollTop)
 				scrollTop = document.documentElement.scrollTop
-			else
-				if (document.body)
-					scrollTop = document.body.scrollTop
+			else if (document.body)
+				scrollTop = document.body.scrollTop
 			return scrollTop
 		}
 
@@ -139,6 +122,14 @@ $(
 			}
 		}
 
+		function foldSubMenu() {
+			$(".nav-menu-link").click(function (e) {
+				const angle = $(this).children('.fa')[0];
+				$(angle).toggleClass('angle-transform');
+				$(this).siblings('.nav-sub-menu').toggleClass('nav-menu-show');
+			});
+		}
+
 		linksAddBlank()
 
 		// 头部菜单滚动时间
@@ -148,16 +139,20 @@ $(
 
 		// 当前目录菜单高亮
 		highlightMenu()
-	})
+
+		// 菜单点击事件
+		foldSubMenu()
+	});
 
 // 删除日志中的空元素
 $(document).ready(
-	function () {
-		var treeHoleBoxs = document.querySelectorAll('.tree-hole-box')
-		if (treeHoleBoxs)
-			for (var i = 0; i < treeHoleBoxs.length; i++) {
-				var childrens = $(treeHoleBoxs[i]).children('p:empty')
-				for (var j = 0; j < childrens.length; j++)
-					childrens[j].remove()
-			}
-	})
+    function () {
+        var treeHoleBoxs = document.querySelectorAll('.tree-hole-box')
+        if (treeHoleBoxs)
+            for (var i = 0; i < treeHoleBoxs.length; i++) {
+                var childrens = $(treeHoleBoxs[i]).children('p:empty')
+                for (var j = 0; j < childrens.length; j++)
+                    childrens[j].remove()
+            }
+    });
+
