@@ -1,8 +1,8 @@
 <#include "mathjax.ftl">
-<#--<script src="${static!}/assets/media/scripts/plugins.js"></script>-->
-<#--<script src="${static!}/assets/media/scripts/main.js"></script>-->
-<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.2/assets/media/scripts/plugins.js"></script>
-<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.2/assets/media/scripts/main.js"></script>
+<script src="${static!}/assets/media/scripts/plugins.js"></script>
+<script src="${static!}/assets/media/scripts/main.js"></script>
+<#--<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.2/assets/media/scripts/plugins.js"></script>-->
+<#--<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.2/assets/media/scripts/main.js"></script>-->
 
 <!-- Md5 Min JS -->
 <#--<script src="${static!}/assets/media/scripts/md5.min.js"></script>-->

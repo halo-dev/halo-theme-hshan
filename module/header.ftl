@@ -1,4 +1,4 @@
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar" style="overflow-y: auto !important;">
     <div class="inner">
         <div class="widget-area">
             <!-- 菜单 -->
@@ -6,10 +6,14 @@
                 <ul class="menu">
                     <@menuTag method="tree">
                         <#list menus?sort_by('priority') as menu>
-                            <li class="menu-item home current-menu-item">
-                                <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+                            <li class="menu-item nav-menu-item ">
                                 <#if menu.children?? && menu.children?size gt 0>
-                                    <ul class="nav-sub-menu">
+                                        <a href="javascript:void(0)" target="${menu.target!}" class="nav-menu-link">${menu.name} <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i></a>
+                                    <#else>
+                                        <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+                                </#if>
+                                <#if menu.children?? && menu.children?size gt 0>
+                                    <ul class="nav-sub-menu" style="display: none;">
                                         <#list menu.children as child>
                                             <li>
                                                 <a href="${child.url!}" target="${child.target!}"
@@ -22,12 +26,12 @@
                         </#list>
                     </@menuTag>
                     <#if settings.night_mode!true>
-                        <li class="menu-item home current-menu-item">
+                        <li class="menu-item home nav-menu-item">
                             <i class="fa night-mode" id="nightModeSmall" aria-hidden="true"></i>
                         </li>
                     </#if>
                     <#if settings.top_search!true>
-                        <li class="menu-item home current-menu-item">
+                        <li class="menu-item home nav-menu-item">
                             <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"
                                style="font-size: 20px;"></i>
                         </li>
@@ -59,7 +63,11 @@
                 <@menuTag method="tree">
                     <#list menus?sort_by('priority') as menu>
                         <li class="menu-scroll-item">
-                            <a href="${menu.url!}" target="${menu.target!}" onfocus="this.blur();">${menu.name}</a>
+                            <#if menu.children?? && menu.children?size gt 0>
+                                <a href="javascript:void(0)" target="${menu.target!}" onfocus="this.blur();">${menu.name}</a>
+                            <#else>
+                                <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+                            </#if>
                             <#if menu.children?? && menu.children?size gt 0>
                                 <ul class="sub-menu">
                                     <#list menu.children as child>

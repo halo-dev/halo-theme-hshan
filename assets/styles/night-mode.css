@@ -51,6 +51,12 @@ body.night {
     box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
 }
 
+.night .site-header-bg  {
+    background-color: var(--night-background);
+    -webkit-box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+    box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+}
+
 .night header a, .night header .fa-search {
     color: var(--night-color);
 
