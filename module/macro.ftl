@@ -11,9 +11,7 @@
         <@global.head />
 
         <link rel="stylesheet" href="${static!}/assets/styles/main.min.css">
-        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/main.css">-->
         <link rel="stylesheet" href="${static!}/assets/styles/night-mode.min.css">
-        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/styles/_other/night-mode.css">-->
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css'
               media='all'/>
 
@@ -84,12 +82,7 @@
 
             }
         </style>
-        <#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.3/assets/prism/css/prism.css">-->
-        <link rel="stylesheet" href="${static!}/assets/prism/css/prism.css">
-        <link rel="stylesheet alternate" id="codeNight"
-              href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/prism/css/prism-dark.css">
-        <link rel="stylesheet"
-              href="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/prism/css/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
         <#if settings.Custom_css_src??>
             <!-- 自定义css -->

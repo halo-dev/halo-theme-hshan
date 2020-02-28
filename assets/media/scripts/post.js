@@ -74,8 +74,7 @@ $(function () {
 
     function initToc() {
         var headerEl = 'h1,h2,h3,h4,h5,h6',  //headers
-            content = '.post-content',//文章容器
-            idArr = {};  //标题数组以确定是否增加索引id
+            content = '.post-content';//文章容器
         tocbot.init({
             tocSelector: '#toc',
             contentSelector: content,
@@ -84,9 +83,10 @@ $(function () {
             //positionFixedClass: 'is-position-fixed',
             //fixedSidebarOffset: 'auto',
             scrollSmooth: true,
-            collapseDepth: 2,
+            // collapseDepth: 2,
             // scrollSmoothOffset: -52,
-            headingsOffset: 60
+            // headingsOffset: 60,
+            hasInnerContainers: false,
         });
 
         var tocLinks = $('.toc-link');

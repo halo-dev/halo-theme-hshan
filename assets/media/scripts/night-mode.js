@@ -4,36 +4,31 @@ function autoNightMode() {
     var nightModes = $('.night-mode');
     var day = new Date();
     var D = day.getHours();
-    var codeNight = $('#codeNight');
-    var codeLight = $('#codeLight');
     var isNightMode = getLocalStorage(nightModeId);
     if (D <= 18 && D > 6) {
         // 白天
         if (isNightMode === true) {
             // 是暗黑模式
-            changeNightMode(codeNight, nightModes);
+            changeNightMode(nightModes);
             return;
         }
-        changeLightMode(codeNight, nightModes);
+        changeLightMode( nightModes);
     } else {
         // 晚上
         if (isNightMode === false) {
             // 不是暗黑模式
-            changeLightMode(codeNight, nightModes);
+            changeLightMode( nightModes);
             return;
         }
-        changeNightMode(codeNight, nightModes);
+        changeNightMode(nightModes);
     }
     if (typeof renderComment === 'function') {
         renderComment();
     }
 }
 
-function changeLightMode(codeNight, nightModes) {
+function changeLightMode(nightModes) {
     $(document.body).removeClass('night');
-    if (codeNight) {
-        codeNight.attr("rel", "alternate stylesheet");
-    }
     for (let i = 0; i < nightModes.length; i++) {
         let nightMode = $(nightModes[i]);
         nightMode.addClass('fa-moon-o');
@@ -42,11 +37,8 @@ function changeLightMode(codeNight, nightModes) {
     setLocalStorage(nightModeId, false)
 }
 
-function changeNightMode(codeNight, nightModes) {
+function changeNightMode(nightModes) {
     $(document.body).addClass('night');
-    if (codeNight) {
-        codeNight.attr("rel", "stylesheet");
-    }
     for (let i = 0; i < nightModes.length; i++) {
         let nightMode = $(nightModes[i]);
         nightMode.addClass('fa-lightbulb-o');
@@ -77,7 +69,6 @@ function doFuncNightMode(nightMode) {
         nightModeBtn.removeClass('fa-lightbulb-o');
     }
 
-    var codeNight = $('#codeNight');
 
 
     nightMode.click(function (e) {
@@ -85,22 +76,14 @@ function doFuncNightMode(nightMode) {
             $(document.body).addClass('night');
             nightModeBtn.addClass('fa-lightbulb-o');
             nightModeBtn.removeClass('fa-moon-o');
-            if (codeNight) {
-                codeNight.attr("rel", "stylesheet");
-            }
             setLocalStorage(nightModeId, true);
         } else if (nightMode.hasClass('fa-lightbulb-o')) {
             $(document.body).removeClass('night');
             nightModeBtn.addClass('fa-moon-o');
             nightModeBtn.removeClass('fa-lightbulb-o');
-            if (codeNight) {
-                codeNight.attr("rel", "alternate stylesheet");
-            }
 
             setLocalStorage(nightModeId, false);
         }
-        // $('#sidebar').removeClass('sidebar-show');
-        // $("#sidebarToggle").removeClass('menu-ctrl-on');
         $(document.body).removeClass('sidebar-opened');
         if (typeof renderComment === 'function') {
             renderComment();
