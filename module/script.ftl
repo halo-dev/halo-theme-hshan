@@ -1,40 +1,37 @@
 <#include "mathjax.ftl">
+
 <script src="${static!}/assets/media/scripts/plugins.js"></script>
 <script src="${static!}/assets/media/scripts/main.js"></script>
-<#--<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.2/assets/media/scripts/plugins.js"></script>-->
-<#--<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.2/assets/media/scripts/main.js"></script>-->
 
-<!-- Md5 Min JS -->
-<#--<script src="${static!}/assets/media/scripts/md5.min.js"></script>-->
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>
-    <script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v1.3.0/assets/media/scripts/night-mode.js"></script>
-<#--    <script src="${static!}/assets/media/scripts/night-mode.js"></script>-->
+    <script src="${static!}/assets/media/scripts/night-mode.js"></script>
 </#if>
 
 <#if settings.visit_statistics!false>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
-<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism.js"></script>
-<script src="//cdn.jsdelivr.net/gh/hshanx/halo-theme-hshan@v.1.2.10/assets/prism/js/prism-line-numbers.js"></script>
-
-
 <!-- gallery -->
-
 <#if !is_post??>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
     <script src="${static!}/assets/media/scripts/gallery.js"></script>
 </#if>
 
+<!--文章页面使用和相册页面不同的图片预览插件-->
 <#if is_post??>
-
-    <script src="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
     <script type="text/javascript">
         const gallery = new Viewer(document.getElementById('post-content'), {
             toolbar: false,
         });
+
+        hljs.initHighlightingOnLoad();
+
+        hljs.initLineNumbersOnLoad({singleLine: true});
     </script>
 
     <div class="qr-code">
@@ -56,7 +53,7 @@
 
 <#--目录-->
 <#if is_post?? && settings.post_toc!true>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.10.0/tocbot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
 </#if>
 
 <#if is_post??>

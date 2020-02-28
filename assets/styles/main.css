@@ -2475,9 +2475,6 @@ pre .storage {
   letter-spacing: 0.4em !important;
   margin: 0 1rem !important;
 }
-pre {
-  background-color: var(--code-bg-color) !important;
-}
 :not(pre) > code {
   background-color: #f5f5f5;
   color: #e96900;
@@ -3515,6 +3512,43 @@ ul.sub-menu li a:hover {
   max-width: 1024px;
   margin: 50px auto;
   padding: 0 10%;
+}
+/* for block of numbers */
+.hljs-ln-numbers {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  color: #ccc;
+  vertical-align: top;
+  padding-right: 5px;
+  /* your custom style here */
+}
+/* for block of code */
+.hljs-ln-code {
+  padding-left: 10px !important;
+}
+td.hljs-ln-line.hljs-ln-numbers {
+  width: 40px;
+  text-align: center;
+  background: rgba(200, 200, 200, 0.15);
+}
+.hljs-ln td,
+.hljs-ln th {
+  border: none;
+  line-height: 2rem;
+}
+.hljs-ln tbody tr:nth-of-type(odd) {
+  background-color: #fafafa;
+}
+.hljs {
+  padding: 0 !important;
+  font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
+}
+.hljs-ln {
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -75,7 +75,7 @@ body.night {
 .night .hljs {
     display: block;
     overflow-x: auto;
-    background: #1d1f21;
+    background-color: var(--code-dark-bg-color);
     color: #c5c8c6;
     padding: 0.5em;
 }
@@ -155,11 +155,6 @@ body.night {
 
 .night .ins-section-container {
     background-color: rgba(0, 0, 0, .6);
-}
-
-.night td.hljs-ln-numbers {
-    background-color: #101012;
-    border-bottom: 1px solid #101012;
 }
 
 .night .links-box .links-items .links-item {
@@ -271,6 +266,14 @@ body.night {
     background-color: var(--code-dark-bg-color);
 }
 
-.night pre {
-    background-color: var(--code-dark-bg-color) !important;
+.night td.hljs-ln-numbers {
+    background-color: var(--code-dark-line-numbers-bg-color) !important;
+}
+
+.night .hljs-ln td, .night .hljs-ln th, .night .hljs-ln thead th {
+    border: none;
+}
+
+.night .hljs-ln tbody tr:nth-of-type(odd) {
+    background-color: var(--code-dark-bg-color);
 }
