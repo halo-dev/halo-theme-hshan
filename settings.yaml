@@ -211,6 +211,17 @@ post:
       label: Mathjax
       type: radio
       data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    enabled_mermaid:
+      name: enabled_mermaid
+      label: Mermaid
+      type: radio
+      data-type: bool
       default: false
       options:
         - value: true
