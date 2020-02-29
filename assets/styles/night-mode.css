@@ -277,3 +277,8 @@ body.night {
 .night .hljs-ln tbody tr:nth-of-type(odd) {
     background-color: var(--code-dark-bg-color);
 }
+
+.night .mermaid svg {
+    /*background: #fff;*/
+    filter: brightness(0.6);
+}

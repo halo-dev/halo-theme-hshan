@@ -1,4 +1,5 @@
 <#include "mathjax.ftl">
+<#include "mermaid.ftl">
 
 <script src="${static!}/assets/media/scripts/plugins.js"></script>
 <script src="${static!}/assets/media/scripts/main.js"></script>
@@ -112,4 +113,5 @@
     console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
+    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.3.4");
 </script>
