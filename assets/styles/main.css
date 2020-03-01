@@ -503,7 +503,6 @@ ins {
 code,
 pre {
   font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
-  font-size: 16px;
 }
 :not(pre) > code {
   padding: 1px 3px;
@@ -2521,15 +2520,6 @@ blockquote {
     font-size: 15px;
     letter-spacing: 0.2px;
   }
-}
-.post-content > h1:before,
-.post-content > h2:before,
-.post-content > h3:before,
-.post-content > h4:before,
-.post-content > h5:before,
-.post-content > h6:before {
-  content: "# ";
-  color: var(--base-color);
 }
 /*阅读进度样式*/
 #readProgress {
