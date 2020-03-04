@@ -45,7 +45,7 @@
 - 2020-2-24 相册页面
 - 2020-2-29 Mermaid绘图的支持
       
-  详细更新日志请[点击](https://meisen.pro/s/update-log)        
+  详细更新日志请[点击](https://baozi.fun/s/update-log)        
           
 
 **新主题，大家有问题请提issues**
