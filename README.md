@@ -7,7 +7,7 @@
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
 
-[预览地址](https://meisen.pro)
+[预览地址](https://baozi.fun)
 
 ## 已实现功能 
 * [x] 日志页面
