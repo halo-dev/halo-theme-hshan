@@ -86,7 +86,7 @@
                         <h2 class="screen-reader-text">Post navigation</h2>
                         <div class="nav-links">
                             <#if nextPost??>
-                                <a href="${context!}/archives/${nextPost.url!}" class="nav-next">
+                                <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
                                     <div class="nav-bg"
                                             <#if !(nextPost.thumbnail?? && nextPost.thumbnail!='')>
                                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
@@ -108,7 +108,7 @@
                                 </a>
                             </#if>
                             <#if prePost??>
-                                <a href="${context!}/archives/${prePost.url!}" class="nav-previous">
+                                <a href="${context!}/archives/${prePost.url!}" class="nav-next">
                                     <div class="nav-bg"
                                             <#if !(prePost.thumbnail?? && prePost.thumbnail!='')>
                                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
