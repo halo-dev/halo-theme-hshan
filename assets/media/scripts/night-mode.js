@@ -5,7 +5,7 @@ function autoNightMode() {
     var day = new Date();
     var D = day.getHours();
     var isNightMode = getLocalStorage(nightModeId);
-    if (D <= 18 && D > 6) {
+    if (D <= nightModeStartTime && D > nightModeEndTime) {
         // 白天
         if (isNightMode === true) {
             // 是暗黑模式

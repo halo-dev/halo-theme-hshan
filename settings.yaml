@@ -67,6 +67,18 @@ genernal:
           label: 开启
         - value: false
           label: 关闭
+    night_mode_start_time:
+      name: night_mode_start_time
+      label: 暗夜模式开始时间
+      type: text
+      placeholder: '暗夜模式开始时间 默认18'
+      description: '注意：24小时制的小时. 比如:18'
+    night_mode_end_time:
+      name: night_mode_end_time
+      label: 暗夜模式结束时间
+      type: text
+      placeholder: '暗夜模式结束时间,  默认6'
+      description: '注意：24小时制的小时. 比如:6'
     top_search:
       name: top_search
       label: 搜索
