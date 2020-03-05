@@ -1,4 +1,4 @@
-const nightModeId = 'nightMode';
+var nightModeId = 'nightMode';
 
 function autoNightMode() {
     var nightModes = $('.night-mode');
@@ -29,8 +29,8 @@ function autoNightMode() {
 
 function changeLightMode(nightModes) {
     $(document.body).removeClass('night');
-    for (let i = 0; i < nightModes.length; i++) {
-        let nightMode = $(nightModes[i]);
+    for (var i = 0; i < nightModes.length; i++) {
+        var nightMode = $(nightModes[i]);
         nightMode.addClass('fa-moon-o');
         nightMode.removeClass('fa-lightbulb-o');
     }
@@ -39,8 +39,8 @@ function changeLightMode(nightModes) {
 
 function changeNightMode(nightModes) {
     $(document.body).addClass('night');
-    for (let i = 0; i < nightModes.length; i++) {
-        let nightMode = $(nightModes[i]);
+    for (var i = 0; i < nightModes.length; i++) {
+        var nightMode = $(nightModes[i]);
         nightMode.addClass('fa-lightbulb-o');
         nightMode.removeClass('fa-moon-o');
     }
@@ -52,7 +52,7 @@ function nightModeFuc() {
     if (!nightModes) {
         return;
     }
-    for (let i = 0; i < nightModes.length; i++) {
+    for (var i = 0; i < nightModes.length; i++) {
         var nightMode = $(nightModes[i]);
         doFuncNightMode(nightMode);
     }

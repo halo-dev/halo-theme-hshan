@@ -9,7 +9,7 @@
         </div>
         <main class="site-main" id="siteMain">
             <div class="site-content">
-                <article class="post tag-getting-started" id="siteContent" itemscope itemtype="http://schema.org/Article">
+                <article class="post tag-getting-started" id="siteContent">
                     <header class="cover post-header" id="postHeader">
                         <#if post.thumbnail?? && post.thumbnail!=''>
                             <div class="cover-bg">
@@ -43,8 +43,10 @@
                                 </span>
                                     <div>${user.nickname!}</div>
                                 </div>
-                                <a href="#post-content" class="arrow-down" data-scroll><span
-                                            class="screen-reader-text">Scroll Down</span></a>
+                                <#if settings.enabled_visual_height!true>
+                                    <a href="#post-content" class="arrow-down" data-scroll><span
+                                                class="screen-reader-text">Scroll Down</span></a>
+                                </#if>
                             </div>
                         </div>
                     </header>

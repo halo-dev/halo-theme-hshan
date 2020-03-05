@@ -1742,32 +1742,27 @@ pre .storage {
   margin-bottom: 30px;
 }
 
-.post-template .post,
-.page-template .post {
+.post-template .post{
   margin-bottom: 60px;
 }
 
-.post-template .post-content,
-.page-template .post-content {
-  padding-top: 45px;
+.post-template .post-content {
+  padding-top: 20px;
   max-width: var(--post-max-width);
   margin: 0 auto;
 }
 
-.post-template .post-tags,
-.page-template .post-tags {
+.post-template .post-tags {
   color: #d4d3d3;
   font-size: 20px;
   margin-bottom: 20px;
 }
 
-.post-template .post-tags a:hover,
-.page-template .post-tags a:hover {
+.post-template .post-tags a:hover {
   color: #d4d3d3;
 }
 
-.post-template .post-title,
-.page-template .post-title {
+.post-template .post-title {
   color: #fff;
   font-size: 48px;
   margin-bottom: 30px;
@@ -1775,8 +1770,7 @@ pre .storage {
   position: relative;
 }
 
-.post-template .post-title:after,
-.page-template .post-title:after {
+.post-template .post-title:after {
   background-color: var(--base-color);
   bottom: 0;
   content: "";
@@ -1786,19 +1780,16 @@ pre .storage {
   width: 80px;
 }
 
-.post-template .post-meta,
-.page-template .post-meta {
+.post-template .post-meta {
   color: #d4d3d3;
 }
 
-.post-template .post-meta a,
-.page-template .post-meta a {
+.post-template .post-meta a {
   border-color: var(--base-color);
   color: var(--base-color);
 }
 
-.post-template .post-meta a:hover,
-.page-template .post-meta a:hover {
+.post-template .post-meta a:hover {
   border-color: transparent;
   color: #d4d3d3;
 }
@@ -2046,8 +2037,7 @@ pre .storage {
 }
 
 @media only screen and (min-width: 861px) {
-  .home-template .cover,
-  .post-template .cover {
+  .home-template .cover {
     height: 100vh;
   }
 
@@ -2057,7 +2047,6 @@ pre .storage {
   }
 
   .post-template .post-title:after,
-  .page-template .post-title:after,
   .hero-title:after {
     left: 50%;
     margin-left: -40px;
@@ -2147,13 +2136,7 @@ pre .storage {
     width: 80%;
   }
 
-  .post-template .post-content,
-  .page-template .post-content {
-    padding-top: 45px;
-  }
-
   .post-template .post-title,
-  .page-template .post-title,
   .hero-title,
   .error-code,
   .subscribe-title {
@@ -2164,8 +2147,7 @@ pre .storage {
     font-size: 12px;
   }
 
-  .post-template .post-tags,
-  .page-template .post-tags {
+  .post-template .post-tags {
     font-size: 16px;
     margin-bottom: 10px;
   }
@@ -2177,7 +2159,6 @@ pre .storage {
   }
 
   .post-template .post-title:after,
-  .page-template .post-title:after,
   .hero-title:after,
   .page-title:after,
   .error-code:after,
@@ -2194,14 +2175,8 @@ pre .storage {
     padding-top: 60px;
   }
 
-  .post-template .post-content,
-  .page-template .post-content {
-    padding-top: 30px;
-  }
-
   .post-title,
   .post-template .post-title,
-  .page-template .post-title,
   .hero-title,
   .error-code,
   .subscribe-title {
@@ -2210,7 +2185,6 @@ pre .storage {
 
   .post-title,
   .post-template .post-title,
-  .page-template .post-title,
   .hero-title,
   .error-code,
   .subscribe-title,
@@ -2734,4 +2708,13 @@ pre .storage {
   font-size: 1.4rem !important;
   letter-spacing: 0.4em !important;
   margin: 0 1rem !important;
+}
+
+.ball-pulse-sync>div, .ball-pulse>div, .ball-scale>div {
+  background-color: var(--index-title-color);
+}
+
+.ball-pulse-sync>div, .ball-pulse>div {
+  width: 10px !important;
+  height: 10px !important;
 }

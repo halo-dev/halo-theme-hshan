@@ -279,6 +279,13 @@ body.night {
 }
 
 .night .mermaid svg {
-    /*background: #fff;*/
     filter: brightness(0.6);
+}
+
+.night .article-copyright-info {
+    color: var(--night-color)!important;
+}
+
+.night.ball-pulse-sync>div, .ball-pulse>div, .ball-scale>div {
+    background-color: var(--night-color)!important;
 }

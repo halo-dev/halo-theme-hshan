@@ -1,8 +1,8 @@
 <#include "mathjax.ftl">
 <#include "mermaid.ftl">
 
-<script src="${static!}/assets/media/scripts/plugins.js"></script>
-<script src="${static!}/assets/media/scripts/main.js"></script>
+<script src="${static!}/assets/media/scripts/plugins.min.js"></script>
+<script src="${static!}/assets/media/scripts/main.min.js"></script>
 
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>
@@ -10,7 +10,7 @@
         var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
         var nightModeEndTime = ${settings.night_mode_start_time?default('6')};
     </script>
-    <script src="${static!}/assets/media/scripts/night-mode.js"></script>
+    <script src="${static!}/assets/media/scripts/night-mode.min.js"></script>
 </#if>
 
 <#if settings.visit_statistics!false>
@@ -65,7 +65,7 @@
     <script type="application/javascript">
         var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
     </script>
-    <script src="${static!}/assets/media/scripts/post.js"></script>
+    <script src="${static!}/assets/media/scripts/post.min.js"></script>
     <style>
         /* 阅读进度的进度条颜色 */
         #readProgress .read-progress-bar {
@@ -117,5 +117,5 @@
     console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
-    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.3.6");
+    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.3.7");
 </script>

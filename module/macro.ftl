@@ -79,10 +79,46 @@
                 --code-dark-cdata-color: #999;
                 --code-dark-symbol-color: #f8c555;
                 --code-dark-variable-color: #67cdcc;
-
             }
+
+            <#if settings.custom_scroller!true>
+            /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+            ::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+                background-color: #eee;
+            }
+
+            #siteHeader::-webkit-scrollbar {
+                width: 0;
+                opacity: 0;
+            }
+
+            /*定义滚动条轨道 内阴影+圆角*/
+            ::-webkit-scrollbar-track {
+                border-radius: 10px;
+                background-color: #eee;
+            }
+
+            /*定义滑块 内阴影+圆角*/
+            ::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: ${settings.base_color?default('#2474b5')};
+            }
+
+            </#if>
+
+            <#if settings.enabled_visual_height!true>
+                @media only screen and (min-width: 861px) {
+                    .post-template .cover {
+                        height: 100vh !important;
+                    }
+                }
+            </#if>
+
         </style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">
 
         <#if settings.Custom_css_src??>
             <!-- 自定义css -->

@@ -112,6 +112,23 @@ genernal:
           label: 开启
         - value: false
           label: 关闭
+    custom_scroller:
+      name: custom_scroller
+      label: 自定义滚动条
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    custom_scroller_color:
+      name: custom_scroller_color
+      label: 自定义滚动条颜色
+      type: color
+      default: '#2474b5'
+      placeholder: '网站主题色'
     Icp:
       name: Icp
       label: 'ICP 备案号'
@@ -218,6 +235,17 @@ post:
       type: text
       default: '800px'
       placeholder: '文章最大宽度, 比如: 800px'
+    enabled_visual_height:
+      name: enabled_visual_height
+      label: 文章页开启全屏图片
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     enabled_mathjax:
       name: enabled_mathjax
       label: Mathjax
