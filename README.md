@@ -6,6 +6,7 @@
 
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
+[主题指南](https://baozi.fun/archives/theme-manual)
 
 [预览地址](https://baozi.fun)
 
