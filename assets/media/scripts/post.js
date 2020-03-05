@@ -1,3 +1,4 @@
+"use strict";
 $(function () {
     // 赞赏点击事件
     function appreciate() {
@@ -47,7 +48,7 @@ $(function () {
             return false;
         }
 
-        const tocId = '#toc';
+        var tocId = '#toc';
         window.addEventListener('scroll', function () {
             var tocFixed = $(tocId);
             var ObjTop = Obj.offset().top - $(window).height() * 0.5;
@@ -91,7 +92,7 @@ $(function () {
 
         var tocLinks = $('.toc-link');
         if (tocLinks) {
-            for (let i = 0; i < tocLinks.length; i++) {
+            for (var i = 0; i < tocLinks.length; i++) {
                 var tocLink = tocLinks[i];
                 tocLink.after(document.createElement("span"));
             }
@@ -104,21 +105,22 @@ $(function () {
     function readProgress() {
 
         // 文章内容
-        let $content = $("#siteMain");
+        var $content = $("#siteMain");
         // 阅读进度条
-        let $readProgressBar = $("#readProgress .read-progress-bar");
+        var $readProgressBar = $("#readProgress .read-progress-bar");
 
         /**
          * 改变阅读进度条
          */
-        let changeReadProgress = () => {
+        var changeReadProgress = function () {
             // contentHeight 实际总阅读高度 = 内容的高度 - 窗口的可视高度
-            let contentHeight = $content.height() - window.innerHeight;
+            var contentHeight = $content.height() - window.innerHeight;
             if (contentHeight <= 0) return;
             // readHeight 已经阅读的高度 = 当前页面的垂直偏移量 - 内容元素上边的多余部分
-            let readHeight = window.pageYOffset - $content.offset().top;
+            var readHeight = window.pageYOffset - $content.offset().top;
             // 进度条的宽度
-            $readProgressBar.width(`${readHeight / contentHeight * 100}%`);
+            var progressWidth = readHeight / contentHeight * 100 + '%';
+            $readProgressBar.width(progressWidth);
         };
 
         // 改变阅读进度条

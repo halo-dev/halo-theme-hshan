@@ -16,6 +16,7 @@ var scroll = new SmoothScroll('[data-scroll]', {
 
 
 
+
 // Sidebar toggle
 var sidebarToggle = document.querySelectorAll('.sidebar-toggle')
 if (sidebarToggle)
@@ -124,9 +125,32 @@ $(
 
 		function foldSubMenu() {
 			$(".nav-menu-link").click(function (e) {
-				const angle = $(this).children('.fa')[0];
+				var angle = $(this).children('.fa')[0];
 				$(angle).toggleClass('angle-transform');
 				$(this).siblings('.nav-sub-menu').toggleClass('nav-menu-show');
+			});
+		}
+
+		function pagination() {
+			$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+			$('body').on('click', '#pagination a', function () {
+				var pageContent = $('#pagination');
+				pageContent.html("")
+				pageContent.append('<div class="loader-inner ball-pulse"><div/><div/><div/></div>');
+				$.ajax({
+					type: "GET",
+					url: $(this).attr("href"),
+					success: function (data) {
+						result = $(data).find("#post-list .post-item");
+						pageInner = $(data).find("#pagination .inner");
+						// In the new content
+						$("#post-list").html(result.fadeIn(500));
+						pageContent.empty();
+						pageContent.append(pageInner);
+						document.getElementById("post-list").scrollIntoView()
+					}
+				});
+				return false;
 			});
 		}
 
@@ -142,6 +166,9 @@ $(
 
 		// 菜单点击事件
 		foldSubMenu()
+
+		// 分页
+		pagination()
 	});
 
 // 删除日志中的空元素
@@ -155,4 +182,6 @@ $(document).ready(
                     childrens[j].remove()
             }
     });
+
+
 
