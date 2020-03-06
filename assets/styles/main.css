@@ -2441,6 +2441,7 @@ blockquote {
 }
 .mermaid svg {
   background: #fff;
+  max-width: var(--post-max-width);
 }
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
