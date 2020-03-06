@@ -6,6 +6,7 @@
 
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
+[主题指南](https://baozi.fun/archives/theme-manual)
 
 [预览地址](https://baozi.fun)
 
@@ -23,6 +24,7 @@
 * [x] 导航栏下拉菜单 只支持两级下拉菜单
 * [x] 相册页面
 * [x] Mermaid绘图的支持
+* [x] 滚动条可配置
 
 
 ...
@@ -44,6 +46,7 @@
 - 2020-2-22 导航栏下拉菜单 只支持两级下拉菜单
 - 2020-2-24 相册页面
 - 2020-2-29 Mermaid绘图的支持
+- 2020-3-6 滚动条可配置， ajax分页，文章页面图片高度可配置
       
   详细更新日志请[点击](https://baozi.fun/s/update-log)        
           
