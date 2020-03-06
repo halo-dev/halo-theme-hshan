@@ -11,7 +11,8 @@
                             <img src="${settings.categories_patternimg!}" alt="${options.blog_title!}">
                         </div>
                     <#else>
-                        <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        <div class="default-cover-bg"
+                        >
                         </div>
                     </#if>
                     <div class="cover-content">
