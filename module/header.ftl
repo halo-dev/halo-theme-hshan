@@ -56,7 +56,6 @@
                                         style=" height: ${settings.header_logo_height} "
                                     </#if>
                             />
-
                         </a>
                     </li>
                 </#if>

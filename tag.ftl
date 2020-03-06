@@ -14,8 +14,7 @@
                             <img src="${settings.tag_patternimg!}" alt="标签：${tag.name}">
                         </div>
                     <#else>
-                        <div class="cover-bg"
-                             style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        <div class="default-cover-bg">
                         </div>
                     </#if>
                     <div class="cover-content">

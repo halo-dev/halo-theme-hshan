@@ -3,9 +3,11 @@ $(function () {
     // 赞赏点击事件
     function appreciate() {
         $(".appreciate-btn").on("click", function (e) {
-            $(".qr-code").addClass('qr-code-display');
+            $(".qr-code-wrap").show();
+            // $(".qr-code").addClass('qr-code-display');
             $(document).one("click", function () {
-                $(".qr-code").removeClass('qr-code-display');
+                // $(".qr-code").removeClass('qr-code-display');
+                $(".qr-code-wrap").hide();
             });
             e.stopPropagation();
         });
@@ -13,7 +15,8 @@ $(function () {
             e.stopPropagation();
         });
         $(".closinglayer").on("click", function (e) {
-            $(".qr-code").removeClass('qr-code-display');
+            // $(".qr-code").removeClass('qr-code-display');
+            $(".qr-code-wrap").hide();
         });
         $(".zfb-btn").on("click", function (e) {
             $(".qr_code_zfb").css("opacity", "1");
@@ -80,13 +83,8 @@ $(function () {
             tocSelector: '#toc',
             contentSelector: content,
             headingSelector: headerEl,
-            //positionFixedSelector: '.toc',
-            //positionFixedClass: 'is-position-fixed',
-            //fixedSidebarOffset: 'auto',
             scrollSmooth: true,
-            // collapseDepth: 2,
-            // scrollSmoothOffset: -52,
-            // headingsOffset: 60,
+            headingsOffset: 0-$('#postHeader').height(),
             hasInnerContainers: false,
         });
 

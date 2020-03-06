@@ -29,6 +29,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
     <script type="text/javascript">
         const gallery = new Viewer(document.getElementById('post-content'), {
             toolbar: false,
@@ -39,20 +40,29 @@
         hljs.initLineNumbersOnLoad({singleLine: true});
     </script>
 
-    <div class="qr-code">
-        <span class="closinglayer"><i class="fa fa-times"></i></span>
-        <#if settings.QR_code_zfb??>
-            <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
-        </#if>
-        <#if settings.QR_code_wx??>
-            <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
-        </#if>
-        <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
-            <div class="switch-btn">
-                <span class="zfb-btn">支付宝</span>
-                <span class="wx-btn">微信</span>
+
+    <div class="qr-code-wrap" role="dialog" >
+        <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
+        <span class="closinglayer"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em"
+                                        height="1em" fill="currentColor" aria-hidden="true"><path
+                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
+        </span>
+            <div style="text-align: center;
+    padding: 48px 64px;">
+                <#if settings.QR_code_zfb??>
+                    <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
+                </#if>
+                <#if settings.QR_code_wx??>
+                    <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
+                </#if>
             </div>
-        </#if>
+            <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
+                <div class="switch-btn">
+                    <span class="zfb-btn">支付宝</span>
+                    <span class="wx-btn">微信</span>
+                </div>
+            </#if>
+        </div>
     </div>
 </#if>
 

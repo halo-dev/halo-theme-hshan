@@ -7,10 +7,14 @@
             <div class="site-content">
                 <!-- 封面 -->
                 <div class="cover hero">
-                    <div class="cover-bg"
-                         style="background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);">
-                        <img src="${settings.home_cover!'https://tva1.sinaimg.cn/large/0082zybply1gbzqqf63ajj31870u0wqe.jpg'}">
-                    </div>
+                    <#if settings.home_cover?? && settings.home_cover!=''>
+                        <div class="cover-bg">
+                            <img src="${settings.home_cover!}" alt="${settings.home_cover!'首页'}">
+                        </div>
+                    <#else>
+                        <div class="default-cover-bg">
+                        </div>
+                    </#if>
                     <div class="cover-content">
                         <!-- 封面内容 -->
                         <div class="inner">

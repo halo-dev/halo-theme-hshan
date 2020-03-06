@@ -10,14 +10,14 @@
         <main class="site-main" id="siteMain">
             <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
+<#--                    <div id="postHeader"></div>-->
                     <header class="cover post-header" id="postHeader">
                         <#if post.thumbnail?? && post.thumbnail!=''>
                             <div class="cover-bg">
                                 <img src="${post.thumbnail!}" alt="${post.title!}"/>
                             </div>
                         <#else>
-                            <div class="cover-bg"
-                                 style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                            <div class="default-cover-bg">
                             </div>
                         </#if>
                         <div class="cover-content">
@@ -30,17 +30,17 @@
                                         </#list>
                                     </#if>
                                 </div>
-                                <h1 class="post-title">${post.title}</h1>
+                                <h1 class="post-title js-toc-ignore">${post.title}</h1>
                                 <div class="post-meta">
-                                <span class="post-meta-wrap">
-                                    <img class="author-avatar"
-                                         srcset="${user.avatar!}, ${user.avatar!} 2x"
-                                         src="${user.avatar!}" alt=""/>
-                                    <span class="post-author">${post.visits} 次访问</span>
-                                    <time class="published"
-                                          datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
-                                    </time>
-                                </span>
+                                    <span class="post-meta-wrap">
+                                        <img class="author-avatar"
+                                             srcset="${user.avatar!}, ${user.avatar!} 2x"
+                                             src="${user.avatar!}" alt=""/>
+                                        <span class="post-author">${post.visits} 次访问</span>
+                                        <time class="published"
+                                              datetime="${post.createTime?string("yyyy-MM-dd")}">${post.createTime?string("yyyy-MM-dd")}
+                                        </time>
+                                    </span>
                                     <div>${user.nickname!}</div>
                                 </div>
                                 <#if settings.enabled_visual_height!true>
@@ -64,13 +64,11 @@
                             <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
                                 <div class="appreciate-btn" id="walletInfo">请博主喝咖啡</div>
                             </#if>
+                            <#if settings.social_share!false>
+                                <div class="social-share" data-disabled="${settings.share_disabeld!''}"></div>
+                            </#if>
                             <div class="article-copyright-info">
-                                <p>本文由 <a href="${context!}">${user.nickname!}</a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a
-                                            href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-                                            rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
-                                            href="${context!}/archives/${post.url!}">${context!}
-                                        /archives/${post.url!}</a><br>最后更新于：${post.editTime?string('yyyy-MM-dd HH:mm:ss')}
-                                </p>
+                                © 本文著作权归作者所有，转载前请务必署名
                             </div>
 
                             <#include "module/comment.ftl">
@@ -95,9 +93,8 @@
                                             </#if>
                                     >
 
-                                        <img srcset="${nextPost.thumbnail!} 300w, ${nextPost.thumbnail!} 600w, ${nextPost.thumbnail!} 800w, ${nextPost.thumbnail!} 1600w, ${nextPost.thumbnail!} 2000w"
-                                             sizes="(max-width: 800px) 100vw, 50vw" src="${nextPost.thumbnail!}" alt=""
-                                        />
+                                        <img sizes="(max-width: 800px) 100vw, 50vw" src="${nextPost.thumbnail!}"
+                                             alt=""/>
 
                                     </div>
                                     <div class="nav-inside">
@@ -117,9 +114,7 @@
                                             </#if>
                                     >
 
-                                        <img srcset="${prePost.thumbnail!} 300w, ${prePost.thumbnail!} 600w, ${prePost.thumbnail!} 800w, ${prePost.thumbnail!} 1600w, ${prePost.thumbnail!} 2000w"
-                                             sizes="(max-width: 800px) 100vw, 50vw" src="${prePost.thumbnail!}" alt=""
-                                        />
+                                        <img sizes="(max-width: 800px) 100vw, 50vw" src="${prePost.thumbnail!}" alt=""/>
 
                                     </div>
                                     <div class="nav-inside">

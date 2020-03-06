@@ -13,7 +13,10 @@
                             <#if settings.searh_patternimg?? && settings.searh_patternimg!=''>
                                 style="background-image: url(${settings.searh_patternimg!});"
                             <#else>
-                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
+                                style="background: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+                                 background-size: 400% 400%;
+                                 -webkit-animation: gradientBG 15s ease infinite;
+                                 animation: gradientBG 15s ease infinite;"
                             </#if>
                     >
                     </div>

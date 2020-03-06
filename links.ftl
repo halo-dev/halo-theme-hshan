@@ -13,7 +13,7 @@
                             <img src="${settings.links_patternimg!}" alt="${settings.links_title!'友链'}">
                         </div>
                     <#else>
-                        <div class="cover-bg"  style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);">
+                        <div class="default-cover-bg">
                         </div>
                     </#if>
                     <div class="cover-content">
