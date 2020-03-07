@@ -1821,7 +1821,6 @@ pre .storage {
  */
 .comments-area {
   border-top: 1px solid #d4d3d3;
-  padding: 30px;
 }
 .article-info .comments-area {
   max-width: var(--post-max-width);
@@ -2135,7 +2134,7 @@ pre .storage {
   overflow: auto;
   outline: 0;
   -webkit-overflow-scrolling: touch;
-  height: 380px;
+  height: 450px;
   width: 250px;
   box-shadow: 0 0 20px #a9a9a9;
   border-radius: 10px;
