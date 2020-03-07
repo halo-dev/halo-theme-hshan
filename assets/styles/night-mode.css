@@ -293,5 +293,8 @@ body.night {
 .night .qr-code {
     background-color: var(--code-dark-bg-color) !important;
     box-shadow: 0 0 10px var(--dark-backgound) !important;
+}
 
+.night .wx-btn, .night .zfb-btn {
+    box-shadow: 0 0 10px var(--dark-backgound) !important;
 }
