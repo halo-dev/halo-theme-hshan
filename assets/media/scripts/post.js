@@ -1,7 +1,15 @@
-"use strict";
+function appreciateModel() {
+    $(".qr-code-wrap").show();
+    $(document).one("click", function () {
+        $(".qr-code-wrap").hide();
+    });
+}
+
+function toggleSocialShare() {
+    $('#socialShare').toggleClass('no-show');
+}
 $(function () {
-    // 赞赏点击事件
-    function appreciate() {
+    function appreciateModel() {
         $(".appreciate-btn").on("click", function (e) {
             $(".qr-code-wrap").show();
             $(document).one("click", function () {
@@ -9,6 +17,17 @@ $(function () {
             });
             e.stopPropagation();
         });
+    }
+
+    function toggleSocialShare() {
+        $('.share-btn').on("click", function (e) {
+            $('#socialShare').toggleClass('no-show');
+        });
+    }
+
+    // 赞赏点击事件
+    function appreciate() {
+
         $(".qr-code").on("click", function (e) {
             e.stopPropagation();
         });
@@ -139,5 +158,11 @@ $(function () {
 
     // 搞一个阅读进度，为了提高准确度，数据都要实时获取
     readProgress();
+
+    // 按钮事件
+    appreciateModel()
+
+    // 分享
+    toggleSocialShare()
 
 });

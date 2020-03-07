@@ -2316,25 +2316,104 @@ pre .storage {
   margin: 1rem auto;
 }
 
-.appreciate-btn {
-  height: 30px;
-  width: 100px;
-  line-height: 30px;
-  text-align: center;
-  color: #ff4d4d;
-  font-size: 12px;
-  font-weight: 700;
-  margin: 30px auto;
-  border-radius: 15px 15px;
-  background-color: #ffdddd;
-  box-shadow: 0 0 20px #ffdddd;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  transition: all .2s;
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ff5f5f;
+  height: 46px;
+  max-width: 200px;
+  color: #fff;
+  padding: 8px 16px;
+  margin: 0 10px;
+  border-radius: 8px;
+  border: none;
+  transition: color .15s ease-in-out 0s,background-color .15s ease-in-out 0s;
+  text-transform: none !important;
 }
 
-.appreciate-btn:hover {
-  transform: scale(1.03);
-  cursor: pointer;
+.btn-primary:hover {
+  color: #fff;
+  background-color: #ff4646;
+}
+
+
+.btn-primary-light {
+  background-color: #fee;
+  color: #ff5f5f;
+  height: 40px;
+  padding: 8px 14px;
+  font-size: 16px;
+}
+
+.btn-primary-light:hover {
+  color: #ff5f5f;
+  background-color: #fee;
+}
+
+.extra-info {
+  margin: 12px auto;
+}
+
+.extra-info-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-primary {
+    margin: 0 auto !important;
+  }
+
+  .extra-info {
+    justify-content: space-between !important;
+  }
+}
+
+.height-46 {
+  height: 46px;
+}
+
+.rounded {
+  border-radius: 100px!important;
+}
+.font-16-to-14 {
+  font-size: 16px;
+}
+
+.width-47 {
+  width: 47%;
+}
+.font-bold {
+  font-weight: 800;
+}
+
+.right-mrgn-8 {
+  margin-right: 8px;
+}
+
+.height-46 {
+  height: 46px;
+}
+
+.rounded {
+  border-radius: 100px !important;
+}
+.width-47 {
+  width: 47%;
+}
+
+.no-show {
+  display: none;
+}
+
+#socialShare {
+  -webkit-transition: all .6s;
+  -o-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
 }
 
 .qr-code-wrap {
@@ -2388,6 +2467,9 @@ pre .storage {
 .closinglayer {
   font-size: 20px;
   font-weight: 700;
+  -webkit-transition: all .6s;
+  -o-transition: all .6s;
+  -moz-transition: all .6s;
   transition: all .6s;
   padding: 10px 20px 0;
   display: block;
@@ -2423,6 +2505,9 @@ pre .storage {
   font-size: 12px;
   font-weight: 700;
   box-shadow: 0 0 10px #797979;
+  -webkit-transition: all .6s;
+  -o-transition: all .6s;
+  -moz-transition: all .6s;
   transition: all .6s;
 }
 

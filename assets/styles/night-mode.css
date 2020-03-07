@@ -93,6 +93,10 @@ body.night {
     filter: brightness(0.3) !important;
 }
 
+.night .extra-info img {
+    filter: brightness(1) !important;
+}
+
 /*
 搜索框
  */

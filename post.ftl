@@ -10,7 +10,7 @@
         <main class="site-main" id="siteMain">
             <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
-<#--                    <div id="postHeader"></div>-->
+                    <#--                    <div id="postHeader"></div>-->
                     <header class="cover post-header" id="postHeader">
                         <#if post.thumbnail?? && post.thumbnail!=''>
                             <div class="cover-bg">
@@ -61,12 +61,25 @@
                             </#if>
                         </div>
                         <div class="article-info" id="articleInfo">
-                            <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
-                                <div class="appreciate-btn" id="walletInfo">请博主喝咖啡</div>
-                            </#if>
-                            <#if settings.social_share!false>
-                                <div class="social-share" data-disabled="${settings.share_disabeld!''}"></div>
-                            </#if>
+                            <div class="extra-info extra-info-center">
+                                <#if settings.QR_code_zfb?? || settings.QR_code_wx??>
+                                    <button type="submit"
+                                            class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
+                                            onclick="">
+                                        <img src="${static!}/assets/media/images/cuplogo-sm.png"
+                                             class="right-mrgn-8 support-img" style="height: 16px"/>
+                                        <span id="">Support</span>
+                                    </button>
+                                </#if>
+                                <#if settings.social_share!false>
+                                    <button class="btn-primary btn-primary-light font-bold rounded width-47 height-46 custom-color-secondary-bg share-btn "
+                                            onclick="">
+                                        <span id="">Share</span>
+                                    </button>
+                                </#if>
+                            </div>
+                            <div class="social-share no-show" data-disabled="${settings.share_disabeld!''}"
+                                 id="socialShare"></div>
                             <div class="article-copyright-info">
                                 © 本文著作权归作者所有，转载前请务必署名
                             </div>
