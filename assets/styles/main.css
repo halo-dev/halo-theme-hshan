@@ -1088,6 +1088,14 @@ pre .storage {
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 1;
   }
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+  0% {
+    transform: scale3d(0.5, 0.5, 0.5);
+    opacity: 0;
+  }
 }
 @keyframes popIn {
   0% {
@@ -1103,6 +1111,14 @@ pre .storage {
     -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 1;
+  }
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+  0% {
+    transform: scale3d(0.5, 0.5, 0.5);
+    opacity: 0;
   }
 }
 /**
@@ -2117,6 +2133,9 @@ pre .storage {
   outline: 0;
   text-align: center;
   -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-animation: popIn 0.3s 0.1s ease both;
+  animation: popIn 0.3s 0.1s ease both;
 }
 .qr-code-wrap:before {
   content: "";
@@ -2134,55 +2153,40 @@ pre .storage {
   overflow: auto;
   outline: 0;
   -webkit-overflow-scrolling: touch;
-  height: 450px;
-  width: 250px;
-  box-shadow: 0 0 20px #a9a9a9;
+  height: 440px;
+  width: 300px;
+  box-shadow: 0 0 10px #a9a9a9;
   border-radius: 10px;
   background-color: #fff;
   transition: all 1s;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-animation: popIn 0.3s 0.1s ease both;
-  animation: popIn 0.3s 0.1s ease both;
 }
 .qr-code-display {
   transform-origin: 197px 297px;
   opacity: 1;
 }
 .closinglayer {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   font-size: 20px;
   font-weight: 700;
   transition: all 0.6s;
-  width: 48px;
-  height: 48px;
-  text-align: center;
+  padding: 10px 20px 0;
+  display: block;
+  text-align: right;
 }
 .closinglayer:hover {
   cursor: pointer;
 }
 .qr_code_zfb,
 .qr_code_wx {
-  position: absolute;
-  top: 55px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  opacity: 0;
+  height: 0;
   border-radius: 10px;
-  transition: all 0.6s;
 }
 .qr_code_zfb {
-  opacity: 1;
+  height: 300px;
 }
 .switch-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   text-align: center;
+  padding-top: 10px;
 }
 .zfb-btn,
 .wx-btn {
