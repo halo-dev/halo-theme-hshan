@@ -14,7 +14,7 @@
                                 </#if>
                                 <#if menu.children?? && menu.children?size gt 0>
                                     <ul class="nav-sub-menu" style="display: none;">
-                                        <#list menu.children as child>
+                                        <#list menu.children?sort_by('priority') as child>
                                             <li>
                                                 <a href="${child.url!}" target="${child.target!}"
                                                    onfocus="this.blur();">${child.name}</a>
@@ -69,7 +69,7 @@
                             </#if>
                             <#if menu.children?? && menu.children?size gt 0>
                                 <ul class="sub-menu">
-                                    <#list menu.children as child>
+                                    <#list menu.children?sort_by('priority') as child>
                                         <li>
                                             <a href="${child.url!}" target="${child.target!}"
                                                onfocus="this.blur();">${child.name}</a>
