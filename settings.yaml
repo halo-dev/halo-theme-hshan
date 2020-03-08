@@ -45,6 +45,8 @@ genernal:
           label: 风格1
         - value: simple
           label: 风格2
+        - value: card
+          label: 风格3
     auto_night_mode:
       name: auto_night_mode
       label: 暗夜模式总开关
