@@ -9,28 +9,24 @@
             <div class="site-content">
                 <!-- 封面 -->
                 <header class="cover page-header">
-                    <div class="cover-bg"
-                            <#if settings.searh_patternimg?? && settings.searh_patternimg!=''>
-                                style="background-image: url(${settings.searh_patternimg!});"
-                            <#else>
-                                style="background: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
-                                 background-size: 400% 400%;
-                                 -webkit-animation: gradientBG 15s ease infinite;
-                                 animation: gradientBG 15s ease infinite;"
-                            </#if>
-                    >
-                    </div>
 
+                    <#if settings.searh_patternimg?? && settings.searh_patternimg!=''>
+                        <div class="cover-bg">
+                            <img src="${settings.searh_patternimg!}" alt="${keyword!} " />
+                        </div>
+                    <#else>
+                        <div class="default-cover-bg">
+                        </div>
+                    </#if>
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
-                            <h1 class="page-title" style="font-size: 46px;">关于“ ${keyword!} ”的搜索结果</h1>
+                            <h1 class="page-title" style="font-size: 46px;">「${keyword!}」的搜索结果</h1>
                         </div>
                     </div>
                 </header>
 
                 <!-- post-list -->
-
                 <#if posts?? && posts.content?size gt 0>
                     <#if (settings.post_list_style!'standard') == 'standard'>
                         <#include "module/post-list-style/standard.ftl">
