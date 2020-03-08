@@ -3453,10 +3453,10 @@ div.articles article .featured-image {
   border-top-right-radius: 15px;
   overflow: hidden;
 }
-div.articles article span.thumb {
+div.articles article a.thumb {
   min-height: 225px;
 }
-span.hover-effect {
+a.hover-effect {
   display: block;
   position: relative;
   overflow: hidden;
@@ -3467,7 +3467,7 @@ span.hover-effect {
   z-index: 1;
   min-height: 80px;
 }
-span.hover-effect span.cover {
+a.hover-effect a.cover {
   display: block;
   width: 101%;
   height: auto;
