@@ -29,6 +29,7 @@
             :root {
                 --post-max-width: ${settings.post_max_wdth?default('800px')} !important;
                 --base-color: ${settings.base_color?default('#2474b5')};
+                --tag-bg-color: #ff5f5f;
                 --header-bg-color: #fff;
                 --header-child-hover-bg-color: #f5f5f5;
                 --index-title-color: #555;

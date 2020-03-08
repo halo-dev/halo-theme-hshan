@@ -25,8 +25,10 @@
                 <!--文章列表-->
                 <#if (settings.post_list_style!'standard') == 'standard'>
                     <#include "module/post-list-style/standard.ftl">
-                <#else>
+                <#elseif settings.post_list_style == 'simple'>
                     <#include "module/post-list-style/simple.ftl">
+                <#else>
+                    <#include "module/post-list-style/random-card.ftl">
                 </#if>
 
                 <nav class="pagination">

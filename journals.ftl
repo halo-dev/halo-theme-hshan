@@ -40,7 +40,6 @@
                     </ol>
                     <div class="tree-hole-go">
                         <span class="tree-hole-go-aircraft"><i class="fa fa-paper-plane fa-lg"></i></span><br>
-                        <#--				<span>GO!!!</span>-->
                     </div>
                     <div class="comment-page">
                         <#if journals.totalPages gt 1>
