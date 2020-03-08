@@ -21,7 +21,7 @@
                     <div class="cover-content">
                         <div class="inner">
                             <div class="post-count"></div>
-                            <h1 class="page-title" style="font-size: 46px;">「${keyword!}」的搜索结果</h1>
+                            <h1 class="page-title" style="font-size: 46px;">关于「${keyword!}」的搜索结果</h1>
                         </div>
                     </div>
                 </header>
