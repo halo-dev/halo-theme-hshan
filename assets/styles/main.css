@@ -3509,7 +3509,7 @@ div.meta {
   font-weight: 500;
 }
 div.articles article .main-title {
-  font-size: 22px;
+  font-size: 1.8rem;
   margin-bottom: 10px;
   margin-top: 5px;
   line-height: 1.35;
@@ -3526,6 +3526,7 @@ div.articles article div.post-excerpt {
   margin-bottom: 40px;
   word-break: break-all;
   min-width: 280px;
+  font-size: 1.1rem;
 }
 .author-meta {
   border-top: 2px solid #F4F4F4;
