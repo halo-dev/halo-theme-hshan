@@ -1,5 +1,5 @@
 <div class="grid-container module-wrapper enable-masonry aos-init aos-animate" data-aos="fade-up">
-    <div class="content-wrapper grid-posts content articles" id="post-list">
+    <div class="content-wrapper grid-posts content articles" id="post-list" <#if posts?? && posts.getTotalElements() lt 3>style="justify-content: space-around; !important;"</#if>>
         <#if posts?? && posts.getTotalElements() gt 0>
             <#list posts.content as post>
                 <article

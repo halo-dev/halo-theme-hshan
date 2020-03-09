@@ -3,6 +3,9 @@
 
 <script src="${static!}/assets/media/scripts/plugins.min.js"></script>
 <script src="${static!}/assets/media/scripts/main.min.js"></script>
+<#--<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
 
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>

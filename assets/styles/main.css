@@ -2179,8 +2179,8 @@ pre .storage {
   text-align: center;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-animation: popIn 0.3s 0.1s ease both;
-  animation: popIn 0.3s 0.1s ease both;
+  -webkit-animation: popIn 0.3s 0.1s ease-in-out both;
+  animation: popIn 0.3s 0.1s ease-in-out both;
 }
 .qr-code-wrap:before {
   content: "";
@@ -3133,7 +3133,7 @@ a.toc-link {
   left: 0;
   min-width: 100px;
   margin: 2px 0 0;
-  line-height: 30px;
+  line-height: 0px;
   text-align: left;
   list-style: none;
   background-color: var(--header-bg-color);
@@ -3154,8 +3154,8 @@ a.toc-link {
   display: block;
   padding: 3px 20px;
   clear: both;
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   color: #333;
   white-space: nowrap;
   margin-right: 0 !important;
@@ -3398,13 +3398,6 @@ article {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-.post {
-  margin-bottom: 40px!important;
-  margin-top: 40px!important;
-}
-.post-item {
-  min-width: 320px !important;
-}
 div.articles .post-format-wrapper {
   position: relative;
   z-index: 2;
@@ -3432,6 +3425,7 @@ div.articles .post-format-wrapper {
   max-width: 1200px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 40px ;
 }
 div.articles {
   display: flex;

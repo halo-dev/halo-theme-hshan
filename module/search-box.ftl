@@ -1,4 +1,4 @@
-<div class="searchbox ins-search">
+<div class="searchbox ins-search search-popup">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
             <form method="get" action="/search">
@@ -70,12 +70,13 @@
         </div>
     </div>
 </div>
+<div class="search-mask"></div>
 <script>
     function openSearchPanel() {
-        $(".ins-search").addClass("show");
+        $(".search-popup").velocity("transition.expandIn", { duration: 300 });
     }
 
     function closeSearchPanel() {
-        $(".ins-search").removeClass("show");
+        $(".search-popup").velocity("transition.expandOut", { duration: 300 });
     }
 </script>
