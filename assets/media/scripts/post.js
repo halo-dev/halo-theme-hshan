@@ -1,19 +1,12 @@
-function appreciateModel() {
-    $(".qr-code-wrap").show();
-    $(document).one("click", function () {
-        $(".qr-code-wrap").hide();
-    });
-}
-
-function toggleSocialShare() {
-    $('#socialShare').toggleClass('no-show');
-}
 $(function () {
     function appreciateModel() {
         $(".appreciate-btn").on("click", function (e) {
+            // $(".qr-code-wrap").velocity("transition.expandIn", { duration: 300 });
             $(".qr-code-wrap").show();
             $(document).one("click", function () {
                 $(".qr-code-wrap").hide();
+                // $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
+
             });
             e.stopPropagation();
         });
