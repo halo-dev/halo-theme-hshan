@@ -28,6 +28,7 @@
         <style>
             :root {
                 --post-max-width: ${settings.post_max_wdth?default('800px')} !important;
+                --content-font-size: ${settings.content_font_size?default('1.12rem')} !important;
                 --base-color: ${settings.base_color?default('#2474b5')};
                 --tag-bg-color: #ff5f5f;
                 --header-bg-color: #fff;
