@@ -270,7 +270,8 @@ post:
       label: 分享禁用
       type: text
       default: 'google,twitter,facebook'
-      placeholder: '文章分享禁用社交软件,比如: google,twitter,facebook,weibo,qq,tencent,qzone,linkedin,wechat,douban,diandian'
+      placeholder: '文章分享禁用社交软件'
+      description: '文章分享禁用社交软件,比如: google,twitter,facebook,weibo,qq,tencent,qzone,linkedin,wechat,douban,diandian'
     enabled_mathjax:
       name: enabled_mathjax
       label: Mathjax
