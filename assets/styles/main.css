@@ -2355,7 +2355,7 @@ blockquote {
 .post-content p {
   font-weight: 400;
   text-indent: 0;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.6px;
   font-size: var(--content-font-size);
   z-index: 999;
   line-height: 2rem;
@@ -2395,15 +2395,6 @@ blockquote {
   top: 0;
   left: 0;
   overflow: hidden;
-}
-.post-content > h1:hover .post-content > h1:before,
-.post-content > h2:hover .post-content > h2:before,
-.post-content > h3:hover .post-content > h3:before,
-.post-content > h4:hover .post-content > h4:before,
-.post-content > h5:hover .post-content > h5:before,
-.post-content > h6:hover .post-content > h6:before {
-  content: "# ";
-  color: var(--base-color);
 }
 /* 阅读进度的进度条颜色 */
 #readProgress .read-progress-bar {
