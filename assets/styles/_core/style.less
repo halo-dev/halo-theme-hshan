@@ -1456,7 +1456,8 @@ pre .storage {
 }
 
 .default-cover-bg {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);;
+  //linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+  background: linear-gradient(-45deg, #ee7752, #43CBFF, #9708CC, #23d5ab);;
   background-size: 400% 400%;
   -webkit-animation: gradientBG 15s ease infinite;
   -moz-animation: gradientBG 15s ease infinite;
@@ -2429,9 +2430,9 @@ pre .storage {
   text-align: center;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-animation: popIn .3s .1s ease both;
-  -moz-animation: popIn .3s .1s ease both;
-  animation: popIn .3s .1s ease both;
+  -webkit-animation: popIn .3s .1s ease-in-out both;
+  -moz-animation: popIn .3s .1s ease-in-out both;
+  animation: popIn .3s .1s ease-in-out both;
 }
 
 .qr-code-wrap:before {
