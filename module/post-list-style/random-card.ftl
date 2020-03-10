@@ -9,7 +9,11 @@
                             <div class="post-format-image post-format-wrapper">
                                 <div class="featured-image">
                                     <#if post.thumbnail?? && post.thumbnail!=''>
-                                        <a href="${context!}/archives/${post.url!}" 
+                                        <a href="${context!}/archives/${post.url!}"  
+                                        style=" background-image: url(${post.thumbnail!''});
+                                        background-repeat: no-repeat!important; 
+                                        background-position: center center!important;
+                                        background-size: cover!important;"
                                               class="thumb hover-effect">
                                             <span class="fullimage cover" role="img" aria-label=""
                                                   style="background-image: url(${post.thumbnail!''});"></span>
