@@ -11,7 +11,7 @@
 <#if settings.auto_night_mode!true>
     <script type="text/javascript">
         var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
-        var nightModeEndTime = ${settings.night_mode_start_time?default('6')};
+        var nightModeEndTime = ${settings.night_mode_end_time?default('6')};
     </script>
     <script src="${static!}/assets/media/scripts/night-mode.min.js"></script>
 </#if>
