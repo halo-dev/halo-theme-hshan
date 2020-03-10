@@ -16,9 +16,7 @@
     <script src="${static!}/assets/media/scripts/night-mode.min.js"></script>
 </#if>
 
-<#if settings.visit_statistics!false>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-</#if>
+
 
 <!-- gallery -->
 <#if !is_post??>

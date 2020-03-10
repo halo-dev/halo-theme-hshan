@@ -81,10 +81,11 @@
                 <p>本站运行：<span id="span_dt_dt"></span></p>
             </#if>
             <#if settings.visit_statistics!false>
-                <p>
-                    <span id="busuanzi_container_site_uv">感谢<span id="busuanzi_value_site_uv"></span>位小伙伴的</span>
-                    <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次访问</span>
-                </p>
+                <@footerTag method="count">
+                    <p>
+                        <span>本站被访问 ${count} 次</span>
+                    </p>
+                </@footerTag>
             </#if>
         </div>
         <div class="site-statistics">
