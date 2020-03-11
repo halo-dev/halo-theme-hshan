@@ -131,7 +131,6 @@ $(
                     subMenu.velocity("transition.slideUpOut", {duration: 300});
                     subMenu.removeClass('nav-menu-show')
                 }
-                // $('.menu-item').velocity({opacity: 1}, {duration:600})
             });
         }
 
@@ -157,6 +156,17 @@ $(
                 return false;
             });
         }
+
+        function postItemHover() {
+            $('.card').hover(function(){
+                $(this).find(".card-shadow").addClass('card-shadow-hover')
+            },function(){
+                $(this).find(".card-shadow").removeClass('card-shadow-hover');
+            });
+        }
+
+        // 卡片hover事件
+        postItemHover()
 
         linksAddBlank()
 

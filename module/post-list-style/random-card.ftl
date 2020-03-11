@@ -1,17 +1,17 @@
-<div class="grid-container module-wrapper enable-masonry aos-init aos-animate" data-aos="fade-up">
-    <div class="content-wrapper grid-posts content articles" id="post-list" <#if posts?? && posts.getTotalElements() lt 3>style="justify-content: space-around; !important;"</#if>>
+<div class="post-container" data-aos="fade-up">
+    <div class="content-wrapper articles" id="post-list" <#if posts?? && posts.getTotalElements() lt 3>style="justify-content: space-around; !important;"</#if>>
         <#if posts?? && posts.getTotalElements() gt 0>
             <#list posts.content as post>
                 <article
-                        class="default post-item grid-33 tablet-grid-50 mobile-grid-100 np-mobile post type-post status-publish format-standard has-post-thumbnail hentry">
-                    <div class="article-wrapper">
+                        class="post-item grid-33 tablet-grid-50 mobile-grid-100 post card ">
+                    <div class="article-wrapper card-shadow">
                         <header>
                             <div class="post-format-image post-format-wrapper">
                                 <div class="featured-image">
                                     <#if post.thumbnail?? && post.thumbnail!=''>
-                                        <a href="${context!}/archives/${post.url!}"  
+                                        <a href="${context!}/archives/${post.url!}"
                                         style=" background-image: url(${post.thumbnail!''});
-                                        background-repeat: no-repeat!important; 
+                                        background-repeat: no-repeat!important;
                                         background-position: center center!important;
                                         background-size: cover!important;"
                                               class="thumb hover-effect">
