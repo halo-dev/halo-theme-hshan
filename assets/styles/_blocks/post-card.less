@@ -10,18 +10,13 @@ article {
   text-rendering: optimizeLegibility;
 }
 
-//.post-item {
-//  min-width: 320px !important;
-//}
-
 div.articles .post-format-wrapper {
   position: relative;
   z-index: 2;
-  margin: -20px -20px 0;
   margin-bottom: 20px;
 }
 
-.mobile-grid-100:before, .tablet-grid-100:before, .grid-33:before {
+.mobile-grid-100:before, .tablet-grid-100:before, .grid-32:before {
   content: ".";
   display: block;
   overflow: hidden;
@@ -59,7 +54,6 @@ div.articles article .article-wrapper {
   z-index: 1;
   text-align: center;
   width: 100%;
-  padding: 20px 20px 0;
   -webkit-box-shadow: 0 3px 12px -1px rgba(7, 10, 25, 0.05), 0 22px 27px -20px rgba(7, 10, 25, 0.05);
   box-shadow: 0 3px 12px -1px rgba(7, 10, 25, 0.05), 0 22px 27px -20px rgba(7, 10, 25, 0.05);
 }
@@ -126,7 +120,7 @@ div.tags, .widget_tag_cloud {
 }
 
 div.articles article div.meta {
-  margin: 0px 0 10px;
+  margin: 0 0 10px;
 }
 
 div.meta {
@@ -136,10 +130,9 @@ div.meta {
 
 div.articles article .main-title {
   font-size: 1.8rem;
-  margin-bottom: 10px;
-  margin-top: 5px;
   line-height: 1.35;
   padding: 10px 0;
+  margin: 5px 20px 20px;
 }
 
 .title {
@@ -151,15 +144,15 @@ div.articles article .main-title {
 }
 
 div.articles article div.post-excerpt {
-  margin-bottom: 40px;
   word-break: break-all;
-  min-width: 280px;
+  //min-width: 280px;
   font-size: 1rem;
+  margin: 20px;
 }
 
 .author-meta {
   border-top: 2px solid #F4F4F4;
-  margin: 0 -20px;
+  //margin: 0 -20px;
   padding: 15px 20px;
   line-height: 1;
   font-size: 14px;
@@ -238,8 +231,8 @@ div.articles article.bgstyle .overlay {
 }
 
 @media screen and (min-width: 1024px) {
-  .grid-33 {
-    width: 30%;
+  .grid-32 {
+    width: 31%;
   }
 }
 
@@ -250,7 +243,7 @@ div.articles article.bgstyle .overlay {
 }
 
 @media screen and (max-width: 1023px) and (min-width: 768px) {
-  .tablet-grid-50 {
+  .grid-48 {
     width: 48%;
   }
 }
