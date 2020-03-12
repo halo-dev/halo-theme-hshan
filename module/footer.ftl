@@ -54,8 +54,8 @@
                     </svg>
                 </a>
             </#if>
-             <#if settings.rss!false>
-                <a href="${static!}/rss.xml" class="circle" target="_blank" rel="noopener"
+             <#if settings.rss!true>
+                <a href="${context!}/rss.xml" class="circle" target="_blank" rel="noopener"
                    title="Rss">
                     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24">
                     <title>RSS icon</title>
