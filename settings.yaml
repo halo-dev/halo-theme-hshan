@@ -405,3 +405,14 @@ social:
       type: text
       placeholder: '用于展示底部邮箱社交信息'
       description: '邮箱地址'
+    rss:
+      name: rss
+      label: 订阅
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭  
