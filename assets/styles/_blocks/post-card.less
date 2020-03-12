@@ -145,14 +145,12 @@ div.articles article .main-title {
 
 div.articles article div.post-excerpt {
   word-break: break-all;
-  //min-width: 280px;
   font-size: 1rem;
   margin: 20px;
 }
 
 .author-meta {
   border-top: 2px solid #F4F4F4;
-  //margin: 0 -20px;
   padding: 15px 20px;
   line-height: 1;
   font-size: 14px;
@@ -229,6 +227,28 @@ div.articles article.bgstyle .overlay {
 .content-wrapper .post-item {
   padding: 0;
 }
+
+
+.article-wrapper {
+  -webkit-transition: all .6s ease;
+  -moz-transition:  all .6s ease;
+  -o-transition:  all .6s ease;
+  transition:  all .6s ease;
+}
+
+.card-shadow {
+  box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
+}
+
+.card-shadow-hover {
+  transform: translateY(-6px);
+  -webkit-transform: translateY(-6px);
+  -moz-transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem 0 rgba(48, 55, 66, 0.15) !important;
+  -webkit-box-shadow: 0 1rem 2rem 0 rgba(48, 55, 66, 0.15) !important;
+  -moz-box-shadow: 0 1rem 2rem 0 rgba(48, 55, 66, 0.15) !important;
+}
+
 
 @media screen and (min-width: 1024px) {
   .grid-32 {
