@@ -405,8 +405,8 @@ social:
       type: text
       placeholder: '用于展示底部邮箱社交信息'
       description: '邮箱地址'
-   rss:
-      name: rss
+   rss_switch:
+      name: rss_switch
       label: 订阅
       type: radio
       data-type: bool
