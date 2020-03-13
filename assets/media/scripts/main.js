@@ -144,7 +144,7 @@ $(
                     type: "GET",
                     url: $(this).attr("href"),
                     success: function (data) {
-                        result = $(data).find("#post-list .post-item");
+                        result = $(data).find("#post-list .postItem");
                         pageInner = $(data).find("#pagination .inner");
                         // In the new content
                         $("#post-list").html(result.fadeIn(500));
