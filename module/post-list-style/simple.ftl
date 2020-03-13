@@ -1,7 +1,7 @@
 <div id="post-list" class="post-list inner">
     <#if posts?? && posts.getTotalElements() gt 0>
         <#list posts.content as post>
-            <article class="post-item">
+            <article class="post-item postItem">
                 <div class="padding-left">
                     <h2 class="post-item-title">
                         <a href="${context!}/archives/${post.url!}">${post.title!}
