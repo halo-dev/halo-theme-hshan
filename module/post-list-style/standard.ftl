@@ -1,7 +1,7 @@
 <div id="post-list" class="post-list inner">
     <#if posts?? && posts.getTotalElements() gt 0>
         <#list posts.content as post>
-            <article class="post">
+            <article class="post post-item">
                 <!-- post-header -->
                 <header class="post-header">
                     <div class="post-tags">
