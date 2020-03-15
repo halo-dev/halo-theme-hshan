@@ -1,26 +1,19 @@
 <#if (is_post?? || is_sheet??) && settings.enabled_mathjax!true>
-    <script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" >
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" ></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        MathJax.Hub.Config({
-            'HTML-CSS': {
-                matchFontHeight: false
-            },
-            SVG: {
-                matchFontHeight: false
-            },
-            CommonHTML: {
-                matchFontHeight: false
-            },
-            tex2jax: {
-                inlineMath: [
-                    ['$','$'],
-                    ['\\(','\\)']
-                ],
-                displayMath: [["$$", "$$"], ["\\[", "\\]"]]
-            }
-        });
-    });
+        var katex_config = {
+            delimiters:
+                [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true},
+                ]
+        };
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+         onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
+
 </#if>
