@@ -11,6 +11,7 @@
 .links-box .links-items .links-item {
   display: block;
   width: 240px;
+  max-width: 300px;
   margin: 20px 10px;
   background-color: #fff;
   border-radius: 6px;
@@ -102,6 +103,15 @@
   text-align: left
 }
 
+@media screen and (max-width: 840px)  {
+  .links-box .links-items {
+    justify-content: space-between;
+  }
+  .links-box .links-items {
+    max-width: 600px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .media-content {
     overflow-x: auto
@@ -119,11 +129,7 @@
   }
 }
 
-@media screen and (max-width: 840px) {
-  .links-box .links-items {
-    justify-content: space-between;
-  }
-}
+
 
 .links-box {
   padding: 50px 30px;
