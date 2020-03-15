@@ -1352,7 +1352,7 @@ pre .storage {
  * 6.1 Posts and Pages
  * ----------------------------------------------------------------------------
  */
-.cover {
+.bg-cover {
   background-color: #101012;
   display: table;
   height: 480px;
@@ -1400,7 +1400,7 @@ pre .storage {
   padding-bottom: 120px;
   padding-top: 135px;
 }
-.cover .arrow-down {
+.bg-cover .arrow-down {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
   -webkit-animation-name: blink;
@@ -1412,8 +1412,8 @@ pre .storage {
   margin-left: -15px;
   position: absolute;
 }
-.cover .arrow-down:before,
-.cover .arrow-down:after {
+.bg-cover .arrow-down:before,
+.bg-cover .arrow-down:after {
   background-color: #ffffff;
 }
 .hero-title {
@@ -1679,9 +1679,6 @@ pre .storage {
   margin-right: 3px;
 }
 @media only screen and (min-width: 861px) {
-  .home-template .cover {
-    height: 100vh;
-  }
   .hero .cover-content,
   .post-header .cover-content {
     text-align: center;
@@ -1757,7 +1754,7 @@ pre .storage {
   }
 }
 @media only screen and (max-width: 860px) {
-  .cover .arrow-down {
+  .bg-cover .arrow-down {
     display: none;
   }
   .cover-content .inner {

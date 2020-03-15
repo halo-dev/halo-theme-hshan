@@ -5,6 +5,15 @@
     <@comment sheet,"sheet" />
 </#if>
 <footer class="site-footer" id="siteFooter">
+    <#if settings.Aplayer?? && settings.Aplayer != ''>
+        <meting-js
+                server="netease"
+                type="playlist"
+                fixed="true"
+                id="${settings.Aplayer}">
+        </meting-js>
+    </#if>
+
     <div class="inner">
         <#--        社交信息 begin-->
         <div class="offsite-links">

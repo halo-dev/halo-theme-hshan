@@ -1427,7 +1427,7 @@ pre .storage {
  * ----------------------------------------------------------------------------
  */
 
-.cover {
+.bg-cover {
   background-color: #101012;
   display: table;
   height: 480px;
@@ -1482,7 +1482,7 @@ pre .storage {
   padding-top: 135px;
 }
 
-.cover .arrow-down {
+.bg-cover .arrow-down {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
   -webkit-animation-name: blink;
@@ -1495,8 +1495,8 @@ pre .storage {
   position: absolute;
 }
 
-.cover .arrow-down:before,
-.cover .arrow-down:after {
+.bg-cover  .arrow-down:before,
+.bg-cover .arrow-down:after {
   background-color: #ffffff;
 }
 
@@ -1823,9 +1823,9 @@ pre .storage {
 }
 
 @media only screen and (min-width: 861px) {
-  .home-template .cover {
-    height: 100vh;
-  }
+  //.home-template .cover {
+  //  height: 100vh;
+  //}
 
   .hero .cover-content,
   .post-header .cover-content {
@@ -1913,7 +1913,7 @@ pre .storage {
 }
 
 @media only screen and (max-width: 860px) {
-  .cover .arrow-down {
+  .bg-cover .arrow-down {
     display: none;
   }
 

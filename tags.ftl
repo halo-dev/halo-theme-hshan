@@ -5,7 +5,7 @@
         <#include "module/header.ftl">
         <main class="site-main">
             <div class="site-content">
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if settings.tag_patternimg?? && settings.tag_patternimg!=''>
                         <div class="cover-bg">
                             <img src="${settings.tag_patternimg!}" alt="${settings.tags_title!'标签列表'}">

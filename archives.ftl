@@ -7,7 +7,7 @@
         <main class="site-main">
             <div class="site-content">
 
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if settings.archives_patternimg?? && settings.archives_patternimg!=''>
                         <div class="cover-bg">
                             <img src="${settings.archives_patternimg!}" alt="${settings.achieve_title!'归档'}">

@@ -11,7 +11,7 @@
             <div class="site-content">
                 <article class="post tag-getting-started" id="siteContent">
                     <#--                    <div id="postHeader"></div>-->
-                    <header class="cover post-header" id="postHeader">
+                    <header class="bg-cover post-header" id="postHeader">
                         <#if post.thumbnail?? && post.thumbnail!=''>
                             <div class="cover-bg">
                                 <img src="${post.thumbnail!}" alt="${post.title!}"/>

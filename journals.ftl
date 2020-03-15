@@ -6,7 +6,7 @@
         <#include "module/header.ftl">
         <main class="site-main">
             <div class="site-content">
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if settings.journals_patternimg?? && settings.journals_patternimg!=''>
                         <div class="cover-bg">
                             <img src="${settings.journals_patternimg!}" alt="${settings.jounarls_title!'日志'}">

@@ -8,7 +8,7 @@
         <main class="site-main">
             <div class="site-content">
                 <!-- 封面 -->
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
 
                     <#if settings.searh_patternimg?? && settings.searh_patternimg!=''>
                         <div class="cover-bg">

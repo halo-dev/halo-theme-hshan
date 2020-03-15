@@ -8,7 +8,7 @@
         <main class="site-main">
             <div class="site-content">
 
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if settings.tag_patternimg?? && settings.tag_patternimg!=''>
                         <div class="cover-bg">
                             <img src="${settings.tag_patternimg!}" alt="标签：${tag.name}">

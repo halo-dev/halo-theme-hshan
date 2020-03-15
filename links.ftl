@@ -7,7 +7,7 @@
 
         <main class="site-main">
             <div class="site-content">
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if settings.links_patternimg?? && settings.links_patternimg!=''>
                         <div class="cover-bg">
                             <img src="${settings.links_patternimg!}" alt="${settings.links_title!'友链'}">

@@ -7,7 +7,7 @@
 
         <main class="site-main">
             <div class="site-content">
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if sheet.thumbnail?? && sheet.thumbnail!=''>
                         <div class="cover-bg">
                             <img src="${sheet.thumbnail!}" alt="${sheet.title!}">

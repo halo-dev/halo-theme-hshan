@@ -6,6 +6,10 @@
 <#--<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
+<#if settings.Aplayer?? && settings.Aplayer != ''>
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</#if>
 
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>
@@ -44,7 +48,7 @@
     </script>
 
 
-    <div class="qr-code-wrap" role="dialog" >
+    <div class="qr-code-wrap" role="dialog">
         <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
         <span class="closinglayer"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em"
                                         height="1em" fill="currentColor" aria-hidden="true"><path
