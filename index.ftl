@@ -6,7 +6,7 @@
         <main class="site-main">
             <div class="site-content">
                 <!-- 封面 -->
-                <div class="cover hero">
+                <header class="bg-cover hero">
                     <#if settings.home_cover?? && settings.home_cover!=''>
                         <div class="cover-bg">
                             <img src="${settings.home_cover!}" alt="${settings.home_cover!'首页'}">
@@ -20,11 +20,13 @@
                         <div class="inner">
                             <h2 class="hero-title">${settings.home_title!options.blog_title!}</h2>
                             <p class="hero-text">${settings.home_description!}</p>
-                            <a href="#post-list" class="arrow-down" data-scroll><span
-                                        class="screen-reader-text">Scroll Down</span></a>
+                            <#if settings.enabled_index_cover_height!true>
+                                <a href="#post-list" class="arrow-down" data-scroll><span
+                                            class="screen-reader-text">Scroll Down</span></a>
+                            </#if>
                         </div>
                     </div>
-                </div>
+                </header>
 
                 <!-- post-list -->
                 <#if (settings.post_list_style!'standard') == 'standard'>

@@ -7,7 +7,7 @@
 
         <main class="site-main">
             <div class="site-content">
-                <header class="cover page-header">
+                <header class="bg-cover page-header">
                     <#if settings.photos_patternimg?? && settings.photos_patternimg!=''>
                         <div class="cover-bg">
                             <img src="${settings.photos_patternimg!}" alt="${settings.photos_title!'相册'}">

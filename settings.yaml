@@ -25,6 +25,17 @@ genernal:
       label: 首页背景
       type: attachment
       default: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
+    enabled_index_cover_height:
+      name: enabled_index_cover_height
+      label: 首页开启全屏图片
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
     header_logoimg:
       name: header_logoimg
       label: 菜单 Logo
@@ -360,14 +371,6 @@ title:
       label: 相册页面标题
       type: text
       default: 相册
-#comment:
-#  label: 评论设置
-#  items:
-#    commentConfigs:
-#      name: commentConfigs
-#      label: 评论组件
-#      type: text
-
 social:
   label: 社交网络
   items:
@@ -415,4 +418,14 @@ social:
         - value: true
           label: 开启
         - value: false
-          label: 关闭  
+          label: 关闭
+
+other:
+  label: 其他
+  items:
+    Aplayer:
+      name: Aplayer
+      label: Aplayer吸底播放器
+      type: text
+      placeholder: '网易云歌单id'
+      description: '网易云歌单id, 比如: 60198. 暂时就只能这样子了, 后面再优化吧'

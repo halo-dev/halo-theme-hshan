@@ -17,7 +17,8 @@
 
         <#if is_post??>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+            <link rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
         <#else>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
             <link rel="stylesheet"
@@ -112,17 +113,29 @@
             </#if>
 
             <#if settings.enabled_visual_height!true>
-                @media only screen and (min-width: 861px) {
-                    .post-template .cover {
-                        height: 100vh !important;
-                    }
+            @media only screen and (min-width: 861px) {
+                .post-template .bg-cover {
+                    height: 100vh !important;
                 }
+            }
+
+            </#if>
+
+            <#if settings.enabled_index_cover_height!true>
+            @media only screen and (min-width: 861px) {
+                .home-template .bg-cover {
+                    height: 100vh !important;
+                }
+            }
+
             </#if>
 
         </style>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">
-
+        <#if settings.Aplayer?? && settings.Aplayer != ''>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+        </#if>
         <#if settings.Custom_css_src??>
             <!-- 自定义css -->
             <link rel="stylesheet" href="${settings.Custom_css_src!}">
