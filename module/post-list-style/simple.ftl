@@ -4,7 +4,7 @@
             <article class="post-item postItem post-item-simple">
                 <div class="padding-left">
                     <h2 class="post-item-title">
-                        <a href="${context!}/archives/${post.url!}">${post.title!}
+                        <a href="${post.fullPath!}">${post.title!}
                             <#if post.topPriority?? && post.topPriority gt 0>
                                 <span>🔥</span>
                             </#if>
@@ -29,7 +29,7 @@
                 </div>
 
                 <#if post.thumbnail?? && post.thumbnail!=''>
-                    <a href="${context!}/archives/${post.url!}" class="post-feature-image"
+                    <a href="${post.fullPath!}" class="post-feature-image"
                        style="background-image: url(${post.thumbnail!})">
                     </a>
                 </#if>

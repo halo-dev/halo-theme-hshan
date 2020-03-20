@@ -21,23 +21,24 @@
                             <h2 class="hero-title">${settings.home_title!options.blog_title!}</h2>
                             <p class="hero-text">${settings.home_description!}</p>
                             <#if settings.enabled_index_cover_height!true>
-                                <a href="#post-list" class="arrow-down" data-scroll><span
+                                <a href="#postContainer" class="arrow-down" data-scroll><span
                                             class="screen-reader-text">Scroll Down</span></a>
                             </#if>
                         </div>
                     </div>
                 </header>
+                <div id="postContainer">
+                    <!-- post-list -->
+                    <#if (settings.post_list_style!'standard') == 'standard'>
+                        <#include "module/post-list-style/standard.ftl">
+                    <#elseif settings.post_list_style == 'simple'>
+                        <#include "module/post-list-style/simple.ftl">
+                    <#else>
+                        <#include "module/post-list-style/random-card.ftl">
+                    </#if>
+                </div>
 
-                <!-- post-list -->
-                <#if (settings.post_list_style!'standard') == 'standard'>
-                    <#include "module/post-list-style/standard.ftl">
-                <#elseif settings.post_list_style == 'simple'>
-                    <#include "module/post-list-style/simple.ftl">
-                <#else>
-                    <#include "module/post-list-style/random-card.ftl">
-                </#if>
-
-                <#include "module/pagination.ftl">
+                <#include "module/index-pagination.ftl">
             </div>
         </main>
         <#include "module/footer.ftl">

@@ -27,7 +27,7 @@
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
                                 <#list tags as tag>
-                                    <a href="${context!}/tags/${tag.slugName}/" class="button">
+                                    <a href="${tag.fullPath!}" class="button">
                                         ${tag.name}
                                         <span aria-hidden="true"><span class="line left"></span><span
                                                     class="line top"></span><span class="line right"></span><span
@@ -39,11 +39,10 @@
                     </div>
                 </div>
             </div>
-            <#--                <#include "module/pagination.ftl">-->
-    </div>
-    </main>
+            <#--                <#include "module/index-pagination.ftl">-->
+        </main>
 
-    <#include "module/footer.ftl">
+        <#include "module/footer.ftl">
 
     </div>
 

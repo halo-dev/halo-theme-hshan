@@ -27,7 +27,7 @@
                         <@categoryTag method="list">
                             <#if categories?? && categories?size gt 0>
                                 <#list categories as category>
-                                    <a href="${context!}/categories/${category.slugName}/" class="button">
+                                    <a href="${category.fullPath!}" class="button">
                                         ${category.name}
                                         <span aria-hidden="true"><span class="line left"></span><span
                                                     class="line top"></span><span class="line right"></span><span
@@ -38,7 +38,7 @@
                         </@categoryTag>
                     </div>
                 </div>
-<#--                <#include "module/pagination.ftl">-->
+<#--                <#include "module/index-pagination.ftl">-->
             </div>
         </main>
 

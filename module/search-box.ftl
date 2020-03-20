@@ -13,7 +13,7 @@
                     <header class="ins-section-header">最新文章</header>
                     <@postTag method="latest" top="5">
                         <#list posts as post>
-                            <a href="${context!}/archives/${post.url!}">
+                            <a href="${post.fullPath!}">
                                 <div class="ins-selectable ins-search-item">
                                     <header><i class="fa fa-file"></i><span
                                                 class="ins-title">${post.title!}</span>

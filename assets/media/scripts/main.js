@@ -8,12 +8,6 @@ var videoEmbeds = [
 ]
 reframe(videoEmbeds.join(','))
 
-// Smooth scroll to anchors
-var scroll = new SmoothScroll('[data-scroll]', {
-    speed: 300,
-    updateURL: false,
-})
-
 
 // Sidebar toggle
 var sidebarToggle = document.querySelectorAll('.sidebar-toggle')
@@ -150,23 +144,12 @@ $(
                         $("#post-list").html(result.fadeIn(500));
                         pageContent.empty();
                         pageContent.append(pageInner);
-                        document.getElementById("post-list").scrollIntoView()
+                        document.getElementById("postContainer").scrollIntoView()
                     }
                 });
                 return false;
             });
         }
-
-        function postItemHover() {
-            $('.card').hover(function(){
-                $(this).find(".card-shadow").addClass('card-shadow-hover')
-            },function(){
-                $(this).find(".card-shadow").removeClass('card-shadow-hover');
-            });
-        }
-
-        // 卡片hover事件
-        postItemHover()
 
         linksAddBlank()
 
