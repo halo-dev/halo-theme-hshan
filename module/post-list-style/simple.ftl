@@ -4,7 +4,7 @@
             <article class="post-item postItem post-item-simple">
                 <div class="padding-left">
                     <h2 class="post-item-title">
-                        <a href="${post.fullPath!}">${post.title!}
+                        <a href="${post.fullPath!}" data-ajax>${post.title!}
                             <#if post.topPriority?? && post.topPriority gt 0>
                                 <span>🔥</span>
                             </#if>
@@ -21,7 +21,7 @@
                         <span class="post-item-tags">
                         <#if post.tags?? && post.tags?size gt 0>
                             <#list post.tags as tag>
-                                <a href="${context!}/tags/${tag.slugName!}"> #${tag.name!}&nbsp;&nbsp;</a>
+                                <a href="${tag.fullPath}" data-ajax> #${tag.name!}&nbsp;&nbsp;</a>
                             </#list>
                         </#if>
                     </span>
@@ -29,7 +29,7 @@
                 </div>
 
                 <#if post.thumbnail?? && post.thumbnail!=''>
-                    <a href="${post.fullPath!}" class="post-feature-image"
+                    <a href="${post.fullPath!}" data-ajax class="post-feature-image"
                        style="background-image: url(${post.thumbnail!})">
                     </a>
                 </#if>

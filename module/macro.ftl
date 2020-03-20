@@ -5,26 +5,35 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="${keywords!}"/>
-        <meta name="description" content="${description!}"/>
+        <meta name="keywords" content="${meta_keywords!}"/>
+        <meta name="description" content="${meta_description!}"/>
 
         <@global.head />
 
-        <link rel="stylesheet" href="${static!}/assets/styles/main.min.css">
-        <link rel="stylesheet" href="${static!}/assets/styles/night-mode.min.css">
+        <link rel="stylesheet" href="${static!}/assets/styles/main.min.css?v=1.4.0">
+        <link rel="stylesheet" href="${static!}/assets/styles/night-mode.min.css?v=1.4.0">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css'
               media='all'/>
 
-        <#if is_post??>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
-            <link rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-        <#else>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-            <link rel="stylesheet"
-                  href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-        </#if>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
+        <title>${title}</title>
+
+        <script language=javascript>
+            <!--
+            window.onerror=function(){return true;}
+            // -->
+        </script>
+
+        <script type="application/javascript">
+            var title = ''
+                console.log(${title});
+        </script>
 
         <style>
             :root {
@@ -123,7 +132,7 @@
 
             <#if settings.enabled_index_cover_height!true>
             @media only screen and (min-width: 861px) {
-                .home-template .bg-cover {
+                .home-content .bg-cover {
                     height: 100vh !important;
                 }
             }
@@ -135,6 +144,9 @@
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">
         <#if settings.Aplayer?? && settings.Aplayer != ''>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+        </#if>
+        <#if settings.enabled_mathjax!true>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" >
         </#if>
         <#if settings.Custom_css_src??>
             <!-- 自定义css -->
@@ -154,9 +166,13 @@
             </script>
         </#if>
 
-        <title>${title}</title>
     </head>
+    <body>
+    <main style="display: none" id="pageTitle">${title}</main>
+    <#include "header.ftl">
     <#nested >
+    <#include "footer.ftl">
+    </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <#include "script.ftl">
     </html>

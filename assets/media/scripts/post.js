@@ -1,5 +1,6 @@
-$(function () {
-    function appreciateModel() {
+
+var post =  {
+    appreciateModel: function() {
         $(".appreciate-btn").on("click", function (e) {
             // $(".qr-code-wrap").velocity("transition.expandIn", { duration: 300 });
             $(".qr-code-wrap").show();
@@ -10,16 +11,16 @@ $(function () {
             });
             e.stopPropagation();
         });
-    }
+    },
 
-    function toggleSocialShare() {
+    toggleSocialShare: function () {
         $('.share-btn').on("click", function (e) {
             $('#socialShare').toggleClass('no-show');
         });
-    }
+    },
 
     // 赞赏点击事件
-    function appreciate() {
+    appreciate: function () {
 
         $(".qr-code").on("click", function (e) {
             e.stopPropagation();
@@ -35,24 +36,28 @@ $(function () {
             $(".qr_code_wx").css("height", "300px");
             $(".qr_code_zfb").css("height", "0");
         });
-    }
+    },
+
     // 因为不使用后端渲染目录, 所以如果在发布文章的时候在文章开头加上 [TOC] 会在文章页面开头有一个ul 标签
     // 这里粗暴的去除
-    function removeFirstUL() {
+    removeFirstUL: function () {
         var post_content = document.getElementById('post-content');
+        if (!post_content) {
+            return;
+        }
         var firstNodeName = post_content.firstElementChild.nodeName;
         if (firstNodeName === 'UL') {
             $(post_content.firstElementChild).hide();
         }
-    }
+    },
 
     //获取滚动条距离顶部位置
-    function getScrollTop() {
+    getScrollTop: function () {
         return document.documentElement.scrollTop || document.body.scrollTop;
-    }
+    },
 
 
-    function scrollTocFixed(div_id) {
+    scrollTocFixed: function (div_id) {
         var Obj = $('#' + div_id);
 
         //判断元素是否存在
@@ -66,7 +71,7 @@ $(function () {
             var ObjTop = Obj.offset().top - $(window).height() * 0.5;
 
             // 滚动条离页面顶端的距离
-            var scrollTop = getScrollTop();
+            var scrollTop = post.getScrollTop();
             var postHeaderHeight = $('#postHeader').height();
             if (scrollTop > postHeaderHeight) {
                 tocFixed.show();
@@ -75,6 +80,9 @@ $(function () {
             }
 
             var tocEle = document.querySelector(tocId);
+            if (!tocEle || !tocEle.getBoundingClientRect()) {
+                return;
+            }
             var tocHeight = tocEle.getBoundingClientRect().height;
             if (scrollTop > ObjTop - tocHeight * 0.5) {
                 tocFixed.addClass('right-fixed');
@@ -82,10 +90,10 @@ $(function () {
                 tocFixed.removeClass('right-fixed');
             }
         });
-    }
+    },
 
 
-    function initToc() {
+    initToc: function () {
         var headerEl = 'h1,h2,h3,h4,h5,h6',  //headers
             content = '.post-content';//文章容器
         tocbot.init({
@@ -93,7 +101,7 @@ $(function () {
             contentSelector: content,
             headingSelector: headerEl,
             scrollSmooth: true,
-            headingsOffset: 0-$('#postHeader').height(),
+            headingsOffset: 0 - $('#postHeader').height(),
             hasInnerContainers: false,
         });
 
@@ -104,15 +112,15 @@ $(function () {
                 tocLink.after(document.createElement("span"));
             }
         }
-    }
+    },
 
     /**
      * 阅读进度（阅读进度条和目录高亮功能）
      */
-    function readProgress() {
+    readProgress: function () {
 
         // 文章内容
-        var $content = $("#siteMain");
+        var $content = $("#main");
         // 阅读进度条
         var $readProgressBar = $("#readProgress .read-progress-bar");
 
@@ -137,25 +145,43 @@ $(function () {
             // 改变阅读进度条
             displayReadProgress && changeReadProgress();
         });
-    }
+    },
 
-    appreciate();
+    initViewAndCode: function () {
+        if (document.getElementById('post-content')) {
+            new Viewer(document.getElementById('post-content'), {
+                toolbar: false,
+            });
+        }
+
+
+        hljs.initHighlightingOnLoad();
+
+        hljs.initLineNumbersOnLoad({singleLine: true});
+    },
+
+
+}
+
+$(function() {
+    post.appreciate();
 
     // 初始化toc
-    initToc()
+    post.initToc()
 
-    removeFirstUL()
+    post.removeFirstUL()
 
     // 目录事件
-    scrollTocFixed('tocFlag');
+    post.scrollTocFixed('tocFlag');
 
     // 搞一个阅读进度，为了提高准确度，数据都要实时获取
-    readProgress();
+    post.readProgress();
 
     // 按钮事件
-    appreciateModel()
+    post.appreciateModel()
 
     // 分享
-    toggleSocialShare()
+    post.toggleSocialShare()
 
-});
+    post.initViewAndCode()
+})

@@ -7,13 +7,13 @@
                     <div class="post-tags">
                         <#if post.tags?? && post.tags?size gt 0>
                             <#list post.tags as tag>
-                                <a href="${context!}/tags/${tag.slugName!}">${tag.name!}&nbsp;&nbsp;</a>
+                                <a href="${tag.fullPath!}" data-ajax>${tag.name!}&nbsp;&nbsp;</a>
                             </#list>
                         </#if>
                     </div>
                     <div class="post-header-wrap">
                         <h2 class="post-title">
-                            <a href="${post.fullPath!}">${post.title!}</a>
+                            <a href="${post.fullPath!}" data-ajax>${post.title!}</a>
                         </h2>
                         <div class="post-meta">
                             <span class="post-author"><i class="fa fa-eye"></i> ${post.visits!} 次访问</span>
@@ -34,7 +34,7 @@
                 <!-- post-content -->
                 <div class="post-content">
                     <div class="read-more">
-                        <a class="button" href="${post.fullPath!}">
+                        <a class="button" href="${post.fullPath!}" data-ajax>
                             Read More
                             <span aria-hidden="true"></span>
                             <span class="line left"></span>

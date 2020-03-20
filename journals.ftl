@@ -1,10 +1,8 @@
 <#include "module/macro.ftl">
 <@layout title="${settings.jounarls_title!'日志'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="links-template">
     <div id="page" class="site">
 
-        <#include "module/header.ftl">
-        <main class="site-main">
+        <main class="site-main"  id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if settings.journals_patternimg?? && settings.journals_patternimg!=''>
@@ -32,7 +30,7 @@
                                          height="40">
                                     <div class="tree-hole-box">
                                         <div class="tree-hole-author">
-                                            <a href="${context!}"
+                                            <a href="${context!}" data-ajax
                                                rel="external nofollow">${user.nickname}</a> ${journal.createTime?string('yyyy年MM月dd日')}
                                         </div>
                                         <p>${journal.content!}</p>
@@ -55,7 +53,6 @@
                 </div>
             </div>
         </main>
-        <#include "module/footer.ftl">
+
     </div>
-    </body>
 </@layout>

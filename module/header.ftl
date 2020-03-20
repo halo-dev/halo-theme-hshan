@@ -8,15 +8,15 @@
                         <#list menus?sort_by('priority') as menu>
                             <li class="menu-item nav-menu-item ">
                                 <#if menu.children?? && menu.children?size gt 0>
-                                        <a href="javascript:void(0)" target="${menu.target!}" class="nav-menu-link">${menu.name} <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i></a>
+                                        <a href="javascript:void(0)" data-ajax target="${menu.target!}" class="nav-menu-link">${menu.name} <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i></a>
                                     <#else>
-                                        <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+                                        <a href="${menu.url!}" data-ajax target="${menu.target!}">${menu.name}</a>
                                 </#if>
                                 <#if menu.children?? && menu.children?size gt 0>
                                     <ul class="nav-sub-menu" style="display: none;">
                                         <#list menu.children?sort_by('priority') as child>
                                             <li>
-                                                <a href="${child.url!}" target="${child.target!}"
+                                                <a href="${child.url!}" data-ajax target="${child.target!}"
                                                    onfocus="this.blur();">${child.name}</a>
                                             </li>
                                         </#list>
@@ -48,7 +48,7 @@
             <ul>
                 <#if settings.header_logoimg?? && settings.header_logoimg!=''>
                     <li>
-                        <a href="${context!}" id="headerLogo"
+                        <a href="${context!}" data-ajax id="headerLogo"
                            style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;"
                            onfocus="this.blur();">
                             <img src="${settings.header_logoimg}" alt="${options.blog_title!}"
@@ -63,15 +63,15 @@
                     <#list menus?sort_by('priority') as menu>
                         <li class="menu-scroll-item">
                             <#if menu.children?? && menu.children?size gt 0>
-                                <a href="javascript:void(0)" target="${menu.target!}" onfocus="this.blur();">${menu.name}</a>
+                                <a href="javascript:void(0)" data-ajax target="${menu.target!}" onfocus="this.blur();">${menu.name}</a>
                             <#else>
-                                <a href="${menu.url!}" target="${menu.target!}">${menu.name}</a>
+                                <a href="${menu.url!}" data-ajax target="${menu.target!}">${menu.name}</a>
                             </#if>
                             <#if menu.children?? && menu.children?size gt 0>
                                 <ul class="sub-menu">
                                     <#list menu.children?sort_by('priority') as child>
                                         <li>
-                                            <a href="${child.url!}" target="${child.target!}"
+                                            <a href="${child.url!}" data-ajax target="${child.target!}"
                                                onfocus="this.blur();">${child.name}</a>
                                         </li>
                                     </#list>

@@ -9,7 +9,7 @@
                             <div class="post-format-image post-format-wrapper">
                                 <div class="featured-image">
                                     <#if post.thumbnail?? && post.thumbnail!=''>
-                                        <a href="${post.fullPath!}"
+                                        <a data-ajax href="${post.fullPath!}"
                                         style=" background-image: url(${post.thumbnail!''});
                                         background-repeat: no-repeat!important;
                                         background-position: center center!important;
@@ -19,13 +19,13 @@
                                                   style="background-image: url(${post.thumbnail!''});"></span>
                                         </a>
                                     <#else>
-                                        <a href="${post.fullPath!}" class="thumb hover-effect">
+                                        <a data-ajax href="${post.fullPath!}" class="thumb hover-effect">
                                             <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
                                         </a>
                                     </#if>
                                     <#if post.tags?? && post.tags?size gt 0>
                                         <div class="tags absolute">
-                                            <a href="${context!}/tags/${post.tags[0].slugName!}"
+                                            <a data-ajax href="${context!}/tags/${post.tags[0].slugName!}"
                                                class="ctag ctag-6 ctag-gridea">${post.tags[0].name!}</a>
                                         </div>
                                     </#if>
@@ -37,8 +37,8 @@
                                     <span class="lately">${post.createTime?string("yyyy-MM-dd")}</span></time>
                             </div>
 
-                            <h1 class="title main-title gradient-effect"><a
-                                        href="${post.fullPath!}">${post.title!}</a>
+                            <h1 class="title main-title gradient-effect" ><a
+                                        href="${post.fullPath!}" data-ajax>${post.title!}</a>
                             </h1>
                         </header>
 
@@ -47,7 +47,7 @@
                         </div>
 
                         <footer class="author-meta">
-                            <a href="" class="author" title="">
+                            <a href="" class="author" title="" data-ajax>
                                     <span class="author-image cover"
                                           style="background-image: url(${user.avatar!});"></span>
                                 <span class="author-name">${user.nickname!}</span>

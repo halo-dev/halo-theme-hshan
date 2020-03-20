@@ -305,6 +305,17 @@ post:
           label: 开启
         - value: false
           label: 关闭
+    copyright_clean:
+      name: copyright_clean
+      label: 简洁版权信息
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
 custom:
   label: 自定义
   items:
