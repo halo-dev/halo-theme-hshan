@@ -73,6 +73,10 @@ function ajaxLoad() {
                 $(document.body).removeClass('sidebar-opened')
                 $(document.body).removeClass('cancel-scroll')
 
+                if (typeof renderComment === 'function') {
+                    renderComment();
+                }
+
             }
         });
         return false;
