@@ -9,7 +9,7 @@
                             <div class="post-format-image post-format-wrapper">
                                 <div class="featured-image">
                                     <#if post.thumbnail?? && post.thumbnail!=''>
-                                        <a href="${context!}/archives/${post.url!}"
+                                        <a href="${post.fullPath!}"
                                         style=" background-image: url(${post.thumbnail!''});
                                         background-repeat: no-repeat!important;
                                         background-position: center center!important;
@@ -19,7 +19,7 @@
                                                   style="background-image: url(${post.thumbnail!''});"></span>
                                         </a>
                                     <#else>
-                                        <a href="${context!}/archives/${post.url!}" class="thumb hover-effect">
+                                        <a href="${post.fullPath!}" class="thumb hover-effect">
                                             <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
                                         </a>
                                     </#if>
@@ -38,7 +38,7 @@
                             </div>
 
                             <h1 class="title main-title gradient-effect"><a
-                                        href="${context!}/archives/${post.url!}">${post.title!}</a>
+                                        href="${post.fullPath!}">${post.title!}</a>
                             </h1>
                         </header>
 

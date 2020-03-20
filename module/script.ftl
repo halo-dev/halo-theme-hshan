@@ -9,6 +9,15 @@
 <#if settings.Aplayer?? && settings.Aplayer != ''>
     <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<#else>
+    <script type="text/javascript">
+        // Smooth scroll to anchors
+        var scroll = new SmoothScroll('[data-scroll]', {
+            speed: 300,
+            updateURL: false,
+        })
+    </script>
 </#if>
 
 <#-- 暗夜模式 -->

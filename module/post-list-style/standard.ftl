@@ -13,7 +13,7 @@
                     </div>
                     <div class="post-header-wrap">
                         <h2 class="post-title">
-                            <a href="${context!}/archives/${post.url!}">${post.title!}</a>
+                            <a href="${post.fullPath!}">${post.title!}</a>
                         </h2>
                         <div class="post-meta">
                             <span class="post-author"><i class="fa fa-eye"></i> ${post.visits!} 次访问</span>
@@ -34,7 +34,7 @@
                 <!-- post-content -->
                 <div class="post-content">
                     <div class="read-more">
-                        <a class="button" href="${context!}/archives/${post.url!}">
+                        <a class="button" href="${post.fullPath!}">
                             Read More
                             <span aria-hidden="true"></span>
                             <span class="line left"></span>

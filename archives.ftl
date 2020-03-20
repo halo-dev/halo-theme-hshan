@@ -41,7 +41,7 @@
                                     <div class="post-title archives-list" style="margin-bottom: 0 !important;">
                                         <#list archive.posts?sort_by("createTime")?reverse as post>
                                             <div class="read-more">
-                                                <a class="button" href="${context!}/archives/${post.url!}">
+                                                <a class="button" href="${post.fullPath!}">
                                                     ${post.createTime?string('MM-dd')} ${post.title!}
                                                     <span aria-hidden="true"></span>
                                                     <span class="line left"></span>
