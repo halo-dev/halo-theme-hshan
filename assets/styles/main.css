@@ -1818,7 +1818,6 @@ pre .storage {
  */
 .comments-area {
   border-top: 1px solid #d4d3d3;
-  padding: 0 5%;
 }
 .article-info .comments-area {
   max-width: var(--post-max-width);
@@ -2337,6 +2336,13 @@ pre .storage {
 }
 .social-share {
   text-align: center;
+}
+.loader {
+  display: table-cell;
+  vertical-align: unset;
+  position: absolute;
+  top: 50%;
+  right: 50%;
 }
 :not(pre) > code {
   background-color: #f5f5f5;

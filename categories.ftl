@@ -1,9 +1,7 @@
 <#include "module/macro.ftl">
 <@layout title="${settings.categories_title!'分类列表'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="category-template">
     <div id="page" class="site">
-        <#include "module/header.ftl">
-        <main class="site-main">
+        <main class="site-main"  id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if settings.categories_patternimg?? && settings.categories_patternimg!=''>
@@ -27,7 +25,7 @@
                         <@categoryTag method="list">
                             <#if categories?? && categories?size gt 0>
                                 <#list categories as category>
-                                    <a href="${category.fullPath!}" class="button">
+                                    <a href="${category.fullPath!}" class="button" data-ajax>
                                         ${category.name}
                                         <span aria-hidden="true"><span class="line left"></span><span
                                                     class="line top"></span><span class="line right"></span><span
@@ -42,7 +40,6 @@
             </div>
         </main>
 
-        <#include "module/footer.ftl">
+
     </div>
-    </body>
 </@layout>

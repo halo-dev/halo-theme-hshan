@@ -1,15 +1,18 @@
-<#include "mathjax.ftl">
 <#include "mermaid.ftl">
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
 <script src="${static!}/assets/media/scripts/plugins.min.js"></script>
-<script src="${static!}/assets/media/scripts/main.min.js"></script>
-<#--<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>-->
+<script src="${static!}/assets/media/scripts/main.min.js?v=1.4.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
+<#if settings.auto_night_mode>
+    <script src="//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js"></script>
+<#else>
+    <script src="${options.comment_internal_plugin_js!'//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js'}"></script>
+</#if>
+
 <#if settings.Aplayer?? && settings.Aplayer != ''>
     <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
 <#else>
     <script type="text/javascript">
         // Smooth scroll to anchors
@@ -26,79 +29,81 @@
         var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
         var nightModeEndTime = ${settings.night_mode_end_time?default('6')};
     </script>
-    <script src="${static!}/assets/media/scripts/night-mode.min.js"></script>
+    <script src="${static!}/assets/media/scripts/night-mode.min.js?v=1.4.0"></script>
 </#if>
 
 <#if settings.visit_statistics!false>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
-<!-- gallery -->
-<#if !is_post??>
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
-    <script src="${static!}/assets/media/scripts/gallery.js"></script>
+
+<#if settings.enabled_mermaid!true>
+    <script data-mermaid src="//cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            mermaid.initialize();
+        });
+    </script>
+</#if>
+<#-- mermiad-->
+<#if settings.enabled_mathjax!true>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
 </#if>
 
+<!-- gallery -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script data-gallery src="${static!}/assets/media/scripts/gallery.js"></script>
+
 <!--文章页面使用和相册页面不同的图片预览插件-->
-<#if is_post??>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-    <script type="text/javascript">
-        const gallery = new Viewer(document.getElementById('post-content'), {
-            toolbar: false,
-        });
-
-        hljs.initHighlightingOnLoad();
-
-        hljs.initLineNumbersOnLoad({singleLine: true});
-    </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
 
-    <div class="qr-code-wrap" role="dialog">
-        <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
+<div class="qr-code-wrap" role="dialog">
+    <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
         <span class="closinglayer"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em"
                                         height="1em" fill="currentColor" aria-hidden="true"><path
                         d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
         </span>
-            <div style="text-align: center;padding: 10px 0;">
-                <#if settings.QR_code_zfb??>
-                    <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
-                </#if>
-                <#if settings.QR_code_wx??>
-                    <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
-                </#if>
-            </div>
-            <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
-                <div class="switch-btn">
-                    <span class="zfb-btn">支付宝</span>
-                    <span class="wx-btn">微信</span>
-                </div>
+        <div style="text-align: center;padding: 10px 0;">
+            <#if settings.QR_code_zfb??>
+                <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
+            </#if>
+            <#if settings.QR_code_wx??>
+                <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
             </#if>
         </div>
+        <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
+            <div class="switch-btn">
+                <span class="zfb-btn">支付宝</span>
+                <span class="wx-btn">微信</span>
+            </div>
+        </#if>
     </div>
-</#if>
+</div>
 
 <#--目录-->
-<#if is_post?? && settings.post_toc!true>
+<#if settings.post_toc!true>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
 </#if>
 
-<#if is_post??>
-    <script type="application/javascript">
-        var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
-    </script>
-    <script src="${static!}/assets/media/scripts/post.min.js"></script>
-    <style>
-        /* 阅读进度的进度条颜色 */
-        #readProgress .read-progress-bar {
-            background: ${settings.progress_color?default('#2474b5')} !important;
-            height: 0.1875rem;
-        }
-    </style>
-</#if>
+<script type="application/javascript">
+    var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
+</script>
+<script src="${static!}/assets/media/scripts/post.min.js?v=1.4.0"></script>
+<style>
+    /* 阅读进度的进度条颜色 */
+    #readProgress .read-progress-bar {
+        background: ${settings.progress_color?default('#2474b5')} !important;
+        height: 0.1875rem;
+    }
+</style>
 
 
 <#if settings.TimeStatistics??>
@@ -139,8 +144,10 @@
 </#if>
 
 <script type="text/javascript">
-    console.clear();
+    // console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
     console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0.SNAPSHOT");
 </script>
+
+<script src="${static!}/assets/media/scripts/ajax-load.js"></script>

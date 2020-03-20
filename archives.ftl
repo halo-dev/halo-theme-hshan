@@ -1,10 +1,7 @@
 <#include "module/macro.ftl">
 <@layout title="${settings.achieve_title!'归档'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-
-    <body class="tag-template">
     <div id="page" class="site">
-        <#include "module/header.ftl">
-        <main class="site-main">
+        <main class="site-main" id="main">
             <div class="site-content">
 
                 <header class="bg-cover page-header">
@@ -41,7 +38,7 @@
                                     <div class="post-title archives-list" style="margin-bottom: 0 !important;">
                                         <#list archive.posts?sort_by("createTime")?reverse as post>
                                             <div class="read-more">
-                                                <a class="button" href="${post.fullPath!}">
+                                                <a class="button" href="${post.fullPath!}" data-ajax>
                                                     ${post.createTime?string('MM-dd')} ${post.title!}
                                                     <span aria-hidden="true"></span>
                                                     <span class="line left"></span>
@@ -60,7 +57,5 @@
                 </div>
             </div>
         </main>
-        <#include "module/footer.ftl">
     </div>
-    </body>
 </@layout>
