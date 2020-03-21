@@ -198,6 +198,9 @@
 
             if ($("#page").find('.post-page').length > 0) {
                 post.appreciate();
+                if (typeof tocbot !== 'undefined') {
+                    tocbot.destroy();
+                }
 
                 // 初始化toc
                 post.initToc()
