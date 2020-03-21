@@ -1,13 +1,12 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!} | 分类：${category.name}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${blog_title!} | 分类：${category.name}">
     <div id="page" class="site">
-
-        <main class="site-main"  id="main">
+        <main class="site-main" id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if settings.categories_patternimg?? && settings.categories_patternimg!=''>
                         <div class="cover-bg">
-                            <img src="${settings.categories_patternimg!}" alt="${options.blog_title!}">
+                            <img src="${settings.categories_patternimg!}" alt="${blog_title!}">
                         </div>
                     <#else>
                         <div class="default-cover-bg"
@@ -30,22 +29,11 @@
                     <#include "module/post-list-style/random-card.ftl">
                 </#if>
 
-                <nav class="pagination">
-                    <h2 class="screen-reader-text">Posts Navigation</h2>
-                    <div class="inner">
-                    <span class="page-number">
-                        <a href="${context!}" data-ajax>PAGE ${posts.number + 1} OF ${posts.totalPages!} </a>
-                    </span>
-                        <#if posts.hasPrevious()>
-                            <a data-ajax class="newer-posts arrow-left" href="${context!}/categories/${category.slugName!}/page/${posts.number}"><span
-                                        class="screen-reader-text"></span></a>
-                        </#if>
-                        <#if posts.hasNext()>
-                            <a data-ajax class="older-posts arrow-right" href="${context!}/categories/${category.slugName!}/page/${posts.number+2}"><span
-                                        class="screen-reader-text"></span></a>
-                        </#if>
-                    </div>
-                </nav>
+                <#if posts.totalPages gt 1>
+                    <@paginationTag method="categoryPosts" page="${posts.number}" total="${posts.totalPages}" display="3" slug="${category.slug!}">
+                        <#include "module/pagination.ftl">
+                    </@paginationTag>
+                </#if>
 
             </div>
         </main>

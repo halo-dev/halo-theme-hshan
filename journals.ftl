@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.jounarls_title!'日志'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${settings.jounarls_title!'日志'} | ${blog_title!}" >
     <div id="page" class="site">
 
         <main class="site-main"  id="main">
@@ -30,7 +30,7 @@
                                          height="40">
                                     <div class="tree-hole-box">
                                         <div class="tree-hole-author">
-                                            <a href="${context!}" data-ajax
+                                            <a href="${blog_url!}" data-ajax
                                                rel="external nofollow">${user.nickname}</a> ${journal.createTime?string('yyyy年MM月dd日')}
                                         </div>
                                         <p>${journal.content!}</p>
@@ -45,11 +45,32 @@
                     <div class="comment-page">
                         <#if journals.totalPages gt 1>
                             <@paginationTag method="journals" page="${journals.number}" total="${journals.totalPages}" display="3">
-                                <#include "module/pagination.ftl">
+                                <ol class="page-navigator">
+                                    <#if pagination.hasPrev>
+                                        <li class="prev">
+                                            <a href="${pagination.prevPageFullPath!}" data-ajax>
+                                                <i class="fa fa-angle-left fa-lg"></i>
+                                            </a>
+                                        </li>
+                                    </#if>
+                                    <#list pagination.rainbowPages as number>
+                                        <#if number.isCurrent>
+                                            <li class="current"><a href="${number.fullPath!}" data-ajax>${number.page!}</a></li>
+                                        <#else>
+                                            <li><a class="" href="${number.fullPath!}" data-ajax>${number.page!}</a></li>
+                                        </#if>
+                                    </#list>
+                                    <#if pagination.hasNext>
+                                        <li class="next">
+                                            <a href="${pagination.nextPageFullPath!}" data-ajax>
+                                                <i class="fa fa-angle-right fa-lg"></i>
+                                            </a>
+                                        </li>
+                                    </#if>
+                                </ol>
                             </@paginationTag>
                         </#if>
                     </div>
-                    <#--                    <@global.comment target=journal type="journal" />-->
                 </div>
             </div>
         </main>

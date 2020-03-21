@@ -25,20 +25,22 @@
                                     </#if>
                                     <#if post.tags?? && post.tags?size gt 0>
                                         <div class="tags absolute">
-                                            <a data-ajax href="${context!}/tags/${post.tags[0].slugName!}"
-                                               class="ctag ctag-6 ctag-gridea">${post.tags[0].name!}</a>
+                                            <a data-ajax href="${post.tags[0].fullPath!}" class="ctag ctag-6 ctag-gridea">
+                                                ${post.tags[0].name!}
+                                            </a>
                                         </div>
                                     </#if>
                                 </div>
                             </div>
                             <div class="meta">
-                                <time datetime="${post.createTime?string("yyyy-MM-dd")}"><i
-                                            class="fa fa-pencil"></i>
-                                    <span class="lately">${post.createTime?string("yyyy-MM-dd")}</span></time>
+                                <time datetime="${post.createTime?string("yyyy-MM-dd")}">
+                                    <i class="fa fa-pencil"></i>
+                                    <span class="lately">${post.createTime?string("yyyy-MM-dd")}</span>
+                                </time>
                             </div>
 
-                            <h1 class="title main-title gradient-effect" ><a
-                                        href="${post.fullPath!}" data-ajax>${post.title!}</a>
+                            <h1 class="title main-title gradient-effect" >
+                                <a href="${post.fullPath!}" data-ajax>${post.title!}</a>
                             </h1>
                         </header>
 
