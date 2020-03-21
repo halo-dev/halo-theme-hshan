@@ -10,8 +10,8 @@
 
         <@global.head />
 
-        <link rel="stylesheet" href="${static!}/assets/styles/main.min.css?v=1.4.0">
-        <link rel="stylesheet" href="${static!}/assets/styles/night-mode.min.css?v=1.4.0">
+        <link rel="stylesheet" href="${theme_base!}/assets/styles/main.min.css?v=1.4.0">
+        <link rel="stylesheet" href="${theme_base!}/assets/styles/night-mode.min.css?v=1.4.0">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
 
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">

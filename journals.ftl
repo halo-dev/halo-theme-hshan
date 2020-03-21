@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.jounarls_title!'日志'} | ${options.blog_title!}" >
+<@layout title="${settings.jounarls_title!'日志'} | ${blog_title!}" >
     <div id="page" class="site">
 
         <main class="site-main"  id="main">
@@ -71,7 +71,6 @@
                             </@paginationTag>
                         </#if>
                     </div>
-                    <#--                    <@global.comment target=journal type="journal" />-->
                 </div>
             </div>
         </main>

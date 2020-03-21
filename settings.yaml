@@ -430,7 +430,20 @@ social:
           label: 开启
         - value: false
           label: 关闭
-
+experimental:
+  label: 实验性功能
+  items:
+    pjax_enabled:
+      name: pjax_enabled
+      label: 全局 Pjax
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
 other:
   label: 其他
   items:

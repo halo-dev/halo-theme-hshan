@@ -1,12 +1,12 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!} | 分类：${category.name}">
+<@layout title="${blog_title!} | 分类：${category.name}">
     <div id="page" class="site">
         <main class="site-main" id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if settings.categories_patternimg?? && settings.categories_patternimg!=''>
                         <div class="cover-bg">
-                            <img src="${settings.categories_patternimg!}" alt="${options.blog_title!}">
+                            <img src="${settings.categories_patternimg!}" alt="${blog_title!}">
                         </div>
                     <#else>
                         <div class="default-cover-bg"

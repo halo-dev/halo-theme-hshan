@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.links_title!'友链'} | ${options.blog_title!}">
+<@layout title="${settings.links_title!'友链'} | ${blog_title!}">
     <div id="page" class="site ">
         <main class="site-main"  id="main">
             <div class="site-content">

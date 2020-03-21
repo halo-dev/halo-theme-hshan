@@ -51,10 +51,10 @@
                         <a href="${blog_url!}" data-ajax id="headerLogo"
                            style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;"
                            onfocus="this.blur();">
-                            <img src="${settings.header_logoimg}" alt="${options.blog_title!}"
-                                    <#if settings.header_logo_height?? && settings.header_logo_height != ''>
-                                        style=" height: ${settings.header_logo_height} "
-                                    </#if>
+                            <img src="${settings.header_logoimg}" alt="${blog_title!}"
+                                <#if settings.header_logo_height?? && settings.header_logo_height != ''>
+                                    style="height: ${settings.header_logo_height} "
+                                </#if>
                             />
                         </a>
                     </li>
@@ -71,8 +71,9 @@
                                 <ul class="sub-menu">
                                     <#list menu.children?sort_by('priority') as child>
                                         <li>
-                                            <a href="${child.url!}" data-ajax target="${child.target!}"
-                                               onfocus="this.blur();">${child.name}</a>
+                                            <a href="${child.url!}" data-ajax target="${child.target!}" onfocus="this.blur();">
+                                                ${child.name}
+                                            </a>
                                         </li>
                                     </#list>
                                 </ul>

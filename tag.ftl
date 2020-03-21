@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="标签：${tag.name} | ${options.blog_title!}">
+<@layout title="标签：${tag.name} | ${blog_title!}">
     <div id="page" class="site">
         <main class="site-main" id="main">
             <div class="site-content">
