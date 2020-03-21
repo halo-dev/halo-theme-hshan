@@ -2,11 +2,11 @@
 var post =  {
     appreciateModel: function() {
         $(".appreciate-btn").on("click", function (e) {
-            // $(".qr-code-wrap").velocity("transition.expandIn", { duration: 300 });
-            $(".qr-code-wrap").show();
+            $(".qr-code-wrap").velocity("transition.expandIn", { duration: 300 });
+            // $(".qr-code-wrap").show();
             $(document).one("click", function () {
-                $(".qr-code-wrap").hide();
-                // $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
+                // $(".qr-code-wrap").hide();
+                $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
 
             });
             e.stopPropagation();
@@ -26,7 +26,8 @@ var post =  {
             e.stopPropagation();
         });
         $(".closinglayer").on("click", function (e) {
-            $(".qr-code-wrap").hide();
+            // $(".qr-code-wrap").hide();
+            $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
         });
         $(".zfb-btn").on("click", function (e) {
             $(".qr_code_zfb").css("height", "300px");
@@ -89,6 +90,8 @@ var post =  {
             } else {
                 tocFixed.removeClass('right-fixed');
             }
+
+            post.tocParentActive()
         });
     },
 
@@ -160,6 +163,31 @@ var post =  {
         hljs.initLineNumbersOnLoad({singleLine: true});
     },
 
+    tocHover: function () {
+        $('.toc-list-item span').hover(function () {
+            $(this).parent().find('a.toc-link:first').addClass('toc-hover')
+        }, function() {
+            $(this).parent().find('a.toc-link:first').removeClass('toc-hover')
+        })
+    },
+
+    tocParentActive: function () {
+        var isCollapsible = $('.is-active-li').parents('ol.toc-list.is-collapsible');
+        if (isCollapsible) {
+            isCollapsible.each(function() {
+                $(this).parent().find('a.toc-link:first').addClass('toc-hover');
+            })
+        }
+        var isCollapsed = $('ol.toc-list.is-collapsible.is-collapsed');
+        if (isCollapsed) {
+            isCollapsed.each(function() {
+                $(this).parent().find('a.toc-link:first').removeClass('toc-hover');
+            })
+        }
+
+
+    },
+
 
 }
 
@@ -184,4 +212,7 @@ $(function() {
     post.toggleSocialShare()
 
     post.initViewAndCode()
+
+    post.tocHover();
+
 })

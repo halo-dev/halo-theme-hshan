@@ -49,6 +49,14 @@ if (sidebarToggle)
 
 var oldScrollTop;
 var han = {
+    lazyLoad: function () {
+        $("#page").velocity("transition.slideDownBigIn", {stagger: 200});
+    },
+
+    lazyLoadCardItem: function() {
+        $(".card-item-vel").velocity("transition.slideUpIn", {stagger: 200, display: "flex"});
+    },
+
     linksAddBlank: function() {
         var links = $('.post-content a')
         if (links)
@@ -56,8 +64,8 @@ var han = {
                 $(links[i]).attr('target', '_blank')
     },
 
-    // 获取滚动条距离顶部位置
 
+    // 获取滚动条距离顶部位置
     getScrollTop: function () {
         var scrollTop = 0
         if (document.documentElement && document.documentElement.scrollTop)
@@ -94,11 +102,16 @@ var han = {
         $('.js-toggle-search').on('click', function () {
             openSearchPanel()
             $('.searchbox-input').focus()
-            $('#sidebar').removeClass('sidebar-show')
-            $('#sidebarToggle').removeClass('menu-ctrl-on')
-            $(document.body).removeClass('sidebar-opened')
-            $(document.body).removeClass('cancel-scroll')
+            this.makeMenuInvisible()
         })
+    },
+
+    makeMenuInvisible: function () {
+        $('#sidebar').removeClass('sidebar-show')
+        $('#sidebarToggle').removeClass('menu-ctrl-on')
+        $(document.body).removeClass('sidebar-opened')
+        $(document.body).removeClass('cancel-scroll')
+        $(".side-bar-val").velocity("transition.slideUpOut", {stagger: 200});
     },
 
     // 当前菜单菜单高亮
@@ -167,6 +180,10 @@ var han = {
 }
 
 $(function () {
+    // han.lazyLoad()
+
+    han.lazyLoadCardItem()
+
     han.linksAddBlank()
 
     // 头部菜单滚动时间
@@ -184,6 +201,7 @@ $(function () {
     // han.pagination()
 
     han.getScrollTop()
+
 })
 
 // 删除日志中的空元素

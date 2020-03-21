@@ -1,7 +1,7 @@
 <div id="post-list" class="post-list inner">
     <#if posts?? && posts.getTotalElements() gt 0>
         <#list posts.content as post>
-            <article class="post-item postItem post-item-simple">
+            <article class="post-item postItem post-item-simple card-item-vel">
                 <div class="padding-left">
                     <h2 class="post-item-title">
                         <a href="${post.fullPath!}" data-ajax>${post.title!}

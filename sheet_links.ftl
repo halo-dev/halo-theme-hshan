@@ -27,7 +27,7 @@
                                     <h3 style = "width: 100%; margin: 10px;">${item.team}</h3>
                                 </#if>
                                 <#list item.links?sort_by('priority')?reverse  as link>
-                                    <a class="links-item card" style="display: block;" href="${link.url!}" target="_blank" onfocus="this.blur();">
+                                    <a class="links-item card card-item-vel" style="display: block;" href="${link.url!}" target="_blank" onfocus="this.blur();">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-64x64">

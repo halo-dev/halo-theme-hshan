@@ -1,4 +1,4 @@
-<aside class="sidebar" id="sidebar" style="overflow-y: auto !important;">
+<aside class="sidebar side-bar-val" id="sidebar" style="overflow-y: auto !important;">
     <div class="inner">
         <div class="widget-area">
             <!-- 菜单 -->
