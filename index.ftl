@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${options.blog_title!}">
     <div id="page" class="site">
         <main class="site-main" id="main">
             <div class="site-content home-content">
@@ -35,8 +35,11 @@
                         <#include "module/post-list-style/random-card.ftl">
                     </#if>
                 </div>
-
-                <#include "module/index-pagination.ftl">
+                <#if posts.totalPages gt 1>
+                    <@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="3">
+                        <#include "module/pagination.ftl">
+                    </@paginationTag>
+                </#if>
             </div>
         </main>
 

@@ -64,7 +64,7 @@
                 </a>
             </#if>
              <#if settings.rss!true>
-                <a href="${context!}/rss.xml" class="circle" target="_blank" rel="noopener"
+                <a href="${atom_url!}" class="circle" target="_blank" rel="noopener"
                    title="Rss">
                     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24">
                     <title>RSS icon</title>
@@ -73,7 +73,7 @@
             </#if>
         </div>
 
-        <#--        社交信息 end-->
+        <#-- 社交信息 end -->
 
         <div class="site-info">
             <#if settings.Icp??>
@@ -86,7 +86,7 @@
             </#if>
             <@global.footer />
             <p>Copyright &copy; ${.now?string('yyyy')}
-                <a href="${context!}"> ${options.blog_title!}<#if settings.SiteSubtitle??> - ${settings.SiteSubtitle!}</#if></a>
+                <a href="${blog_url!}"> ${options.blog_title!}<#if settings.SiteSubtitle??> - ${settings.SiteSubtitle!}</#if></a>
             </p>
             <!-- 请尊重作者，请务必保留版权 -->
             <p>Powered by <a target="_blank" href="http://halo.run">Halo</a> •
@@ -102,9 +102,6 @@
                     <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次访问</span>
                 </p>
             </#if>
-        </div>
-        <div class="site-statistics">
-            <@common.statistics />
         </div>
         <a href="#page" class="arrow-up" data-scroll><span class="screen-reader-text">Back to the top</span></a>
     </div>
