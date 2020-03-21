@@ -3,7 +3,7 @@
         <#if posts?? && posts.getTotalElements() gt 0>
             <#list posts.content as post>
                 <article
-                        class="post-item grid-32 grid-48 mobile-grid-100 post card postItem mrg-bottom-90">
+                        class="post-item grid-32 grid-48 mobile-grid-100 post card postItem mrg-bottom-90 card-item-vel">
                     <div class="article-wrapper card-shadow">
                         <header>
                             <div class="post-format-image post-format-wrapper">

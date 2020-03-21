@@ -10,8 +10,8 @@
 
         <@global.head />
 
-        <link rel="stylesheet" href="${theme_base!}/assets/styles/main.min.css?v=1.4.0">
-        <link rel="stylesheet" href="${theme_base!}/assets/styles/night-mode.min.css?v=1.4.0">
+        <link rel="stylesheet" href="${theme_base!}/assets/styles/main.min.css?ver=${.now?long}">
+        <link rel="stylesheet" href="${theme_base!}/assets/styles/night-mode.min.css?ver=${.now?long}">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
 
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
@@ -27,16 +27,13 @@
             // -->
         </script>
 
-        <script type="application/javascript">
-            var title = ''
-                console.log(${title});
-        </script>
-
         <style>
             :root {
                 --post-max-width: ${settings.post_max_wdth!'800px'} !important;
                 --content-font-size: ${settings.content_font_size!'1.12rem'} !important;
                 --base-color: ${settings.base_color!'#2474b5'};
+                --toc-bg-color: #8e8787;
+                --night-toc-bg-color:#e5e5e5;
                 --tag-bg-color: #ff5f5f;
                 --header-bg-color: #fff;
                 --header-child-hover-bg-color: #f5f5f5;
@@ -138,7 +135,7 @@
 
         </style>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">
+<#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">-->
         <#if settings.Aplayer?? && settings.Aplayer != ''>
             <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
         </#if>
@@ -165,7 +162,6 @@
 
     </head>
     <body>
-    <main style="display: none" id="pageTitle">${title}</main>
     <#include "header.ftl">
 
     <#nested >
@@ -173,6 +169,7 @@
     <#include "footer.ftl">
     </body>
     <script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="${theme_base!}/assets/media/scripts/utils.min.js?ver=${.now?long}"></script>
     <#include "script.ftl">
     </html>
 </#macro>

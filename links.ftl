@@ -28,7 +28,7 @@
                                 </#if>
 
                                 <#list item.links?sort_by('priority')?reverse  as link>
-                                    <a class="links-item" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
+                                    <a class="links-item card-item-vel" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-64x64">

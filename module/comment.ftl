@@ -6,27 +6,7 @@
             </div>
         </section>
 
-        <script>
-            function getLocalStorage(key) {
-                var exp = 60 * 60 * 1000; // 一个小时的秒数
-                if (localStorage.getItem(key)) {
-                    var vals = localStorage.getItem(key); // 获取本地存储的值
-                    var dataObj = JSON.parse(vals); // 将字符串转换成JSON对象
-                    // 如果(当前时间 - 存储的元素在创建时候设置的时间) > 过期时间
-                    var isTimed = (new Date().getTime() - dataObj.timer) > exp;
-                    if (isTimed) {
-                        console.log("存储已过期");
-                        localStorage.removeItem(key);
-                        return null;
-                    } else {
-                        var newValue = dataObj.val;
-                    }
-                    return newValue;
-                } else {
-                    return null;
-                }
-            }
-
+        <script type="application/javascript">
             function renderComment() {
                 const haloComment = document.getElementById('haloComment');
                 if (!haloComment) {
@@ -39,7 +19,7 @@
                     data() {
                         return {
                             configs: {
-                                darkMode: getLocalStorage('nightMode')
+                                darkMode: hanUtils.getLocalStorage('nightMode')
                             }
                         };
                     },

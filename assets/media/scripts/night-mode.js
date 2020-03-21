@@ -1,158 +1,103 @@
 var nightModeId = 'nightMode';
 
-function autoNightMode() {
-    var nightModes = $('.night-mode');
-    var day = new Date();
-    var D = day.getHours();
-    var isNightMode = getLocalStorage(nightModeId);
-    if (D <= nightModeStartTime && D > nightModeEndTime) {
-        // 白天
-        if (isNightMode === true) {
-            // 是暗黑模式
-            changeNightMode(nightModes);
-            return;
+var darkMode = {
+    autoNightMode: function () {
+
+        var nightModes = $('.night-mode');
+        var day = new Date();
+        var D = day.getHours();
+        var isNightMode = hanUtils.getLocalStorage(nightModeId);
+        if (D <= nightModeStartTime && D > nightModeEndTime) {
+            // 白天
+            if (isNightMode === true) {
+                // 是暗黑模式
+                darkMode.changeNightMode(nightModes);
+                return;
+            }
+            darkMode.changeLightMode(nightModes);
+        } else {
+            // 晚上
+            if (isNightMode === false) {
+                // 不是暗黑模式
+                darkMode.changeLightMode(nightModes);
+                return;
+            }
+            darkMode.changeNightMode(nightModes);
         }
-        changeLightMode( nightModes);
-    } else {
-        // 晚上
-        if (isNightMode === false) {
-            // 不是暗黑模式
-            changeLightMode( nightModes);
-            return;
-        }
-        changeNightMode(nightModes);
-    }
-    if (typeof renderComment === 'function') {
-        renderComment();
-    }
-}
-
-function changeLightMode(nightModes) {
-    $(document.body).removeClass('night');
-    for (var i = 0; i < nightModes.length; i++) {
-        var nightMode = $(nightModes[i]);
-        nightMode.addClass('fa-moon-o');
-        nightMode.removeClass('fa-lightbulb-o');
-    }
-    setLocalStorage(nightModeId, false)
-}
-
-function changeNightMode(nightModes) {
-    $(document.body).addClass('night');
-    for (var i = 0; i < nightModes.length; i++) {
-        var nightMode = $(nightModes[i]);
-        nightMode.addClass('fa-lightbulb-o');
-        nightMode.removeClass('fa-moon-o');
-    }
-    setLocalStorage(nightModeId, true)
-}
-
-function nightModeFuc() {
-    var nightModes = $('.night-mode');
-    if (!nightModes) {
-        return;
-    }
-    for (var i = 0; i < nightModes.length; i++) {
-        var nightMode = $(nightModes[i]);
-        doFuncNightMode(nightMode);
-    }
-
-}
-
-function doFuncNightMode(nightMode) {
-    var nightModeBtn = $('.night-mode');
-    if ($(document.body).hasClass('night')) {
-        nightModeBtn.addClass('fa-lightbulb-o');
-        nightModeBtn.removeClass('fa-moon-o');
-    } else {
-        nightModeBtn.addClass('fa-moon-o');
-        nightModeBtn.removeClass('fa-lightbulb-o');
-    }
-
-
-
-    nightMode.click(function (e) {
-        if (nightMode.hasClass('fa-moon-o')) {
-            $(document.body).addClass('night');
-            nightModeBtn.addClass('fa-lightbulb-o');
-            nightModeBtn.removeClass('fa-moon-o');
-            setLocalStorage(nightModeId, true);
-        } else if (nightMode.hasClass('fa-lightbulb-o')) {
-            $(document.body).removeClass('night');
-            nightModeBtn.addClass('fa-moon-o');
-            nightModeBtn.removeClass('fa-lightbulb-o');
-
-            setLocalStorage(nightModeId, false);
-        }
-        $(document.body).removeClass('sidebar-opened');
         if (typeof renderComment === 'function') {
             renderComment();
         }
-    })
-}
+    },
 
-function setLocalStorage(key, value) {
-    var curtime = new Date().getTime(); // 获取当前时间 ，转换成JSON字符串序列
-    var valueDate = JSON.stringify({
-        val: value,
-        timer: curtime
-    });
-    try {
-        localStorage.setItem(key, valueDate);
-    } catch (e) {
-        // 兼容性写法
-        if (isQuotaExceeded(e)) {
-            console.log("Error: 本地存储超过限制");
-            localStorage.clear();
-        } else {
-            console.log("Error: 保存到本地存储失败");
+    changeLightMode: function (nightModes) {
+        $(document.body).removeClass('night');
+        for (var i = 0; i < nightModes.length; i++) {
+            var nightMode = $(nightModes[i]);
+            nightMode.addClass('fa-moon-o');
+            nightMode.removeClass('fa-lightbulb-o');
         }
-    }
-}
+        hanUtils.setLocalStorage(nightModeId, false)
+    },
 
-function isQuotaExceeded(e) {
-    var quotaExceeded = false;
-    if (e) {
-        if (e.code) {
-            switch (e.code) {
-                case 22:
-                    quotaExceeded = true;
-                    break;
-                case 1014: // Firefox
-                    if (e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
-                        quotaExceeded = true;
-                    }
-                    break;
+    changeNightMode: function (nightModes) {
+        $(document.body).addClass('night');
+        for (var i = 0; i < nightModes.length; i++) {
+            var nightMode = $(nightModes[i]);
+            nightMode.addClass('fa-lightbulb-o');
+            nightMode.removeClass('fa-moon-o');
+        }
+        hanUtils.setLocalStorage(nightModeId, true)
+    },
+
+    nightModeFuc: function () {
+        var nightModes = $('.night-mode');
+        if (!nightModes) {
+            return;
+        }
+        for (var i = 0; i < nightModes.length; i++) {
+            var nightMode = $(nightModes[i]);
+            darkMode.doFuncNightMode(nightMode);
+        }
+
+    },
+
+    doFuncNightMode: function (nightMode) {
+        var nightModeBtn = $('.night-mode');
+        if ($(document.body).hasClass('night')) {
+            nightModeBtn.addClass('fa-lightbulb-o');
+            nightModeBtn.removeClass('fa-moon-o');
+        } else {
+            nightModeBtn.addClass('fa-moon-o');
+            nightModeBtn.removeClass('fa-lightbulb-o');
+        }
+
+
+        nightMode.click(function (e) {
+            if (nightMode.hasClass('fa-moon-o')) {
+                $(document.body).addClass('night');
+                nightModeBtn.addClass('fa-lightbulb-o');
+                nightModeBtn.removeClass('fa-moon-o');
+                hanUtils.setLocalStorage(nightModeId, true);
+            } else if (nightMode.hasClass('fa-lightbulb-o')) {
+                $(document.body).removeClass('night');
+                nightModeBtn.addClass('fa-moon-o');
+                nightModeBtn.removeClass('fa-lightbulb-o');
+
+                hanUtils.setLocalStorage(nightModeId, false);
             }
-        } else if (e.number === -2147024882) { // IE8
-            quotaExceeded = true;
-        }
-    }
-    return quotaExceeded;
-}
-
-function getLocalStorage(key) {
-    var exp = 60 * 60 * 1000; // 一个小时的秒数
-    if (localStorage.getItem(key)) {
-        var vals = localStorage.getItem(key); // 获取本地存储的值
-        var dataObj = JSON.parse(vals); // 将字符串转换成JSON对象
-        // 如果(当前时间 - 存储的元素在创建时候设置的时间) > 过期时间
-        var isTimed = (new Date().getTime() - dataObj.timer) > exp;
-        if (isTimed) {
-            console.log("存储已过期");
-            localStorage.removeItem(key);
-            return null;
-        } else {
-            var newValue = dataObj.val;
-        }
-        return newValue;
-    } else {
-        return null;
+            $(document.body).removeClass('sidebar-opened');
+            if (typeof renderComment === 'function') {
+                renderComment();
+            }
+        })
     }
 }
 
+$(function () {
 // 自动暗黑模式
-autoNightMode();
+    darkMode.autoNightMode();
 
 // 暗黑模式
-nightModeFuc();
+    darkMode.nightModeFuc();
+})
+

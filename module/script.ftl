@@ -1,7 +1,7 @@
 <#include "mermaid.ftl">
 <script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
-<script src="${theme_base!}/assets/media/scripts/plugins.min.js"></script>
-<script src="${theme_base!}/assets/media/scripts/main.min.js?v=1.4.0"></script>
+<script src="${theme_base!}/assets/media/scripts/plugins.min.js?ver=${.now?long}"></script>
+<script src="${theme_base!}/assets/media/scripts/main.min.js?ver=${.now?long}"></script>
 <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
 <#if settings.auto_night_mode>
@@ -29,7 +29,7 @@
         var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
         var nightModeEndTime = ${settings.night_mode_end_time?default('6')};
     </script>
-    <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?v=1.4.0"></script>
+    <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?ver=${.now?long}"></script>
 </#if>
 
 <#if settings.visit_statistics!false>
@@ -40,7 +40,7 @@
 <#if settings.enabled_mathjax!true>
     <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
     <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
+            onload="if (document.getElementById('post-content') ) {renderMathInElement(document.getElementById('post-content'),katex_config)}"></script>
 </#if>
 
 <#-- gallery  -->
@@ -50,7 +50,6 @@
 
 <!--文章页面使用和相册页面不同的图片预览插件-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-<#--<script src="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/highlight.min.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
@@ -87,7 +86,7 @@
 <script type="application/javascript">
     var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
 </script>
-<script src="${theme_base!}/assets/media/scripts/post.min.js?v=1.4.0"></script>
+<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=${.now?long}"></script>
 <style>
     /* 阅读进度的进度条颜色 */
     #readProgress .read-progress-bar {
@@ -134,8 +133,6 @@
     ${settings.Custom_js_foot_src!}
 </#if>
 
-<#--<script src="${theme_base!}/assets/media/scripts/ajax-load.js"></script>-->
-
 <#if settings.pjax_enabled!false>
     <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
@@ -165,6 +162,11 @@
                 photo.loadGallery();
             }
 
+            // 整个页面延迟加载
+            han.lazyLoad();
+
+            // card 延迟加载
+            han.lazyLoadCardItem()
 
             //重载
             if (typeof _hmt !== 'undefined') {
@@ -183,6 +185,13 @@
             document.querySelectorAll('.post-page pre code').forEach((block) => {
                 hljs.highlightBlock(block);
             });
+
+            // 小屏幕菜单隐藏
+            han.makeMenuInvisible();
+
+            if (typeof renderComment === 'function') {
+                renderComment();
+            }
 
             if ($("#page").find('.post-page').length > 0) {
                 post.appreciate();
@@ -206,33 +215,27 @@
 
                 post.initViewAndCode()
 
+                post.tocHover();
+
 
                 try {
-                    if (renderMathInElement) {
+                    if (renderMathInElement && typeof renderMathInElement !== 'undefined') {
                         renderMathInElement(document.getElementById('post-content'), katex_config);
                     }
 
-                    if (typeof mermaid !== 'undefined') {
+                    if (mermaid && typeof mermaid !== 'undefined') {
                         mermaid.initialize();
                     }
                 } catch (e) {
-                    console.log(e);
+                    console.log("error");
                 }
 
             }
 
-
-            $('#sidebar').removeClass('sidebar-show')
-            $('#sidebarToggle').removeClass('menu-ctrl-on')
-            $(document.body).removeClass('sidebar-opened')
-            $(document.body).removeClass('cancel-scroll')
-
-            if (typeof renderComment === 'function') {
-                renderComment();
-            }
         });
 
         document.addEventListener('pjax:end', function () {
+            NProgress.done();
         });
 
         //Pjax请求失败后触发，请求对象将作为一起传递event.options.request
@@ -245,7 +248,7 @@
 
 
 <script type="text/javascript">
-    // console.clear();
+    console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
     console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0.SNAPSHOT");
