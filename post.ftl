@@ -64,7 +64,7 @@
                                     <button type="submit"
                                             class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
-                                        <img src="${static!}/assets/media/images/cuplogo-sm.png"
+                                        <img src="${theme_base!}/assets/media/images/cuplogo-sm.png"
                                              class="right-mrgn-8 support-img" style="height: 16px"/>
                                         <span id="">Support</span>
                                     </button>

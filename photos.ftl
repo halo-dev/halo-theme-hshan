@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.photos_title!'相册'} | ${options.blog_title!}">
+<@layout title="${settings.photos_title!'相册'} | ${blog_title!}">
     <div id="page" class="site">
         <main class="site-main" id="main">
             <div class="site-content photos-page">
