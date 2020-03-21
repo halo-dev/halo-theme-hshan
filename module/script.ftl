@@ -140,7 +140,7 @@
 
     <script>
         var pjax = new Pjax({
-            elements: 'a[href]:not([href^="#"])', // default is "a[href], form[action]"
+            elements: 'a[href]:not([href^="#"]), form', // default is "a[href], form[action]"
             cacheBust: false,
             debug: false,
             selectors: [
@@ -192,6 +192,9 @@
             if (typeof renderComment === 'function') {
                 renderComment();
             }
+
+            //  关闭搜索框
+            $(".search-popup").velocity("transition.expandOut", { duration: 300 });
 
             if ($("#page").find('.post-page').length > 0) {
                 post.appreciate();
@@ -251,5 +254,6 @@
     console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
-    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0.SNAPSHOT");
+    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0-beta");
+    console.log("%c Just For Halo 1.3.x %c", "background:#24272A; color:#ffffff", "");
 </script>
