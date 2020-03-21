@@ -139,7 +139,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
 
     <script>
-        var socialDisabled = ${settings.share_disabeld?default('')};
+        var socialDisabled = '${settings.share_disabeld?default('')}';
         var pjax = new Pjax({
             elements: 'a[href]:not([href^="#"]), form', // default is "a[href], form[action]"
             cacheBust: false,
