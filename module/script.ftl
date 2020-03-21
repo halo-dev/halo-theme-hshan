@@ -162,6 +162,7 @@
                 photo.loadGallery();
             }
 
+            han.initLazyLoad();
             // 整个页面延迟加载
             han.lazyLoad();
 
@@ -197,10 +198,9 @@
             $(".search-popup").velocity("transition.expandOut", { duration: 300 });
 
             if ($("#page").find('.post-page').length > 0) {
+                //
+                window.removeEventListener('scroll', post.tocScroll, false);
                 post.appreciate();
-                if (typeof tocbot !== 'undefined') {
-                    tocbot.destroy();
-                }
 
                 // 初始化toc
                 post.initToc()
@@ -208,7 +208,7 @@
                 post.removeFirstUL()
 
                 // 目录事件
-                post.scrollTocFixed('tocFlag');
+                post.scrollTocFixed();
 
                 // 搞一个阅读进度，为了提高准确度，数据都要实时获取
                 post.readProgress();
@@ -235,13 +235,17 @@
                 } catch (e) {
                     console.log("error");
                 }
-
+                // 刷新
+                han.refreshLazyLoad();
+            } else {
+                han.initLazyLoad()
             }
+
 
         });
 
         document.addEventListener('pjax:end', function () {
-            NProgress.done();
+
         });
 
         //Pjax请求失败后触发，请求对象将作为一起传递event.options.request
@@ -258,5 +262,4 @@
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
     console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0-beta");
-    console.log("%c Just For Halo 1.3.x %c", "background:#24272A; color:#ffffff", "");
 </script>
