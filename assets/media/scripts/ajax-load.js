@@ -63,10 +63,6 @@ function ajaxLoad() {
 
                 }
 
-                // 加载图片
-                if ($(data).find('.photos-page').length > 0) {
-                    photo.loadGallery();
-                }
 
                 $('#sidebar').removeClass('sidebar-show')
                 $('#sidebarToggle').removeClass('menu-ctrl-on')
@@ -96,4 +92,4 @@ var randLoader = [
 
 ]
 
-ajaxLoad()
+// ajaxLoad()

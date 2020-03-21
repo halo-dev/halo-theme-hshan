@@ -38,8 +38,9 @@
 
 <#-- katex-->
 <#if settings.enabled_mathjax!true>
-    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" ></script>
-    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
 </#if>
 
 <#-- gallery  -->
@@ -133,118 +134,119 @@
     ${settings.Custom_js_foot_src!}
 </#if>
 
+<#--<script src="${theme_base!}/assets/media/scripts/ajax-load.js"></script>-->
+
+<#if settings.pjax_enabled!false>
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+    <script>
+        var pjax = new Pjax({
+            elements: 'a[href]:not([href^="#"])', // default is "a[href], form[action]"
+            cacheBust: false,
+            debug: false,
+            selectors: [
+                'title',
+                '#page'
+            ]
+        });
+
+        //在Pjax请求开始后触发
+        document.addEventListener('pjax:send', function () {
+            NProgress.start();
+        });
+
+        //在Pjax请求完成后触发
+        document.addEventListener('pjax:complete', function () {
+            NProgress.done();
+            // 加载相册
+            if ($("#page").find('.photos-page').length > 0) {
+                photo.loadGallery();
+            }
+
+
+            //重载
+            if (typeof _hmt !== 'undefined') {
+                // support 百度统计
+                _hmt.push(['_trackPageview', location.pathname + location.search]);
+            }
+            if (typeof ga !== 'undefined') {
+                // support google analytics
+                ga('send', 'pageview', location.pathname + location.search);
+            }
+
+            // 菜单高亮
+            han.highlightMenu();
+
+            // 高亮插件
+            document.querySelectorAll('.post-page pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+
+            if ($("#page").find('.post-page').length > 0) {
+                post.appreciate();
+
+                // 初始化toc
+                post.initToc()
+
+                post.removeFirstUL()
+
+                // 目录事件
+                post.scrollTocFixed('tocFlag');
+
+                // 搞一个阅读进度，为了提高准确度，数据都要实时获取
+                post.readProgress();
+
+                // 按钮事件
+                post.appreciateModel()
+
+                // 分享
+                post.toggleSocialShare()
+
+                post.initViewAndCode()
+
+
+                try {
+                    if (renderMathInElement) {
+                        renderMathInElement(document.getElementById('post-content'), katex_config);
+                    }
+
+                    if (typeof mermaid !== 'undefined') {
+                        mermaid.initialize();
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+
+            }
+
+
+            $('#sidebar').removeClass('sidebar-show')
+            $('#sidebarToggle').removeClass('menu-ctrl-on')
+            $(document.body).removeClass('sidebar-opened')
+            $(document.body).removeClass('cancel-scroll')
+
+            if (typeof renderComment === 'function') {
+                renderComment();
+            }
+        });
+
+        document.addEventListener('pjax:end', function () {
+        });
+
+        //Pjax请求失败后触发，请求对象将作为一起传递event.options.request
+        document.addEventListener('pjax:error', function () {
+            NProgress.done();
+            bar('系统出现问题，请手动刷新一次', '3000');
+        });
+    </script>
+</#if>
+
+
 <script type="text/javascript">
     // console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
     console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0.SNAPSHOT");
 </script>
-
-<#--<script src="${theme_base!}/assets/media/scripts/ajax-load.js"></script>-->
-
-<#if settings.pjax_enabled!false>
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
-
-<script>
-    var pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"])', // default is "a[href], form[action]"
-        cacheBust: false,
-        debug: false,
-        selectors: [
-            'title',
-            '#page'
-        ]
-    });
-
-    //在Pjax请求开始后触发
-    document.addEventListener('pjax:send', function () {
-        NProgress.start();
-    });
-
-    //在Pjax请求完成后触发
-    document.addEventListener('pjax:complete', function () {
-        NProgress.done();
-
-        //重载
-        if (typeof _hmt !== 'undefined') {
-            // support 百度统计
-            _hmt.push(['_trackPageview', location.pathname + location.search]);
-        }
-        if (typeof ga !== 'undefined') {
-            // support google analytics
-            ga('send', 'pageview', location.pathname + location.search);
-        }
-
-        // 菜单高亮
-        han.highlightMenu();
-
-        // 高亮插件
-        document.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightBlock(block);
-        });
-
-        if ($("#page").find('.post-page').length > 0) {
-            post.appreciate();
-
-            // 初始化toc
-            post.initToc()
-
-            post.removeFirstUL()
-
-            // 目录事件
-            post.scrollTocFixed('tocFlag');
-
-            // 搞一个阅读进度，为了提高准确度，数据都要实时获取
-            post.readProgress();
-
-            // 按钮事件
-            post.appreciateModel()
-
-            // 分享
-            post.toggleSocialShare()
-
-            post.initViewAndCode()
-
-            // jQuery 写法
-            $('script[data-pjax-js]').each(function () {
-                $(this).parent().append($(this).remove());
-            });
-
-            try {
-                if (renderMathInElement) {
-                    renderMathInElement(document.getElementById('post-content'), katex_config);
-                }
-
-                if (typeof mermaid !== 'undefined') {
-                    mermaid.initialize();
-                }
-            }catch (e) {
-                console.log(e);
-            }
-
-        }
-
-        // 加载图片
-        if ($(data).find('.photos-page').length > 0) {
-            photo.loadGallery();
-        }
-
-        $('#sidebar').removeClass('sidebar-show')
-        $('#sidebarToggle').removeClass('menu-ctrl-on')
-        $(document.body).removeClass('sidebar-opened')
-        $(document.body).removeClass('cancel-scroll')
-
-        if (typeof renderComment === 'function') {
-            renderComment();
-        }
-    });
-
-    //Pjax请求失败后触发，请求对象将作为一起传递event.options.request
-    document.addEventListener('pjax:error', function() {
-        NProgress.done();
-        bar('系统出现问题，请手动刷新一次','3000');
-    });
-</script>
-</#if>
