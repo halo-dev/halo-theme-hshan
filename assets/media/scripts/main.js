@@ -9,10 +9,10 @@ var videoEmbeds = [
 reframe(videoEmbeds.join(','))
 
 // Smooth scroll to anchors
-var scroll = new SmoothScroll('[data-scroll]', {
-    speed: 300,
-    updateURL: false,
-})
+// var scroll = new SmoothScroll('[data-scroll]', {
+//     speed: 300,
+//     updateURL: false,
+// })
 
 
 // Sidebar toggle
