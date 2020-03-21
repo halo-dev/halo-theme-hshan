@@ -76,8 +76,9 @@
                                     </button>
                                 </#if>
                             </div>
-                            <div class="social-share no-show" data-disabled="${settings.share_disabeld!''}"
-                                 id="socialShare"></div>
+                            <div id="socialShare" class="no-show">
+                                <div class="social-share" data-disabled="${settings.share_disabeld!''}"></div>
+                            </div>
                             <div class="article-copyright-info">
                                 <#if settings.copyright_clean!true>
                                 <p>© 本文著作权归作者所有，转载前请务必署名</p>

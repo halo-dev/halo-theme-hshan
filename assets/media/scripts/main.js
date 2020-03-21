@@ -51,7 +51,6 @@ var oldScrollTop;
 var han = {
     lazyLoad: function () {
         $("#page").velocity("transition.slideDownBigIn", {stagger: 200});
-        console.log('lazyload')
     },
 
     initLazyLoad: function () {

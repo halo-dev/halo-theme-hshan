@@ -16,7 +16,13 @@ var post =  {
 
     toggleSocialShare: function () {
         $('.share-btn').on("click", function (e) {
-            $('#socialShare').toggleClass('no-show');
+            var icons = $('#socialShare');
+            if (icons.hasClass('show')) {
+                $('#socialShare').velocity("transition.slideUpOut", { duration: 300 });
+            } else {
+                $('#socialShare').velocity("transition.slideDownIn", { duration: 300 });
+            }
+            icons.toggleClass('show');
         });
     },
 
@@ -187,8 +193,17 @@ var post =  {
             })
         }
 
-
     },
+
+    shareIcon: function() {
+
+        var $config = {
+            sites               : ['google','twitter','facebook','weibo','qq','tencent','qzone','linkedin','wechat','douban','diandian'], // 启用的站点
+            disabled            : socialDisabled.split(','), // 禁用的站点
+        };
+
+        socialShare('.social-share', $config);
+    }
 
 
 }
