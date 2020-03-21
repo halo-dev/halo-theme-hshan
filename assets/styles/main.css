@@ -2342,6 +2342,9 @@ pre .storage {
   top: 50%;
   right: 50%;
 }
+.transform-none {
+  transform: none !important;
+}
 :not(pre) > code {
   background-color: #f5f5f5;
   color: #e96900;

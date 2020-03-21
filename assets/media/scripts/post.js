@@ -1,4 +1,5 @@
-
+var tocId = '#toc';
+var flagId = '#tocFlag'
 var post =  {
     appreciateModel: function() {
         $(".appreciate-btn").on("click", function (e) {
@@ -57,42 +58,43 @@ var post =  {
         return document.documentElement.scrollTop || document.body.scrollTop;
     },
 
-
-    scrollTocFixed: function (div_id) {
-        var Obj = $('#' + div_id);
+    tocScroll: function (event) {
+        var Obj = $(flagId);
 
         //判断元素是否存在
-        if (Obj.length != 1) {
+        if (Obj.length !== 1) {
             return false;
         }
 
-        var tocId = '#toc';
-        window.addEventListener('scroll', function () {
-            var tocFixed = $(tocId);
-            var ObjTop = Obj.offset().top - $(window).height() * 0.5;
+        var tocFixed = $(tocId);
+        var ObjTop = Obj.offset().top - $(window).height() * 0.5;
 
-            // 滚动条离页面顶端的距离
-            var scrollTop = post.getScrollTop();
-            var postHeaderHeight = $('#postHeader').height();
-            if (scrollTop > postHeaderHeight) {
-                tocFixed.show();
-            } else {
-                tocFixed.hide();
-            }
+        // 滚动条离页面顶端的距离
+        var scrollTop = post.getScrollTop();
+        var postHeaderHeight = $('#postHeader').height();
+        if (scrollTop > postHeaderHeight) {
+            tocFixed.show();
+        } else {
+            tocFixed.hide();
+        }
 
-            var tocEle = document.querySelector(tocId);
-            if (!tocEle || !tocEle.getBoundingClientRect()) {
-                return;
-            }
-            var tocHeight = tocEle.getBoundingClientRect().height;
-            if (scrollTop > ObjTop - tocHeight * 0.5) {
-                tocFixed.addClass('right-fixed');
-            } else {
-                tocFixed.removeClass('right-fixed');
-            }
+        var tocEle = document.querySelector(tocId);
+        if (!tocEle || !tocEle.getBoundingClientRect()) {
+            return;
+        }
+        var tocHeight = tocEle.getBoundingClientRect().height;
+        if (scrollTop > ObjTop - tocHeight * 0.5) {
+            tocFixed.addClass('right-fixed');
+        } else {
+            tocFixed.removeClass('right-fixed');
+        }
 
-            post.tocParentActive()
-        });
+        post.tocParentActive()
+        event.preventDefault();
+    },
+
+    scrollTocFixed: function () {
+        window.addEventListener('scroll', post.tocScroll, false);
     },
 
 
@@ -200,7 +202,7 @@ $(function() {
     post.removeFirstUL()
 
     // 目录事件
-    post.scrollTocFixed('tocFlag');
+    post.scrollTocFixed();
 
     // 搞一个阅读进度，为了提高准确度，数据都要实时获取
     post.readProgress();

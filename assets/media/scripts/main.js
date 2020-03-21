@@ -51,6 +51,15 @@ var oldScrollTop;
 var han = {
     lazyLoad: function () {
         $("#page").velocity("transition.slideDownBigIn", {stagger: 200});
+        console.log('lazyload')
+    },
+
+    initLazyLoad: function () {
+        $('#page').removeClass('transform-none');
+    },
+
+    refreshLazyLoad: function() {
+        $('#page').addClass('transform-none');
     },
 
     lazyLoadCardItem: function() {
