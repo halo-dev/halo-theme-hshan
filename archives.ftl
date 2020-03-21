@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.achieve_title!'归档'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${settings.achieve_title!'归档'} | ${blog_title!}">
     <div id="page" class="site">
         <main class="site-main" id="main">
             <div class="site-content">
@@ -22,39 +22,38 @@
                 </header>
 
                 <@postTag method="archiveMonth">
-
-                <div id="post-list" class="post-list inner" style="padding-top: 30px;margin-bottom: 30px;">
-                    <#list archives as archive>
-                        <article class="post">
-                            <!-- post-header -->
-                            <header class="post-header" style="margin-bottom: 0 !important;">
-                                <div class="post-header-wrap">
-                                    <div class="post-meta">
-                                        <time class="published published-txt" style="font-weight: bolder;"
-                                              datetime="{archive.year?c}">
-                                            ${archive.year?c}年${archive.month!}月
-                                        </time>
+                    <div id="post-list" class="post-list inner" style="padding-top: 30px;margin-bottom: 30px;">
+                        <#list archives as archive>
+                            <article class="post">
+                                <!-- post-header -->
+                                <header class="post-header" style="margin-bottom: 0 !important;">
+                                    <div class="post-header-wrap">
+                                        <div class="post-meta">
+                                            <time class="published published-txt" style="font-weight: bolder;"
+                                                  datetime="{archive.year?c}">
+                                                ${archive.year?c}年${archive.month!}月
+                                            </time>
+                                        </div>
+                                        <div class="post-title archives-list" style="margin-bottom: 0 !important;">
+                                            <#list archive.posts?sort_by("createTime")?reverse as post>
+                                                <div class="read-more">
+                                                    <a class="button" href="${post.fullPath!}" data-ajax>
+                                                        ${post.createTime?string('MM-dd')} ${post.title!}
+                                                        <span aria-hidden="true"></span>
+                                                        <span class="line left"></span>
+                                                        <span class="line top"></span>
+                                                        <span class="line right"></span>
+                                                        <span class="line bottom"></span>
+                                                    </a>
+                                                </div>
+                                            </#list>
+                                        </div>
                                     </div>
-                                    <div class="post-title archives-list" style="margin-bottom: 0 !important;">
-                                        <#list archive.posts?sort_by("createTime")?reverse as post>
-                                            <div class="read-more">
-                                                <a class="button" href="${post.fullPath!}" data-ajax>
-                                                    ${post.createTime?string('MM-dd')} ${post.title!}
-                                                    <span aria-hidden="true"></span>
-                                                    <span class="line left"></span>
-                                                    <span class="line top"></span>
-                                                    <span class="line right"></span>
-                                                    <span class="line bottom"></span>
-                                                </a>
-                                            </div>
-                                        </#list>
-                                    </div>
-                                </div>
-                            </header>
-                        </article>
-                    </#list>
-                    </@postTag>
-                </div>
+                                </header>
+                            </article>
+                        </#list>
+                    </div>
+                </@postTag>
             </div>
         </main>
     </div>

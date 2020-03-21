@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.categories_title!'分类列表'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${settings.categories_title!'分类列表'} | ${blog_title!}">
     <div id="page" class="site">
         <main class="site-main"  id="main">
             <div class="site-content">
@@ -27,19 +27,19 @@
                                 <#list categories as category>
                                     <a href="${category.fullPath!}" class="button" data-ajax>
                                         ${category.name}
-                                        <span aria-hidden="true"><span class="line left"></span><span
-                                                    class="line top"></span><span class="line right"></span><span
-                                                    class="line bottom"></span></span>
+                                        <span aria-hidden="true">
+                                            <span class="line left"></span>
+                                            <span class="line top"></span>
+                                            <span class="line right"></span>
+                                            <span class="line bottom"></span>
+                                        </span>
                                     </a>
                                 </#list>
                             </#if>
                         </@categoryTag>
                     </div>
                 </div>
-<#--                <#include "module/index-pagination.ftl">-->
             </div>
         </main>
-
-
     </div>
 </@layout>

@@ -1,5 +1,5 @@
 <#include "module/macro.ftl">
-<@layout title="${keyword!} - 搜索结果 - ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${keyword!} - 搜索结果 - ${blog_title!}">
     <div id="page" class="site">
         <main class="site-main" id="main">
             <div class="site-content">
@@ -31,24 +31,11 @@
                     <#else>
                         <#include "module/post-list-style/random-card.ftl">
                     </#if>
-                    <nav class="pagination">
-                        <h2 class="screen-reader-text">Posts Navigation</h2>
-                        <div class="inner">
-						<span class="page-number">
-							<a href="${context!}/search?keyword=${keyword!}">PAGE ${posts.number + 1} OF ${posts.totalPages!} </a>
-						</span>
-                            <#if posts.hasPrevious()>
-                                <a class="newer-posts arrow-left"
-                                   href="${context!}/search/page/${posts.number}?keyword=${keyword!}"><span
-                                            class="screen-reader-text"></span></a>
-                            </#if>
-                            <#if posts.hasNext()>
-                                <a class="older-posts arrow-right"
-                                   href="${context!}/search/page/${posts.number+2}?keyword=${keyword!}"><span
-                                            class="screen-reader-text"></span></a>
-                            </#if>
-                        </div>
-                    </nav>
+                    <#if posts.totalPages gt 1>
+                        <@paginationTag method="search" page="${posts.number}" total="${posts.totalPages}" display="3">
+                            <#include "module/pagination.ftl">
+                        </@paginationTag>
+                    </#if>
                 <#else>
                     <div id="post-list" class="post-list inner">
                         <div class="search-box">
