@@ -1,9 +1,9 @@
 <#include "mermaid.ftl">
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
 <script src="${static!}/assets/media/scripts/plugins.min.js"></script>
 <script src="${static!}/assets/media/scripts/main.min.js?v=1.4.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
 <#if settings.auto_night_mode>
     <script src="//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js"></script>
 <#else>
@@ -11,8 +11,8 @@
 </#if>
 
 <#if settings.Aplayer?? && settings.Aplayer != ''>
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 <#else>
     <script type="text/javascript">
         // Smooth scroll to anchors
@@ -36,33 +36,22 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
-
-<#if settings.enabled_mermaid!true>
-    <script data-mermaid src="//cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            mermaid.initialize();
-        });
-    </script>
-</#if>
-<#-- mermiad-->
+<#-- katex-->
 <#if settings.enabled_mathjax!true>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" ></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
-            onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" ></script>
+    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.getElementById('post-content'),katex_config)"></script>
 </#if>
 
-<!-- gallery -->
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<#-- gallery  -->
+<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 <script data-gallery src="${static!}/assets/media/scripts/gallery.js"></script>
 
 <!--文章页面使用和相册页面不同的图片预览插件-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/highlight.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
 
 
 <div class="qr-code-wrap" role="dialog">
@@ -90,7 +79,7 @@
 
 <#--目录-->
 <#if settings.post_toc!true>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/tocbot@4.4.2/dist/tocbot.min.js"></script>
 </#if>
 
 <script type="application/javascript">

@@ -48,7 +48,7 @@
             <ul>
                 <#if settings.header_logoimg?? && settings.header_logoimg!=''>
                     <li>
-                        <a href="${context!}" data-ajax id="headerLogo"
+                        <a href="${blog_url!}" data-ajax id="headerLogo"
                            style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;"
                            onfocus="this.blur();">
                             <img src="${settings.header_logoimg}" alt="${options.blog_title!}"

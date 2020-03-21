@@ -1,21 +1,23 @@
-<ol class="page-navigator">
-    <#if pagination.hasPrev>
-        <li class="prev">
-            <a href="${pagination.prevPageFullPath!}" data-ajax><i
-                        class="fa fa-angle-left fa-lg"></i></a>
-        </li>
-    </#if>
-    <#list pagination.rainbowPages as number>
-        <#if number.isCurrent>
-            <li class="current"><a href="${number.fullPath!}" data-ajax>${number.page!}</a></li>
-        <#else>
-            <li><a class="" href="${number.fullPath!}" data-ajax>${number.page!}</a></li>
+<nav class="pagination" id="pagination">
+    <h2 class="screen-reader-text">Posts Navigation</h2>
+    <div class="inner">
+        <#if pagination.hasPrev>
+            <a class="newer-posts arrow-left" href="${pagination.prevPageFullPath!}" data-scroll data-ajax>
+                <span class="screen-reader-text"></span>
+            </a>
         </#if>
-    </#list>
-    <#if pagination.hasNext>
-        <li class="next">
-            <a href="${pagination.nextPageFullPath!}" data-ajax><i
-                        class="fa fa-angle-right fa-lg"></i></a>
-        </li>
-    </#if>
-</ol>
+        <#list pagination.rainbowPages as number>
+            <#if number.isCurrent>
+                <span class="page-number">
+                    <a href="${number.fullPath!}" data-scroll data-ajax>PAGE ${number.page!} OF ${posts.totalPages!} </a>
+                </span>
+            </#if>
+        </#list>
+        <#if pagination.hasNext>
+            <a class="older-posts arrow-right" href="${pagination.nextPageFullPath!}" data-ajax data-scroll>
+                <span class="screen-reader-text"></span>
+            </a>
+        </#if>
+    </div>
+</nav>
+
