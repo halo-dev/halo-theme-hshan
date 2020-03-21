@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <@comment sheet,"sheet" />
+            <#include "module/comment.ftl">
         </main>
     </div>
 </@layout>

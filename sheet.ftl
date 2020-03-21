@@ -23,7 +23,7 @@
                     ${sheet.formatContent!}
                 </div>
             </div>
-            <@comment sheet,"sheet" />
+            <#include "module/comment.ftl">
         </main>
     </div>
 </@layout>
