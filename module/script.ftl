@@ -85,7 +85,7 @@
 <script type="application/javascript">
     var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
 </script>
-<script src="${theme_base!}/assets/media/scripts/post.js?ver=${.now?long}"></script>
+<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=${.now?long}"></script>
 <style>
     /* 阅读进度的进度条颜色 */
     #readProgress .read-progress-bar {
