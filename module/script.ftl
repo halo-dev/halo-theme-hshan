@@ -186,13 +186,6 @@
             // 菜单高亮
             han.highlightMenu();
 
-            // document.querySelectorAll('.post-page pre code').forEach((block) => {
-            //     hljs.highlightBlock(block);
-            //     $('code.hljs').each(function(i, block) {
-            //         hljs.lineNumbersBlock(block);
-            //     });
-            // });
-
             // 小屏幕菜单隐藏
             han.makeMenuInvisible();
 

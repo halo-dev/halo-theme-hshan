@@ -15,7 +15,7 @@
     "build-plugin": "uglifyjs assets/media/scripts/plugins.js -o assets/media/scripts/plugins.min.js",
     "build-night-mode": "uglifyjs assets/media/scripts/night-mode.js -o assets/media/scripts/night-mode.min.js",
     "build-utils": "uglifyjs assets/media/scripts/utils.js -o assets/media/scripts/utils.min.js",
-    "build-js": "npm run build-main && npm run build-post && npm run build-plugin && npm run build-night-mode && npm run build-utils",
+    "build-js": "npm run build-main && npm run build-plugin && npm run build-night-mode && npm run build-utils",
     "deploy": "npm run build",
     "start": "npm run build-less -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
