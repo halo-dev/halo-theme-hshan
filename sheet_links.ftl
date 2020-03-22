@@ -55,6 +55,12 @@
                 </div>
             </div>
             <#include "module/comment.ftl">
+            <#if is_post??>
+                <@comment post,"post" />
+            <#elseif is_sheet??>
+                <@comment sheet,"sheet" />
+            </#if>
+
         </main>
     </div>
 </@layout>
