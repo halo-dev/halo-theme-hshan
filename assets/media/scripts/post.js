@@ -167,12 +167,20 @@ var post =  {
     },
 
     loadHighlight: function() {
-        document.querySelectorAll('.post-page pre code').forEach((block) => {
+        var codes = document.querySelectorAll('.post-page pre code');
+        for (var i = 0; i < codes.length; i++) {
+            var block = codes[i];
             hljs.highlightBlock(block);
             $('code.hljs').each(function(i, block) {
                 hljs.lineNumbersBlock(block);
             });
-        });
+        }
+        // document.querySelectorAll('.post-page pre code').forEach((block) => {
+        //     hljs.highlightBlock(block);
+        //     $('code.hljs').each(function(i, block) {
+        //         hljs.lineNumbersBlock(block);
+        //     });
+        // });
     },
 
     tocHover: function () {
