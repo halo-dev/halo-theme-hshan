@@ -21,11 +21,11 @@
 
         <title>${title}</title>
 
-<#--        <script language=javascript>-->
-<#--            <!---->
-<#--            window.onerror=function(){return true;}-->
-<#--            // &ndash;&gt;-->
-<#--        </script>-->
+        <script language=javascript>
+            <!--
+            window.onerror=function(){return true;}
+            // -->
+        </script>
 
         <style>
             :root {
