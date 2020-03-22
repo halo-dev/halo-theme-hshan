@@ -265,7 +265,7 @@
 
 
 <script type="text/javascript">
-    console.clear();
+    // console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
     console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.0-beta");
