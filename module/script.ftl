@@ -51,7 +51,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 <#--<script src="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/highlight.min.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
+<script data-pjax-viewer src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
 
 
@@ -141,7 +141,7 @@
     <script>
         var socialDisabled = '${settings.share_disabeld?default('')}';
         var pjax = new Pjax({
-            elements: 'a[href]:not([href^="#"]), form', // default is "a[href], form[action]"
+            elements: 'a[href]:not([href^="#"]):not([data-not-pjax]), form', // default is "a[href], form[action]"
             cacheBust: false,
             debug: false,
             selectors: [
@@ -161,6 +161,9 @@
             // 加载相册
             if ($("#page").find('.photos-page').length > 0) {
                 photo.loadGallery();
+                $('script[data-pjax-viewer ]').each(function () {
+                    $(this).remove()
+                });
             }
 
             han.initLazyLoad();

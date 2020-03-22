@@ -29,7 +29,7 @@
                             <div class="justified-gallery">
                                 <#list item.photos as photo>
                                     <a class="gallery-item jg-entry entry-visible"
-                                       href="${photo.url!}">
+                                       href="${photo.url!}" data-not-pjax>
                                         <img src="${photo.url!}" data-src="${photo.url!}" alt="${photo.name!}"/>
                                         <p class="has-text-centered is-size-6 caption">${photo.name}</p>
                                     </a>
