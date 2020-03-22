@@ -18,6 +18,11 @@
                                             <span class="fullimage cover" role="img" aria-label=""
                                                   style="background-image: url(${post.thumbnail!''});"></span>
                                         </a>
+                                    <#elseif settings.card_random_cover!true>
+                                        <a data-ajax href="${post.fullPath!}" class="thumb hover-effect">
+                                                 <span class="fullimage cover" role="img" aria-label=""
+                                                       style="background-image: url(${theme_base!}/thumbnails/thumbnail-${randomMethod(0,10)}.png);"></span>
+                                            </a>
                                     <#else>
                                         <a data-ajax href="${post.fullPath!}" class="thumb hover-effect">
                                             <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
