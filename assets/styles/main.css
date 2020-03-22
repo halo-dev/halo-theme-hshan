@@ -2496,6 +2496,14 @@ blockquote {
   background: #fff;
   max-width: var(--post-max-width);
 }
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  margin-top: -40px;
+}
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
   -webkit-background-clip: text;
