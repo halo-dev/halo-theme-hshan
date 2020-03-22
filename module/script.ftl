@@ -49,7 +49,6 @@
 
 <!--文章页面使用和相册页面不同的图片预览插件-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-<#--<script src="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/highlight.min.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
 <script data-pjax-viewer src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
@@ -86,7 +85,7 @@
 <script type="application/javascript">
     var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
 </script>
-<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=${.now?long}"></script>
+<script src="${theme_base!}/assets/media/scripts/post.js?ver=${.now?long}"></script>
 <style>
     /* 阅读进度的进度条颜色 */
     #readProgress .read-progress-bar {
@@ -158,6 +157,7 @@
         //在Pjax请求完成后触发
         document.addEventListener('pjax:complete', function (e) {
             NProgress.done();
+
             // 加载相册
             if ($("#page").find('.photos-page').length > 0) {
                 photo.loadGallery();
@@ -186,10 +186,12 @@
             // 菜单高亮
             han.highlightMenu();
 
-            // 高亮插件
-            document.querySelectorAll('.post-page pre code').forEach((block) => {
-                hljs.highlightBlock(block);
-            });
+            // document.querySelectorAll('.post-page pre code').forEach((block) => {
+            //     hljs.highlightBlock(block);
+            //     $('code.hljs').each(function(i, block) {
+            //         hljs.lineNumbersBlock(block);
+            //     });
+            // });
 
             // 小屏幕菜单隐藏
             han.makeMenuInvisible();
@@ -204,11 +206,13 @@
 
             if ($("#page").find('.post-page').length > 0) {
                 window.removeEventListener('scroll', post.tocScroll, false);
+                // 赞赏
                 post.appreciate();
 
                 // 初始化toc
                 post.initToc()
 
+                // 删除文章第一个 <ul>
                 post.removeFirstUL()
 
                 // 目录事件
@@ -217,17 +221,19 @@
                 // 搞一个阅读进度，为了提高准确度，数据都要实时获取
                 post.readProgress();
 
+                // 代码块
+                post.loadHighlight();
+
                 // 按钮事件
                 post.appreciateModel()
-
-                // 代码块
-                post.refreshHljs();
 
                 // 分享
                 post.toggleSocialShare()
 
+                // 图片预览
                 post.initViewer()
 
+                // 目录悬浮时间
                 post.tocHover();
 
 

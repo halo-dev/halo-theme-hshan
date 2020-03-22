@@ -164,17 +164,16 @@ var post =  {
                 toolbar: false,
             });
         }
-
-
-
     },
 
-    refreshHljs: function() {
-        hljs.initHighlightingOnLoad();
-
-        hljs.initLineNumbersOnLoad({singleLine: true});
+    loadHighlight: function() {
+        document.querySelectorAll('.post-page pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+            $('code.hljs').each(function(i, block) {
+                hljs.lineNumbersBlock(block);
+            });
+        });
     },
-
 
     tocHover: function () {
         $('.toc-list-item span').hover(function () {
@@ -214,11 +213,13 @@ var post =  {
 }
 
 $(function() {
+    // 赞赏
     post.appreciate();
 
     // 初始化toc
     post.initToc()
 
+    // 删除文章最开始第一个 <ul>(如果有)
     post.removeFirstUL()
 
     // 目录事件
@@ -227,16 +228,19 @@ $(function() {
     // 搞一个阅读进度，为了提高准确度，数据都要实时获取
     post.readProgress();
 
+    // 代码块
+    post.loadHighlight();
+
     // 按钮事件
     post.appreciateModel()
 
     // 分享
     post.toggleSocialShare()
 
+    // 图片预览
     post.initViewer()
 
-    post.refreshHljs();
-
+    // 目录悬浮时间
     post.tocHover();
 
 })
