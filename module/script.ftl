@@ -48,8 +48,8 @@
 <script data-gallery src="${theme_base!}/assets/media/scripts/gallery.js"></script>
 
 <!--文章页面使用和相册页面不同的图片预览插件-->
-<#--<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>-->
-<script src="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<#--<script src="//cdn.jsdelivr.net/npm/highlight.js@9.18.1/lib/highlight.min.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
@@ -201,7 +201,6 @@
             });
 
             if ($("#page").find('.post-page').length > 0) {
-                //
                 window.removeEventListener('scroll', post.tocScroll, false);
                 post.appreciate();
 
@@ -219,10 +218,13 @@
                 // 按钮事件
                 post.appreciateModel()
 
+                // 代码块
+                post.refreshHljs();
+
                 // 分享
                 post.toggleSocialShare()
 
-                post.initViewAndCode()
+                post.initViewer()
 
                 post.tocHover();
 

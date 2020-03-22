@@ -158,7 +158,7 @@ var post =  {
         });
     },
 
-    initViewAndCode: function () {
+    initViewer: function () {
         if (document.getElementById('post-content')) {
             new Viewer(document.getElementById('post-content'), {
                 toolbar: false,
@@ -166,10 +166,15 @@ var post =  {
         }
 
 
+
+    },
+
+    refreshHljs: function() {
         hljs.initHighlightingOnLoad();
 
         hljs.initLineNumbersOnLoad({singleLine: true});
     },
+
 
     tocHover: function () {
         $('.toc-list-item span').hover(function () {
@@ -228,7 +233,9 @@ $(function() {
     // 分享
     post.toggleSocialShare()
 
-    post.initViewAndCode()
+    post.initViewer()
+
+    post.refreshHljs();
 
     post.tocHover();
 
