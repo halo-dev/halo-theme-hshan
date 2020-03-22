@@ -1,9 +1,3 @@
-<#if !(is_post??)>
-    <#include "comment.ftl">
-</#if>
-<#if is_sheet??>
-    <@comment sheet,"sheet" />
-</#if>
 <footer class="site-footer" id="siteFooter">
     <#if settings.Aplayer?? && settings.Aplayer != ''>
         <meting-js

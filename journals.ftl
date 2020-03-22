@@ -74,6 +74,5 @@
                 </div>
             </div>
         </main>
-
     </div>
 </@layout>

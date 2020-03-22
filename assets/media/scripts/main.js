@@ -57,15 +57,15 @@ var han = {
         $('#page').removeClass('transform-none');
     },
 
-    refreshLazyLoad: function() {
+    refreshLazyLoad: function () {
         $('#page').addClass('transform-none');
     },
 
-    lazyLoadCardItem: function() {
+    lazyLoadCardItem: function () {
         $(".card-item-vel").velocity("transition.slideUpIn", {stagger: 200, display: "flex"});
     },
 
-    linksAddBlank: function() {
+    linksAddBlank: function () {
         var links = $('.post-content a')
         if (links)
             for (var i = 0; i < links.length; i++)
