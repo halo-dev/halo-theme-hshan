@@ -34,17 +34,6 @@
                     <#else>
                         <#include "module/post-list-style/random-card.ftl">
                     </#if>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-format="fluid"
-                         data-ad-layout-key="-4m+dc+62-jp+5a"
-                         data-ad-client="ca-pub-2144544864492599"
-                         data-ad-slot="6914989769"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-
                 </div>
                 <#if posts.totalPages gt 1>
                     <@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="3">
@@ -53,6 +42,16 @@
                 </#if>
             </div>
         </main>
-
     </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- adsense1 -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2144544864492599"
+         data-ad-slot="7264389840"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </@layout>
