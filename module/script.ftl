@@ -44,14 +44,14 @@
 </#if>
 
 <#-- gallery  -->
-<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
+<#--<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<!--图片预览插件-->
+<script data-pjax-viewer src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script data-gallery src="${theme_base!}/assets/media/scripts/gallery.js"></script>
 
-<!--文章页面使用和相册页面不同的图片预览插件-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
-<script data-pjax-viewer src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
 
 
@@ -162,9 +162,9 @@
             // 加载相册
             if ($("#page").find('.photos-page').length > 0) {
                 photo.loadGallery();
-                $('script[data-pjax-viewer ]').each(function () {
-                    $(this).remove()
-                });
+                // $('script[data-pjax-viewer]').each(function () {
+                //     $(this).remove()
+                // });
             }
 
             han.initLazyLoad();

@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </header>
-                <div class="photos-box article-content" id="post-content">
+                <div class="photos-box article-content" id="gallery-content">
                     <@photoTag method="listTeams">
                         <#list teams as item>
                             <#if item.team?? && item.team!=''>
@@ -29,7 +29,7 @@
                             <div class="justified-gallery">
                                 <#list item.photos as photo>
                                     <a class="gallery-item jg-entry entry-visible"
-                                       href="${photo.url!}" data-not-pjax>
+                                       href="javascript:void(0)" data-not-pjax>
                                         <img src="${photo.url!}" data-src="${photo.url!}" alt="${photo.name!}"/>
                                         <p class="has-text-centered is-size-6 caption">${photo.name}</p>
                                     </a>
