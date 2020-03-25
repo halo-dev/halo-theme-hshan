@@ -1,14 +1,12 @@
 <#include "module/macro.ftl">
-<@layout title="${post.title!options.blog_title}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
+<@layout title="${post.title!options.blog_title}">
 
-    <body class="post-template" id="postTemplate">
-    <div id="page" class="site">
-        <#include "module/header.ftl">
-        <div id="readProgress">
-            <div class="read-progress-bar" role="progressbar" style="width: 0"></div>
-        </div>
-        <main class="site-main" id="siteMain">
-            <div class="site-content">
+    <div id="page" class="site post-template">
+        <main class="site-main" id="main">
+            <div id="readProgress">
+                <div class="read-progress-bar" role="progressbar" style="width: 0"></div>
+            </div>
+            <div class="site-content post-page">
                 <article class="post tag-getting-started" id="siteContent">
                     <#--                    <div id="postHeader"></div>-->
                     <header class="bg-cover post-header" id="postHeader">
@@ -25,7 +23,7 @@
                                 <div class="post-tags">
                                     <#if post.tags?? && post.tags?size gt 0>
                                         <#list post.tags as tag>
-                                            <a href="${context!}/tags/${tag.slugName!}">${tag.name!}
+                                            <a href="${tag.fullPath!}" data-ajax>${tag.name!}
                                                 &nbsp;&nbsp;&nbsp;</a>
                                         </#list>
                                     </#if>
@@ -66,7 +64,7 @@
                                     <button type="submit"
                                             class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
-                                        <img src="${static!}/assets/media/images/cuplogo-sm.png"
+                                        <img src="${theme_base!}/assets/media/images/cuplogo-sm.png"
                                              class="right-mrgn-8 support-img" style="height: 16px"/>
                                         <span id="">Support</span>
                                     </button>
@@ -78,10 +76,19 @@
                                     </button>
                                 </#if>
                             </div>
-                            <div class="social-share no-show" data-disabled="${settings.share_disabeld!''}"
-                                 id="socialShare"></div>
+                            <div id="socialShare" class="no-show">
+                                <div class="social-share" data-disabled="${settings.share_disabeld!''}"></div>
+                            </div>
                             <div class="article-copyright-info">
-                                © 本文著作权归作者所有，转载前请务必署名
+                                <#if settings.copyright_clean!true>
+                                <p>© 本文著作权归作者所有，转载前请务必署名</p>
+                                <#else>
+                                <p>本文由 <a href="${blog_url!}">${user.nickname!}</a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a
+                                            href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                                            rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
+                                            href="${post.fullPath!}">${post.fullPath!}</a><br>最后更新于：${post.editTime?string('yyyy-MM-dd HH:mm:ss')}
+                                </p>
+                                </#if>
                             </div>
 
                             <#include "module/comment.ftl">
@@ -98,43 +105,40 @@
                     <nav class="post-navigation" id="post-navigation">
                         <h2 class="screen-reader-text">Post navigation</h2>
                         <div class="nav-links">
-                            <#if nextPost??>
-                                <a href="${context!}/archives/${nextPost.url!}" class="nav-previous">
-                                    <div class="nav-bg"
-                                            <#if !(nextPost.thumbnail?? && nextPost.thumbnail!='')>
-                                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                                            </#if>
-                                    >
-
-                                        <img sizes="(max-width: 800px) 100vw, 50vw" src="${nextPost.thumbnail!}"
-                                             alt=""/>
-
-                                    </div>
+                            <#if prevPost??>
+                                <a href="${prevPost.fullPath!}" data-ajax class="nav-previous">
+                                    <#if prevPost.thumbnail?? && prevPost.thumbnail!=''>
+                                        <div class="nav-bg ">
+                                            <img src="${prevPost.thumbnail!}" alt=""/>
+                                        </div>
+                                    <#else>
+                                        <div class="nav-bg default-cover-bg">
+                                        </div>
+                                    </#if>
                                     <div class="nav-inside">
                                         <span class="nav-before">上一篇</span>
-                                        <span class="nav-title">${nextPost.title!}</span>
+                                        <span class="nav-title">${prevPost.title!}</span>
                                         <span class="nav-date"><time class="published"
-                                                                     datetime="${nextPost.createTime?string("yyyy-MM-dd")}">${nextPost.createTime?string("yyyy-MM-dd")}
+                                                                     datetime="${prevPost.createTime?string("yyyy-MM-dd")}">${prevPost.createTime?string("yyyy-MM-dd")}
                                         </time></span>
                                     </div>
                                 </a>
                             </#if>
-                            <#if prePost??>
-                                <a href="${context!}/archives/${prePost.url!}" class="nav-next">
-                                    <div class="nav-bg"
-                                            <#if !(prePost.thumbnail?? && prePost.thumbnail!='')>
-                                                style="background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);"
-                                            </#if>
-                                    >
-
-                                        <img sizes="(max-width: 800px) 100vw, 50vw" src="${prePost.thumbnail!}" alt=""/>
-
-                                    </div>
+                            <#if nextPost??>
+                                <a href="${nextPost.fullPath!}" data-ajax class="nav-next">
+                                    <#if nextPost.thumbnail?? && nextPost.thumbnail!=''>
+                                        <div class="nav-bg ">
+                                            <img src="${nextPost.thumbnail!}" alt=""/>
+                                        </div>
+                                    <#else>
+                                        <div class="nav-bg default-cover-bg">
+                                        </div>
+                                    </#if>
                                     <div class="nav-inside">
                                         <span class="nav-before">下一篇</span>
-                                        <span class="nav-title">${prePost.title!}</span>
+                                        <span class="nav-title">${nextPost.title!}</span>
                                         <span class="nav-date"><time class="published"
-                                                                     datetime="${prePost.createTime?string("yyyy-MM-dd")}">${prePost.createTime?string("yyyy-MM-dd")}
+                                                                     datetime="${nextPost.createTime?string("yyyy-MM-dd")}">${nextPost.createTime?string("yyyy-MM-dd")}
                                         </time></span>
                                     </div>
                                 </a>
@@ -144,9 +148,7 @@
                     </nav>
                 </#if>
             </div>
-            <#include "module/footer.ftl">
+
         </main>
     </div>
-    </body>
-
 </@layout>

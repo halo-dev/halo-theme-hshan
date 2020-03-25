@@ -1,15 +1,13 @@
 <#include "module/macro.ftl">
-<@layout title="${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="home-template">
+<@layout title="${blog_title!}">
     <div id="page" class="site">
-        <#include "module/header.ftl">
-        <main class="site-main">
-            <div class="site-content">
+        <main class="site-main" id="main">
+            <div class="site-content home-content">
                 <!-- 封面 -->
                 <header class="bg-cover hero">
                     <#if settings.home_cover?? && settings.home_cover!=''>
                         <div class="cover-bg">
-                            <img src="${settings.home_cover!}" alt="${settings.home_cover!'首页'}">
+                            <img src="${settings.home_cover!}" alt="">
                         </div>
                     <#else>
                         <div class="default-cover-bg">
@@ -21,26 +19,28 @@
                             <h2 class="hero-title">${settings.home_title!options.blog_title!}</h2>
                             <p class="hero-text">${settings.home_description!}</p>
                             <#if settings.enabled_index_cover_height!true>
-                                <a href="#post-list" class="arrow-down" data-scroll><span
+                                <a href="#postContainer"  class="arrow-down" data-scroll><span
                                             class="screen-reader-text">Scroll Down</span></a>
                             </#if>
                         </div>
                     </div>
                 </header>
-
-                <!-- post-list -->
-                <#if (settings.post_list_style!'standard') == 'standard'>
-                    <#include "module/post-list-style/standard.ftl">
-                <#elseif settings.post_list_style == 'simple'>
-                    <#include "module/post-list-style/simple.ftl">
-                <#else>
-                    <#include "module/post-list-style/random-card.ftl">
+                <div id="postContainer">
+                    <!-- post-list -->
+                    <#if (settings.post_list_style!'standard') == 'standard'>
+                        <#include "module/post-list-style/standard.ftl">
+                    <#elseif settings.post_list_style == 'simple'>
+                        <#include "module/post-list-style/simple.ftl">
+                    <#else>
+                        <#include "module/post-list-style/random-card.ftl">
+                    </#if>
+                </div>
+                <#if posts.totalPages gt 1>
+                    <@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="3">
+                        <#include "module/pagination.ftl">
+                    </@paginationTag>
                 </#if>
-
-                <#include "module/pagination.ftl">
             </div>
         </main>
-        <#include "module/footer.ftl">
     </div>
-    </body>
 </@layout>

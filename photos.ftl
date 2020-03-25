@@ -1,12 +1,8 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.photos_title!'相册'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="photo-template">
+<@layout title="${settings.photos_title!'相册'} | ${blog_title!}">
     <div id="page" class="site">
-
-        <#include "module/header.ftl">
-
-        <main class="site-main">
-            <div class="site-content">
+        <main class="site-main" id="main">
+            <div class="site-content photos-page">
                 <header class="bg-cover page-header">
                     <#if settings.photos_patternimg?? && settings.photos_patternimg!=''>
                         <div class="cover-bg">
@@ -24,7 +20,7 @@
                         </div>
                     </div>
                 </header>
-                <div class="photos-box article-content" id="post-content">
+                <div class="photos-box article-content" id="gallery-content">
                     <@photoTag method="listTeams">
                         <#list teams as item>
                             <#if item.team?? && item.team!=''>
@@ -33,8 +29,8 @@
                             <div class="justified-gallery">
                                 <#list item.photos as photo>
                                     <a class="gallery-item jg-entry entry-visible"
-                                       href="${photo.url!}" >
-                                        <img  src="${photo.url!}" data-src="${photo.url!}" alt="${photo.name!}"  />
+                                       href="javascript:void(0)" data-not-pjax>
+                                        <img src="${photo.url!}" data-src="${photo.url!}" alt="${photo.name!}"/>
                                         <p class="has-text-centered is-size-6 caption">${photo.name}</p>
                                     </a>
                                 </#list>
@@ -44,8 +40,7 @@
 
                 </div>
             </div>
-            <#include "module/footer.ftl">
+
         </main>
     </div>
-    </body>
 </@layout>

@@ -8,12 +8,15 @@ var videoEmbeds = [
 ]
 reframe(videoEmbeds.join(','))
 
-// Smooth scroll to anchors
-// var scroll = new SmoothScroll('[data-scroll]', {
-//     speed: 300,
-//     updateURL: false,
-// })
-
+var katex_config = {
+    delimiters:
+        [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\[", right: "\\]", display: true},
+        ]
+};
 
 // Sidebar toggle
 var sidebarToggle = document.querySelectorAll('.sidebar-toggle')
@@ -43,147 +46,171 @@ if (sidebarToggle)
             {
                 passive: false,
             })
-$(
-    function () {
-        function linksAddBlank() {
-            var links = $('.post-content a')
-            if (links)
-                for (var i = 0; i < links.length; i++)
-                    $(links[i]).attr('target', '_blank')
+
+var oldScrollTop;
+var han = {
+    lazyLoad: function () {
+        $("#page").velocity("transition.slideDownBigIn", {stagger: 200});
+    },
+
+    initLazyLoad: function () {
+        $('#page').removeClass('transform-none');
+    },
+
+    refreshLazyLoad: function () {
+        $('#page').addClass('transform-none');
+    },
+
+    lazyLoadCardItem: function () {
+        $(".card-item-vel").velocity("transition.slideUpIn", {stagger: 200, display: "flex"});
+    },
+
+    linksAddBlank: function () {
+        var links = $('.post-content a')
+        if (links)
+            for (var i = 0; i < links.length; i++)
+                $(links[i]).attr('target', '_blank')
+    },
+
+
+    // 获取滚动条距离顶部位置
+    getScrollTop: function () {
+        var scrollTop = 0
+        if (document.documentElement && document.documentElement.scrollTop)
+            scrollTop = document.documentElement.scrollTop
+        else if (document.body)
+            scrollTop = document.body.scrollTop
+        return scrollTop
+    },
+
+    scollHeader: function () {
+        window.addEventListener(
+            'scroll',
+            function () {
+                var siteHeader = $('#siteHeader')
+                var scrollMenu = $('#scrollMenu')
+                var sidebarToggle = $('#sidebarToggle')
+                var scrollTop = han.getScrollTop()
+                if (siteHeader && scrollTop > 0) {
+                    siteHeader.addClass('site-header-scroll')
+                    scrollMenu.addClass('scroll-menu-show')
+                    sidebarToggle.hide()
+                } else {
+                    siteHeader.removeClass('site-header-scroll')
+                    scrollMenu.removeClass('scroll-menu-show')
+                    sidebarToggle.show()
+                }
+                oldScrollTop = scrollTop
+            },
+            false)
+    },
+
+    toggleSearch: function () {
+        // 搜索框
+        $('.js-toggle-search').on('click', function () {
+            openSearchPanel()
+            $('.searchbox-input').focus()
+            this.makeMenuInvisible()
+        })
+    },
+
+    makeMenuInvisible: function () {
+        $('#sidebar').removeClass('sidebar-show')
+        $('#sidebarToggle').removeClass('menu-ctrl-on')
+        $(document.body).removeClass('sidebar-opened')
+        $(document.body).removeClass('cancel-scroll')
+        $(".side-bar-val").velocity("transition.slideUpOut", {stagger: 200});
+    },
+
+    // 当前菜单菜单高亮
+    highlightMenu: function () {
+        var nav = document.getElementById('scrollMenu')
+        var links = nav.getElementsByTagName('a')
+        var currenturl = document.location.href
+        var last = 0
+        for (var i = 0; i < links.length; i++) {
+            var linkurl = links[i].getAttribute('href')
+            if (currenturl.indexOf(linkurl) !== -1)
+                last = i
         }
-
-        var oldScrollTop
-
-        // 获取滚动条距离顶部位置
-
-        function getScrollTop() {
-            var scrollTop = 0
-            if (document.documentElement && document.documentElement.scrollTop)
-                scrollTop = document.documentElement.scrollTop
-            else if (document.body)
-                scrollTop = document.body.scrollTop
-            return scrollTop
-        }
-
-        function scollHeader() {
-            window.addEventListener(
-                'scroll',
-                function () {
-                    var siteHeader = $('#siteHeader')
-                    var scrollMenu = $('#scrollMenu')
-                    var sidebarToggle = $('#sidebarToggle')
-                    var scrollTop = getScrollTop()
-                    if (siteHeader && scrollTop > 0) {
-                        siteHeader.addClass('site-header-scroll')
-                        scrollMenu.addClass('scroll-menu-show')
-                        sidebarToggle.hide()
-                    } else {
-                        siteHeader.removeClass('site-header-scroll')
-                        scrollMenu.removeClass('scroll-menu-show')
-                        sidebarToggle.show()
-                    }
-                    oldScrollTop = scrollTop
-                },
-                false)
-        }
-
-        function toggleSearch() {
-            // 搜索框
-            $('.js-toggle-search').on('click', function () {
-                openSearchPanel()
-                $('.searchbox-input').focus()
-                $('#sidebar').removeClass('sidebar-show')
-                $('#sidebarToggle').removeClass('menu-ctrl-on')
-                $(document.body).removeClass('sidebar-opened')
-                $(document.body).removeClass('cancel-scroll')
-            })
-        }
-
-        // 当前菜单菜单高亮
-
-        function highlightMenu() {
-            var nav = document.getElementById('scrollMenu')
-            var links = nav.getElementsByTagName('a')
-            var currenturl = document.location.href
-            var last = 0
-            for (var i = 0; i < links.length; i++) {
-                var linkurl = links[i].getAttribute('href')
-                if (currenturl.indexOf(linkurl) !== -1)
-                    last = i
+        $(links[last]).addClass('active-current')
+        for (var i = 0; i < links.length; i++) {
+            if (last !== i) {
+                $(links[i]).removeClass('active-current')
             }
-            $(links[last]).addClass('active-current')
-            var currentLinks = links[last]
-            if ($(currentLinks).parents('.sub-menu')) {
-                var subMenu = $(currentLinks).parents('.sub-menu')
-                $(subMenu[0]).siblings('a').addClass('active-current')
-            }
         }
+        var currentLinks = links[last]
+        if ($(currentLinks).parents('.sub-menu')) {
+            var subMenu = $(currentLinks).parents('.sub-menu')
+            $(subMenu[0]).siblings('a').addClass('active-current')
+        }
+    },
 
-        function foldSubMenu() {
-            $(".nav-menu-link").click(function (e) {
-                var angle = $(this).children('.fa')[0];
-                $(angle).toggleClass('angle-transform');
-                var subMenu = $(this).siblings('.nav-sub-menu');
-                if (subMenu && !$(this).siblings('.nav-sub-menu').hasClass('nav-menu-show')) {
-                    subMenu.velocity("transition.slideDownIn", {duration: 300});
-                    subMenu.addClass('nav-menu-show')
-                } else if (subMenu && $(this).siblings('.nav-sub-menu').hasClass('nav-menu-show')) {
-                    subMenu.velocity("transition.slideUpOut", {duration: 300});
-                    subMenu.removeClass('nav-menu-show')
+    // 展开子菜单
+    foldSubMenu: function () {
+        $(".nav-menu-link").click(function (e) {
+            var angle = $(this).children('.fa')[0];
+            $(angle).toggleClass('angle-transform');
+            var subMenu = $(this).siblings('.nav-sub-menu');
+            if (subMenu && !$(this).siblings('.nav-sub-menu').hasClass('nav-menu-show')) {
+                subMenu.velocity("transition.slideDownIn", {duration: 300});
+                subMenu.addClass('nav-menu-show')
+            } else if (subMenu && $(this).siblings('.nav-sub-menu').hasClass('nav-menu-show')) {
+                subMenu.velocity("transition.slideUpOut", {duration: 300});
+                subMenu.removeClass('nav-menu-show')
+            }
+        });
+    },
+
+    pagination: function () {
+        $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+        $('body').on('click', '#pagination a', function () {
+            var pageContent = $('#pagination');
+            pageContent.html("")
+            pageContent.append('<div class="loader-inner ball-pulse"><div/><div/><div/></div>');
+            $.ajax({
+                type: "GET",
+                url: $(this).attr("href"),
+                success: function (data) {
+                    result = $(data).find("#post-list .postItem");
+                    pageInner = $(data).find("#pagination .inner");
+                    // In the new content
+                    $("#post-list").html(result.fadeIn(500));
+                    pageContent.empty();
+                    pageContent.append(pageInner);
+                    document.getElementById("postContainer").scrollIntoView()
                 }
             });
-        }
+            return false;
+        });
+    },
 
-        function pagination() {
-            $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-            $('body').on('click', '#pagination a', function () {
-                var pageContent = $('#pagination');
-                pageContent.html("")
-                pageContent.append('<div class="loader-inner ball-pulse"><div/><div/><div/></div>');
-                $.ajax({
-                    type: "GET",
-                    url: $(this).attr("href"),
-                    success: function (data) {
-                        result = $(data).find("#post-list .postItem");
-                        pageInner = $(data).find("#pagination .inner");
-                        // In the new content
-                        $("#post-list").html(result.fadeIn(500));
-                        pageContent.empty();
-                        pageContent.append(pageInner);
-                        document.getElementById("post-list").scrollIntoView()
-                    }
-                });
-                return false;
-            });
-        }
+}
 
-        function postItemHover() {
-            $('.card').hover(function(){
-                $(this).find(".card-shadow").addClass('card-shadow-hover')
-            },function(){
-                $(this).find(".card-shadow").removeClass('card-shadow-hover');
-            });
-        }
+$(function () {
+    // han.lazyLoad()
 
-        // 卡片hover事件
-        postItemHover()
+    han.lazyLoadCardItem()
 
-        linksAddBlank()
+    han.linksAddBlank()
 
-        // 头部菜单滚动时间
-        scollHeader()
+    // 头部菜单滚动时间
+    han.scollHeader()
 
-        toggleSearch()
+    han.toggleSearch()
 
-        // 当前目录菜单高亮
-        highlightMenu()
+    // 当前目录菜单高亮
+    han.highlightMenu()
 
-        // 菜单点击事件
-        foldSubMenu()
+    // 菜单点击事件
+    han.foldSubMenu()
 
-        // 分页
-        pagination()
-    });
+    // 分页
+    // han.pagination()
+
+    han.getScrollTop()
+
+})
 
 // 删除日志中的空元素
 $(document).ready(

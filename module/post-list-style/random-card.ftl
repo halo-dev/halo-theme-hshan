@@ -3,13 +3,13 @@
         <#if posts?? && posts.getTotalElements() gt 0>
             <#list posts.content as post>
                 <article
-                        class="post-item grid-32 grid-48 mobile-grid-100 post card postItem mrg-bottom-90">
+                        class="post-item grid-32 grid-48 mobile-grid-100 post card postItem mrg-bottom-90 card-item-vel">
                     <div class="article-wrapper card-shadow">
                         <header>
                             <div class="post-format-image post-format-wrapper">
                                 <div class="featured-image">
                                     <#if post.thumbnail?? && post.thumbnail!=''>
-                                        <a href="${context!}/archives/${post.url!}"
+                                        <a data-ajax href="${post.fullPath!}"
                                         style=" background-image: url(${post.thumbnail!''});
                                         background-repeat: no-repeat!important;
                                         background-position: center center!important;
@@ -18,27 +18,34 @@
                                             <span class="fullimage cover" role="img" aria-label=""
                                                   style="background-image: url(${post.thumbnail!''});"></span>
                                         </a>
+                                    <#elseif settings.card_random_cover!true>
+                                        <a data-ajax href="${post.fullPath!}" class="thumb hover-effect">
+                                                 <span class="fullimage cover" role="img" aria-label=""
+                                                       style="background-image: url(${theme_base!}/thumbnails/thumbnail-${randomMethod(0,10)}.png);"></span>
+                                            </a>
                                     <#else>
-                                        <a href="${context!}/archives/${post.url!}" class="thumb hover-effect">
+                                        <a data-ajax href="${post.fullPath!}" class="thumb hover-effect">
                                             <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
                                         </a>
                                     </#if>
                                     <#if post.tags?? && post.tags?size gt 0>
                                         <div class="tags absolute">
-                                            <a href="${context!}/tags/${post.tags[0].slugName!}"
-                                               class="ctag ctag-6 ctag-gridea">${post.tags[0].name!}</a>
+                                            <a data-ajax href="${post.tags[0].fullPath!}" class="ctag ctag-6 ctag-gridea">
+                                                ${post.tags[0].name!}
+                                            </a>
                                         </div>
                                     </#if>
                                 </div>
                             </div>
                             <div class="meta">
-                                <time datetime="${post.createTime?string("yyyy-MM-dd")}"><i
-                                            class="fa fa-pencil"></i>
-                                    <span class="lately">${post.createTime?string("yyyy-MM-dd")}</span></time>
+                                <time datetime="${post.createTime?string("yyyy-MM-dd")}">
+                                    <i class="fa fa-pencil"></i>
+                                    <span class="lately">${post.createTime?string("yyyy-MM-dd")}</span>
+                                </time>
                             </div>
 
-                            <h1 class="title main-title gradient-effect"><a
-                                        href="${context!}/archives/${post.url!}">${post.title!}</a>
+                            <h1 class="title main-title gradient-effect" >
+                                <a href="${post.fullPath!}" data-ajax>${post.title!}</a>
                             </h1>
                         </header>
 
@@ -47,7 +54,7 @@
                         </div>
 
                         <footer class="author-meta">
-                            <a href="" class="author" title="">
+                            <a href="" class="author" title="" data-ajax>
                                     <span class="author-image cover"
                                           style="background-image: url(${user.avatar!});"></span>
                                 <span class="author-name">${user.nickname!}</span>
