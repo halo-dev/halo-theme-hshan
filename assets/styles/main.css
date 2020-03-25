@@ -2349,9 +2349,6 @@ pre .storage {
 .transform-none {
   transform: none !important;
 }
-.post-standard-block {
-  display: block !important;
-}
 :not(pre) > code {
   background-color: #f5f5f5;
   color: #e96900;
