@@ -174,27 +174,32 @@ body.night {
  */
 
 .night a.toc-link {
-    color: #8e8787;
+    color: var(--toc-bg-color);
 }
 
 .night .toc-link + span {
-    background-color: #8e8787;
+    background-color: var(--toc-bg-color);
 }
 
 .night .toc-link + span:hover {
-    background-color: #e5e5e5 !important;
+    background-color: var(--night-toc-bg-color) !important;
 }
 
 .night .toc-link:hover {
-    color: #e5e5e5 !important;
+    color: var(--night-toc-bg-color) !important;
 }
 
 .night .is-active-link {
-    color: #e5e5e5 !important;
+    color: var(--night-toc-bg-color) !important;
+}
+
+.night .toc-hover {
+    opacity: 1 !important;
+    color: var(--night-toc-bg-color) !important;
 }
 
 .night .is-active-link + span {
-    background: #e5e5e5 !important;
+    background: var(--night-toc-bg-color) !important;
 }
 
 /*

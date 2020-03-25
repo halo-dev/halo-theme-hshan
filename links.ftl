@@ -1,11 +1,7 @@
 <#include "module/macro.ftl">
-<@layout title="${settings.links_title!'友链'} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="links-template">
-    <div id="page" class="site">
-
-        <#include "module/header.ftl">
-
-        <main class="site-main">
+<@layout title="${settings.links_title!'友链'} | ${blog_title!}">
+    <div id="page" class="site ">
+        <main class="site-main"  id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if settings.links_patternimg?? && settings.links_patternimg!=''>
@@ -32,7 +28,7 @@
                                 </#if>
 
                                 <#list item.links?sort_by('priority')?reverse  as link>
-                                    <a class="links-item" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
+                                    <a class="links-item card-item-vel" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-64x64">
@@ -59,8 +55,7 @@
                     </div>
                 </div>
             </div>
-            <#include "module/footer.ftl">
+
         </main>
     </div>
-    </body>
 </@layout>

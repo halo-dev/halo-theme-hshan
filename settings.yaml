@@ -53,11 +53,23 @@ genernal:
       default: standard
       options:
         - value: standard
-          label: 风格1
+          label: 标准
         - value: simple
-          label: 风格2
+          label: 简单
         - value: card
-          label: 风格3
+          label: 卡片
+    card_random_cover:
+      name: card_random_cover
+      label: 卡篇文章风格无图片随机选择图片
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+      description: '开启前请确保有图片名类似 thumbnail-{number}.png 的图片在图库中({number} 的取值为0-10), 否则图片会全黑'
     auto_night_mode:
       name: auto_night_mode
       label: 暗夜模式总开关
@@ -305,6 +317,17 @@ post:
           label: 开启
         - value: false
           label: 关闭
+    copyright_clean:
+      name: copyright_clean
+      label: 简洁版权信息
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
 custom:
   label: 自定义
   items:
@@ -419,7 +442,20 @@ social:
           label: 开启
         - value: false
           label: 关闭
-
+experimental:
+  label: 实验性功能
+  items:
+    pjax_enabled:
+      name: pjax_enabled
+      label: 全局 Pjax
+      type: radio
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
 other:
   label: 其他
   items:

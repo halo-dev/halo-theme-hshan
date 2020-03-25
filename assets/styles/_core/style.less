@@ -1247,6 +1247,8 @@ pre .storage {
   height: 100%;
   background-color: #ffffff;
   padding-top: 52px;
+  opacity: 1 !important;
+  display: block !important;
 }
 
 .sidebar .inner {
@@ -1823,7 +1825,7 @@ pre .storage {
 }
 
 @media only screen and (min-width: 861px) {
-  //.home-template .cover {
+  //.home-content .cover {
   //  height: 100vh;
   //}
 
@@ -1996,6 +1998,7 @@ pre .storage {
 .article-info .comments-area {
   max-width: var(--post-max-width);
   margin: 0 auto;
+  padding: 0 !important;
 }
 
 #comments-show {
@@ -2614,4 +2617,18 @@ pre .storage {
   text-align: center;
 }
 
+
+.loader {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
+.transform-none{
+  -moz-transform: none !important;
+  -webkit-transform: none !important;
+  -o-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
+}
 

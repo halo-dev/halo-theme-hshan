@@ -1212,6 +1212,8 @@ pre .storage {
   height: 100%;
   background-color: #ffffff;
   padding-top: 52px;
+  opacity: 1 !important;
+  display: block !important;
 }
 .sidebar .inner {
   padding-bottom: 60px;
@@ -1823,6 +1825,7 @@ pre .storage {
 .article-info .comments-area {
   max-width: var(--post-max-width);
   margin: 0 auto;
+  padding: 0 !important;
 }
 #comments-show {
   background: 0;
@@ -2338,6 +2341,14 @@ pre .storage {
 .social-share {
   text-align: center;
 }
+.loader {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+.transform-none {
+  transform: none !important;
+}
 :not(pre) > code {
   background-color: #f5f5f5;
   color: #e96900;
@@ -2488,6 +2499,17 @@ blockquote {
 .mermaid svg {
   background: #fff;
   max-width: var(--post-max-width);
+}
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  margin-top: -40px;
+}
+.post-content pre {
+  margin: 0 !important;
 }
 .published-txt {
   background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
@@ -2890,9 +2912,9 @@ blockquote {
 a.toc-link {
   font-size: 14px;
   line-height: 17px;
-  color: #e5e5e5;
+  color: var(--night-toc-bg-color);
   display: inline-block;
-  opacity: 1;
+  opacity: 0;
   max-width: 230px;
   vertical-align: middle;
   text-align: left;
@@ -2902,6 +2924,19 @@ a.toc-link {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 400;
+}
+a.toc-link:hover {
+  opacity: 1 !important;
+  color: var(--toc-bg-color) !important;
+}
+.is-active-link {
+  font-weight: 500;
+}
+a.is-active-link {
+  opacity: 1 !important;
+}
+.toc-list-item span:hover + .toc-link {
+  opacity: 1 !important;
 }
 .is-collapsible {
   max-height: 1000px;
@@ -2915,14 +2950,15 @@ a.toc-link {
   position: fixed !important;
   top: 0;
 }
-.is-active-link {
-  font-weight: 500;
-}
 .toc-link::after {
   width: 0;
 }
+.toc-hover {
+  opacity: 1 !important;
+  color: var(--toc-bg-color) !important;
+}
 .toc-link + span {
-  background: #e5e5e5;
+  background: var(--night-toc-bg-color);
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
@@ -2960,13 +2996,13 @@ a.toc-link {
   margin: 0 4px 0 12px;
 }
 .toc-link + span:hover {
-  background-color: #8e8787 !important;
+  background-color: var(--toc-bg-color) !important;
 }
 .is-active-link {
-  color: #8e8787 !important;
+  color: var(--toc-bg-color) !important;
 }
 .is-active-link + span {
-  background-color: #8e8787 !important;
+  background-color: var(--toc-bg-color) !important;
 }
 @media only screen and (max-width: 1360px) {
   .toc {
@@ -3597,7 +3633,7 @@ div.articles article.bgstyle .overlay {
 .card-shadow {
   box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
 }
-.card-shadow-hover {
+.card-shadow:hover {
   transform: translateY(-6px);
   -webkit-transform: translateY(-6px);
   -moz-transform: translateY(-6px);

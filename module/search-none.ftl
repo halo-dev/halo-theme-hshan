@@ -11,7 +11,7 @@
                     <ul class="search-no-reasults">
                         <@postTag method="latest" top="10">
                             <#list posts as post>
-                                <li><a href="${context!}/archives/${post.url!}" title="${post.title!}">${post.title!}</a> </li>
+                                <li><a href="${post.fullPath!}" title="${post.title!}">${post.title!}</a> </li>
                             </#list>
                         </@postTag>
                     </ul>

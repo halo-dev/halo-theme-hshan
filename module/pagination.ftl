@@ -1,16 +1,23 @@
 <nav class="pagination" id="pagination">
     <h2 class="screen-reader-text">Posts Navigation</h2>
     <div class="inner">
-        <#if posts.hasPrevious()>
-            <a class="newer-posts arrow-left" href="${context!}/page/${posts.number}"><span
-                        class="screen-reader-text"></span></a>
+        <#if pagination.hasPrev>
+            <a class="newer-posts arrow-left" href="${pagination.prevPageFullPath!}" data-scroll data-ajax>
+                <span class="screen-reader-text"></span>
+            </a>
         </#if>
-        <span class="page-number">
-            <a href="${context!}">PAGE ${posts.number + 1} OF ${posts.totalPages!} </a>
-        </span>
-        <#if posts.hasNext()>
-            <a class="older-posts arrow-right" href="${context!}/page/${posts.number+2}"><span
-                        class="screen-reader-text"></span></a>
+        <#list pagination.rainbowPages as number>
+            <#if number.isCurrent>
+                <span class="page-number">
+                    <a href="${number.fullPath!}" data-scroll data-ajax>PAGE ${number.page!} OF ${posts.totalPages!} </a>
+                </span>
+            </#if>
+        </#list>
+        <#if pagination.hasNext>
+            <a class="older-posts arrow-right" href="${pagination.nextPageFullPath!}" data-ajax data-scroll>
+                <span class="screen-reader-text"></span>
+            </a>
         </#if>
     </div>
 </nav>
+
