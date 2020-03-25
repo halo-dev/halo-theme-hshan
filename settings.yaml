@@ -63,7 +63,7 @@ genernal:
       label: 卡篇文章风格无图片随机选择图片
       type: radio
       data-type: bool
-      default: true
+      default: false
       options:
         - value: true
           label: 开启
