@@ -1,31 +1,40 @@
-$(function () {
-    function appreciateModel() {
+var tocId = '#toc';
+var flagId = '#tocFlag'
+var post =  {
+    appreciateModel: function() {
         $(".appreciate-btn").on("click", function (e) {
-            // $(".qr-code-wrap").velocity("transition.expandIn", { duration: 300 });
-            $(".qr-code-wrap").show();
+            $(".qr-code-wrap").velocity("transition.expandIn", { duration: 300 });
+            // $(".qr-code-wrap").show();
             $(document).one("click", function () {
-                $(".qr-code-wrap").hide();
-                // $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
+                // $(".qr-code-wrap").hide();
+                $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
 
             });
             e.stopPropagation();
         });
-    }
+    },
 
-    function toggleSocialShare() {
+    toggleSocialShare: function () {
         $('.share-btn').on("click", function (e) {
-            $('#socialShare').toggleClass('no-show');
+            var icons = $('#socialShare');
+            if (icons.hasClass('show')) {
+                $('#socialShare').velocity("transition.slideUpOut", { duration: 300 });
+            } else {
+                $('#socialShare').velocity("transition.slideDownIn", { duration: 300 });
+            }
+            icons.toggleClass('show');
         });
-    }
+    },
 
     // 赞赏点击事件
-    function appreciate() {
+    appreciate: function () {
 
         $(".qr-code").on("click", function (e) {
             e.stopPropagation();
         });
         $(".closinglayer").on("click", function (e) {
-            $(".qr-code-wrap").hide();
+            // $(".qr-code-wrap").hide();
+            $(".qr-code-wrap").velocity("transition.expandOut", { duration: 300 });
         });
         $(".zfb-btn").on("click", function (e) {
             $(".qr_code_zfb").css("height", "300px");
@@ -35,57 +44,67 @@ $(function () {
             $(".qr_code_wx").css("height", "300px");
             $(".qr_code_zfb").css("height", "0");
         });
-    }
+    },
+
     // 因为不使用后端渲染目录, 所以如果在发布文章的时候在文章开头加上 [TOC] 会在文章页面开头有一个ul 标签
     // 这里粗暴的去除
-    function removeFirstUL() {
+    removeFirstUL: function () {
         var post_content = document.getElementById('post-content');
+        if (!post_content) {
+            return;
+        }
         var firstNodeName = post_content.firstElementChild.nodeName;
         if (firstNodeName === 'UL') {
             $(post_content.firstElementChild).hide();
         }
-    }
+    },
 
     //获取滚动条距离顶部位置
-    function getScrollTop() {
+    getScrollTop: function () {
         return document.documentElement.scrollTop || document.body.scrollTop;
-    }
+    },
 
-
-    function scrollTocFixed(div_id) {
-        var Obj = $('#' + div_id);
+    tocScroll: function (event) {
+        var Obj = $(flagId);
 
         //判断元素是否存在
-        if (Obj.length != 1) {
+        if (Obj.length !== 1) {
             return false;
         }
 
-        var tocId = '#toc';
-        window.addEventListener('scroll', function () {
-            var tocFixed = $(tocId);
-            var ObjTop = Obj.offset().top - $(window).height() * 0.5;
+        var tocFixed = $(tocId);
+        var ObjTop = Obj.offset().top - $(window).height() * 0.5;
 
-            // 滚动条离页面顶端的距离
-            var scrollTop = getScrollTop();
-            var postHeaderHeight = $('#postHeader').height();
-            if (scrollTop > postHeaderHeight) {
-                tocFixed.show();
-            } else {
-                tocFixed.hide();
-            }
+        // 滚动条离页面顶端的距离
+        var scrollTop = post.getScrollTop();
+        var postHeaderHeight = $('#postHeader').height();
+        if (scrollTop > postHeaderHeight) {
+            tocFixed.show();
+        } else {
+            tocFixed.hide();
+        }
 
-            var tocEle = document.querySelector(tocId);
-            var tocHeight = tocEle.getBoundingClientRect().height;
-            if (scrollTop > ObjTop - tocHeight * 0.5) {
-                tocFixed.addClass('right-fixed');
-            } else {
-                tocFixed.removeClass('right-fixed');
-            }
-        });
-    }
+        var tocEle = document.querySelector(tocId);
+        if (!tocEle || !tocEle.getBoundingClientRect()) {
+            return;
+        }
+        var tocHeight = tocEle.getBoundingClientRect().height;
+        if (scrollTop > ObjTop - tocHeight * 0.5) {
+            tocFixed.addClass('right-fixed');
+        } else {
+            tocFixed.removeClass('right-fixed');
+        }
+
+        post.tocParentActive()
+        event.preventDefault();
+    },
+
+    scrollTocFixed: function () {
+        window.addEventListener('scroll', post.tocScroll, false);
+    },
 
 
-    function initToc() {
+    initToc: function () {
         var headerEl = 'h1,h2,h3,h4,h5,h6',  //headers
             content = '.post-content';//文章容器
         tocbot.init({
@@ -93,7 +112,7 @@ $(function () {
             contentSelector: content,
             headingSelector: headerEl,
             scrollSmooth: true,
-            headingsOffset: 0-$('#postHeader').height(),
+            headingsOffset: 0 - $('#postHeader').height(),
             hasInnerContainers: false,
         });
 
@@ -104,15 +123,15 @@ $(function () {
                 tocLink.after(document.createElement("span"));
             }
         }
-    }
+    },
 
     /**
      * 阅读进度（阅读进度条和目录高亮功能）
      */
-    function readProgress() {
+    readProgress: function () {
 
         // 文章内容
-        var $content = $("#siteMain");
+        var $content = $("#main");
         // 阅读进度条
         var $readProgressBar = $("#readProgress .read-progress-bar");
 
@@ -137,25 +156,99 @@ $(function () {
             // 改变阅读进度条
             displayReadProgress && changeReadProgress();
         });
+    },
+
+    initViewer: function () {
+        if (document.getElementById('post-content')) {
+            new Viewer(document.getElementById('post-content'), {
+                toolbar: false,
+            });
+        }
+    },
+
+    loadHighlight: function() {
+        var codes = document.querySelectorAll('.post-page pre code');
+        for (var i = 0; i < codes.length; i++) {
+            var block = codes[i];
+            hljs.highlightBlock(block);
+            $('code.hljs').each(function(i, block) {
+                hljs.lineNumbersBlock(block);
+            });
+        }
+        // document.querySelectorAll('.post-page pre code').forEach((block) => {
+        //     hljs.highlightBlock(block);
+        //     $('code.hljs').each(function(i, block) {
+        //         hljs.lineNumbersBlock(block);
+        //     });
+        // });
+    },
+
+    tocHover: function () {
+        $('.toc-list-item span').hover(function () {
+            $(this).parent().find('a.toc-link:first').addClass('toc-hover')
+        }, function() {
+            $(this).parent().find('a.toc-link:first').removeClass('toc-hover')
+        })
+    },
+
+    tocParentActive: function () {
+        var isCollapsible = $('.is-active-li').parents('ol.toc-list.is-collapsible');
+        if (isCollapsible) {
+            isCollapsible.each(function() {
+                $(this).parent().find('a.toc-link:first').addClass('toc-hover');
+            })
+        }
+        var isCollapsed = $('ol.toc-list.is-collapsible.is-collapsed');
+        if (isCollapsed) {
+            isCollapsed.each(function() {
+                $(this).parent().find('a.toc-link:first').removeClass('toc-hover');
+            })
+        }
+
+    },
+
+    shareIcon: function() {
+
+        var $config = {
+            sites               : ['google','twitter','facebook','weibo','qq','tencent','qzone','linkedin','wechat','douban','diandian'], // 启用的站点
+            disabled            : socialDisabled.split(','), // 禁用的站点
+        };
+
+        socialShare('.social-share', $config);
     }
 
-    appreciate();
+
+}
+
+$(function() {
+    // 赞赏
+    post.appreciate();
 
     // 初始化toc
-    initToc()
+    post.initToc()
 
-    removeFirstUL()
+    // 删除文章最开始第一个 <ul>(如果有)
+    post.removeFirstUL()
 
     // 目录事件
-    scrollTocFixed('tocFlag');
+    post.scrollTocFixed();
 
     // 搞一个阅读进度，为了提高准确度，数据都要实时获取
-    readProgress();
+    post.readProgress();
+
+    // 代码块
+    post.loadHighlight();
 
     // 按钮事件
-    appreciateModel()
+    post.appreciateModel()
 
     // 分享
-    toggleSocialShare()
+    post.toggleSocialShare()
 
-});
+    // 图片预览
+    post.initViewer()
+
+    // 目录悬浮时间
+    post.tocHover();
+
+})

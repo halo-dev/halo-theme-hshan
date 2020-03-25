@@ -1,11 +1,7 @@
 <#include "module/macro.ftl">
-<@layout title="标签：${tag.name} | ${options.blog_title!}" keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="tag-template">
+<@layout title="标签：${tag.name} | ${blog_title!}">
     <div id="page" class="site">
-
-        <#include "module/header.ftl">
-
-        <main class="site-main">
+        <main class="site-main" id="main">
             <div class="site-content">
 
                 <header class="bg-cover page-header">
@@ -34,27 +30,13 @@
                     <#include "module/post-list-style/random-card.ftl">
                 </#if>
 
-                <nav class="pagination">
-                    <h2 class="screen-reader-text">Posts Navigation</h2>
-                    <div class="inner">
-                        <span class="page-number">
-                            <a href="${context!}">PAGE ${posts.number + 1} OF ${posts.totalPages!} </a>
-                        </span>
-                        <#if posts.hasPrevious()>
-                            <a class="newer-posts arrow-left" href="${context!}/tags/${tag.slugName!}/page/${posts.number}"><span
-                                        class="screen-reader-text"></span></a>
-                        </#if>
-                        <#if posts.hasNext()>
-                            <a class="older-posts arrow-right"
-                               href="${context!}/tags/${tag.slugName!}/page/${posts.number+2}"><span
-                                        class="screen-reader-text"></span></a>
-                        </#if>
-                    </div>
-                </nav>
+                <#if posts.totalPages gt 1>
+                    <@paginationTag method="tagPosts" page="${posts.number}" total="${posts.totalPages}" display="3" slug="${tag.slug!}">
+                        <#include "module/pagination.ftl">
+                    </@paginationTag>
+                </#if>
             </div>
         </main>
 
-        <#include "module/footer.ftl">
     </div>
-    </body>
 </@layout>

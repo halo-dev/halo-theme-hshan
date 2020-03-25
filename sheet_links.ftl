@@ -1,11 +1,7 @@
 <#include "module/macro.ftl">
-<@layout title="${sheet.title!} | ${options.blog_title!} " keywords="${options.seo_keywords!}" description="${options.seo_description!}">
-    <body class="links-template">
+<@layout title="${sheet.title!} | ${blog_title!} ">
     <div id="page" class="site">
-
-        <#include "module/header.ftl">
-
-        <main class="site-main">
+        <main class="site-main" id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if sheet.thumbnail?? && sheet.thumbnail!=''>
@@ -31,7 +27,7 @@
                                     <h3 style = "width: 100%; margin: 10px;">${item.team}</h3>
                                 </#if>
                                 <#list item.links?sort_by('priority')?reverse  as link>
-                                    <a class="links-item card" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
+                                    <a class="links-item card card-item-vel" style="display: block;" href="${link.url!}" target="_blank" onfocus="this.blur();">
                                         <div class="media">
                                             <div class="media-left">
                                                 <figure class="image is-64x64">
@@ -39,16 +35,16 @@
                                                         <img src="${link.logo}" alt="${link.name}">
                                                     <#elseif settings.links_placeholder?? && settings.links_placeholder != ''>
                                                         <img src="${settings.links_placeholder}"
-                                                             alt="${link.name}">
+                                                             alt="${link.name!}">
                                                     <#else>
                                                         <img src="https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.1/placeholder.jpg"
-                                                             alt="${link.name}">
+                                                             alt="${link.name!}">
                                                     </#if>
                                                 </figure>
                                             </div>
                                             <div class="media-content">
-                                                <p class="link-title">${link.name}</p>
-                                                <p class="link-desc">${link.description}</p>
+                                                <p class="link-title">${link.name!}</p>
+                                                <p class="link-desc">${link.description!}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -58,8 +54,13 @@
                     </div>
                 </div>
             </div>
-            <#include "module/footer.ftl">
+            <#include "module/comment.ftl">
+            <#if is_post??>
+                <@comment post,"post" />
+            <#elseif is_sheet??>
+                <@comment sheet,"sheet" />
+            </#if>
+
         </main>
     </div>
-    </body>
 </@layout>
