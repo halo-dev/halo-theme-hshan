@@ -79,7 +79,13 @@
                             <div id="socialShare" class="no-show">
                                 <div class="social-share" data-disabled="${settings.share_disabeld!''}"></div>
                             </div>
-                            <div class="article-copyright-info">
+                            <div
+                                <#if settings.copyright_clean!true>
+                                    class="article-copyright-info simple-copyright-info"
+                                <#else>
+                                    class="article-copyright-info full-copyright-info"
+                                </#if>
+                            >
                                 <#if settings.copyright_clean!true>
                                 <p>© 本文著作权归作者所有，转载前请务必署名</p>
                                 <#else>

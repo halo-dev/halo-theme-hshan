@@ -266,6 +266,12 @@ post:
       type: text
       default: '1.12rem'
       placeholder: '文章正文字体大小, 比如: 1.16rem 或 14px'
+    content_line_height:
+      name: content_line_height
+      label: 文章正文高度
+      type: text
+      default: '2rem'
+      placeholder: '文章正文高度, 比如: 2rem 或 14px'
     enabled_visual_height:
       name: enabled_visual_height
       label: 文章页开启全屏图片

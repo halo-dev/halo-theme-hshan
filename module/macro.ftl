@@ -11,7 +11,6 @@
         <@global.head />
 
         <link rel="stylesheet" href="${theme_base!}/assets/styles/main.min.css?ver=${.now?long}">
-        <link rel="stylesheet" href="${theme_base!}/assets/styles/night-mode.min.css?ver=${.now?long}">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
 
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
@@ -31,9 +30,11 @@
             :root {
                 --post-max-width: ${settings.post_max_wdth!'800px'} !important;
                 --content-font-size: ${settings.content_font_size!'1.12rem'} !important;
+                --content-line-height: ${settings.content_line_height!'2rem'} !important;
                 --base-color: ${settings.base_color!'#2474b5'};
+                --post-head-color: rgb(219, 219, 226);
                 --toc-bg-color: #8e8787;
-                --night-toc-bg-color:#e5e5e5;
+                --night-toc-bg-color: #e5e5e5;
                 --tag-bg-color: #ff5f5f;
                 --header-bg-color: #fff;
                 --header-child-hover-bg-color: #f5f5f5;
