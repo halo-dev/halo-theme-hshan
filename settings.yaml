@@ -412,25 +412,37 @@ social:
       label: 新浪微博
       type: text
       placeholder: '用于展示底部新浪微博社交信息'
-      description: '新浪微博用户个人地址'
+      description: '新浪微博主页链接'
+    telegram:
+      name: telegram
+      label: Telegram
+      type: text
+      placeholder: '用于展示底部 Telegram 社交信息'
+      description: 'Telegram 用户名'
+    twitter:
+      name: twitter
+      label: Twitter
+      type: text
+      placeholder: '用于展示底部 Twitter 社交信息'
+      description: 'Twitter 主页链接'
     qq:
       name: qq
-      label: 腾讯QQ
+      label: 腾讯 QQ
       type: text
-      placeholder: '用于展示底部QQ社交信息'
-      description: 'QQ号码'
+      placeholder: '用于展示底部 QQ 社交信息'
+      description: 'QQ 号码'
     github:
       name: github
       label: Github
       type: text
       placeholder: '用于展示底部 Github 社交信息'
-      description: 'GitHub 用户地址'
+      description: 'GitHub 主页链接'
     zhihu:
       name: zhihu
       label: 知乎
       type: text
       placeholder: '用于展示底部知乎社交信息'
-      description: '知乎用户地址'
+      description: '知乎主页链接'
     mail:
       name: mail
       label: 邮箱
@@ -439,7 +451,7 @@ social:
       description: '邮箱地址'
     rss:
       name: rss
-      label: 订阅
+      label: 订阅按钮
       type: radio
       data-type: bool
       default: true
