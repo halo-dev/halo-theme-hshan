@@ -26,6 +26,8 @@
             // -->
         </script>
 
+
+
         <style>
             :root {
                 --post-max-width: ${settings.post_max_wdth!'800px'} !important;
@@ -88,6 +90,18 @@
                 --code-dark-symbol-color: #f8c555;
                 --code-dark-variable-color: #67cdcc;
             }
+
+            <#--向英雄致敬-->
+            <#if settings.xiang_ying_xiong_zhi_jing!false>
+                html {
+                    -webkit-filter: grayscale(100%);
+                    -moz-filter: grayscale(100%);
+                    -ms-filter: grayscale(100%);
+                    -o-filter: grayscale(100%);
+                    filter: grayscale(100%);
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+                }
+            </#if>
 
             <#if settings.custom_scroller!true>
             /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/

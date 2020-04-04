@@ -275,14 +275,6 @@ body {
   background-repeat: inherit inherit;
   transition: background 0.6s ease-in-out, padding 0.6s ease-in-out;
 }
-body.xiang-ying-xiong-zhi-jing {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-}
 article,
 aside,
 details,
