@@ -32,6 +32,13 @@
     <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?ver=${.now?long}"></script>
 </#if>
 
+<#--向英雄致敬-->
+<#if settings.xiang_ying_xiong_zhi_jing!false>
+    <script type="text/javascript">
+        $(document.body).addClass('xiang-ying-xiong-zhi-jing')
+    </script>
+</#if>
+
 <#if settings.visit_statistics!false>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
