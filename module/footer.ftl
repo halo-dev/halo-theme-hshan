@@ -21,6 +21,16 @@
                     <#include "icon/qq.ftl">
                 </a>
             </#if>
+            <#if settings.telegram??>
+                <a href="https://t.me/${settings.telegram!}" class="circle" target="_blank" rel="noopener" title="Telegram Chat">
+                    <#include "icon/telegram.ftl">
+                </a>
+            </#if>
+            <#if settings.twitter??>
+                <a href="${settings.twitter!}" class="circle" target="_blank" rel="noopener" title="Twitter">
+                    <#include "icon/twitter.ftl">
+                </a>
+            </#if>
             <#if settings.github??>
                 <a href="${settings.github!}" class="circle" target="_blank" rel="noopener" title="Github">
                     <#include "icon/github.ftl">
