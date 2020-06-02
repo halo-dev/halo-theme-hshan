@@ -1,0 +1,138 @@
+.links-box .links-items {
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.links-box .links-items .links-item {
+  display: block;
+  width: 240px;
+  max-width: 300px;
+  margin: 20px 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
+  color: #4a4a4a;
+  display: block;
+  transition: all .3s;
+}
+
+.links-box .links-items .links-item:hover {
+  box-shadow: 0 1rem 2rem 0 rgba(48, 55, 66, 0.15) !important;
+  color: #4a4a4a;;
+  transform: translateY(-6px);
+  -webkit-transform: translateY(-6px);
+  -moz-transform: translateY(-6px);
+}
+
+.media-content p.link-title {
+  display: block;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  max-width: 160px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.media-content p.link-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;/*设置显示行数，此处为2行，可设置其他数字*/
+  -webkit-box-orient: vertical;
+  font-size: 12px;
+  margin: 0;
+  max-width: 160px;
+  line-height: 14px;
+  text-overflow:ellipsis;/*设置隐藏部分为省略号*/
+  overflow: hidden;/*设置隐藏*/
+}
+
+.media {
+  align-items: flex-start;
+  display: flex;
+  text-align: left
+}
+
+
+.media-left, .media-right {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0
+}
+
+.media-left {
+  margin-right: 1rem
+}
+
+.image.is-96x96 {
+  height: 96px;
+  width: 96px
+}
+
+.image.is-64x64{
+  height: 64px;
+  width: 64px
+}
+
+.image.is-64x64 img {
+  height: 64px;
+}
+
+.media-left .image img {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.image {
+  display: block;
+  position: relative
+}
+
+.media:not(:last-child) {
+  margin-bottom: 1.5rem
+}
+
+.media-content {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: left
+}
+
+@media screen and (max-width: 840px)  {
+  .links-box .links-items {
+    justify-content: space-between;
+  }
+  .links-box .links-items {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .media-content {
+    overflow-x: auto
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .links-box .links-items {
+    justify-content: center;
+  }
+
+  .links-box .links-items .links-item {
+    width: 100%;
+    margin: 10px;
+  }
+}
+
+
+
+.links-box {
+  padding: 50px 30px;
+  margin: 0 auto;
+  max-width: 800px;
+}

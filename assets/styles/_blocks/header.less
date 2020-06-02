@@ -1,0 +1,316 @@
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px)
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0)
+  }
+}
+
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(10px)
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0)
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.site-header {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+  box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+}
+
+.site-header-scroll {
+  background-color: var(--header-bg-color);
+  border-bottom: 1px solid rgba(30, 35, 42, .06);
+}
+
+.site-header-bg {
+  background-color: var(--header-bg-color);
+  border-bottom: 1px solid rgba(30, 35, 42, .06);
+}
+
+
+
+.site-header-scroll a {
+  font-size: 1.1rem;
+  color: #504b4d;
+}
+
+.scroll-menu {
+  height: 52px;
+  min-width: 300px;
+  display: none;
+  -webkit-transition: background .6s ease-in-out, padding .6s ease-in-out;
+  -o-transition: background .6s ease-in-out, padding .6s ease-in-out;
+  transition: background .6s ease-in-out, padding .6s ease-in-out;
+}
+
+.scroll-menu-show {
+  display: flex !important;
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scroll-menu a {
+  margin-right: 20px !important;
+}
+
+.menu-ctrl-on {
+  .icon-menu.cross:before {
+    -webkit-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    background: #adabac;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .icon-menu.cross .middle {
+    opacity: 0;
+  }
+
+  .icon-menu.cross:after {
+    -webkit-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    background: #adabac;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.icon-menu {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 28px;
+  //top: 8px;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    background: #adabac;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  &:before, &:after {
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    content: '';
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    background: #adabac;
+  }
+
+  &:before {
+    top: 5px;
+  }
+
+  &:after {
+    bottom: 5px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .scroll-menu {
+    display: flex !important;
+    display: -webkit-flex !important;
+    display: -moz-flex !important;
+  }
+
+  .menu-scroll-item, #headerCtrl {
+    display: none !important;
+  }
+
+  .sidebar-toggle {
+    display: flex !important;
+  }
+}
+
+.header-inner {
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.header-inner .menu-items {
+  height: 100%;
+  line-height: 52px;
+}
+
+.site-header .other-ctl i {
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.night-mode:hover {
+  cursor: pointer;
+  color: var(--base-color)
+}
+
+.fa-search:hover {
+  cursor: pointer;
+}
+
+.site-header a.active-current {
+  color: var(--base-color)
+}
+
+// 其余样式参考 style.less 第4和第5部分
+
+.header-logo-show {
+  display: inline-block !important;
+}
+
+.sidebar-show + header.site-header .menu-items a:not(#headerLogo), .sidebar-show + header.site-header .other-ctl {
+  display: none;
+}
+
+.menu-items ul li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.menu-items ul li {
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+// 下拉菜单
+.menu-items li ul {
+  display: none;
+  opacity: 1;
+  z-index: 1000;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  min-width: 100px;
+  margin: 2px 0 0;
+  line-height: 0px;
+  text-align: left;
+  list-style: none;
+  background-color: var(--header-bg-color);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border-radius: 0 0 1px 1px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  -webkit-animation: fadeInUp .3s .1s ease both;
+  -moz-animation: fadeInUp .3s .1s ease both;
+  animation: fadeInUp .3s .1s ease both;
+}
+
+.sub-menu {
+  padding: 0;
+}
+
+.sub-menu li {
+  width: 100%;
+}
+
+.sub-menu>li>a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  height: 40px;
+  line-height: 40px;
+  color: #333;
+  white-space: nowrap;
+  margin-right: 0 !important;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.menu-scroll-item:hover ul {
+  display: inline-block;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
+}
+
+.menu-items .sub-menu {
+  background-color: var(--header-bg-color);
+}
+
+ul.sub-menu li a:hover {
+  background-color: var(--header-child-hover-bg-color);
+}
+
+.nav-sub-menu {
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
+  display: block;
+}
+
+.nav-sub-menu li {
+  list-style: none;
+  padding-top:15px;
+  font-size: 1.1rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.fa.nav-menu-angle {
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  transition: all .6s;
+  position: absolute;
+  top: .2rem;
+  margin-left: 2px;
+}
+
+.angle-transform {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg); 	/* IE 9 */
+  -moz-transform:rotate(180deg); 	/* Firefox */
+  -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+  -o-transform:rotate(180deg); 	/* Opera */
+}
+
+.nav-menu-show {
+  display: block !important;
+}

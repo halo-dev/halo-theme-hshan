@@ -1,0 +1,11 @@
+id: hshan
+name: hanshan
+author:
+  name: hshan
+  website: https://baozi.fun
+description: 大道至简
+logo:
+website: https://github.com/halo-dev/halo-theme-hshan
+repo: https://github.com/halo-dev/halo-theme-hshan
+version: 1.0
+require: 1.3.0

@@ -1,0 +1,338 @@
+@charset "utf-8";
+/*
+ * 基本样式
+ */
+body.night {
+    background-color: var(--night-background);
+    -webkit-transition: background .6s ease-in-out, padding .6s ease-in-out;
+    -o-transition: background .6s ease-in-out, padding .6s ease-in-out;
+    transition: background .6s ease-in-out, padding .6s ease-in-out;
+    color: var(--night-color) !important;
+}
+
+.night {
+    .site-footer {
+        background-color: var(--night-background);
+    }
+
+    h1, h2, h3, h4, h5, h6  {
+        color: var(--night-color) !important;
+    }
+
+    .post-title a, .nav-title {
+        color: var(--night-color);
+    }
+
+    .post-title a:hover {
+        color: #98A9F9 !important;
+    }
+
+    .post-meta {
+        color: #adabac;
+    }
+
+    .post-tags a {
+        color: var(--base-color);
+    }
+
+    .site-header-scroll {
+        background-color: var(--night-background);
+        -webkit-box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+        box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+    }
+
+    .site-header-bg  {
+        background-color: var(--night-background);
+        -webkit-box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+        box-shadow: 0 1px 3px 0 rgba(6, 6, 6, 0.28);
+    }
+
+    header a, header .fa-search {
+        color: var(--night-color);
+
+    }
+
+    .appreciate-btn {
+        box-shadow: none;
+    }
+
+    blockquote {
+        background-color: #232125;
+        color: #a9a9b3;
+        border-left: 5px solid var(--base-color);
+    }
+
+    .hljs {
+        display: block;
+        overflow-x: auto;
+        background-color: var(--code-dark-bg-color);
+        color: #c5c8c6;
+        padding: 0.5em;
+    }
+
+    img {
+        filter: brightness(0.6) !important;
+    }
+
+    .post-content img {
+        filter: brightness(0.8) !important;
+    }
+
+    .cover-bg img {
+        filter: brightness(0.3) !important;
+    }
+
+    .extra-info img {
+        filter: brightness(1) !important;
+    }
+
+    .search-form--modal {
+        background-color: #4e4e4f;
+    }
+
+    .search-form input {
+        background: #171718;
+    }
+
+    .post-content {
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--post-head-color) !important;
+        }
+
+    }
+
+    .search-form i,  .search-form--modal .search-form__inner p {
+        color: #ffffff;
+    }
+
+    .search_close:before,  .search_close:after {
+        background-color: #ffffff;
+    }
+
+    .searchbox .searchbox-input-wrapper .searchbox-input {
+        background-color: var(--night-input-backgrround) !important;
+        color: var(--night-input-color) !important;
+    }
+
+    /*
+     日志页面
+     */
+
+    .tree-hole-author,  .tree-hole-box a {
+        color: #ffffff;
+    }
+
+    .tree-hole-box {
+        background-color: rgba(0, 0, 0, .3);
+    }
+
+    .tree-hole-box:before {
+        border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
+    }
+
+    @media (min-width: 768px) {
+        .tree-hole-odd .tree-hole-box:before {
+            border-color: transparent transparent transparent rgba(0, 0, 0, .3);
+        }
+
+        .tree-hole-even .tree-hole-box:before {
+            border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .tree-hole-box:before {
+            border-color: transparent rgba(0, 0, 0, .3) transparent transparent;
+        }
+    }
+
+    .links-box .links-items .links-item {
+        background-color: rgba(0, 0, 0, .4);
+    }
+
+    .ins-section-container {
+        background-color: rgba(0, 0, 0, .6);
+    }
+
+    .links-box .links-items .links-item {
+        color: #c0c0c0;
+    }
+
+    .qr-code.qr-code-display {
+        box-shadow: none;
+    }
+
+    /*
+     目录
+     */
+
+    a.toc-link {
+        color: var(--toc-bg-color);
+    }
+
+    .toc-link + span {
+        background-color: var(--toc-bg-color);
+    }
+
+    .toc-link + span:hover {
+        background-color: var(--night-toc-bg-color) !important;
+    }
+
+    .toc-link:hover {
+        color: var(--night-toc-bg-color) !important;
+    }
+
+    .is-active-link {
+        color: var(--night-toc-bg-color) !important;
+    }
+
+    .toc-hover {
+        opacity: 1 !important;
+        color: var(--night-toc-bg-color) !important;
+    }
+
+    .is-active-link + span {
+        background: var(--night-toc-bg-color) !important;
+    }
+
+    /*
+     评论
+     */
+    .comments-area {
+        border-top: 1px solid #676a6c;
+    }
+
+
+    /*
+    无搜索结果页面 样式
+     */
+    .s-search input {
+        background-color: var(--night-input-backgrround) !important;
+        color: var(--night-input-color) !important;
+        border-color: var(--night-color);
+    }
+
+    .s-search i {
+        color: var(--night-color);
+    }
+
+    .ins-section .ins-section-header {
+        border-bottom: 1px solid #36393c;
+    }
+
+    .searchbox .searchbox-input-wrapper .searchbox-input {
+        border-bottom: 1px solid #36393c;
+    }
+
+    .searchbox .searchbox-result-wrapper {
+        background-color: var(--night-input-backgrround);
+    }
+
+    .post-item .post-item-title a {
+        color: var(--night-color) !important;
+        background-image: -webkit-gradient(linear, left top, right top, from(var(--night-color)), to(var(--night-color)));
+        background-image: linear-gradient(to right, var(--night-color) 0%, var(--night-color) 100%);
+    }
+
+    .post-item .post-item-title a span {
+        filter: brightness(0.6) !important;
+    }
+
+    .circle {
+        border: 1px solid #34495e;
+        color: #d4d3d3;
+    }
+
+    .sidebar-show,  .sidebar {
+        background-color: var(--night-background);
+    }
+
+    :not(pre) > code {
+        background-color: var(--code-dark-bg-color);
+    }
+
+    table td,  table th,  table thead th {
+        border-color: #454d55;
+    }
+
+    table tbody tr:nth-of-type(odd) {
+        background-color: rgba(255, 255, 255, .05);
+    }
+
+    .menu-items .sub-menu {
+        background-color: #232125;
+    }
+
+    .sub-menu li a:hover {
+        background-color: var(--code-dark-bg-color);
+    }
+
+    td.hljs-ln-numbers {
+        background-color: var(--code-dark-line-numbers-bg-color) !important;
+    }
+
+    .hljs-ln td,  .hljs-ln th,  .hljs-ln thead th {
+        border: none;
+    }
+
+    .hljs-ln tbody tr:nth-of-type(odd) {
+        background-color: var(--code-dark-bg-color);
+    }
+
+    .mermaid svg {
+        filter: brightness(0.6);
+    }
+
+    .article-copyright-info {
+        color: var(--night-color)!important;
+    }
+
+    .ball-pulse-sync>div, .ball-pulse>div, .ball-scale>div {
+        background-color: var(--night-color)!important;
+    }
+
+    .qr-code {
+        background-color: var(--code-dark-bg-color) !important;
+        box-shadow: 0 0 10px var(--dark-backgound) !important;
+        -moz-box-shadow: 0 0 10px var(--dark-backgound) !important;
+        -webkit-box-shadow: 0 0 10px var(--dark-backgound) !important;
+    }
+
+    .wx-btn,  .zfb-btn {
+        box-shadow: 0 0 10px var(--dark-backgound) !important;
+        -webkit-box-shadow: 0 0 10px var(--dark-backgound) !important;
+        -moz-box-shadow: 0 0 10px var(--dark-backgound) !important;
+    }
+
+    div.articles article .article-wrapper {
+        background-color: var(--code-dark-bg-color)!important;
+        box-shadow: 0 0.25rem 1rem var(--dark-backgound)!important;
+        -webkit-box-shadow: 0 0.25rem 1rem var(--dark-backgound)!important;
+        -moz-box-shadow: 0 0.25rem 1rem var(--dark-backgound)!important;
+    }
+
+    div.articles article .card-shadow-hover {
+        box-shadow: 0 1rem 2rem 0 #1f1f1f !important;
+        -webkit-box-shadow: 0 1rem 2rem 0 #1f1f1f !important;
+        -moz-box-shadow: 0 1rem 2rem 0 #1f1f1f !important;
+    }
+
+
+    div.meta,  .author-meta a.author {
+        color: var(--code-dark-color) !important;
+    }
+
+    .author-meta {
+        border-top: 2px solid var(--code-dark-color) !important;
+    }
+
+    div.tags a {
+        color: #fff !important;
+    }
+
+    span.hover-effect span.cover {
+        filter: brightness(0.7) !important;
+    }
+}
+
+

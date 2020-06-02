@@ -1,0 +1,40 @@
+{
+  "name": "halo-theme-hshan",
+  "version": "1.0.0",
+  "description": "> 原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)，原设计自Ghost Subtle主题，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录以及一些个性化配置",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-clean && npm run build-less && npm run build-autoprefix && npm run build-cleancss  && npm run build-js",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output assets/styles/main.css assets/styles/main.css",
+    "build-cleancss": "cleancss -o assets/styles/main.min.css assets/styles/main.css",
+    "build-clean": "rimraf css",
+    "build-less": "lessc assets/styles/main.less assets/styles/main.css",
+    "build-main": "uglifyjs assets/media/scripts/main.js -o assets/media/scripts/main.min.js",
+    "build-post": "uglifyjs assets/media/scripts/post.js -o assets/media/scripts/post.min.js",
+    "build-plugin": "uglifyjs assets/media/scripts/plugins.js -o assets/media/scripts/plugins.min.js",
+    "build-night-mode": "uglifyjs assets/media/scripts/night-mode.js -o assets/media/scripts/night-mode.min.js",
+    "build-utils": "uglifyjs assets/media/scripts/utils.js -o assets/media/scripts/utils.min.js",
+    "build-js": "npm run build-main && npm run build-post && npm run build-plugin && npm run build-night-mode && npm run build-utils",
+    "deploy": "npm run build",
+    "start": "npm run build-less -- --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hshanx/halo-theme-hshan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hshanx/halo-theme-hshan/issues"
+  },
+  "homepage": "https://github.com/hshanx/halo-theme-hshan#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "clean-css-cli": "^4.3.0",
+    "less": "^3.11.1",
+    "postcss-cli": "^7.1.0",
+    "rimraf": "^3.0.2",
+    "uglify-js": "^3.8.0"
+  }
+}
