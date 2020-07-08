@@ -60,7 +60,7 @@ genernal:
           label: 卡片
     card_random_cover:
       name: card_random_cover
-      label: 卡篇文章风格随机选择封面
+      label: 卡片文章风格随机选择封面
       type: radio
       data-type: bool
       default: false
@@ -72,7 +72,7 @@ genernal:
       description: '即使开启了此选项,也只有文章没有封面的情况下才会生效.请查看教程: https://baozi.fun/archives/random-thumbnail'
     card_random_cover_img_suffix:
       name: card_random_cover_img_suffix
-      label: 卡篇文章风格随机选择封面后缀
+      label: 卡片文章风格随机选择封面后缀
       type: radio
       data-type: string
       default: png
@@ -86,7 +86,7 @@ genernal:
       description: '随机封面后缀'
     card_random_cover_img_num:
       name: card_random_cover_img_num
-      label: 卡篇文章风格随机选择封面数量
+      label: 卡片文章风格随机选择封面数量
       type: number
       default: 4
     auto_night_mode:
