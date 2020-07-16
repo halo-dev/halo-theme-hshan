@@ -1,8 +1,6 @@
 # Halo Theme Hshan
 
-> 原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)，原设计自Ghost Subtle主题，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录以及一些个性化配置
-
-此主题目录为前端渲染,可以不用再文章开头加上`[TOC]`
+> 本主题由于被自己改的非常复杂了,所以后续版本在[雪](https://github.com/hshanx/halo-theme-xue)修改. 喜欢的小伙伴可以去支持
 
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
