@@ -1,6 +1,6 @@
 # Halo Theme Hshan
 
-> 本主题由于被自己改的非常复杂了,所以后续版本在[雪](https://github.com/hshanx/halo-theme-xue)修改. 喜欢的小伙伴可以去支持
+> 本主题由于被自己改的非常复杂了,所以后续版本在[雪](https://github.com/xzzai/halo-theme-xue)修改. 喜欢的小伙伴可以去支持
 
 ## 主题预览
 ![主题预览](https://github.com/hshanx/halo-theme-hshan/blob/master/screenshot.png )
