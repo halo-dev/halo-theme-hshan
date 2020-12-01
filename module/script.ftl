@@ -55,7 +55,6 @@
 <script src="https://cdn.jsdelivr.net/gh/xzzai/static@master/js/highlight.lang.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
 
-
 <div class="qr-code-wrap" role="dialog">
     <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
         <span class="closinglayer"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em"

@@ -2,7 +2,7 @@
 <@layout title="${sheet.title!} |${blog_title!} ">
     <div id="page" class="site">
         <main class="site-main" id="main">
-            <div class="site-content">
+            <div class="site-content post-page">
                 <header class="bg-cover page-header">
                     <#if sheet.thumbnail?? && sheet.thumbnail!=''>
                         <div class="cover-bg">
