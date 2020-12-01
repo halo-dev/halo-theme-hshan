@@ -1,9 +1,9 @@
 {
     "filewatcher.commands": [
         {
-            "match": "styles\\_blocks\\.less*",
+            "match": "/*.less",
             "isAsync": true,
-            "cmd": "npm run build'",
+            "cmd": "cd ${workspaceRoot} && npm run build",
             "event": "onFileChange"
         }        
     ]
