@@ -1,0 +1,10 @@
+{
+    "filewatcher.commands": [
+        {
+            "match": "styles\\_blocks\\.less*",
+            "isAsync": true,
+            "cmd": "npm run build'",
+            "event": "onFileChange"
+        }        
+    ]
+}

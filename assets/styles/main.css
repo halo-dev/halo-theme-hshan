@@ -2325,12 +2325,10 @@ pre .storage {
 .vertical-text {
   margin: 0 auto;
   height: 300px !important;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  -webkit-writing-mode: tb-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: tb-rl;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+      writing-mode: tb-rl;
 }
 .vertical-text p {
   font-size: 1.4rem !important;
@@ -2928,7 +2926,6 @@ a.toc-link {
   line-height: 17px;
   color: var(--night-toc-bg-color);
   display: inline-block;
-  opacity: 0;
   max-width: 230px;
   vertical-align: middle;
   text-align: left;
@@ -2942,6 +2939,7 @@ a.toc-link {
 a.toc-link:hover {
   opacity: 1 !important;
   color: var(--toc-bg-color) !important;
+  max-width: auto;
 }
 .is-active-link {
   font-weight: 500;
@@ -3744,20 +3742,16 @@ body.night {
   padding: 0.5em;
 }
 .night img {
-  -webkit-filter: brightness(0.6) !important;
-          filter: brightness(0.6) !important;
+  filter: brightness(0.6) !important;
 }
 .night .post-content img {
-  -webkit-filter: brightness(0.8) !important;
-          filter: brightness(0.8) !important;
+  filter: brightness(0.8) !important;
 }
 .night .cover-bg img {
-  -webkit-filter: brightness(0.3) !important;
-          filter: brightness(0.3) !important;
+  filter: brightness(0.3) !important;
 }
 .night .extra-info img {
-  -webkit-filter: brightness(1) !important;
-          filter: brightness(1) !important;
+  filter: brightness(1) !important;
 }
 .night .search-form--modal {
   background-color: #4e4e4f;
@@ -3867,8 +3861,7 @@ body.night {
   background-image: linear-gradient(to right, var(--night-color) 0%, var(--night-color) 100%);
 }
 .night .post-item .post-item-title a span {
-  -webkit-filter: brightness(0.6) !important;
-          filter: brightness(0.6) !important;
+  filter: brightness(0.6) !important;
 }
 .night .circle {
   border: 1px solid #34495e;
@@ -3907,8 +3900,7 @@ body.night {
   background-color: var(--code-dark-bg-color);
 }
 .night .mermaid svg {
-  -webkit-filter: brightness(0.6);
-          filter: brightness(0.6);
+  filter: brightness(0.6);
 }
 .night .article-copyright-info {
   color: var(--night-color) !important;
@@ -3952,8 +3944,7 @@ body.night {
   color: #fff !important;
 }
 .night span.hover-effect span.cover {
-  -webkit-filter: brightness(0.7) !important;
-          filter: brightness(0.7) !important;
+  filter: brightness(0.7) !important;
 }
 /* for block of numbers */
 .hljs-ln-numbers {
