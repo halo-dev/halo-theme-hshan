@@ -17,7 +17,7 @@
                         <!-- 封面内容 -->
                         <div class="inner">
                             <h2 class="hero-title">${settings.home_title!options.blog_title!}</h2>
-                            <p class="hero-text">${settings.home_description!}</p>
+                            <p class="hero-text" id="slogan">${settings.home_description!}</p>
                             <#if settings.enabled_index_cover_height!true>
                                 <a href="#postContainer"  class="arrow-down" data-scroll><span
                                             class="screen-reader-text">Scroll Down</span></a>
