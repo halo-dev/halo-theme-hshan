@@ -3980,6 +3980,7 @@ td.hljs-ln-line.hljs-ln-numbers {
 .hljs {
   padding: 0 !important;
   font-family: Consolas, "Microsoft YaHei", sans-serif, "Source Code Pro";
+  font-size: 1rem;
 }
 .hljs-ln {
   margin: 0 auto;

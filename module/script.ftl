@@ -1,7 +1,7 @@
 <#include "mermaid.ftl">
 <script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
-<script src="${theme_base!}/assets/media/scripts/plugins.min.js?ver=${.now?long}"></script>
-<script src="${theme_base!}/assets/media/scripts/main.min.js?ver=${.now?long}"></script>
+<script src="${theme_base!}/assets/media/scripts/plugins.min.js?ver=202101022020"></script>
+<script src="${theme_base!}/assets/media/scripts/main.min.js?ver=202101022020"></script>
 <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
 <#if settings.auto_night_mode>
@@ -29,7 +29,7 @@
         var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
         var nightModeEndTime = ${settings.night_mode_end_time?default('6')};
     </script>
-    <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?ver=${.now?long}"></script>
+    <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?ver=202101022020"></script>
 </#if>
 
 <#if settings.visit_statistics!false>
@@ -50,9 +50,9 @@
 <script data-pjax-viewer src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
 <script data-gallery src="${theme_base!}/assets/media/scripts/gallery.js"></script>
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/xzzai/static@master/js/highlight.lang.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
 
 <div class="qr-code-wrap" role="dialog">
@@ -86,7 +86,7 @@
 <script type="application/javascript">
     var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
 </script>
-<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=${.now?long}"></script>
+<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=202101022022"></script>
 <style>
     /* 阅读进度的进度条颜色 */
     #readProgress .read-progress-bar {

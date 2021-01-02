@@ -172,14 +172,14 @@ var post =  {
             var block = codes[i];
             hljs.highlightBlock(block);
             $('code.hljs').each(function(i, block) {
+                // console.log(block)
                 hljs.lineNumbersBlock(block);
             });
         }
-        // document.querySelectorAll('.post-page pre code').forEach((block) => {
-        //     hljs.highlightBlock(block);
-        //     $('code.hljs').each(function(i, block) {
-        //         hljs.lineNumbersBlock(block);
-        //     });
+        // hljs.initHighlightingOnLoad();
+        //
+        // hljs.initLineNumbersOnLoad({
+        //     singleLine: true
         // });
     },
 

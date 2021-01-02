@@ -184,7 +184,7 @@
     <#include "footer.ftl">
     </body>
     <script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <script src="${theme_base!}/assets/media/scripts/utils.min.js?ver=${.now?long}"></script>
+    <script src="${theme_base!}/assets/media/scripts/utils.min.js?ver=202101022020"></script>
     <#include "script.ftl">
     </html>
 </#macro>
