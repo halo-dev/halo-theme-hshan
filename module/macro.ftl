@@ -10,7 +10,7 @@
 
         <@global.head />
 
-        <link rel="stylesheet" href="${theme_base!}/assets/styles/main.min.css?ver=${.now?long}">
+        <link rel="stylesheet" href="${theme_base!}/dist/style.css?v=${theme.version!}">
         <link rel="stylesheet" href="${theme_base!}/assets/libs/font-awesome/css/font-awesome.min.css" type='text/css'
               media='all'/>
 
