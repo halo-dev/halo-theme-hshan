@@ -320,20 +320,9 @@ post:
       default: 'google,twitter,facebook'
       placeholder: '文章分享禁用社交软件'
       description: '文章分享禁用社交软件,比如: google,twitter,facebook,weibo,qq,tencent,qzone,linkedin,wechat,douban,diandian'
-    enabled_mathjax:
-      name: enabled_mathjax
-      label: Mathjax
-      type: radio
-      data-type: bool
-      default: true
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-    enabled_mermaid:
-      name: enabled_mermaid
-      label: Mermaid
+    enabled_katex:
+      name: enabled_katex
+      label: Katex 渲染
       type: radio
       data-type: bool
       default: false

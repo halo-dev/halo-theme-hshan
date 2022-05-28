@@ -1,6 +1,6 @@
 <#macro comment target,type>
     <#if !post.disallowComment!false>
-        <script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+        <script src="${theme_base!}/assets/libs/vue/vue.min.js"></script>
         <section class="comments-area">
             <div class="inner" id="commentInner">
                 <div id="haloComment"></div>

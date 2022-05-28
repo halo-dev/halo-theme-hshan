@@ -11,22 +11,15 @@
         <@global.head />
 
         <link rel="stylesheet" href="${theme_base!}/assets/styles/main.min.css?ver=${.now?long}">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type='text/css' media='all'/>
+        <link rel="stylesheet" href="${theme_base!}/assets/libs/font-awesome/css/font-awesome.min.css" type='text/css'
+              media='all'/>
 
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+        <link rel="stylesheet" href="${theme_base!}/assets/libs/viewerjs/dist/viewer.min.css">
+        <link rel="stylesheet" href="${theme_base!}/assets/libs/social-share.js/dist/css/share.min.css">
+        <link rel="stylesheet" href="${theme_base!}/assets/libs/lightGallery/dist/css/lightgallery.min.css">
+        <link rel="stylesheet" href="${theme_base!}/assets/libs/JustifiedGallery/dist/css/justifiedGallery.min.css">
 
         <title>${title}</title>
-
-        <script language=javascript>
-            <!--
-            window.onerror=function(){return true;}
-            // -->
-        </script>
-
-
 
         <style>
             :root {
@@ -93,14 +86,15 @@
 
             <#--向英雄致敬-->
             <#if settings.xiang_ying_xiong_zhi_jing!false>
-                html {
-                    -webkit-filter: grayscale(100%);
-                    -moz-filter: grayscale(100%);
-                    -ms-filter: grayscale(100%);
-                    -o-filter: grayscale(100%);
-                    filter: grayscale(100%);
-                    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-                }
+            html {
+                -webkit-filter: grayscale(100%);
+                -moz-filter: grayscale(100%);
+                -ms-filter: grayscale(100%);
+                -o-filter: grayscale(100%);
+                filter: grayscale(100%);
+                filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+            }
+
             </#if>
 
             <#if settings.custom_scroller!true>
@@ -150,12 +144,11 @@
 
         </style>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
-<#--        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">-->
         <#if settings.Aplayer?? && settings.Aplayer != ''>
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+            <link rel="stylesheet" href="${theme_base!}/assets/libs/APlayer/dist/APlayer.min.css">
         </#if>
-        <#if settings.enabled_mathjax!true>
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" >
+        <#if settings.enabled_katex!true>
+            <link rel="stylesheet" href="${theme_base!}/assets/libs/katex/katex.min.css">
         </#if>
         <#if settings.Custom_css_src??>
             <!-- 自定义css -->
@@ -183,7 +176,7 @@
 
     <#include "footer.ftl">
     </body>
-    <script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="${theme_base!}/assets/libs/jquery/jquery.min.js"></script>
     <script src="${theme_base!}/assets/media/scripts/utils.min.js?ver=202101022020"></script>
     <#include "script.ftl">
     </html>

@@ -1,7 +1,7 @@
 <#include "module/macro.ftl">
 <@layout title="${settings.links_title!'友链'} | ${blog_title!}">
     <div id="page" class="site ">
-        <main class="site-main"  id="main">
+        <main class="site-main" id="main">
             <div class="site-content">
                 <header class="bg-cover page-header">
                     <#if settings.links_patternimg?? && settings.links_patternimg!=''>
@@ -28,21 +28,16 @@
                                 </#if>
 
                                 <#list item.links?sort_by('priority')?reverse  as link>
-                                    <a class="links-item card-item-vel" style="display: block;" href="${link.url}" target="_blank" onfocus="this.blur();">
+                                    <a class="links-item card-item-vel" style="display: block;" href="${link.url}"
+                                       target="_blank" onfocus="this.blur();">
                                         <div class="media">
-                                            <div class="media-left">
-                                                <figure class="image is-64x64">
-                                                    <#if link.logo?? && link.logo != ''>
+                                            <#if link.logo?? && link.logo!=''>
+                                                <div class="media-left">
+                                                    <figure class="image is-64x64">
                                                         <img src="${link.logo}" alt="${link.name}">
-                                                    <#elseif settings.links_placeholder?? && settings.links_placeholder != ''>
-                                                        <img src="${settings.links_placeholder}"
-                                                             alt="${link.name}">
-                                                    <#else>
-                                                        <img src="https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.1/placeholder.jpg"
-                                                             alt="${link.name}">
-                                                    </#if>
-                                                </figure>
-                                            </div>
+                                                    </figure>
+                                                </div>
+                                            </#if>
                                             <div class="media-content">
                                                 <p class="link-title">${link.name}</p>
                                                 <p class="link-desc">${link.description}</p>

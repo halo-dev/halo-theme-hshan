@@ -1,9 +1,8 @@
-<#include "mermaid.ftl">
-<script src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+<script src="${theme_base!}/assets/libs/vue/vue.min.js"></script>
 <script src="${theme_base!}/assets/media/scripts/plugins.min.js?ver=202101022020"></script>
 <script src="${theme_base!}/assets/media/scripts/main.min.js?ver=202101022020"></script>
-<script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script>
+<script src="${theme_base!}/assets/libs/velocity/velocity.min.js"></script>
+<script src="${theme_base!}/assets/libs/velocity/velocity.ui.min.js"></script>
 <#if settings.auto_night_mode>
     <script src="//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js"></script>
 <#else>
@@ -11,12 +10,12 @@
 </#if>
 
 <#if settings.Aplayer?? && settings.Aplayer != ''>
-    <script src="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="${theme_base!}/assets/libs/APlayer/dist/APlayer.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 <#else>
     <script type="text/javascript">
         // Smooth scroll to anchors
-        var scroll = new SmoothScroll('[data-scroll]', {
+        const scroll = new SmoothScroll('[data-scroll]', {
             speed: 300,
             updateURL: false,
         })
@@ -36,24 +35,17 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
-<#-- katex-->
-<#if settings.enabled_mathjax!true>
-    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
-    <script defer src="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
-            onload="if (document.getElementById('post-content') ) {renderMathInElement(document.getElementById('post-content'),katex_config)}"></script>
-</#if>
-
 <#-- gallery  -->
 <#--<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>-->
-<script src="//cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="${theme_base!}/assets/libs/JustifiedGallery/dist/js/jquery.justifiedGallery.min.js"></script>
 <!--图片预览插件-->
-<script data-pjax-viewer src="//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js"></script>
+<script data-pjax-viewer src="${theme_base!}/assets/libs/viewerjs/dist/viewer.min.js"></script>
 <script data-gallery src="${theme_base!}/assets/media/scripts/gallery.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/xzzai/static@master/js/highlight.lang.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+<script src="${theme_base!}/assets/libs/social-share.js/dist/js/social-share.min.js"></script>
 
 <div class="qr-code-wrap" role="dialog">
     <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
@@ -80,7 +72,7 @@
 
 <#--目录-->
 <#if settings.post_toc!true>
-    <script src="//cdn.jsdelivr.net/npm/tocbot@4.4.2/dist/tocbot.min.js"></script>
+    <script src="${theme_base!}/assets/libs/tocbot/dist/tocbot.min.js"></script>
 </#if>
 
 <script type="application/javascript">
@@ -134,9 +126,9 @@
 </#if>
 
 <#if settings.pjax_enabled!false>
-    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+    <script src="${theme_base!}/assets/libs/pjax/pjax.js"></script>
+    <script src="${theme_base!}/assets/libs/nprogress/nprogress.min.js"></script>
+    <link rel="stylesheet" href="${theme_base!}/assets/libs/nprogress/nprogress.min.css">
 
     <script>
         var socialDisabled = '${settings.share_disabeld?default('')}';
@@ -191,7 +183,7 @@
             han.makeMenuInvisible();
 
             //  关闭搜索框
-            $(".search-popup").velocity("transition.expandOut", { duration: 300 });
+            $(".search-popup").velocity("transition.expandOut", {duration: 300});
 
             // 重新加载 评论
             $('script[data-pjax-comment]').each(function () {
@@ -230,17 +222,8 @@
                 // 目录悬浮时间
                 post.tocHover();
 
-
                 try {
                     post.shareIcon()
-
-                    if (renderMathInElement && typeof renderMathInElement !== 'undefined') {
-                        renderMathInElement(document.getElementById('post-content'), katex_config);
-                    }
-
-                    if (mermaid && typeof mermaid !== 'undefined') {
-                        mermaid.initialize();
-                    }
                 } catch (e) {
                     console.log("error");
                 }
@@ -267,8 +250,6 @@
 
 
 <script type="text/javascript">
-    console.clear();
-    console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
-    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.4.2");
+    console.log("%c Version: %c", "background:#24272A; color:#ffffff", "", "${theme.version!}");
 </script>
