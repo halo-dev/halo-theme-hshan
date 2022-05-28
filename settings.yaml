@@ -491,15 +491,3 @@ other:
       type: text
       placeholder: '网易云歌单id'
       description: '网易云歌单id, 比如: 60198. 暂时就只能这样子了, 后面再优化吧'
-    xiang_ying_xiong_zhi_jing:
-      name: xiang_ying_xiong_zhi_jing
-      label: 向英雄致敬, 愿精神长存
-      type: radio
-      data-type: bool
-      default: false
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-      description: '惟愿此功能永远不会被使用'
