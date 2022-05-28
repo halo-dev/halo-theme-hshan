@@ -134,17 +134,6 @@ general:
           label: 开启
         - value: false
           label: 关闭
-    visit_statistics:
-      name: visit_statistics
-      label: 用户访问统计
-      type: radio
-      data-type: bool
-      default: false
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
     post_summary:
       name: post_summary
       label: 首页文章摘要

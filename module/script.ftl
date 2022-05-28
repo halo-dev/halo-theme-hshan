@@ -25,14 +25,10 @@
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>
     <script type="text/javascript">
-        var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
-        var nightModeEndTime = ${settings.night_mode_end_time?default('6')};
+        var nightModeStartTime = ${settings.night_mode_start_time!'18'};
+        var nightModeEndTime = ${settings.night_mode_end_time!'6'};
     </script>
     <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?ver=202101022020"></script>
-</#if>
-
-<#if settings.visit_statistics!false>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </#if>
 
 <#-- gallery  -->

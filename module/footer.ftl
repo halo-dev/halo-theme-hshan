@@ -75,12 +75,6 @@
             <#if settings.TimeStatistics??>
                 <p>本站运行：<span id="span_dt_dt"></span></p>
             </#if>
-            <#if settings.visit_statistics!false>
-                <p>
-                    <span id="busuanzi_container_site_uv">感谢<span id="busuanzi_value_site_uv"></span>位小伙伴的</span>
-                    <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次访问</span>
-                </p>
-            </#if>
         </div>
         <a href="#page" class="arrow-up" data-scroll><span class="screen-reader-text">Back to the top</span></a>
     </div>
