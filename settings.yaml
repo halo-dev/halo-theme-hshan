@@ -355,11 +355,6 @@ custom:
       label: 'head 结束标签前自定义 js 代码'
       type: textarea
       description: '写入 js 代码，不需要 script 标签'
-    Custom_js_foot_src:
-      name: Custom_js_foot_src
-      label: 'body 结束标签前自定义外部 js 文件链接'
-      type: text
-      description: '填入 js 文件链接，需要 script 标签'
     Custom_js_foot:
       name: Custom_js_foot
       label: 'body 结束标签前自定义js代码'
