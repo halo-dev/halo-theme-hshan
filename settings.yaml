@@ -24,7 +24,6 @@ general:
       name: home_cover
       label: 首页背景
       type: attachment
-      default: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
     enabled_index_cover_height:
       name: enabled_index_cover_height
       label: 首页开启全屏图片
@@ -427,20 +426,6 @@ social:
       type: radio
       data-type: bool
       default: true
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-experimental:
-  label: 实验性功能
-  items:
-    pjax_enabled:
-      name: pjax_enabled
-      label: 全局 Pjax
-      type: radio
-      data-type: bool
-      default: false
       options:
         - value: true
           label: 开启

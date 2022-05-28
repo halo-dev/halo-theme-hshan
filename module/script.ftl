@@ -111,128 +111,96 @@
     </script>
 </#if>
 
-<#if settings.pjax_enabled!false>
-    <script src="${theme_base!}/assets/libs/pjax/pjax.js"></script>
-    <script src="${theme_base!}/assets/libs/nprogress/nprogress.min.js"></script>
-    <link rel="stylesheet" href="${theme_base!}/assets/libs/nprogress/nprogress.min.css">
+<script src="${theme_base!}/assets/libs/nprogress/nprogress.js"></script>
+<link rel="stylesheet" href="${theme_base!}/assets/libs/nprogress/nprogress.css">
 
-    <script>
-        var socialDisabled = '${settings.share_disabeld?default('')}';
-        var pjax = new Pjax({
-            elements: 'a[href]:not([href^="#"]):not([data-not-pjax]), form', // default is "a[href], form[action]"
-            cacheBust: false,
-            debug: false,
-            selectors: [
-                'title',
-                '#page'
-            ]
-        });
+<script>
+    var socialDisabled = '${settings.share_disabeld?default('')}';
 
-        //在Pjax请求开始后触发
-        document.addEventListener('pjax:send', function () {
-            NProgress.start();
-        });
+    NProgress.start();
 
-        //在Pjax请求完成后触发
-        document.addEventListener('pjax:complete', function (e) {
-            NProgress.done();
+    NProgress.done();
 
-            // 加载相册
-            if ($("#page").find('.photos-page').length > 0) {
-                photo.loadGallery();
-                // $('script[data-pjax-viewer]').each(function () {
-                //     $(this).remove()
-                // });
-            }
+    // 加载相册
+    if ($("#page").find('.photos-page').length > 0) {
+        photo.loadGallery();
+    }
 
-            han.initLazyLoad();
-            // 整个页面延迟加载
-            han.lazyLoad();
+    han.initLazyLoad();
+    // 整个页面延迟加载
+    han.lazyLoad();
 
-            // card 延迟加载
-            han.lazyLoadCardItem()
+    // card 延迟加载
+    han.lazyLoadCardItem()
 
-            //重载
-            if (typeof _hmt !== 'undefined') {
-                // support 百度统计
-                _hmt.push(['_trackPageview', location.pathname + location.search]);
-            }
-            if (typeof ga !== 'undefined') {
-                // support google analytics
-                ga('send', 'pageview', location.pathname + location.search);
-            }
+    //重载
+    if (typeof _hmt !== 'undefined') {
+        // support 百度统计
+        _hmt.push(['_trackPageview', location.pathname + location.search]);
+    }
+    if (typeof ga !== 'undefined') {
+        // support google analytics
+        ga('send', 'pageview', location.pathname + location.search);
+    }
 
-            // 菜单高亮
-            han.highlightMenu();
+    // 菜单高亮
+    han.highlightMenu();
 
-            // 小屏幕菜单隐藏
-            han.makeMenuInvisible();
+    // 小屏幕菜单隐藏
+    han.makeMenuInvisible();
 
-            //  关闭搜索框
-            $(".search-popup").velocity("transition.expandOut", {duration: 300});
+    //  关闭搜索框
+    $(".search-popup").velocity("transition.expandOut", {duration: 300});
 
-            // 重新加载 评论
-            $('script[data-pjax-comment]').each(function () {
-                $(this).parent().append($(this).remove());
-            });
+    // 重新加载 评论
+    $('script[data-pjax-comment]').each(function () {
+        $(this).parent().append($(this).remove());
+    });
 
-            if ($("#page").find('.post-page').length > 0) {
-                window.removeEventListener('scroll', post.tocScroll, false);
-                // 赞赏
-                post.appreciate();
+    if ($("#page").find('.post-page').length > 0) {
+        window.removeEventListener('scroll', post.tocScroll, false);
+        // 赞赏
+        post.appreciate();
 
-                // 初始化toc
-                post.initToc()
+        // 初始化toc
+        post.initToc()
 
-                // 删除文章第一个 <ul>
-                post.removeFirstUL()
+        // 删除文章第一个 <ul>
+        post.removeFirstUL()
 
-                // 目录事件
-                post.scrollTocFixed();
+        // 目录事件
+        post.scrollTocFixed();
 
-                // 搞一个阅读进度，为了提高准确度，数据都要实时获取
-                post.readProgress();
+        // 搞一个阅读进度，为了提高准确度，数据都要实时获取
+        post.readProgress();
 
-                // 代码块
-                post.loadHighlight();
+        // 代码块
+        post.loadHighlight();
 
-                // 按钮事件
-                post.appreciateModel()
+        // 按钮事件
+        post.appreciateModel()
 
-                // 分享
-                post.toggleSocialShare()
+        // 分享
+        post.toggleSocialShare()
 
-                // 图片预览
-                post.initViewer()
+        // 图片预览
+        post.initViewer()
 
-                // 目录悬浮时间
-                post.tocHover();
+        // 目录悬浮时间
+        post.tocHover();
 
-                try {
-                    post.shareIcon()
-                } catch (e) {
-                    console.log("error");
-                }
-                // 刷新
-                han.refreshLazyLoad();
-            } else {
-                han.initLazyLoad()
-            }
+        try {
+            post.shareIcon()
+        } catch (e) {
+            console.log("error");
+        }
+        // 刷新
+        han.refreshLazyLoad();
+    } else {
+        han.initLazyLoad()
+    }
 
-
-        });
-
-        document.addEventListener('pjax:end', function () {
-
-        });
-
-        //Pjax请求失败后触发，请求对象将作为一起传递event.options.request
-        document.addEventListener('pjax:error', function () {
-            NProgress.done();
-            bar('系统出现问题，请手动刷新一次', '3000');
-        });
-    </script>
-</#if>
+</script>
 
 
 <script type="text/javascript">
