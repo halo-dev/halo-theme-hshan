@@ -141,12 +141,6 @@
             <!-- 自定义css -->
             <link rel="stylesheet" href="${settings.Custom_css_src!}">
         </#if>
-        <#if settings.Custom_css??>
-            <!-- 自定义css -->
-            <style type="text/css">
-                ${settings.Custom_css!}
-            </style>
-        </#if>
 
         <#if settings.Custom_js_head??>
             <!-- 自定义js -->

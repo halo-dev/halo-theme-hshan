@@ -355,11 +355,6 @@ custom:
       label: '自定义外部 css 文件链接'
       type: text
       description: '填入 css 文件链接，不需要 style 标签'
-    Custom_css:
-      name: Custom_css
-      label: '自定义 css 代码'
-      type: textarea
-      description: '写入 css 代码，不需要 style 标签'
     Custom_js_head:
       name: Custom_js_head
       label: 'head 结束标签前自定义 js 代码'
