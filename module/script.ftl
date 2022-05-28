@@ -115,12 +115,6 @@
     </script>
 </#if>
 
-<#if settings.Custom_js_foot??>
-    <script type="text/javascript">
-        ${settings.Custom_js_foot!}
-    </script>
-</#if>
-
 <#if settings.pjax_enabled!false>
     <script src="${theme_base!}/assets/libs/pjax/pjax.js"></script>
     <script src="${theme_base!}/assets/libs/nprogress/nprogress.min.js"></script>

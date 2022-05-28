@@ -137,12 +137,6 @@
         <#if settings.enabled_katex!true>
             <link rel="stylesheet" href="${theme_base!}/assets/libs/katex/katex.min.css">
         </#if>
-        <#if settings.Custom_js_head??>
-            <!-- 自定义js -->
-            <script type="text/javascript">
-                ${settings.Custom_js_head!}
-            </script>
-        </#if>
 
     </head>
     <body>
