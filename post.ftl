@@ -1,5 +1,8 @@
 <@layout.extends name="module/macro.ftl">
     <@layout.put block="title">${post.title!} - ${blog_title!}</@layout.put>
+    <@layout.put block="head">
+        <#include "./module/highlightjs/libs-import.ftl" />
+    </@layout.put>
     <@layout.put block="content">
         <div id="page" class="site post-template">
             <main class="site-main" id="main">
@@ -157,5 +160,8 @@
 
             </main>
         </div>
+    </@layout.put>
+    <@layout.put block="footer">
+        <#include "./module/highlightjs/scripts.ftl" />
     </@layout.put>
 </@layout.extends>

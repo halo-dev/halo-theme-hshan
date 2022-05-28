@@ -129,7 +129,6 @@
         </#if>
 
     </style>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
     <#if settings.Aplayer?? && settings.Aplayer != ''>
         <link rel="stylesheet" href="${theme_base!}/assets/libs/APlayer/dist/APlayer.min.css">
     </#if>

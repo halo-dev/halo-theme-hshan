@@ -40,9 +40,6 @@
 <script data-pjax-viewer src="${theme_base!}/assets/libs/viewerjs/dist/viewer.min.js"></script>
 <script data-gallery src="${theme_base!}/assets/media/scripts/gallery.js"></script>
 
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xzzai/static@master/js/highlight.lang.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
 <script src="${theme_base!}/assets/libs/social-share.js/dist/js/social-share.min.js"></script>
 
 <div class="qr-code-wrap" role="dialog">
@@ -175,9 +172,6 @@
 
         // 搞一个阅读进度，为了提高准确度，数据都要实时获取
         post.readProgress();
-
-        // 代码块
-        post.loadHighlight();
 
         // 按钮事件
         post.appreciateModel()

@@ -166,23 +166,6 @@ var post =  {
         }
     },
 
-    loadHighlight: function() {
-        var codes = document.querySelectorAll('.post-page pre code');
-        for (var i = 0; i < codes.length; i++) {
-            var block = codes[i];
-            hljs.highlightBlock(block);
-            $('code.hljs').each(function(i, block) {
-                // console.log(block)
-                hljs.lineNumbersBlock(block);
-            });
-        }
-        // hljs.initHighlightingOnLoad();
-        //
-        // hljs.initLineNumbersOnLoad({
-        //     singleLine: true
-        // });
-    },
-
     tocHover: function () {
         $('.toc-list-item span').hover(function () {
             $(this).parent().find('a.toc-link:first').addClass('toc-hover')
@@ -235,9 +218,6 @@ $(function() {
 
     // 搞一个阅读进度，为了提高准确度，数据都要实时获取
     post.readProgress();
-
-    // 代码块
-    post.loadHighlight();
 
     // 按钮事件
     post.appreciateModel()
