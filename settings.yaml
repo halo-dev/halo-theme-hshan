@@ -350,11 +350,6 @@ custom:
       label: '站点运行时间统计'
       type: text
       description: '填入起始时间，格式：月/日/年 时:分:秒，如08/20/2018 12:00:00'
-    Custom_css_src:
-      name: Custom_css_src
-      label: '自定义外部 css 文件链接'
-      type: text
-      description: '填入 css 文件链接，不需要 style 标签'
     Custom_js_head:
       name: Custom_js_head
       label: 'head 结束标签前自定义 js 代码'
