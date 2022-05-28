@@ -1,3 +1,5 @@
+<script src="${theme_base!}/assets/libs/jquery/jquery.min.js"></script>
+<script src="${theme_base!}/assets/media/scripts/utils.min.js?ver=202101022020"></script>
 <script src="${theme_base!}/assets/libs/vue/vue.min.js"></script>
 <script src="${theme_base!}/assets/media/scripts/plugins.min.js?ver=202101022020"></script>
 <script src="${theme_base!}/assets/media/scripts/main.min.js?ver=202101022020"></script>
