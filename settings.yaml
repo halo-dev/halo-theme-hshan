@@ -1,6 +1,6 @@
 # configurations
 # 详情请参考：https://halo.run/develop/theme.html#settings-yaml
-genernal:
+general:
   label: 基本设置
   items:
     home_title:
