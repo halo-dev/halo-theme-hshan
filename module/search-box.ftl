@@ -52,7 +52,6 @@
                             <@tagTag method="list" top="5">
                                 <#list tags as tag>
                                     <a href="${tag.fullPath!}">
-
                                         <div class="ins-selectable ins-search-item">
                                             <header>
                                                 <i class="fa fa-tag"></i>

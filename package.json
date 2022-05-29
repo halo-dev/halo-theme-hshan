@@ -25,6 +25,7 @@
   "homepage": "https://github.com/hshanx/halo-theme-hshan#readme",
   "devDependencies": {
     "@types/node": "^17.0.36",
+    "@types/nprogress": "^0.2.0",
     "autoprefixer": "^10.4.7",
     "less": "^3.13.1",
     "postcss": "^8.4.14",
@@ -33,5 +34,8 @@
     "typescript": "^4.7.2",
     "uglify-js": "^3.8.0",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "nprogress": "^0.2.0"
   }
 }

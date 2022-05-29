@@ -1,5 +1,8 @@
 <@layout.extends name="module/macro.ftl">
     <@layout.put block="title">${settings.photos_title!'相册'} - ${blog_title!}</@layout.put>
+    <@layout.put block="head">
+        <#include "./module/viewer/libs-import.ftl" />
+    </@layout.put>
     <@layout.put block="content">
         <div id="page" class="site">
             <main class="site-main" id="main">
@@ -38,11 +41,20 @@
                                 </div>
                             </#list>
                         </@photoTag>
-
                     </div>
                 </div>
-
             </main>
         </div>
+    </@layout.put>
+    <@layout.put block="footer">
+        <#include "./module/justifiedGallery/libs-import.ftl" />
+        <#include "./module/justifiedGallery/scripts.ftl" />
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Viewer(document.getElementById('gallery-content'), {
+                    toolbar: true,
+                });
+            });
+        </script>
     </@layout.put>
 </@layout.extends>

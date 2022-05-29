@@ -1,87 +1,26 @@
 <script src="${theme_base!}/assets/libs/jquery/jquery.min.js"></script>
+<script src="${theme_base!}/dist/main.umd.js"></script>
 <script src="${theme_base!}/assets/media/scripts/utils.min.js?ver=202101022020"></script>
-<script src="${theme_base!}/assets/libs/vue/vue.min.js"></script>
 <script src="${theme_base!}/assets/media/scripts/plugins.min.js?ver=202101022020"></script>
 <script src="${theme_base!}/assets/media/scripts/main.min.js?ver=202101022020"></script>
 <script src="${theme_base!}/assets/libs/velocity/velocity.min.js"></script>
 <script src="${theme_base!}/assets/libs/velocity/velocity.ui.min.js"></script>
-<#if settings.auto_night_mode>
-    <script src="//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js"></script>
-<#else>
-    <script src="${options.comment_internal_plugin_js!'//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js'}"></script>
-</#if>
 
 <#if settings.Aplayer?? && settings.Aplayer != ''>
     <script src="${theme_base!}/assets/libs/APlayer/dist/APlayer.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<#else>
-    <script type="text/javascript">
-        // Smooth scroll to anchors
-        const scroll = new SmoothScroll('[data-scroll]', {
-            speed: 300,
-            updateURL: false,
-        })
-    </script>
+    <script src="${theme_base!}/assets/libs/meting/Meting.min.js"></script>
 </#if>
 
 <#-- 暗夜模式 -->
 <#if settings.auto_night_mode!true>
     <script type="text/javascript">
-        var nightModeStartTime = ${settings.night_mode_start_time!'18'};
-        var nightModeEndTime = ${settings.night_mode_end_time!'6'};
+        const nightModeStartTime = ${settings.night_mode_start_time!'18'};
+        const nightModeEndTime = ${settings.night_mode_end_time!'6'};
     </script>
     <script src="${theme_base!}/assets/media/scripts/night-mode.min.js?ver=202101022020"></script>
 </#if>
 
-<#-- gallery  -->
-<#--<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>-->
-<script src="${theme_base!}/assets/libs/JustifiedGallery/dist/js/jquery.justifiedGallery.min.js"></script>
-<!--图片预览插件-->
-<script data-pjax-viewer src="${theme_base!}/assets/libs/viewerjs/dist/viewer.min.js"></script>
-<script data-gallery src="${theme_base!}/assets/media/scripts/gallery.js"></script>
-
-<script src="${theme_base!}/assets/libs/social-share.js/dist/js/social-share.min.js"></script>
-
-<div class="qr-code-wrap" role="dialog">
-    <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
-        <span class="closinglayer"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em"
-                                        height="1em" fill="currentColor" aria-hidden="true"><path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
-        </span>
-        <div style="text-align: center;padding: 10px 0;">
-            <#if settings.QR_code_zfb??>
-                <img class="qr_code_zfb" src="${settings.QR_code_zfb!}"/>
-            </#if>
-            <#if settings.QR_code_wx??>
-                <img class="qr_code_wx" src="${settings.QR_code_wx!}"/>
-            </#if>
-        </div>
-        <#if settings.QR_code_zfb?? && settings.QR_code_wx??>
-            <div class="switch-btn">
-                <span class="zfb-btn">支付宝</span>
-                <span class="wx-btn">微信</span>
-            </div>
-        </#if>
-    </div>
-</div>
-
-<#--目录-->
-<#if settings.post_toc!true>
-    <script src="${theme_base!}/assets/libs/tocbot/dist/tocbot.min.js"></script>
-</#if>
-
-<script type="application/javascript">
-    var displayReadProgress = <#if (settings.open_read_progress)??>${settings.open_read_progress?c}<#else>true</#if>;
-</script>
-<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=202101022022"></script>
-<style>
-    /* 阅读进度的进度条颜色 */
-    #readProgress .read-progress-bar {
-        background: ${settings.progress_color?default('#2474b5')} !important;
-        height: 0.1875rem;
-    }
-</style>
-
+<#--<script src="${theme_base!}/assets/media/scripts/post.min.js?ver=202101022022"></script>-->
 
 <#if settings.TimeStatistics??>
     <script type="text/javascript">
@@ -110,21 +49,7 @@
     </script>
 </#if>
 
-<script src="${theme_base!}/assets/libs/nprogress/nprogress.js"></script>
-<link rel="stylesheet" href="${theme_base!}/assets/libs/nprogress/nprogress.css">
-
 <script>
-    var socialDisabled = '${settings.share_disabeld?default('')}';
-
-    NProgress.start();
-
-    NProgress.done();
-
-    // 加载相册
-    if ($("#page").find('.photos-page').length > 0) {
-        photo.loadGallery();
-    }
-
     han.initLazyLoad();
     // 整个页面延迟加载
     han.lazyLoad();
@@ -132,65 +57,13 @@
     // card 延迟加载
     han.lazyLoadCardItem()
 
-    //重载
-    if (typeof _hmt !== 'undefined') {
-        // support 百度统计
-        _hmt.push(['_trackPageview', location.pathname + location.search]);
-    }
-    if (typeof ga !== 'undefined') {
-        // support google analytics
-        ga('send', 'pageview', location.pathname + location.search);
-    }
-
     // 菜单高亮
     han.highlightMenu();
 
     // 小屏幕菜单隐藏
     han.makeMenuInvisible();
 
-    //  关闭搜索框
-    $(".search-popup").velocity("transition.expandOut", {duration: 300});
-
-    // 重新加载 评论
-    $('script[data-pjax-comment]').each(function () {
-        $(this).parent().append($(this).remove());
-    });
-
     if ($("#page").find('.post-page').length > 0) {
-        window.removeEventListener('scroll', post.tocScroll, false);
-        // 赞赏
-        post.appreciate();
-
-        // 初始化toc
-        post.initToc()
-
-        // 删除文章第一个 <ul>
-        post.removeFirstUL()
-
-        // 目录事件
-        post.scrollTocFixed();
-
-        // 搞一个阅读进度，为了提高准确度，数据都要实时获取
-        post.readProgress();
-
-        // 按钮事件
-        post.appreciateModel()
-
-        // 分享
-        post.toggleSocialShare()
-
-        // 图片预览
-        post.initViewer()
-
-        // 目录悬浮时间
-        post.tocHover();
-
-        try {
-            post.shareIcon()
-        } catch (e) {
-            console.log("error");
-        }
-        // 刷新
         han.refreshLazyLoad();
     } else {
         han.initLazyLoad()

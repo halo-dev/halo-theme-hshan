@@ -1,27 +1,49 @@
 /*!
- * Viewer.js v1.5.0
+ * Viewer.js v1.10.5
  * https://fengyuanchen.github.io/viewerjs
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-11-23T05:10:26.193Z
+ * Date: 2022-04-05T08:21:02.491Z
  */
 
 'use strict';
 
-function _typeof(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
   }
 
-  return _typeof(obj);
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -43,6 +65,9 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
@@ -59,40 +84,6 @@ function _defineProperty(obj, key, value) {
   }
 
   return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
 }
 
 var DEFAULTS = {
@@ -147,9 +138,16 @@ var DEFAULTS = {
 
   /**
    * Enable to request fullscreen when play.
-   * @type {boolean}
+   * {@link https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions}
+   * @type {boolean|FullscreenOptions}
    */
   fullscreen: true,
+
+  /**
+   * Define the extra attributes to inherit from the original image.
+   * @type {Array}
+   */
+  inheritedAttributes: ['crossOrigin', 'decoding', 'isMap', 'loading', 'referrerPolicy', 'sizes', 'srcset', 'useMap'],
 
   /**
    * Define the initial index of image for viewing.
@@ -174,6 +172,12 @@ var DEFAULTS = {
    * @type {boolean}
    */
   keyboard: true,
+
+  /**
+   * Focus the viewer when initialized.
+   * @type {boolean}
+   */
+  focus: true,
 
   /**
    * Indicate if show a loading spinner when load image or not.
@@ -307,15 +311,23 @@ var DEFAULTS = {
   hidden: null,
   view: null,
   viewed: null,
+  move: null,
+  moved: null,
+  rotate: null,
+  rotated: null,
+  scale: null,
+  scaled: null,
   zoom: null,
-  zoomed: null
+  zoomed: null,
+  play: null,
+  stop: null
 };
 
-var TEMPLATE = '<div class="viewer-container" touch-action="none">' + '<div class="viewer-canvas"></div>' + '<div class="viewer-footer">' + '<div class="viewer-title"></div>' + '<div class="viewer-toolbar"></div>' + '<div class="viewer-navbar">' + '<ul class="viewer-list"></ul>' + '</div>' + '</div>' + '<div class="viewer-tooltip"></div>' + '<div role="button" class="viewer-button" data-viewer-action="mix"></div>' + '<div class="viewer-player"></div>' + '</div>';
+var TEMPLATE = '<div class="viewer-container" tabindex="-1" touch-action="none">' + '<div class="viewer-canvas"></div>' + '<div class="viewer-footer">' + '<div class="viewer-title"></div>' + '<div class="viewer-toolbar"></div>' + '<div class="viewer-navbar">' + '<ul class="viewer-list" role="navigation"></ul>' + '</div>' + '</div>' + '<div class="viewer-tooltip" role="alert" aria-hidden="true"></div>' + '<div class="viewer-button" data-viewer-action="mix" role="button"></div>' + '<div class="viewer-player"></div>' + '</div>';
 
 var IS_BROWSER = typeof window !== 'undefined' && typeof window.document !== 'undefined';
 var WINDOW = IS_BROWSER ? window : {};
-var IS_TOUCH_DEVICE = IS_BROWSER ? 'ontouchstart' in WINDOW.document.documentElement : false;
+var IS_TOUCH_DEVICE = IS_BROWSER && WINDOW.document.documentElement ? 'ontouchstart' in WINDOW.document.documentElement : false;
 var HAS_POINTER_EVENT = IS_BROWSER ? 'PointerEvent' in WINDOW : false;
 var NAMESPACE = 'viewer'; // Actions
 
@@ -339,31 +351,42 @@ var CLASS_LOADING = "".concat(NAMESPACE, "-loading");
 var CLASS_MOVE = "".concat(NAMESPACE, "-move");
 var CLASS_OPEN = "".concat(NAMESPACE, "-open");
 var CLASS_SHOW = "".concat(NAMESPACE, "-show");
-var CLASS_TRANSITION = "".concat(NAMESPACE, "-transition"); // Events
+var CLASS_TRANSITION = "".concat(NAMESPACE, "-transition"); // Native events
 
 var EVENT_CLICK = 'click';
 var EVENT_DBLCLICK = 'dblclick';
 var EVENT_DRAG_START = 'dragstart';
-var EVENT_HIDDEN = 'hidden';
-var EVENT_HIDE = 'hide';
+var EVENT_FOCUSIN = 'focusin';
 var EVENT_KEY_DOWN = 'keydown';
 var EVENT_LOAD = 'load';
-var EVENT_TOUCH_START = IS_TOUCH_DEVICE ? 'touchstart' : 'mousedown';
-var EVENT_TOUCH_MOVE = IS_TOUCH_DEVICE ? 'touchmove' : 'mousemove';
+var EVENT_ERROR = 'error';
 var EVENT_TOUCH_END = IS_TOUCH_DEVICE ? 'touchend touchcancel' : 'mouseup';
+var EVENT_TOUCH_MOVE = IS_TOUCH_DEVICE ? 'touchmove' : 'mousemove';
+var EVENT_TOUCH_START = IS_TOUCH_DEVICE ? 'touchstart' : 'mousedown';
 var EVENT_POINTER_DOWN = HAS_POINTER_EVENT ? 'pointerdown' : EVENT_TOUCH_START;
 var EVENT_POINTER_MOVE = HAS_POINTER_EVENT ? 'pointermove' : EVENT_TOUCH_MOVE;
 var EVENT_POINTER_UP = HAS_POINTER_EVENT ? 'pointerup pointercancel' : EVENT_TOUCH_END;
-var EVENT_READY = 'ready';
 var EVENT_RESIZE = 'resize';
+var EVENT_TRANSITION_END = 'transitionend';
+var EVENT_WHEEL = 'wheel'; // Custom events
+
+var EVENT_READY = 'ready';
 var EVENT_SHOW = 'show';
 var EVENT_SHOWN = 'shown';
-var EVENT_TRANSITION_END = 'transitionend';
+var EVENT_HIDE = 'hide';
+var EVENT_HIDDEN = 'hidden';
 var EVENT_VIEW = 'view';
 var EVENT_VIEWED = 'viewed';
-var EVENT_WHEEL = 'wheel';
+var EVENT_MOVE = 'move';
+var EVENT_MOVED = 'moved';
+var EVENT_ROTATE = 'rotate';
+var EVENT_ROTATED = 'rotated';
+var EVENT_SCALE = 'scale';
+var EVENT_SCALED = 'scaled';
 var EVENT_ZOOM = 'zoom';
-var EVENT_ZOOMED = 'zoomed'; // Data keys
+var EVENT_ZOOMED = 'zoomed';
+var EVENT_PLAY = 'play';
+var EVENT_STOP = 'stop'; // Data keys
 
 var DATA_ACTION = "".concat(NAMESPACE, "Action"); // RegExps
 
@@ -453,15 +476,15 @@ function forEach(data, callback) {
     if (Array.isArray(data) || isNumber(data.length)
     /* array-like */
     ) {
-        var length = data.length;
-        var i;
+      var length = data.length;
+      var i;
 
-        for (i = 0; i < length; i += 1) {
-          if (callback.call(data, data[i], i, data) === false) {
-            break;
-          }
+      for (i = 0; i < length; i += 1) {
+        if (callback.call(data, data[i], i, data) === false) {
+          break;
         }
-      } else if (isObject(data)) {
+      }
+    } else if (isObject(data)) {
       Object.keys(data).forEach(function (key) {
         callback.call(data, data[key], key, data);
       });
@@ -772,18 +795,19 @@ function addListener(element, type, listener) {
  * @param {Element} element - The event target.
  * @param {string} type - The event type(s).
  * @param {Object} data - The additional event data.
+ * @param {Object} options - The additional event options.
  * @returns {boolean} Indicate if the event is default prevented or not.
  */
 
-function dispatchEvent(element, type, data) {
+function dispatchEvent(element, type, data, options) {
   var event; // Event and CustomEvent on IE9-11 are global objects, not constructors
 
   if (isFunction(Event) && isFunction(CustomEvent)) {
-    event = new CustomEvent(type, {
-      detail: data,
+    event = new CustomEvent(type, _objectSpread2({
       bubbles: true,
-      cancelable: true
-    });
+      cancelable: true,
+      detail: data
+    }, options));
   } else {
     event = document.createEvent('CustomEvent');
     event.initCustomEvent(type, true, true, data);
@@ -862,11 +886,12 @@ var IS_SAFARI = WINDOW.navigator && /(Macintosh|iPhone|iPod|iPad).*AppleWebKit/i
 /**
  * Get an image's natural sizes.
  * @param {string} image - The target image.
+ * @param {Object} options - The viewer options.
  * @param {Function} callback - The callback function.
  * @returns {HTMLImageElement} The new image.
  */
 
-function getImageNaturalSizes(image, callback) {
+function getImageNaturalSizes(image, options, callback) {
   var newImage = document.createElement('img'); // Modern browsers (except Safari)
 
   if (image.naturalWidth && !IS_SAFARI) {
@@ -884,6 +909,13 @@ function getImageNaturalSizes(image, callback) {
     }
   };
 
+  forEach(options.inheritedAttributes, function (name) {
+    var value = image.getAttribute(name);
+
+    if (value !== null) {
+      newImage.setAttribute(name, value);
+    }
+  });
   newImage.src = image.src; // iOS Safari will convert the image automatically
   // with its orientation once append it into DOM
 
@@ -995,6 +1027,14 @@ var render = {
     this.initList();
     this.renderViewer();
   },
+  initBody: function initBody() {
+    var ownerDocument = this.element.ownerDocument;
+    var body = ownerDocument.body || ownerDocument.documentElement;
+    this.body = body;
+    this.scrollbarWidth = window.innerWidth - ownerDocument.documentElement.clientWidth;
+    this.initialBodyPaddingRight = body.style.paddingRight;
+    this.initialBodyComputedPaddingRight = window.getComputedStyle(body).paddingRight;
+  },
   initContainer: function initContainer() {
     this.containerData = {
       width: window.innerWidth,
@@ -1037,23 +1077,30 @@ var render = {
     forEach(this.images, function (image, index) {
       var src = image.src;
       var alt = image.alt || getImageNameFromURL(src);
-      var url = options.url;
 
-      if (isString(url)) {
-        url = image.getAttribute(url);
-      } else if (isFunction(url)) {
-        url = url.call(_this, image);
-      }
+      var url = _this.getImageURL(image);
 
       if (src || url) {
         var item = document.createElement('li');
         var img = document.createElement('img');
+        forEach(options.inheritedAttributes, function (name) {
+          var value = image.getAttribute(name);
+
+          if (value !== null) {
+            img.setAttribute(name, value);
+          }
+        });
         img.src = src || url;
         img.alt = alt;
-        img.setAttribute('data-index', index);
         img.setAttribute('data-original-url', url || src);
-        img.setAttribute('data-viewer-action', 'view');
-        img.setAttribute('role', 'button');
+        item.setAttribute('data-index', index);
+        item.setAttribute('data-viewer-action', 'view');
+        item.setAttribute('role', 'button');
+
+        if (options.keyboard) {
+          item.setAttribute('tabindex', 0);
+        }
+
         item.appendChild(img);
         list.appendChild(item);
         items.push(item);
@@ -1062,18 +1109,31 @@ var render = {
     this.items = items;
     forEach(items, function (item) {
       var image = item.firstElementChild;
+      var onLoad;
+      var onError;
       setData(image, 'filled', true);
 
       if (options.loading) {
         addClass(item, CLASS_LOADING);
       }
 
-      addListener(image, EVENT_LOAD, function (event) {
+      addListener(image, EVENT_LOAD, onLoad = function onLoad(event) {
+        removeListener(image, EVENT_ERROR, onError);
+
         if (options.loading) {
           removeClass(item, CLASS_LOADING);
         }
 
         _this.loadImage(event);
+      }, {
+        once: true
+      });
+      addListener(image, EVENT_ERROR, onError = function onError() {
+        removeListener(image, EVENT_LOAD, onLoad);
+
+        if (options.loading) {
+          removeClass(item, CLASS_LOADING);
+        }
       }, {
         once: true
       });
@@ -1087,16 +1147,23 @@ var render = {
       });
     }
   },
-  renderList: function renderList(index) {
-    var i = index || this.index;
-    var width = this.items[i].offsetWidth || 30;
-    var outerWidth = width + 1; // 1 pixel of `margin-left` width
-    // Place the active item in the center of the screen
+  renderList: function renderList() {
+    var index = this.index;
+    var item = this.items[index];
+
+    if (!item) {
+      return;
+    }
+
+    var next = item.nextElementSibling;
+    var gutter = parseInt(window.getComputedStyle(next || item).marginLeft, 10);
+    var offsetWidth = item.offsetWidth;
+    var outerWidth = offsetWidth + gutter; // Place the active item in the center of the screen
 
     setStyle(this.list, assign({
-      width: outerWidth * this.length
+      width: outerWidth * this.length - gutter
     }, getTransforms({
-      translateX: (this.viewerData.width - width) / 2 - outerWidth * i
+      translateX: (this.viewerData.width - offsetWidth) / 2 - outerWidth * index
     })));
   },
   resetList: function resetList() {
@@ -1123,7 +1190,7 @@ var render = {
         sizingImage.onload = null;
       }
     };
-    sizingImage = getImageNaturalSizes(image, function (naturalWidth, naturalHeight) {
+    sizingImage = getImageNaturalSizes(image, options, function (naturalWidth, naturalHeight) {
       var aspectRatio = naturalWidth / naturalHeight;
       var width = viewerWidth;
       var height = viewerHeight;
@@ -1137,15 +1204,20 @@ var render = {
 
       width = Math.min(width * 0.9, naturalWidth);
       height = Math.min(height * 0.9, naturalHeight);
+      var left = (viewerWidth - width) / 2;
+      var top = (viewerHeight - height) / 2;
       var imageData = {
-        naturalWidth: naturalWidth,
-        naturalHeight: naturalHeight,
-        aspectRatio: aspectRatio,
-        ratio: width / naturalWidth,
+        left: left,
+        top: top,
+        x: left,
+        y: top,
         width: width,
         height: height,
-        left: (viewerWidth - width) / 2,
-        top: (viewerHeight - height) / 2
+        oldRatio: 1,
+        ratio: width / naturalWidth,
+        aspectRatio: aspectRatio,
+        naturalWidth: naturalWidth,
+        naturalHeight: naturalHeight
       };
       var initialImageData = assign({}, imageData);
 
@@ -1178,12 +1250,12 @@ var render = {
       width: imageData.width,
       height: imageData.height,
       // XXX: Not to use translateX/Y to avoid image shaking when zooming
-      marginLeft: imageData.left,
-      marginTop: imageData.top
+      marginLeft: imageData.x,
+      marginTop: imageData.y
     }, getTransforms(imageData)));
 
     if (done) {
-      if ((this.viewing || this.zooming) && this.options.transition) {
+      if ((this.viewing || this.moving || this.rotating || this.scaling || this.zooming) && this.options.transition && hasClass(image, CLASS_TRANSITION)) {
         var onTransitionEnd = function onTransitionEnd() {
           _this3.imageRendering = false;
           done();
@@ -1270,10 +1342,16 @@ var events = {
 
 var handlers = {
   click: function click(event) {
-    var target = event.target;
     var options = this.options,
         imageData = this.imageData;
-    var action = getData(target, DATA_ACTION); // Cancel the emulated click when the native click event was triggered.
+    var target = event.target;
+    var action = getData(target, DATA_ACTION);
+
+    if (!action && target.localName === 'img' && target.parentElement.localName === 'li') {
+      target = target.parentElement;
+      action = getData(target, DATA_ACTION);
+    } // Cancel the emulated click when the native click event was triggered.
+
 
     if (IS_TOUCH_DEVICE && event.isTrusted && target === this.canvas) {
       clearTimeout(this.clickCanvasTimeout);
@@ -1361,9 +1439,10 @@ var handlers = {
       // Cancel the emulated double click when the native dblclick event was triggered.
       if (IS_TOUCH_DEVICE && event.isTrusted) {
         clearTimeout(this.doubleClickImageTimeout);
-      }
+      } // XXX: No pageX/Y properties in custom event, fallback to the original event.
 
-      this.toggle();
+
+      this.toggle(event.isTrusted ? event : event.detail && event.detail.originalEvent);
     }
   },
   load: function load() {
@@ -1385,7 +1464,7 @@ var handlers = {
       removeClass(this.canvas, CLASS_LOADING);
     }
 
-    image.style.cssText = 'height:0;' + "margin-left:".concat(viewerData.width / 2, "px;") + "margin-top:".concat(viewerData.height / 2, "px;") + 'max-width:none!important;' + 'position:absolute;' + 'width:0;';
+    image.style.cssText = 'height:0;' + "margin-left:".concat(viewerData.width / 2, "px;") + "margin-top:".concat(viewerData.height / 2, "px;") + 'max-width:none!important;' + 'position:relative;' + 'width:0;';
     this.initImage(function () {
       toggleClass(image, CLASS_MOVE, options.movable);
       toggleClass(image, CLASS_TRANSITION, options.transition);
@@ -1404,6 +1483,8 @@ var handlers = {
           originalImage: _this.images[index],
           index: index,
           image: image
+        }, {
+          cancelable: false
         });
       });
     });
@@ -1414,7 +1495,7 @@ var handlers = {
     var parentWidth = parent.offsetWidth || 30;
     var parentHeight = parent.offsetHeight || 50;
     var filled = !!getData(image, 'filled');
-    getImageNaturalSizes(image, function (naturalWidth, naturalHeight) {
+    getImageNaturalSizes(image, this.options, function (naturalWidth, naturalHeight) {
       var aspectRatio = naturalWidth / naturalHeight;
       var width = parentWidth;
       var height = parentHeight;
@@ -1443,11 +1524,27 @@ var handlers = {
   keydown: function keydown(event) {
     var options = this.options;
 
-    if (!this.fulled || !options.keyboard) {
+    if (!options.keyboard) {
       return;
     }
 
-    switch (event.keyCode || event.which || event.charCode) {
+    var keyCode = event.keyCode || event.which || event.charCode;
+
+    switch (keyCode) {
+      // Enter
+      case 13:
+        if (this.viewer.contains(event.target)) {
+          this.click(event);
+        }
+
+        break;
+    }
+
+    if (!this.fulled) {
+      return;
+    }
+
+    switch (keyCode) {
       // Escape
       case 27:
         if (this.played) {
@@ -1511,7 +1608,7 @@ var handlers = {
     }
   },
   dragstart: function dragstart(event) {
-    if (event.target.tagName.toLowerCase() === 'img') {
+    if (event.target.localName === 'img') {
       event.preventDefault();
     }
   },
@@ -1612,7 +1709,9 @@ var handlers = {
           this.imageClicked = false; // This timeout will be cleared later when a native dblclick event is triggering
 
           this.doubleClickImageTimeout = setTimeout(function () {
-            dispatchEvent(_this2.image, EVENT_DBLCLICK);
+            dispatchEvent(_this2.image, EVENT_DBLCLICK, {
+              originalEvent: event
+            });
           }, 50);
         } else {
           this.imageClicked = true; // The default timing of a double click in Windows is 500 ms
@@ -1627,7 +1726,9 @@ var handlers = {
         if (options.backdrop && options.backdrop !== 'static' && event.target === this.canvas) {
           // This timeout will be cleared later when a native click event is triggering
           this.clickCanvasTimeout = setTimeout(function () {
-            dispatchEvent(_this2.canvas, EVENT_CLICK);
+            dispatchEvent(_this2.canvas, EVENT_CLICK, {
+              originalEvent: event
+            });
           }, 50);
         }
       }
@@ -1638,6 +1739,12 @@ var handlers = {
 
     if (!this.isShown || this.hiding) {
       return;
+    }
+
+    if (this.fulled) {
+      this.close();
+      this.initBody();
+      this.open();
     }
 
     this.initContainer();
@@ -1739,6 +1846,10 @@ var methods = {
     this.open();
     var viewer = this.viewer;
     removeClass(viewer, CLASS_HIDE);
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-labelledby', this.title.id);
+    viewer.setAttribute('aria-modal', true);
+    viewer.removeAttribute('aria-hidden');
 
     if (options.transition && !immediate) {
       var shown = this.shown.bind(this);
@@ -1769,6 +1880,8 @@ var methods = {
    * @returns {Viewer} this
    */
   hide: function hide() {
+    var _this = this;
+
     var immediate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
     var element = this.element,
         options = this.options;
@@ -1799,42 +1912,56 @@ var methods = {
       this.viewing.abort();
     }
 
-    var viewer = this.viewer;
+    var viewer = this.viewer,
+        image = this.image;
+
+    var hideImmediately = function hideImmediately() {
+      removeClass(viewer, CLASS_IN);
+
+      _this.hidden();
+    };
 
     if (options.transition && !immediate) {
-      var hidden = this.hidden.bind(this);
+      var onViewerTransitionEnd = function onViewerTransitionEnd(event) {
+        // Ignore all propagating `transitionend` events (#275).
+        if (event && event.target === viewer) {
+          removeListener(viewer, EVENT_TRANSITION_END, onViewerTransitionEnd);
 
-      var hide = function hide() {
-        // XXX: It seems the `event.stopPropagation()` method does not work here
-        setTimeout(function () {
-          addListener(viewer, EVENT_TRANSITION_END, hidden, {
-            once: true
-          });
+          _this.hidden();
+        }
+      };
+
+      var onImageTransitionEnd = function onImageTransitionEnd() {
+        // In case of show the viewer by `viewer.show(true)` previously (#407).
+        if (hasClass(viewer, CLASS_TRANSITION)) {
+          addListener(viewer, EVENT_TRANSITION_END, onViewerTransitionEnd);
           removeClass(viewer, CLASS_IN);
-        }, 0);
+        } else {
+          hideImmediately();
+        }
       };
 
       this.transitioning = {
         abort: function abort() {
-          if (this.viewed) {
-            removeListener(this.image, EVENT_TRANSITION_END, hide);
-          } else {
-            removeListener(viewer, EVENT_TRANSITION_END, hidden);
+          if (_this.viewed && hasClass(image, CLASS_TRANSITION)) {
+            removeListener(image, EVENT_TRANSITION_END, onImageTransitionEnd);
+          } else if (hasClass(viewer, CLASS_TRANSITION)) {
+            removeListener(viewer, EVENT_TRANSITION_END, onViewerTransitionEnd);
           }
         }
-      }; // Note that the `CLASS_TRANSITION` class will be removed on pointer down (#255)
+      }; // In case of hiding the viewer when holding on the image (#255),
+      // note that the `CLASS_TRANSITION` class will be removed on pointer down.
 
-      if (this.viewed && hasClass(this.image, CLASS_TRANSITION)) {
-        addListener(this.image, EVENT_TRANSITION_END, hide, {
+      if (this.viewed && hasClass(image, CLASS_TRANSITION)) {
+        addListener(image, EVENT_TRANSITION_END, onImageTransitionEnd, {
           once: true
         });
-        this.zoomTo(0, false, false, true);
+        this.zoomTo(0, false, null, true);
       } else {
-        hide();
+        onImageTransitionEnd();
       }
     } else {
-      removeClass(viewer, CLASS_IN);
-      this.hidden();
+      hideImmediately();
     }
 
     return this;
@@ -1846,7 +1973,7 @@ var methods = {
    * @returns {Viewer} this
    */
   view: function view() {
-    var _this = this;
+    var _this2 = this;
 
     var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.options.initialViewIndex;
     index = Number(index) || 0;
@@ -1873,6 +2000,13 @@ var methods = {
     var url = getData(img, 'originalUrl');
     var alt = img.getAttribute('alt');
     var image = document.createElement('img');
+    forEach(options.inheritedAttributes, function (name) {
+      var value = img.getAttribute(name);
+
+      if (value !== null) {
+        image.setAttribute(name, value);
+      }
+    });
     image.src = url;
     image.alt = alt;
 
@@ -1890,9 +2024,21 @@ var methods = {
       return this;
     }
 
-    this.image = image;
-    removeClass(this.items[this.index], CLASS_ACTIVE);
+    var activeItem = this.items[this.index];
+
+    if (activeItem) {
+      removeClass(activeItem, CLASS_ACTIVE);
+      activeItem.removeAttribute('aria-selected');
+    }
+
     addClass(item, CLASS_ACTIVE);
+    item.setAttribute('aria-selected', true);
+
+    if (options.focus) {
+      item.focus();
+    }
+
+    this.image = image;
     this.viewed = false;
     this.index = index;
     this.imageData = {};
@@ -1910,12 +2056,13 @@ var methods = {
     title.innerHTML = ''; // Generate title after viewed
 
     var onViewed = function onViewed() {
-      var imageData = _this.imageData;
+      var imageData = _this2.imageData;
       var render = Array.isArray(options.title) ? options.title[1] : options.title;
-      title.innerHTML = escapeHTMLEntities(isFunction(render) ? render.call(_this, image, imageData) : "".concat(alt, " (").concat(imageData.naturalWidth, " \xD7 ").concat(imageData.naturalHeight, ")"));
+      title.innerHTML = escapeHTMLEntities(isFunction(render) ? render.call(_this2, image, imageData) : "".concat(alt, " (").concat(imageData.naturalWidth, " \xD7 ").concat(imageData.naturalHeight, ")"));
     };
 
     var onLoad;
+    var onError;
     addListener(element, EVENT_VIEWED, onViewed, {
       once: true
     });
@@ -1924,18 +2071,18 @@ var methods = {
         removeListener(element, EVENT_VIEWED, onViewed);
 
         if (image.complete) {
-          if (this.imageRendering) {
-            this.imageRendering.abort();
-          } else if (this.imageInitializing) {
-            this.imageInitializing.abort();
+          if (_this2.imageRendering) {
+            _this2.imageRendering.abort();
+          } else if (_this2.imageInitializing) {
+            _this2.imageInitializing.abort();
           }
         } else {
           // Cancel download to save bandwidth.
           image.src = '';
           removeListener(image, EVENT_LOAD, onLoad);
 
-          if (this.timeout) {
-            clearTimeout(this.timeout);
+          if (_this2.timeout) {
+            clearTimeout(_this2.timeout);
           }
         }
       }
@@ -1944,7 +2091,27 @@ var methods = {
     if (image.complete) {
       this.load();
     } else {
-      addListener(image, EVENT_LOAD, onLoad = this.load.bind(this), {
+      addListener(image, EVENT_LOAD, onLoad = function onLoad() {
+        removeListener(image, EVENT_ERROR, onError);
+
+        _this2.load();
+      }, {
+        once: true
+      });
+      addListener(image, EVENT_ERROR, onError = function onError() {
+        removeListener(image, EVENT_LOAD, onLoad);
+
+        if (_this2.timeout) {
+          clearTimeout(_this2.timeout);
+          _this2.timeout = false;
+        }
+
+        removeClass(image, CLASS_INVISIBLE);
+
+        if (options.loading) {
+          removeClass(_this2.canvas, CLASS_LOADING);
+        }
+      }, {
         once: true
       });
 
@@ -1955,7 +2122,7 @@ var methods = {
 
       this.timeout = setTimeout(function () {
         removeClass(image, CLASS_INVISIBLE);
-        _this.timeout = false;
+        _this2.timeout = false;
       }, 1000);
     }
 
@@ -2001,43 +2168,253 @@ var methods = {
 
   /**
    * Move the image with relative offsets.
-   * @param {number} offsetX - The relative offset distance on the x-axis.
-   * @param {number} offsetY - The relative offset distance on the y-axis.
+   * @param {number} x - The moving distance in the horizontal direction.
+   * @param {number} [y=x] The moving distance in the vertical direction.
    * @returns {Viewer} this
    */
-  move: function move(offsetX, offsetY) {
+  move: function move(x) {
+    var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : x;
     var imageData = this.imageData;
-    this.moveTo(isUndefined(offsetX) ? offsetX : imageData.left + Number(offsetX), isUndefined(offsetY) ? offsetY : imageData.top + Number(offsetY));
+    this.moveTo(isUndefined(x) ? x : imageData.x + Number(x), isUndefined(y) ? y : imageData.y + Number(y));
     return this;
   },
 
   /**
    * Move the image to an absolute point.
-   * @param {number} x - The x-axis coordinate.
-   * @param {number} [y=x] - The y-axis coordinate.
+   * @param {number} x - The new position in the horizontal direction.
+   * @param {number} [y=x] - The new position in the vertical direction.
+   * @param {Event} [_originalEvent=null] - The original event if any.
    * @returns {Viewer} this
    */
   moveTo: function moveTo(x) {
+    var _this3 = this;
+
     var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : x;
-    var imageData = this.imageData;
+
+    var _originalEvent = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+    var element = this.element,
+        options = this.options,
+        imageData = this.imageData;
     x = Number(x);
     y = Number(y);
 
-    if (this.viewed && !this.played && this.options.movable) {
+    if (this.viewed && !this.played && options.movable) {
+      var oldX = imageData.x;
+      var oldY = imageData.y;
       var changed = false;
 
       if (isNumber(x)) {
-        imageData.left = x;
         changed = true;
+      } else {
+        x = oldX;
       }
 
       if (isNumber(y)) {
-        imageData.top = y;
         changed = true;
+      } else {
+        y = oldY;
       }
 
       if (changed) {
-        this.renderImage();
+        if (isFunction(options.move)) {
+          addListener(element, EVENT_MOVE, options.move, {
+            once: true
+          });
+        }
+
+        if (dispatchEvent(element, EVENT_MOVE, {
+          x: x,
+          y: y,
+          oldX: oldX,
+          oldY: oldY,
+          originalEvent: _originalEvent
+        }) === false) {
+          return this;
+        }
+
+        imageData.x = x;
+        imageData.y = y;
+        imageData.left = x;
+        imageData.top = y;
+        this.moving = true;
+        this.renderImage(function () {
+          _this3.moving = false;
+
+          if (isFunction(options.moved)) {
+            addListener(element, EVENT_MOVED, options.moved, {
+              once: true
+            });
+          }
+
+          dispatchEvent(element, EVENT_MOVED, {
+            x: x,
+            y: y,
+            oldX: oldX,
+            oldY: oldY,
+            originalEvent: _originalEvent
+          }, {
+            cancelable: false
+          });
+        });
+      }
+    }
+
+    return this;
+  },
+
+  /**
+   * Rotate the image with a relative degree.
+   * @param {number} degree - The rotate degree.
+   * @returns {Viewer} this
+   */
+  rotate: function rotate(degree) {
+    this.rotateTo((this.imageData.rotate || 0) + Number(degree));
+    return this;
+  },
+
+  /**
+   * Rotate the image to an absolute degree.
+   * @param {number} degree - The rotate degree.
+   * @returns {Viewer} this
+   */
+  rotateTo: function rotateTo(degree) {
+    var _this4 = this;
+
+    var element = this.element,
+        options = this.options,
+        imageData = this.imageData;
+    degree = Number(degree);
+
+    if (isNumber(degree) && this.viewed && !this.played && options.rotatable) {
+      var oldDegree = imageData.rotate;
+
+      if (isFunction(options.rotate)) {
+        addListener(element, EVENT_ROTATE, options.rotate, {
+          once: true
+        });
+      }
+
+      if (dispatchEvent(element, EVENT_ROTATE, {
+        degree: degree,
+        oldDegree: oldDegree
+      }) === false) {
+        return this;
+      }
+
+      imageData.rotate = degree;
+      this.rotating = true;
+      this.renderImage(function () {
+        _this4.rotating = false;
+
+        if (isFunction(options.rotated)) {
+          addListener(element, EVENT_ROTATED, options.rotated, {
+            once: true
+          });
+        }
+
+        dispatchEvent(element, EVENT_ROTATED, {
+          degree: degree,
+          oldDegree: oldDegree
+        }, {
+          cancelable: false
+        });
+      });
+    }
+
+    return this;
+  },
+
+  /**
+   * Scale the image on the x-axis.
+   * @param {number} scaleX - The scale ratio on the x-axis.
+   * @returns {Viewer} this
+   */
+  scaleX: function scaleX(_scaleX) {
+    this.scale(_scaleX, this.imageData.scaleY);
+    return this;
+  },
+
+  /**
+   * Scale the image on the y-axis.
+   * @param {number} scaleY - The scale ratio on the y-axis.
+   * @returns {Viewer} this
+   */
+  scaleY: function scaleY(_scaleY) {
+    this.scale(this.imageData.scaleX, _scaleY);
+    return this;
+  },
+
+  /**
+   * Scale the image.
+   * @param {number} scaleX - The scale ratio on the x-axis.
+   * @param {number} [scaleY=scaleX] - The scale ratio on the y-axis.
+   * @returns {Viewer} this
+   */
+  scale: function scale(scaleX) {
+    var _this5 = this;
+
+    var scaleY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : scaleX;
+    var element = this.element,
+        options = this.options,
+        imageData = this.imageData;
+    scaleX = Number(scaleX);
+    scaleY = Number(scaleY);
+
+    if (this.viewed && !this.played && options.scalable) {
+      var oldScaleX = imageData.scaleX;
+      var oldScaleY = imageData.scaleY;
+      var changed = false;
+
+      if (isNumber(scaleX)) {
+        changed = true;
+      } else {
+        scaleX = oldScaleX;
+      }
+
+      if (isNumber(scaleY)) {
+        changed = true;
+      } else {
+        scaleY = oldScaleY;
+      }
+
+      if (changed) {
+        if (isFunction(options.scale)) {
+          addListener(element, EVENT_SCALE, options.scale, {
+            once: true
+          });
+        }
+
+        if (dispatchEvent(element, EVENT_SCALE, {
+          scaleX: scaleX,
+          scaleY: scaleY,
+          oldScaleX: oldScaleX,
+          oldScaleY: oldScaleY
+        }) === false) {
+          return this;
+        }
+
+        imageData.scaleX = scaleX;
+        imageData.scaleY = scaleY;
+        this.scaling = true;
+        this.renderImage(function () {
+          _this5.scaling = false;
+
+          if (isFunction(options.scaled)) {
+            addListener(element, EVENT_SCALED, options.scaled, {
+              once: true
+            });
+          }
+
+          dispatchEvent(element, EVENT_SCALED, {
+            scaleX: scaleX,
+            scaleY: scaleY,
+            oldScaleX: oldScaleX,
+            oldScaleY: oldScaleY
+          }, {
+            cancelable: false
+          });
+        });
       }
     }
 
@@ -2078,7 +2455,7 @@ var methods = {
    * @returns {Viewer} this
    */
   zoomTo: function zoomTo(ratio) {
-    var _this2 = this;
+    var _this6 = this;
 
     var hasTooltip = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
@@ -2090,10 +2467,10 @@ var methods = {
         options = this.options,
         pointers = this.pointers,
         imageData = this.imageData;
-    var width = imageData.width,
+    var x = imageData.x,
+        y = imageData.y,
+        width = imageData.width,
         height = imageData.height,
-        left = imageData.left,
-        top = imageData.top,
         naturalWidth = imageData.naturalWidth,
         naturalHeight = imageData.naturalHeight;
     ratio = Math.max(0, ratio);
@@ -2105,15 +2482,31 @@ var methods = {
         ratio = Math.min(Math.max(ratio, minZoomRatio), maxZoomRatio);
       }
 
-      if (_originalEvent && ratio > 0.95 && ratio < 1.05) {
-        ratio = 1;
+      if (_originalEvent) {
+        switch (_originalEvent.type) {
+          case 'wheel':
+            if (options.zoomRatio >= 0.055 && ratio > 0.95 && ratio < 1.05) {
+              ratio = 1;
+            }
+
+            break;
+
+          case 'pointermove':
+          case 'touchmove':
+          case 'mousemove':
+            if (ratio > 0.99 && ratio < 1.01) {
+              ratio = 1;
+            }
+
+            break;
+        }
       }
 
       var newWidth = naturalWidth * ratio;
       var newHeight = naturalHeight * ratio;
       var offsetWidth = newWidth - width;
       var offsetHeight = newHeight - height;
-      var oldRatio = width / naturalWidth;
+      var oldRatio = imageData.ratio;
 
       if (isFunction(options.zoom)) {
         addListener(element, EVENT_ZOOM, options.zoom, {
@@ -2133,24 +2526,27 @@ var methods = {
 
       if (_originalEvent) {
         var offset = getOffset(this.viewer);
-        var center = pointers && Object.keys(pointers).length ? getPointersCenter(pointers) : {
+        var center = pointers && Object.keys(pointers).length > 0 ? getPointersCenter(pointers) : {
           pageX: _originalEvent.pageX,
           pageY: _originalEvent.pageY
         }; // Zoom from the triggering point of the event
 
-        imageData.left -= offsetWidth * ((center.pageX - offset.left - left) / width);
-        imageData.top -= offsetHeight * ((center.pageY - offset.top - top) / height);
+        imageData.x -= offsetWidth * ((center.pageX - offset.left - x) / width);
+        imageData.y -= offsetHeight * ((center.pageY - offset.top - y) / height);
       } else {
         // Zoom from the center of the image
-        imageData.left -= offsetWidth / 2;
-        imageData.top -= offsetHeight / 2;
+        imageData.x -= offsetWidth / 2;
+        imageData.y -= offsetHeight / 2;
       }
 
+      imageData.left = imageData.x;
+      imageData.top = imageData.y;
       imageData.width = newWidth;
       imageData.height = newHeight;
+      imageData.oldRatio = oldRatio;
       imageData.ratio = ratio;
       this.renderImage(function () {
-        _this2.zooming = false;
+        _this6.zooming = false;
 
         if (isFunction(options.zoomed)) {
           addListener(element, EVENT_ZOOMED, options.zoomed, {
@@ -2162,6 +2558,8 @@ var methods = {
           ratio: ratio,
           oldRatio: oldRatio,
           originalEvent: _originalEvent
+        }, {
+          cancelable: false
         });
       });
 
@@ -2174,92 +2572,12 @@ var methods = {
   },
 
   /**
-   * Rotate the image with a relative degree.
-   * @param {number} degree - The rotate degree.
-   * @returns {Viewer} this
-   */
-  rotate: function rotate(degree) {
-    this.rotateTo((this.imageData.rotate || 0) + Number(degree));
-    return this;
-  },
-
-  /**
-   * Rotate the image to an absolute degree.
-   * @param {number} degree - The rotate degree.
-   * @returns {Viewer} this
-   */
-  rotateTo: function rotateTo(degree) {
-    var imageData = this.imageData;
-    degree = Number(degree);
-
-    if (isNumber(degree) && this.viewed && !this.played && this.options.rotatable) {
-      imageData.rotate = degree;
-      this.renderImage();
-    }
-
-    return this;
-  },
-
-  /**
-   * Scale the image on the x-axis.
-   * @param {number} scaleX - The scale ratio on the x-axis.
-   * @returns {Viewer} this
-   */
-  scaleX: function scaleX(_scaleX) {
-    this.scale(_scaleX, this.imageData.scaleY);
-    return this;
-  },
-
-  /**
-   * Scale the image on the y-axis.
-   * @param {number} scaleY - The scale ratio on the y-axis.
-   * @returns {Viewer} this
-   */
-  scaleY: function scaleY(_scaleY) {
-    this.scale(this.imageData.scaleX, _scaleY);
-    return this;
-  },
-
-  /**
-   * Scale the image.
-   * @param {number} scaleX - The scale ratio on the x-axis.
-   * @param {number} [scaleY=scaleX] - The scale ratio on the y-axis.
-   * @returns {Viewer} this
-   */
-  scale: function scale(scaleX) {
-    var scaleY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : scaleX;
-    var imageData = this.imageData;
-    scaleX = Number(scaleX);
-    scaleY = Number(scaleY);
-
-    if (this.viewed && !this.played && this.options.scalable) {
-      var changed = false;
-
-      if (isNumber(scaleX)) {
-        imageData.scaleX = scaleX;
-        changed = true;
-      }
-
-      if (isNumber(scaleY)) {
-        imageData.scaleY = scaleY;
-        changed = true;
-      }
-
-      if (changed) {
-        this.renderImage();
-      }
-    }
-
-    return this;
-  },
-
-  /**
    * Play the images
-   * @param {boolean} [fullscreen=false] - Indicate if request fullscreen or not.
+   * @param {boolean|FullscreenOptions} [fullscreen=false] - Indicate if request fullscreen or not.
    * @returns {Viewer} this
    */
   play: function play() {
-    var _this3 = this;
+    var _this7 = this;
 
     var fullscreen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
@@ -2267,8 +2585,20 @@ var methods = {
       return this;
     }
 
-    var options = this.options,
-        player = this.player;
+    var element = this.element,
+        options = this.options;
+
+    if (isFunction(options.play)) {
+      addListener(element, EVENT_PLAY, options.play, {
+        once: true
+      });
+    }
+
+    if (dispatchEvent(element, EVENT_PLAY) === false) {
+      return this;
+    }
+
+    var player = this.player;
     var onLoad = this.loadImage.bind(this);
     var list = [];
     var total = 0;
@@ -2277,7 +2607,7 @@ var methods = {
     this.onLoadWhenPlay = onLoad;
 
     if (fullscreen) {
-      this.requestFullscreen();
+      this.requestFullscreen(fullscreen);
     }
 
     addClass(player, CLASS_SHOW);
@@ -2286,6 +2616,7 @@ var methods = {
       var image = document.createElement('img');
       image.src = getData(img, 'originalUrl');
       image.alt = img.getAttribute('alt');
+      image.referrerPolicy = img.referrerPolicy;
       total += 1;
       addClass(image, CLASS_FADE);
       toggleClass(image, CLASS_TRANSITION, options.transition);
@@ -2304,7 +2635,7 @@ var methods = {
 
     if (isNumber(options.interval) && options.interval > 0) {
       var play = function play() {
-        _this3.playing = setTimeout(function () {
+        _this7.playing = setTimeout(function () {
           removeClass(list[index], CLASS_IN);
           index += 1;
           index = index < total ? index : 0;
@@ -2322,9 +2653,22 @@ var methods = {
   },
   // Stop play
   stop: function stop() {
-    var _this4 = this;
+    var _this8 = this;
 
     if (!this.played) {
+      return this;
+    }
+
+    var element = this.element,
+        options = this.options;
+
+    if (isFunction(options.stop)) {
+      addListener(element, EVENT_STOP, options.stop, {
+        once: true
+      });
+    }
+
+    if (dispatchEvent(element, EVENT_STOP) === false) {
       return this;
     }
 
@@ -2332,7 +2676,7 @@ var methods = {
     this.played = false;
     clearTimeout(this.playing);
     forEach(player.getElementsByTagName('img'), function (image) {
-      removeListener(image, EVENT_LOAD, _this4.onLoadWhenPlay);
+      removeListener(image, EVENT_LOAD, _this8.onLoadWhenPlay);
     });
     removeClass(player, CLASS_SHOW);
     player.innerHTML = '';
@@ -2341,7 +2685,7 @@ var methods = {
   },
   // Enter modal mode (only available in inline mode)
   full: function full() {
-    var _this5 = this;
+    var _this9 = this;
 
     var options = this.options,
         viewer = this.viewer,
@@ -2365,17 +2709,25 @@ var methods = {
     }
 
     addClass(viewer, CLASS_FIXED);
-    viewer.setAttribute('style', '');
+    viewer.setAttribute('role', 'dialog');
+    viewer.setAttribute('aria-labelledby', this.title.id);
+    viewer.setAttribute('aria-modal', true);
+    viewer.removeAttribute('style');
     setStyle(viewer, {
       zIndex: options.zIndex
     });
+
+    if (options.focus) {
+      this.enforceFocus();
+    }
+
     this.initContainer();
     this.viewerData = assign({}, this.containerData);
     this.renderList();
 
     if (this.viewed) {
       this.initImage(function () {
-        _this5.renderImage(function () {
+        _this9.renderImage(function () {
           if (options.transition) {
             setTimeout(function () {
               addClass(image, CLASS_TRANSITION);
@@ -2390,7 +2742,7 @@ var methods = {
   },
   // Exit modal mode (only available in inline mode)
   exit: function exit() {
-    var _this6 = this;
+    var _this10 = this;
 
     var options = this.options,
         viewer = this.viewer,
@@ -2413,6 +2765,13 @@ var methods = {
       }
     }
 
+    if (options.focus) {
+      this.clearEnforceFocus();
+    }
+
+    viewer.removeAttribute('role');
+    viewer.removeAttribute('aria-labelledby');
+    viewer.removeAttribute('aria-modal');
     removeClass(viewer, CLASS_FIXED);
     setStyle(viewer, {
       zIndex: options.zIndexInline
@@ -2423,7 +2782,7 @@ var methods = {
 
     if (this.viewed) {
       this.initImage(function () {
-        _this6.renderImage(function () {
+        _this10.renderImage(function () {
           if (options.transition) {
             setTimeout(function () {
               addClass(image, CLASS_TRANSITION);
@@ -2438,7 +2797,7 @@ var methods = {
   },
   // Show the current ratio of the image with percentage
   tooltip: function tooltip() {
-    var _this7 = this;
+    var _this11 = this;
 
     var options = this.options,
         tooltipBox = this.tooltipBox,
@@ -2458,12 +2817,14 @@ var methods = {
 
         addClass(tooltipBox, CLASS_SHOW);
         addClass(tooltipBox, CLASS_FADE);
-        addClass(tooltipBox, CLASS_TRANSITION); // Force reflow to enable CSS3 transition
+        addClass(tooltipBox, CLASS_TRANSITION);
+        tooltipBox.removeAttribute('aria-hidden'); // Force reflow to enable CSS3 transition
 
         tooltipBox.initialOffsetWidth = tooltipBox.offsetWidth;
         addClass(tooltipBox, CLASS_IN);
       } else {
         addClass(tooltipBox, CLASS_SHOW);
+        tooltipBox.removeAttribute('aria-hidden');
       }
     } else {
       clearTimeout(this.tooltipping);
@@ -2475,26 +2836,35 @@ var methods = {
           removeClass(tooltipBox, CLASS_SHOW);
           removeClass(tooltipBox, CLASS_FADE);
           removeClass(tooltipBox, CLASS_TRANSITION);
-          _this7.fading = false;
+          tooltipBox.setAttribute('aria-hidden', true);
+          _this11.fading = false;
         }, {
           once: true
         });
         removeClass(tooltipBox, CLASS_IN);
-        _this7.fading = true;
+        _this11.fading = true;
       } else {
         removeClass(tooltipBox, CLASS_SHOW);
+        tooltipBox.setAttribute('aria-hidden', true);
       }
 
-      _this7.tooltipping = false;
+      _this11.tooltipping = false;
     }, 1000);
     return this;
   },
-  // Toggle the image size between its natural size and initial size
+
+  /**
+   * Toggle the image size between its current size and natural size
+   * @param {Event} [_originalEvent=null] - The original event if any.
+   * @returns {Viewer} this
+   */
   toggle: function toggle() {
+    var _originalEvent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
     if (this.imageData.ratio === 1) {
-      this.zoomTo(this.initialImageData.ratio, true);
+      this.zoomTo(this.imageData.oldRatio, true, _originalEvent);
     } else {
-      this.zoomTo(1, true);
+      this.zoomTo(1, true, _originalEvent);
     }
 
     return this;
@@ -2510,6 +2880,8 @@ var methods = {
   },
   // Update viewer when images changed
   update: function update() {
+    var _this12 = this;
+
     var element = this.element,
         options = this.options,
         isImg = this.isImg; // Destroy viewer if the target image was deleted
@@ -2520,11 +2892,11 @@ var methods = {
 
     var images = [];
     forEach(isImg ? [element] : element.querySelectorAll('img'), function (image) {
-      if (options.filter) {
-        if (options.filter(image)) {
+      if (isFunction(options.filter)) {
+        if (options.filter.call(_this12, image)) {
           images.push(image);
         }
-      } else {
+      } else if (_this12.getImageURL(image)) {
         images.push(image);
       }
     });
@@ -2537,17 +2909,18 @@ var methods = {
     this.length = images.length;
 
     if (this.ready) {
-      var indexes = [];
+      var changedIndexes = [];
       forEach(this.items, function (item, i) {
         var img = item.querySelector('img');
         var image = images[i];
 
         if (image && img) {
-          if (image.src !== img.src) {
-            indexes.push(i);
+          if (image.src !== img.src // Title changed (#408)
+          || image.alt !== img.alt) {
+            changedIndexes.push(i);
           }
         } else {
-          indexes.push(i);
+          changedIndexes.push(i);
         }
       });
       setStyle(this.list, {
@@ -2558,13 +2931,16 @@ var methods = {
       if (this.isShown) {
         if (this.length) {
           if (this.viewed) {
-            var index = indexes.indexOf(this.index);
+            var changedIndex = changedIndexes.indexOf(this.index);
 
-            if (index >= 0) {
+            if (changedIndex >= 0) {
               this.viewed = false;
-              this.view(Math.max(this.index - (index + 1), 0));
+              this.view(Math.max(Math.min(this.index - changedIndex, this.length - 1), 0));
             } else {
-              addClass(this.items[this.index], CLASS_ACTIVE);
+              var activeItem = this.items[this.index]; // Reactivate the current viewing item after reset the list.
+
+              addClass(activeItem, CLASS_ACTIVE);
+              activeItem.setAttribute('aria-selected', true);
             }
           }
         } else {
@@ -2643,10 +3019,53 @@ var methods = {
 };
 
 var others = {
+  getImageURL: function getImageURL(image) {
+    var url = this.options.url;
+
+    if (isString(url)) {
+      url = image.getAttribute(url);
+    } else if (isFunction(url)) {
+      url = url.call(this, image);
+    } else {
+      url = '';
+    }
+
+    return url;
+  },
+  enforceFocus: function enforceFocus() {
+    var _this = this;
+
+    this.clearEnforceFocus();
+    addListener(document, EVENT_FOCUSIN, this.onFocusin = function (event) {
+      var viewer = _this.viewer;
+      var target = event.target;
+
+      if (target === document || target === viewer || viewer.contains(target)) {
+        return;
+      }
+
+      while (target) {
+        // Avoid conflicts with other modals (#474, #540)
+        if (target.getAttribute('tabindex') !== null || target.getAttribute('aria-modal') === 'true') {
+          return;
+        }
+
+        target = target.parentElement;
+      }
+
+      viewer.focus();
+    });
+  },
+  clearEnforceFocus: function clearEnforceFocus() {
+    if (this.onFocusin) {
+      removeListener(document, EVENT_FOCUSIN, this.onFocusin);
+      this.onFocusin = null;
+    }
+  },
   open: function open() {
     var body = this.body;
     addClass(body, CLASS_OPEN);
-    body.style.paddingRight = "".concat(this.scrollbarWidth + (parseFloat(this.initialBodyPaddingRight) || 0), "px");
+    body.style.paddingRight = "".concat(this.scrollbarWidth + (parseFloat(this.initialBodyComputedPaddingRight) || 0), "px");
   },
   close: function close() {
     var body = this.body;
@@ -2655,12 +3074,18 @@ var others = {
   },
   shown: function shown() {
     var element = this.element,
-        options = this.options;
+        options = this.options,
+        viewer = this.viewer;
     this.fulled = true;
     this.isShown = true;
     this.render();
     this.bind();
     this.showing = false;
+
+    if (options.focus) {
+      viewer.focus();
+      this.enforceFocus();
+    }
 
     if (isFunction(options.shown)) {
       addListener(element, EVENT_SHOWN, options.shown, {
@@ -2678,13 +3103,23 @@ var others = {
   },
   hidden: function hidden() {
     var element = this.element,
-        options = this.options;
+        options = this.options,
+        viewer = this.viewer;
+
+    if (options.fucus) {
+      this.clearEnforceFocus();
+    }
+
     this.fulled = false;
     this.viewed = false;
     this.isShown = false;
     this.close();
     this.unbind();
-    addClass(this.viewer, CLASS_HIDE);
+    addClass(viewer, CLASS_HIDE);
+    viewer.removeAttribute('role');
+    viewer.removeAttribute('aria-labelledby');
+    viewer.removeAttribute('aria-modal');
+    viewer.setAttribute('aria-hidden', true);
     this.resetList();
     this.resetImage();
     this.hiding = false;
@@ -2696,17 +3131,24 @@ var others = {
         });
       }
 
-      dispatchEvent(element, EVENT_HIDDEN);
+      dispatchEvent(element, EVENT_HIDDEN, null, {
+        cancelable: false
+      });
     }
   },
-  requestFullscreen: function requestFullscreen() {
+  requestFullscreen: function requestFullscreen(options) {
     var document = this.element.ownerDocument;
 
     if (this.fulled && !(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)) {
       var documentElement = document.documentElement; // Element.requestFullscreen()
 
       if (documentElement.requestFullscreen) {
-        documentElement.requestFullscreen();
+        // Avoid TypeError when convert `options` to dictionary
+        if (isPlainObject(options)) {
+          documentElement.requestFullscreen(options);
+        } else {
+          documentElement.requestFullscreen();
+        }
       } else if (documentElement.webkitRequestFullscreen) {
         documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
       } else if (documentElement.mozRequestFullScreen) {
@@ -2735,14 +3177,19 @@ var others = {
   change: function change(event) {
     var options = this.options,
         pointers = this.pointers;
-    var pointer = pointers[Object.keys(pointers)[0]];
+    var pointer = pointers[Object.keys(pointers)[0]]; // In the case of the `pointers` object is empty (#421)
+
+    if (!pointer) {
+      return;
+    }
+
     var offsetX = pointer.endX - pointer.startX;
     var offsetY = pointer.endY - pointer.startY;
 
     switch (this.action) {
       // Move the current image
       case ACTION_MOVE:
-        this.move(offsetX, offsetY);
+        this.move(offsetX, offsetY, event);
         break;
       // Zoom the current image
 
@@ -2779,15 +3226,20 @@ var others = {
   isSwitchable: function isSwitchable() {
     var imageData = this.imageData,
         viewerData = this.viewerData;
-    return this.length > 1 && imageData.left >= 0 && imageData.top >= 0 && imageData.width <= viewerData.width && imageData.height <= viewerData.height;
+    return this.length > 1 && imageData.x >= 0 && imageData.y >= 0 && imageData.width <= viewerData.width && imageData.height <= viewerData.height;
   }
 };
 
 var AnotherViewer = WINDOW.Viewer;
 
-var Viewer =
-/*#__PURE__*/
-function () {
+var getUniqueID = function (id) {
+  return function () {
+    id += 1;
+    return id;
+  };
+}(-1);
+
+var Viewer = /*#__PURE__*/function () {
   /**
    * Create a new Viewer.
    * @param {Element} element - The target element for viewing.
@@ -2814,10 +3266,13 @@ function () {
     this.isImg = false;
     this.isShown = false;
     this.length = 0;
+    this.moving = false;
     this.played = false;
     this.playing = false;
     this.pointers = {};
     this.ready = false;
+    this.rotating = false;
+    this.scaling = false;
     this.showing = false;
     this.timeout = false;
     this.tooltipping = false;
@@ -2825,6 +3280,7 @@ function () {
     this.viewing = false;
     this.wheeling = false;
     this.zooming = false;
+    this.id = getUniqueID();
     this.init();
   }
 
@@ -2840,26 +3296,27 @@ function () {
         return;
       }
 
-      element[NAMESPACE] = this;
-      var isImg = element.tagName.toLowerCase() === 'img';
+      element[NAMESPACE] = this; // The `focus` option requires the `keyboard` option set to `true`.
+
+      if (options.focus && !options.keyboard) {
+        options.focus = false;
+      }
+
+      var isImg = element.localName === 'img';
       var images = [];
       forEach(isImg ? [element] : element.querySelectorAll('img'), function (image) {
         if (isFunction(options.filter)) {
           if (options.filter.call(_this, image)) {
             images.push(image);
           }
-        } else {
+        } else if (_this.getImageURL(image)) {
           images.push(image);
         }
       });
       this.isImg = isImg;
       this.length = images.length;
       this.images = images;
-      var ownerDocument = element.ownerDocument;
-      var body = ownerDocument.body || ownerDocument.documentElement;
-      this.body = body;
-      this.scrollbarWidth = window.innerWidth - ownerDocument.documentElement.clientWidth;
-      this.initialBodyPaddingRight = window.getComputedStyle(body).paddingRight; // Override `transition` option if it is not supported
+      this.initBody(); // Override `transition` option if it is not supported
 
       if (isUndefined(document.createElement(NAMESPACE).style.transition)) {
         options.transition = false;
@@ -2893,6 +3350,7 @@ function () {
             forEach(images, function (image) {
               if (!image.complete) {
                 removeListener(image, EVENT_LOAD, progress);
+                removeListener(image, EVENT_ERROR, progress);
               }
             });
           }
@@ -2901,7 +3359,18 @@ function () {
           if (image.complete) {
             progress();
           } else {
-            addListener(image, EVENT_LOAD, progress, {
+            var onLoad;
+            var onError;
+            addListener(image, EVENT_LOAD, onLoad = function onLoad() {
+              removeListener(image, EVENT_ERROR, onError);
+              progress();
+            }, {
+              once: true
+            });
+            addListener(image, EVENT_ERROR, onError = function onError() {
+              removeListener(image, EVENT_LOAD, onLoad);
+              progress();
+            }, {
               once: true
             });
           }
@@ -2910,7 +3379,7 @@ function () {
         addListener(element, EVENT_CLICK, this.onStart = function (_ref) {
           var target = _ref.target;
 
-          if (target.tagName.toLowerCase() === 'img' && (!isFunction(options.filter) || options.filter.call(_this, target))) {
+          if (target.localName === 'img' && (!isFunction(options.filter) || options.filter.call(_this, target))) {
             _this.view(_this.images.indexOf(target));
           }
         });
@@ -2945,9 +3414,15 @@ function () {
       this.tooltipBox = viewer.querySelector(".".concat(NAMESPACE, "-tooltip"));
       this.player = viewer.querySelector(".".concat(NAMESPACE, "-player"));
       this.list = viewer.querySelector(".".concat(NAMESPACE, "-list"));
+      viewer.id = "".concat(NAMESPACE).concat(this.id);
+      title.id = "".concat(NAMESPACE, "Title").concat(this.id);
       addClass(title, !options.title ? CLASS_HIDE : getResponsiveClass(Array.isArray(options.title) ? options.title[0] : options.title));
       addClass(navbar, !options.navbar ? CLASS_HIDE : getResponsiveClass(options.navbar));
       toggleClass(button, CLASS_HIDE, !options.button);
+
+      if (options.keyboard) {
+        button.setAttribute('tabindex', 0);
+      }
 
       if (options.backdrop) {
         addClass(viewer, "".concat(NAMESPACE, "-backdrop"));
@@ -2987,6 +3462,11 @@ function () {
           var size = deep && !isUndefined(value.size) ? value.size : value;
           var click = deep && !isUndefined(value.click) ? value.click : value;
           var item = document.createElement('li');
+
+          if (options.keyboard) {
+            item.setAttribute('tabindex', 0);
+          }
+
           item.setAttribute('role', 'button');
           addClass(item, "".concat(NAMESPACE, "-").concat(name));
 
