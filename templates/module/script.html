@@ -5,9 +5,9 @@
 <div th:fragment="script">
 <script th:src="@{/assets/libs/jquery/jquery.min.js}"></script>
 <script th:src="@{/assets/dist/main.umd.js}"></script>
-<script th:src="@{/assets/media/scripts/utils.min.js?ver=202101022020}"></script>
-<script th:src="@{/assets/media/scripts/plugins.min.js?ver=202101022020}"></script>
-<script th:src="@{/assets/media/scripts/main.min.js?ver=202101022020}"></script>
+<script th:src="@{/assets/media/scripts/utils.min.js?v={version}(version=${theme.spec.version})}"></script>
+<script th:src="@{/assets/media/scripts/plugins.min.js?v={version}(version=${theme.spec.version})}"></script>
+<script th:src="@{/assets/media/scripts/main.min.js?v={version}(version=${theme.spec.version})}"></script>
 <script th:src="@{/assets/libs/velocity/velocity.min.js}"></script>
 <script th:src="@{/assets/libs/velocity/velocity.ui.min.js}"></script>
 
@@ -16,7 +16,7 @@
   const nightModeStartTime = 18;
   const nightModeEndTime = 6;
 </script>
-<script th:src="@{/assets/media/scripts/night-mode.min.js?ver=202101022020}"></script>
+<script th:src="@{/assets/media/scripts/night-mode.min.js?v={version}(version=${theme.spec.version})}"></script>
 
 
 

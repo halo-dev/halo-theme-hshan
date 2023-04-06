@@ -3,24 +3,13 @@
       xmlns:th="http://www.thymeleaf.org"
       th:fragment="html (title,hero,content,head,footer,sidebar,contentClass)"
 >
-<div>
     <!-- post-list -->
     <div id="post-list" class="post-list inner">
-
             <!-- post-header -->
-
-
-
-
                     <ul th:each="tag : ${tags}">
                         <a th:href="tags.status.permalink" th:text="${tag.spec.title}"></a>
                     </ul>
-
-                </div>
-
-
                     <ul th:each="post : ${posts.items}">
-
                         <a
                                 th:each="tag : ${post.tags}"
                                 th:href="@{${tag.status.permalink}}"
@@ -29,20 +18,6 @@
                                 class="cursor-pointer text-sm italic text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-500"
                         >
                         </a>
-
-
-
-
-
-                        </div>
                     </ul>
-
-                </div>
-            </header>
-
-
-        </article>
     </div>
-</div>
-</div>
 </html>

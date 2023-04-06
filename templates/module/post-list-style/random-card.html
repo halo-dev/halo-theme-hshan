@@ -11,10 +11,7 @@
                                 <div class="featured-image">
                                     <th:block th:if="${post.spec.cover != null and post.spec.cover != null}">
                                         <a th:href="${post.status.permalink}"
-                                           th:style="|background-image: url(${post.spec.cover});
-                                        background-repeat: no-repeat!important;
-                                        background-position: center center!important;
-                                        background-size: cover!important;|"
+                                           th:style="|background-image: url(${post.spec.cover});background-repeat: no-repeat!important;background-position: center center!important;background-size: cover!important;|"
                                            class="thumb hover-effect" data-ajax >
                                             <span class="fullimage cover" role="img" aria-label=""
                                                   th:style="|background-image: url(${post.spec.cover})|"></span>
