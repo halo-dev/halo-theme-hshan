@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="html (title,hero,content,head,footer,sidebar,contentClass)"
+>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <meta name="generator" content="Halo 1.6.0">
+    <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}">
+    <link rel="stylesheet" th:href="@{/assets/libs/font-awesome/css/font-awesome.min.css}" type="text/css" media="all">
+
+<!--    <title th:text="${theme.config.general.home_title}"></title>-->
+
+    <th:block th:if="${title != null}">
+        <th:block th:replace="${title}"></th:block>
+    </th:block>
+<!--    th:text="${theme.config.general.home_title}"-->
+    <div th:replace="@{module/style}"></div>
+<!--    <#if settings.Aplayer?? && settings.Aplayer != ''>-->
+<!--    <link rel="stylesheet" href="${theme_base!}/assets/libs/APlayer/dist/APlayer.min.css">-->
+<!--</#if>-->
+    <th:block th:if="${head != null}">
+        <th:block th:replace="${head}"></th:block>
+    </th:block>
+
+</head>
+<body>
+
+<th:block th:replace="@{module/header}"></th:block>
+
+<th:block th:if="${content != null}">
+    <th:block th:include="${content}"></th:block>
+</th:block>
+
+
+<th:block th:include="@{module/footer}"></th:block>
+
+
+</body>
+
+<th:block th:include="@{module/script}"></th:block>
+
+<th:block th:if="${footer != null}">
+    <th:block th:include="${footer}"></th:block>
+</th:block>
+</html>

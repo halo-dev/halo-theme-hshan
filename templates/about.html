@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="https://www.thymeleaf.org"
+        th:replace="~{module/layout :: html(title = ~{::aboutTitle}, hero = null, content = ~{::aboutContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+<th:block th:fragment="aboutTitle">
+    <title th:text="${theme.config.title.achieve_title}"></title>
+</th:block>
+<th:block th:fragment="aboutContent">
+    <h1>这是关于界面</h1>
+</th:block>
+</html>
+
+
+<!--<html lang="zh" class=" "><head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <meta name="keywords" content="">-->
+<!--    <meta name="description" content="关于页面这是一个自定义页面，你可以在后台的 页面 -> 所有页面 -> 自定义页面 找到它，你可以用于新建关于页面、留言板页面等等。发挥你自己的想象力！这是一篇自动生成的页面，你可以在后台删除它。">-->
+
+<!--    <meta name="generator" content="Halo 1.6.0">-->
+
+
+
+<!--    <link rel="stylesheet" href="assets/dist/style.css?v=1.0">-->
+<!--    <link rel="stylesheet" href="assets/libs/font-awesome/css/font-awesome.min.css" type="text/css" media="all">-->
+
+<!--    <title>关于页面 - abc</title>-->
+
+<!--    <style>-->
+<!--        :root {-->
+<!--            &#45;&#45;post-max-width: 800px !important;-->
+<!--            &#45;&#45;content-font-size: 1.12rem !important;-->
+<!--            &#45;&#45;content-line-height: 2rem !important;-->
+<!--            &#45;&#45;base-color: #2474b5;-->
+<!--            &#45;&#45;post-head-color: rgb(219, 219, 226);-->
+<!--            &#45;&#45;toc-bg-color: #8e8787;-->
+<!--            &#45;&#45;night-toc-bg-color: #e5e5e5;-->
+<!--            &#45;&#45;tag-bg-color: #ff5f5f;-->
+<!--            &#45;&#45;header-bg-color: #fff;-->
+<!--            &#45;&#45;header-child-hover-bg-color: #f5f5f5;-->
+<!--            &#45;&#45;index-title-color: #555;-->
+<!--            &#45;&#45;base-font-color: #34495e;-->
+<!--            &#45;&#45;summary-color: #81878f;-->
+<!--            &#45;&#45;night-input-color: #a9a9b3;-->
+<!--            &#45;&#45;night-background: #292a2d;-->
+<!--            &#45;&#45;night-color: #a9a9b3;-->
+<!--            &#45;&#45;night-input-backgrround: #232125;-->
+<!--            &#45;&#45;color: #333333;-->
+<!--            &#45;&#45;background: #f7f7f7;-->
+<!--            &#45;&#45;dark-backgound: #232125;-->
+<!--            &#45;&#45;cardbgcolor: #fff;-->
+<!--            &#45;&#45;cardcolor: #333;-->
+<!--            &#45;&#45;cardtitlecolor: #333333;-->
+<!--            &#45;&#45;navbarcolor: #333333;-->
+<!--            &#45;&#45;navbarbgcolor: rgba(255, 255, 255, 0.7);-->
+<!--            &#45;&#45;img-default-filter: none;-->
+<!--            &#45;&#45;img-hover-filter: none;-->
+<!--            &#45;&#45;btn-bg-color: whitesmoke;-->
+<!--            &#45;&#45;btn-color: #333333;-->
+<!--            &#45;&#45;btn-hover-color: #eeeeee;-->
+<!--            &#45;&#45;link-color: #42b983;-->
+<!--            &#45;&#45;link-hover-color: #42b983;-->
+<!--            &#45;&#45;code-bg-color: #F1F3F3;-->
+<!--            &#45;&#45;code-default-color: #A2A1A1;-->
+<!--            &#45;&#45;code-line-numbers-bg-color: #EBEDED;-->
+<!--            &#45;&#45;code-line-numbers-color: #888;-->
+<!--            &#45;&#45;code-keyworks-color: #7012cc;-->
+<!--            &#45;&#45;code-class-color: #f2777a;-->
+<!--            &#45;&#45;code-cdata-color: hsl(313, 67%, 36%);-->
+<!--            &#45;&#45;code-symbol-color: hsl(33, 83%, 45%);-->
+<!--            &#45;&#45;code-variable-color: hsl(281, 89%, 64%);-->
+<!--            &#45;&#45;code-regex-color: #e90;-->
+<!--            &#45;&#45;code-deleted-color: red;-->
+<!--            &#45;&#45;code-toolbar-bg-color: #EBEDED;-->
+<!--            &#45;&#45;code-toolbar-color: #1485FE;-->
+<!--            &#45;&#45;code-line-numbers-rows-color: #888;-->
+<!--            &#45;&#45;toc-dot-color: #1485FE;-->
+<!--            &#45;&#45;toc-dot-active-color: #1485FE;-->
+<!--            &#45;&#45;toc-dot-active-bg-color: #ebedef;-->
+<!--            &#45;&#45;toc-vertical-line-color: #1485FE;-->
+<!--            &#45;&#45;toc-item-bg-hover: #1485FE;-->
+<!--            &#45;&#45;code-dark-color: #969896;-->
+<!--            &#45;&#45;code-dark-bg-color: #2d2d2d;-->
+<!--            &#45;&#45;code-dark-line-numbers-bg-color: #333333;-->
+<!--            &#45;&#45;code-dark-keywords-color: #cc99cd;-->
+<!--            &#45;&#45;code-dark-class-color: #e2777a;-->
+<!--            &#45;&#45;code-dark-cdata-color: #999;-->
+<!--            &#45;&#45;code-dark-symbol-color: #f8c555;-->
+<!--            &#45;&#45;code-dark-variable-color: #67cdcc;-->
+<!--        }-->
+
+<!--        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/-->
+<!--        ::-webkit-scrollbar {-->
+<!--            width: 5px;-->
+<!--            height: 5px;-->
+<!--            background-color: #eee;-->
+<!--        }-->
+
+<!--        #siteHeader::-webkit-scrollbar {-->
+<!--            width: 0;-->
+<!--            opacity: 0;-->
+<!--        }-->
+
+<!--        /*定义滚动条轨道 内阴影+圆角*/-->
+<!--        ::-webkit-scrollbar-track {-->
+<!--            border-radius: 10px;-->
+<!--            background-color: #eee;-->
+<!--        }-->
+
+<!--        /*定义滑块 内阴影+圆角*/-->
+<!--        ::-webkit-scrollbar-thumb {-->
+<!--            border-radius: 10px;-->
+<!--            background-color: #2474b5;-->
+<!--        }-->
+
+
+<!--        @media only screen and (min-width: 861px) {-->
+<!--            .post-template .bg-cover {-->
+<!--                height: 100vh !important;-->
+<!--            }-->
+<!--        }-->
+
+
+<!--        @media only screen and (min-width: 861px) {-->
+<!--            .home-content .bg-cover {-->
+<!--                height: 100vh !important;-->
+<!--            }-->
+<!--        }-->
+
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body class="night">-->
+<!--<aside class="sidebar side-bar-val" id="sidebar" style="overflow-y: auto !important; opacity: 0; transform: translateY(0px); display: none;">-->
+<!--    <div class="inner">-->
+<!--        <div class="widget-area">-->
+<!--            &lt;!&ndash; 菜单 &ndash;&gt;-->
+<!--            <nav class="site-navigation">-->
+<!--                <ul class="menu">-->
+<!--                    <li class="menu-item nav-menu-item ">-->
+<!--                        <a href="/" data-ajax="" target="_self">首页</a>-->
+<!--                    </li>-->
+<!--                    <li class="menu-item nav-menu-item ">-->
+<!--                        <a href="/archives" data-ajax="" target="_self">文章归档</a>-->
+<!--                    </li>-->
+<!--                    <li class="menu-item nav-menu-item ">-->
+<!--                        <a href="/categories/default" data-ajax="" target="_self">默认分类</a>-->
+<!--                    </li>-->
+<!--                    <li class="menu-item nav-menu-item ">-->
+<!--                        <a href="/s/about" data-ajax="" target="_self">关于页面</a>-->
+<!--                    </li>-->
+<!--                    <li class="menu-item home nav-menu-item">-->
+<!--                        <i class="fa night-mode fa-lightbulb-o" id="nightModeSmall" aria-hidden="true"></i>-->
+<!--                    </li>-->
+<!--                    <li class="menu-item home nav-menu-item">-->
+<!--                        <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true" style="font-size: 20px;"></i>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</aside>-->
+
+<!--<header class="site-header site-header-scroll" id="siteHeader">-->
+<!--    <div id="scrollMenu" class="scroll-menu header-inner scroll-menu-show">-->
+<!--        <div class="menu-items">-->
+<!--            <ul>-->
+<!--                <li class="menu-scroll-item">-->
+<!--                    <a href="/" data-ajax="" target="_self">首页</a>-->
+<!--                </li>-->
+<!--                <li class="menu-scroll-item">-->
+<!--                    <a href="/archives" data-ajax="" target="_self">文章归档</a>-->
+<!--                </li>-->
+<!--                <li class="menu-scroll-item">-->
+<!--                    <a href="/categories/default" data-ajax="" target="_self">默认分类</a>-->
+<!--                </li>-->
+<!--                <li class="menu-scroll-item">-->
+<!--                    <a href="/s/about" data-ajax="" target="_self" class="active-current">关于页面</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="other-ctl" id="headerCtrl">-->
+<!--            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>-->
+<!--            <i class="fa night-mode fa-lightbulb-o" id="nightMode" aria-hidden="true"></i>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <a class="sidebar-toggle" id="sidebarToggle" style="display: none;">-->
+<!--        <span class="icon-menu cross">-->
+<!--            <span class="middle" aria-hidden="true"> </span>-->
+<!--         </span>-->
+<!--    </a>-->
+<!--</header>-->
+
+<!--<div id="page" class="site transform-none" style="opacity: 1; display: block; transform: translateY(0px);">-->
+<!--    <main class="site-main" id="main">-->
+<!--        <div class="site-content post-page">-->
+<!--            <header class="bg-cover page-header">-->
+<!--                <div class="default-cover-bg">-->
+<!--                </div>-->
+<!--                <div class="cover-content">-->
+<!--                    <div class="inner">-->
+<!--                        <div class="post-count"></div>-->
+<!--                        <h1 class="page-title" style="font-size: 46px;">关于页面</h1>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </header>-->
+<!--            <div class="sheet-content">-->
+<!--                <h2 id="关于页面">关于页面</h2>-->
+<!--                <p>这是一个自定义页面，你可以在后台的 <code>页面</code> -&gt; <code>所有页面</code> -&gt; <code>自定义页面</code> 找到它，你可以用于新建关于页面、留言板页面等等。发挥你自己的想象力！</p>-->
+<!--                <blockquote>-->
+<!--                    <p>这是一篇自动生成的页面，你可以在后台删除它。</p>-->
+<!--                </blockquote>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <script src="assets/libs/vue/vue.min.js"></script>-->
+<!--        <script src="https://unpkg.com/halo-comment@latest/dist/halo-comment.min.js"></script>-->
+<!--        <halo-comment id="2" type="sheet"></halo-comment>-->
+<!--    </main>-->
+<!--</div>-->
+
+<!--<footer class="site-footer" id="siteFooter">-->
+
+<!--    <div class="inner">-->
+<!--        <div class="offsite-links">-->
+<!--            <a href="http://localhost:8090/atom.xml" class="circle" target="_blank" rel="noopener" title="RSS">-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path fill="none" d="M0 0h24v24H0z"></path><path d="M3 3c9.941 0 18 8.059 18 18h-3c0-8.284-6.716-15-15-15V3zm0 7c6.075 0 11 4.925 11 11h-3a8 8 0 0 0-8-8v-3zm0 7a4 4 0 0 1 4 4H3v-4z"></path></svg>                </a>-->
+<!--        </div>-->
+
+
+<!--        <div class="site-info">-->
+
+
+<!--            <p>Copyright © 2023-->
+<!--                <a href="http://localhost:8090"> abc</a>-->
+<!--            </p>-->
+<!--            &lt;!&ndash; 请尊重作者，请务必保留版权 &ndash;&gt;-->
+<!--            <p>Powered by <a target="_blank" href="http://halo.run">Halo</a> •-->
+<!--                Theme by <a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle Galaxy</a> •-->
+<!--                REFERENCE FROM <a href="https://github.com/hshanx/halo-theme-hshan.git">寒山</a></p>-->
+<!--        </div>-->
+<!--        <a href="#page" class="arrow-up" data-scroll=""><span class="screen-reader-text">Back to the top</span></a>-->
+<!--    </div>-->
+<!--</footer>-->
+<!--<div class="searchbox ins-search search-popup">-->
+<!--    <div class="searchbox-container ins-search-container">-->
+<!--        <div class="searchbox-input-wrapper">-->
+<!--            <form method="get" action="/search">-->
+<!--                <input type="text" class="searchbox-input ins-search-input" name="keyword" placeholder="请输入关键字" autocomplete="off">-->
+<!--            </form>-->
+<!--            <span class="searchbox-close ins-close ins-selectable" onclick="closeSearchPanel()"><i class="fa fa-times"></i></span>-->
+<!--        </div>-->
+<!--        <div class="searchbox-result-wrapper ins-section-wrapper">-->
+<!--            <div class="ins-section-container">-->
+<!--                <section class="ins-section">-->
+<!--                    <header class="ins-section-header">最新文章</header>-->
+<!--                    <a href="/archives/hello-halo">-->
+<!--                        <div class="ins-selectable ins-search-item">-->
+<!--                            <header><i class="fa fa-file"></i><span class="ins-title">Hello Halo</span>-->
+<!--                            </header>-->
+<!--                            <p class="ins-search-preview">Hello Halo如果你看到了这一篇文章，那么证明你已经安装成功了，感谢使用 Halo 进行创作，希望能够使用愉快。相关链接官网：https://halo.run文档：https://docs.halo.run社区：https://bbs.halo.run主题仓库：https://halo.run</p>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </section>-->
+<!--                <section class="ins-section">-->
+<!--                    <header class="ins-section-header">分类</header>-->
+<!--                    <div class="level">-->
+<!--                        <div class="columns is-multiline">-->
+<!--                            <a href="/categories/default">-->
+<!--                                <div class="ins-selectable ins-search-item">-->
+<!--                                    <header>-->
+<!--                                        <i class="fa fa-folder"></i>-->
+<!--                                        <span class="ins-title">默认分类</span>-->
+<!--                                        <span class="ins-slug">default</span>-->
+<!--                                    </header>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </section>-->
+<!--                <section class="ins-section">-->
+<!--                    <header class="ins-section-header">标签</header>-->
+<!--                    <div class="level">-->
+<!--                        <div class="columns is-multiline">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="search-mask"></div>-->
+<!--<script>-->
+<!--    function openSearchPanel() {-->
+<!--        $(".search-popup").velocity("transition.expandIn", { duration: 300 });-->
+<!--    }-->
+
+<!--    function closeSearchPanel() {-->
+<!--        $(".search-popup").velocity("transition.expandOut", { duration: 300 });-->
+<!--    }-->
+<!--</script>-->
+
+<!--<script src="assets/libs/jquery/jquery.min.js"></script>-->
+<!--<script src="assets/dist/main.umd.js"></script>-->
+<!--<script src="assets/media/scripts/utils.min.js?ver=202101022020"></script>-->
+<!--<script src="assets/media/scripts/plugins.min.js?ver=202101022020"></script>-->
+<!--<script src="assets/media/scripts/main.min.js?ver=202101022020"></script>-->
+<!--<script src="assets/libs/velocity/velocity.min.js"></script>-->
+<!--<script src="assets/libs/velocity/velocity.ui.min.js"></script>-->
+
+
+<!--<script type="text/javascript">-->
+<!--    const nightModeStartTime = 18;-->
+<!--    const nightModeEndTime = 6;-->
+<!--</script>-->
+<!--<script src="assets/media/scripts/night-mode.min.js?ver=202101022020"></script>-->
+
+
+
+<!--<script>-->
+<!--    han.initLazyLoad();-->
+<!--    // 整个页面延迟加载-->
+<!--    han.lazyLoad();-->
+
+<!--    // card 延迟加载-->
+<!--    han.lazyLoadCardItem()-->
+
+<!--    // 菜单高亮-->
+<!--    han.highlightMenu();-->
+
+<!--    // 小屏幕菜单隐藏-->
+<!--    han.makeMenuInvisible();-->
+
+<!--    if ($("#page").find('.post-page').length > 0) {-->
+<!--        han.refreshLazyLoad();-->
+<!--    } else {-->
+<!--        han.initLazyLoad()-->
+<!--    }-->
+
+<!--</script>-->
+
+
+<!--<script type="text/javascript">-->
+<!--    console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");-->
+<!--    console.log("%c Version: %c", "background:#24272A; color:#ffffff", "", "1.0");-->
+<!--</script>-->
+
+
+<!--</body></html>-->

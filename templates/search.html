@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="https://www.thymeleaf.org"
+        th:replace="~{module/layout :: html(title = ~{::searchTitle}, hero = null, content = ~{::searchContent"}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+<th:block th:fragment="searchTitle">
+    <title th:text="${'搜索结果：' + theme.config.title.tags_title + '-' + site.title}"></title>
+</th:block>
+
+<th:block th:fragment="searchContent">
+    <div id="page" class="site">
+        <main class="site-main" id="main">
+            <div class="site-content">
+                <!-- 封面 -->
+                <header class="bg-cover page-header">
+                    <div th:if="${theme.config.head_img.search_patternimg != null and theme.config.head_img.search_patternimg != ''}">
+                        <div class="cover-bg">
+                            <img th:src="${theme.config.head_img.search_patternimg}" th:alt="${theme.config.head_img.search_patternimg}">
+                        </div>
+                    </div>
+                    <div th:unless="${theme.config.head_img.search_patternimg != null and theme.config.head_img.search_patternimg != ''}">
+                        <div class="default-cover-bg">
+                        </div>
+                    </div>
+                    <div class="cover-content">
+                        <div class="inner">
+                            <div class="post-count"></div>
+                            <h1 class="page-title" style="font-size: 46px;" th:text="${'关于「' + ${keyword} +'」的搜索结果'}"></h1>
+                        </div>
+                    </div>
+                </header>
+                <div th:if="${posts != null and posts.total gt 0}" >
+                    <div th:switch="${theme.config.general.post_list_style}">
+                        <th:block th:case='standard' th:include="@{module/post-list-style/standard}"></th:block>
+                        <th:block th:case='simple' th:include="@{module/post-list-style/simple}"></th:block>
+                        <th:block th:case='card' th:include="@{module/post-list-style/random-card}"></th:block>
+                    </div>
+                    <div th:if="${posts.totalPages gt 1}">
+                        <th:block th:replace="~{module/pagination}" />
+                    </div>
+                </div>
+                <div th:unless="${posts != null and posts.total gt 0}" >
+                    <div id="post-list" class="post-list inner">
+                        <div class="search-box">
+                            <!-- search start -->
+                            <form class="s-search">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input class="text-input" type="search" name="keyword" placeholder="Search..."
+                                       autocomplete="off" required>
+                            </form>
+                            <!-- search end -->
+                        </div>
+                        <th:block th:include="@{module/search-none}"></th:block>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</th:block>
+</html>
