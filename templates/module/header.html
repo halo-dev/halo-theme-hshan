@@ -65,7 +65,7 @@
             <ul>
                 <li th:if="${theme.config.general.header_logoimg != null}">
                     <a th:href="@{/}" style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;">
-                        <img th:if="${not #strings.isEmpty(site.logo)}" th:src="${site.logo}" alt="Logo" class="h-full w-full"
+                        <img th:if="${not #strings.isEmpty(site.logo)}" th:src="${site.logo}" alt="Logo" class="h-full w-full" src=""
                              th:style="height: ${theme.config.general.header_logo_height}"
                         />
                     </a>
