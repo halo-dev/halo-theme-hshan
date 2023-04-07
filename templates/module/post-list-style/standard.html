@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh"
       xmlns:th="http://www.thymeleaf.org">
-<!--      th:fragment="html (title,hero,content,head,footer,sidebar,contentClass)"-->
-
-    <!-- post-list -->
 <div id="post-list" class="post-list inner">
     <div th:if="${posts.total gt 0}" >
         <ul th:each="post : ${posts.items}">
@@ -29,7 +26,7 @@
                             <a  th:href="${post.status.permalink}" th:text="${post.spec.title}" data-ajax=""></a>
                         </h2>
                         <div class="post-meta">
-                            <span class="post-author"><i class="fa fa-eye" ></i>访问次数:<i th:text="${post.stats.visit}"></i></span>
+                            <span class="post-author"><i class="fa fa-eye" ></i><i th:text="${post.stats.visit}"></i> 次访问</span>
                             <div th:if="${post.spec.pinned}">
                                 <span class="tag tag-primary">已置顶</span>
                             </div>
