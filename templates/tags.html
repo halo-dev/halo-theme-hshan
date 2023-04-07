@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{module/layout :: html(title = ~{::tagsTitle}, hero = null, content = ~{::tagsContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+        th:replace="~{module/layout :: html(title = ${theme.config.title.tags_title + '-' + site.title}, hero = null, content = ~{::tagsContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
 >
-<th:block th:fragment="tagsTitle">
-    <title th:text="${theme.config.title.tags_title + '-' + site.title}"></title>
-</th:block>
-
 <th:block th:fragment="tagsContent">
     <div id="page" class="site">
         <main class="site-main" id="main">
@@ -14,7 +10,7 @@
                 <header class="bg-cover page-header">
                     <div th:if="${theme.config.head_img.tag_patternimg != null and theme.config.head_img.tag_patternimg != ''}">
                         <div class="cover-bg">
-                            <img th:src="${theme.config.head_img.tag_patternimg}" th:alt="${theme.config.title.tags_title}">
+                            <img th:src="${theme.config.head_img.tag_patternimg}" th:alt="${theme.config.title.tags_title}" src="" alt="">
                         </div>
                     </div>
                     <div th:unless="${theme.config.head_img.tag_patternimg != null and theme.config.head_img.tag_patternimg != ''}">

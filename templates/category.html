@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{module/layout :: html(title = ~{::categoryTitle}, hero = null, content = ~{::categoryContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+        th:replace="~{module/layout :: html(title = ${theme.config.title.categories_title + '-' + site.title}, hero = null, content = ~{::categoryContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
 >
-<th:block th:fragment="categoryTitle">
-  <title th:text="${theme.config.title.categories_title + '-' + site.title}"></title>
-</th:block>
 <th:block th:fragment="categoryContent">
   <div id="page" class="site">
     <main class="site-main" id="main">
@@ -13,7 +10,7 @@
         <header class="bg-cover page-header">
           <div th:if="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}">
             <div class="cover-bg">
-              <img th:src="${theme.config.head_img.categories_patternimg}" th:alt="${theme.config.title.categories_title}">
+              <img th:src="${theme.config.head_img.categories_patternimg}" th:alt="${theme.config.title.categories_title}" src="" alt="分类页图片">
             </div>
           </div>
           <div th:unless="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}">

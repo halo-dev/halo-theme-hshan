@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html
         xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{module/layout :: html(title = ~{::aboutTitle}, hero = null, content = ~{::aboutContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+        th:replace="~{module/layout :: html(title = ${theme.config.title.achieve_title}, hero = null, content = ~{::aboutContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
 >
-<th:block th:fragment="aboutTitle">
-    <title th:text="${theme.config.title.achieve_title}"></title>
-</th:block>
 <th:block th:fragment="aboutContent">
     <h1>这是关于界面</h1>
 </th:block>

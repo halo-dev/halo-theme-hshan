@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{module/layout :: html(title = ~{::postTitle}, hero = null, content = ~{::postContent}, head = ~{::postHead}, footer = ~{::postFooter}, sidebar = null, contentClass = null)}"
+      th:replace="~{module/layout :: html(title = ${post.spec.title} + '-' + ${site.title}, hero = null, content = ~{::postContent}, head = ~{::postHead}, footer = ~{::postFooter}, sidebar = null, contentClass = null)}"
 >
-<th:block th:fragment="postTitle">
-    <title th:text="${post.spec.title} + '-' + ${site.title}"></title>
-</th:block>
-
-
 <th:block th:fragment="postHead">
     <th:block th:include="@{/module/highlightjs/libs-import}"></th:block>
     <th:block th:include="@{/module/tocbot/libs-import}"></th:block>
@@ -32,7 +27,7 @@
                     <header class="bg-cover post-header" id="postHeader">
                         <div th:if="${post.spec.cover != null and post.spec.cover !=''}">
                             <div class="cover-bg">
-                                <img th:src="${post.spec.cover}" th:alt="${post.spec.cover}">
+                                <img th:src="${post.spec.cover}" th:alt="${post.spec.cover}" src="" alt="">
                             </div>
                         </div>
                         <div th:unless="${post.spec.cover != null and post.spec.cover !=''}">
@@ -55,7 +50,7 @@
                                 <h1 class="post-title js-toc-ignore" th:text="${post.spec.title}">Hello Halo</h1>
                                 <div class="post-meta">
                                     <span class="post-meta-wrap">
-                                        <img class="author-avatar" th:srcset="${post.owner.avatar}" th:src="${post.owner.avatar}" alt="">
+                                        <img class="author-avatar" th:srcset="${post.owner.avatar}" th:src="${post.owner.avatar}" alt="" src="">
                                         <span class="post-author" th:text="${post.stats.visit} + '次访问'"></span>
                                         <time class="published" th:text="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}">
                                         </time>
@@ -90,7 +85,7 @@
                                             class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
                                         <img th:src="@{/assets/media/images/cuplogo-sm.png}"
-                                             class="right-mrgn-8 support-img" style="height: 16px" alt="支持作者"/>
+                                             class="right-mrgn-8 support-img" style="height: 16px" alt="支持作者" src=""/>
                                         <span id="">支持作者</span>
                                     </button>
                                 </div>
@@ -116,7 +111,6 @@
                                             rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
                                             th:href="${post.status.permalink}" th:text="${post.owner.displayName}"></a>
                                         <br>最后更新于：<p th:text="${#dates.format(post.status.lastModifyTime, 'yyyy-MM-dd' 'hh-mm-ss')}"></p>
-                                    </p>
                                 </div>
                             </div>
 <!--                            <th:block th:include="@{module/comment}">-->
@@ -148,7 +142,7 @@
                                         data-ajax class="nav-previous">
                                     <div th:if="${postCursor.previous.spec.cover != null and postCursor.previous.spec.cover != ''}">
                                         <div class="nav-bg ">
-                                            <img th:src="${postCursor.previous.spec.cover}" alt=""/>
+                                            <img th:src="${postCursor.previous.spec.cover}" alt="" src=""/>
                                         </div>
                                     </div>
                                     <div th:unless="${postCursor.previous.spec.cover != null and postCursor.previous.spec.cover != ''}">
@@ -170,7 +164,7 @@
                                         data-ajax class="nav-next">
                                     <div th:if="${postCursor.next.spec.cover ne ''}">
                                         <div class="nav-bg ">
-                                            <img th:src="${postCursor.next.spec.cover}" alt=""/>
+                                            <img th:src="${postCursor.next.spec.cover}" alt="" src=""/>
                                         </div>
                                     </div>
                                     <div th:unless="${postCursor.next.spec.cover ne ''}">
@@ -203,10 +197,10 @@
         </span>
             <div style="text-align: center;padding: 10px 0;">
                 <div th:if="${theme.config.post.QR_code_zfb != null}">
-                    <img class="qr_code_zfb" th:src="${theme.config.post.QR_code_zfb}"/>
+                    <img class="qr_code_zfb" th:src="${theme.config.post.QR_code_zfb}" src="" alt=""/>
                 </div>
                 <div th:if="${theme.config.post.QR_code_wx != null}">
-                    <img class="qr_code_wx" th:src="@{${theme.config.post.QR_code_wx}}"/>
+                    <img class="qr_code_wx" th:src="@{${theme.config.post.QR_code_wx}}" src="" alt=""/>
                 </div>
             </div>
             <div th:if="${theme.config.post.QR_code_zfb != null and theme.config.post.QR_code_wx != null}">
@@ -229,15 +223,15 @@
     $(".qr-code").on("click", function (e) {
         e.stopPropagation();
     });
-    $(".closinglayer").on("click", function (e) {
+    $(".closinglayer").on("click", function () {
         // $(".qr-code-wrap").hide();
         $(".qr-code-wrap").velocity("transition.expandOut", {duration: 300});
     });
-    $(".zfb-btn").on("click", function (e) {
+    $(".zfb-btn").on("click", function () {
         $(".qr_code_zfb").css("height", "300px");
         $(".qr_code_wx").css("height", "0");
     });
-    $(".wx-btn").on("click", function (e) {
+    $(".wx-btn").on("click", function () {
         $(".qr_code_wx").css("height", "300px");
         $(".qr_code_zfb").css("height", "0");
     });
