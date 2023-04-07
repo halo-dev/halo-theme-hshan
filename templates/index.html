@@ -33,9 +33,7 @@
                 </div>
             </header>
             <div id="postContainer">
-<!--                <div th:if ="${theme.config.general.post_list_style == 'standard'}">-->
-<!--                    <th:block th:include="@{module/post-list-style}"></th:block>-->
-<!--                </div>-->
+
                 <div th:switch="${theme.config.general.post_list_style}">
                     <th:block th:case='standard' th:include="@{module/post-list-style/standard}"></th:block>
                     <th:block th:case='simple' th:include="@{module/post-list-style/simple}"></th:block>

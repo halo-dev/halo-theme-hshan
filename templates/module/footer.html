@@ -60,13 +60,13 @@
 
         <div class="site-info">
             <th:block th:if="${theme.config.general.Icp != null}">
-                <a th:href="http://beian.miit.gov.cn" target="_blank">
+                <a th:href="@{http://beian.miit.gov.cn}" target="_blank">
                     <span th:text="${theme.config.general.Icp}"></span>
                 </a>
             </th:block>
             <th:block th:if="${theme.config.general.PublicSecurityRecord != null}">
-                <div th:style="|display: inline-block;background-image: url(/assets/images/beian.png);background-repeat: no-repeat;background-position: top left;background-size: contain;padding-left: 20px;|" target="_blank">
-                    <a th:href="http://www.beian.gov.cn" target="_blank">
+                <div th:style="|display: inline-block;background-image: url(/assets/images/beian.png);background-repeat: no-repeat;background-position: top left;background-size: contain;padding-left: 20px;|">
+                    <a th:href="@{http://www.beian.gov.cn}" target="_blank">
                         <span th:text="${theme.config.general.PublicSecurityRecord}"></span>
                     </a>
                 </div><br>
@@ -79,14 +79,14 @@
                 </a>
             </p>
             <!-- 请尊重作者，请务必保留版权 -->
-            <p><span>Powered by </span><a target="_blank" href="http://halo.run">Halo</a> •
-               <span>Theme by </span><a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-subtle-galaxy">Subtle Galaxy</a> •
-               <span>REFERENCE FROM </span><a href="https://github.com/hshanx/halo-theme-hshan.git">寒山</a></p>
+            <p><span>Powered by </span><a target="_blank" th:href="@{http://halo.run}">Halo</a> •
+               <span>Theme by </span><a target="_blank" th:href="@{https://github.com/GalaxySuze/gridea-theme-subtle-galaxy}">Subtle Galaxy</a> •
+               <span>REFERENCE FROM </span><a target="_blank" th:href="@{https://github.com/hshanx/halo-theme-hshan.git}">寒山</a></p>
             <th:block th:if="${theme.config.custom.TimeStatistics}">
                 <p>本站运行：<span id="span_dt_dt"></span></p>
             </th:block>
         </div>
-        <a href="#page" class="arrow-up" data-scroll=""><span class="screen-reader-text">Back to the top</span></a>
+        <a th:href="@{#page}" class="arrow-up" data-scroll=""><span class="screen-reader-text">Back to the top</span></a>
     </div>
 </footer>
 </div>

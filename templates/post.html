@@ -7,17 +7,17 @@
     <title th:text="${post.spec.title} + '-' + ${site.title}"></title>
 </th:block>
 
-<head>
+
 <th:block th:fragment="postHead">
-<th:block th:include="@{/module/highlightjs/libs-import}"></th:block>
-<th:block th:include="@{/module/tocbot/libs-import}"></th:block>
-<th:block th:include="@{/module/social-share/libs-import}"></th:block>
-<th:block th:include="@{/module/viewer/libs-import}"></th:block>
-<div th:if="${theme.config.post.enabled_katex}">
-    <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css}">
-</div>
+    <th:block th:include="@{/module/highlightjs/libs-import}"></th:block>
+    <th:block th:include="@{/module/tocbot/libs-import}"></th:block>
+    <th:block th:include="@{/module/social-share/libs-import}"></th:block>
+    <th:block th:include="@{/module/viewer/libs-import}"></th:block>
+    <div th:if="${theme.config.post.enabled_katex}">
+        <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css}">
+    </div>
 </th:block>
-</head>
+
 
 
 <body>
@@ -25,7 +25,7 @@
     <div id="page" class="site post-template transform-none" style="opacity: 1; display: block; transform: translateY(0px);">
         <main class="site-main" id="main">
             <div id="readProgress">
-                <div class="read-progress-bar" role="progressbar" style="width: 0%;"></div>
+                <div class="read-progress-bar" role="progressbar" style="width: 0;"></div>
             </div>
             <div class="site-content post-page">
                 <article class="post tag-getting-started" id="siteContent">
@@ -90,7 +90,7 @@
                                             class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
                                         <img th:src="@{/assets/media/images/cuplogo-sm.png}"
-                                             class="right-mrgn-8 support-img" style="height: 16px"/>
+                                             class="right-mrgn-8 support-img" style="height: 16px" alt="支持作者"/>
                                         <span id="">支持作者</span>
                                     </button>
                                 </div>

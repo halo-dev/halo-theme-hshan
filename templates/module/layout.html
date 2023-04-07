@@ -14,13 +14,13 @@
     <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}">
     <link rel="stylesheet" th:href="@{/assets/libs/font-awesome/css/font-awesome.min.css}" type="text/css" media="all">
 
-<!--    <title th:text="${theme.config.general.home_title}"></title>-->
+<!--   <title th:text="${site.title}"></title>-->
 
     <th:block th:if="${title != null}">
         <th:block th:replace="${title}"></th:block>
     </th:block>
 <!--    th:text="${theme.config.general.home_title}"-->
-    <div th:replace="@{module/style}"></div>
+    <th:block th:replace="@{module/style}"></th:block>
 <!--    <#if settings.Aplayer?? && settings.Aplayer != ''>-->
 <!--    <link rel="stylesheet" href="${theme_base!}/assets/libs/APlayer/dist/APlayer.min.css">-->
 <!--</#if>-->

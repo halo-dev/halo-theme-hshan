@@ -30,20 +30,18 @@
                 <div id="post-list" class="post-list inner" style="padding-bottom: 90px;">
                     <div class="tagcloud tag-page">
                         <div>
-                            <ul>
-                                <a
-                                    th:each="category : ${categories}"
-                                    th:href="@{${category.status.permalink}}"
-                                    th:text="${category.spec.displayName}"
-                                    class="button" data-ajax>
-                                    <span aria-hidden="true">
-                                        <span class="line left"></span>
-                                        <span class="line top"></span>
-                                        <span class="line right"></span>
-                                        <span class="line bottom"></span>
-                                    </span>
-                                </a>
-                            </ul>
+                            <a
+                                th:each="category : ${categories}"
+                                th:href="@{${category.status.permalink}}"
+                                th:text="${category.spec.displayName}"
+                                class="button" data-ajax>
+                                <span aria-hidden="true">
+                                    <span class="line left"></span>
+                                    <span class="line top"></span>
+                                    <span class="line right"></span>
+                                    <span class="line bottom"></span>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
