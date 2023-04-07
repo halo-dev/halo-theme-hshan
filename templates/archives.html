@@ -42,20 +42,20 @@
                                             </time>
                                         </div>
                                         <div class="post-title archives-list" style="margin-bottom: 0 !important;">
-                                        <div th:each="post : ${month.posts}">
-                                            <div class="read-more">
-                                                <a class="button"
-                                                   th:href="@{${post.status.permalink}}"
-                                                   data-ajax>
-                                                    <span th:text="${#dates.format(post.metadata.creationTimestamp, 'MM-dd') + ' ' + post.spec.title}"></span>
-                                                    <span aria-hidden="true"></span>
-                                                    <span class="line left"></span>
-                                                    <span class="line top"></span>
-                                                    <span class="line right"></span>
-                                                    <span class="line bottom"></span>
-                                                </a>
+                                            <div th:each="post : ${month.posts}">
+                                                <div class="read-more">
+                                                    <a class="button"
+                                                       th:href="@{${post.status.permalink}}"
+                                                       data-ajax>
+                                                        <span th:text="${#dates.format(post.metadata.creationTimestamp, 'MM-dd') + ' ' + post.spec.title}"></span>
+                                                        <span aria-hidden="true"></span>
+                                                        <span class="line left"></span>
+                                                        <span class="line top"></span>
+                                                        <span class="line right"></span>
+                                                        <span class="line bottom"></span>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </th:block>
                             </div>

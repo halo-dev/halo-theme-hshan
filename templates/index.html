@@ -32,7 +32,7 @@
             <div id="postContainer">
 
                 <div th:switch="${theme.config.general.post_list_style}">
-                    <th:block th:case='standard' th:include="@{module/post-list-style/simple}"></th:block>
+                    <th:block th:case='standard' th:include="@{module/post-list-style/standard}"></th:block>
                     <th:block th:case='simple' th:include="@{module/post-list-style/simple}"></th:block>
                     <th:block th:case='card' th:include="@{module/post-list-style/random-card}"></th:block>
                 </div>
