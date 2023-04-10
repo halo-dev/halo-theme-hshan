@@ -4,74 +4,96 @@
         th:replace="~{module/layout :: html(title = ${theme.config.title.jounarls_title}, hero = null, content = ~{::momentsContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
 >
 <th:block th:fragment="momentsContent">
-<div id="page" class="site">
-    <main class="site-main"  id="main">
-        <div class="site-content">
-            <header class="bg-cover page-header">
-                <th:block th:if="${theme.config.head_img.journals_patternimg != null and theme.config.head_img.journals_patternimg != ''}">
-                    <div class="cover-bg">
-                        <img th:src="${theme.config.head_img.journals_patternimg}" th:alt="${theme.config.title.jounarls_title}" src="" alt="">
+    <div id="page" class="site">
+        <main class="site-main"  id="main">
+            <div class="site-content">
+                <header class="bg-cover page-header">
+                    <th:block th:if="${theme.config.head_img.journals_patternimg != null and theme.config.head_img.journals_patternimg != ''}">
+                        <div class="cover-bg">
+                            <img th:src="${theme.config.head_img.journals_patternimg}" th:alt="${theme.config.title.jounarls_title}" src="" alt="">
+                        </div>
+                    </th:block>
+                    <th:block th:unless="${theme.config.head_img.journals_patternimg != null and theme.config.head_img.journals_patternimg != ''}">
+                        <div class="default-cover-bg">
+                        </div>
+                    </th:block>
+                    <div class="cover-content">
+                        <div class="inner">
+                            <div class="post-count"></div>
+                            <h1 class="page-title" style="font-size: 46px;" th:text="${theme.config.title.jounarls_title}"></h1>
+                        </div>
                     </div>
-                </th:block>
-                <th:block th:unless="${theme.config.head_img.journals_patternimg != null and theme.config.head_img.journals_patternimg != ''}">
-                    <div class="default-cover-bg">
+                </header>
+                <div id="tree-hole">
+                    <ol class="comment-list">
+                        <li  th:each="moment,momentsStat : ${moments.items}"
+                             th:with="content=${moment.spec.content}"
+                             id="li-comment-611"
+                            th:class="|tree-hole-body tree-hole-${momentsStat.count % 2 == 1 ? 'odd' : 'even'}|">
+                            <div id="comment-611">
+                                <img class="avatar" th:src="${moment.owner.avatar}" th:alt="${moment.owner.displayName}" width="40"
+                                     height="40" src="" alt="">
+                                <div class="tree-hole-box">
+                                    <div class="tree-hole-author">
+                                        <a th:href="@{${site.url}}" data-ajax
+                                           rel="external nofollow">
+                                            <span th:text="${moment.owner.displayName}"></span></a>
+                                        <span th:text="${#dates.format(moment.metadata.creationTimestamp, 'yyyy-MM-dd')}"></span>
+                                    </div>
+                                    <p th:utext="${content.html}"></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="tree-hole-go">
+                        <span class="tree-hole-go-aircraft"><i class="fa fa-paper-plane fa-lg"></i></span><br>
                     </div>
-                </th:block>
-                <div class="cover-content">
-                    <div class="inner">
-                        <div class="post-count"></div>
-                        <h1 class="page-title" style="font-size: 46px;" th:text="${theme.config.title.jounarls_title}"></h1>
+                    <div class="comment-page">
+                        <th:block th:if="${moments.totalPages gt 1}">
+                            <th:block th:with="page = ${moments.page}, total = ${moments.totalPages}">
+                                <ol class="page-navigator">
+                                    <th:block th:if="${moments.hasPrevious}">
+                                        <li class="prev">
+                                            <a th:href="@{${moments.prevUrl}}" data-ajax>
+                                                <i class="fa fa-angle-left fa-lg"></i>
+                                            </a>
+                                        </li>
+                                    </th:block>
+                                    <th:block th:each="index:${#numbers.sequence(1, moments.totalPages)}">
+                                        <th:block th:if="${moments.page == index}">
+                                            <li class="current">
+                                                <a data-ajax>
+                                                    <span th:text="${index}"></span>
+                                                </a>
+                                            </li>
+                                        </th:block>
+                                        <th:block th:if="${moments.page != index}">
+                                            <li>
+                                                <a data-ajax>
+                                                    <span th:text="${index}"></span>
+                                                </a>
+                                            </li>
+                                        </th:block>
+                                    </th:block>
+                                    <th:block th:if="${moments.hasNext}">
+                                        <li class="next">
+                                            <a th:href="@{${moments.nextUrl}}" data-ajax>
+                                                <i class="fa fa-angle-right fa-lg"></i>
+                                            </a>
+                                        </li>
+                                    </th:block>
+                                </ol>
+                            </th:block>
+                        </th:block>
                     </div>
                 </div>
-            </header>
-            <div id="tree-hole">
-                <ol class="comment-list">
-                    <li  th:each="moment : ${moments.items}"
-                         th:with="content=${moment.spec.content}"
-                         id="li-comment-611"
-                         class="tree-hole-body tree-hole-<#if (journal_index % 2)==0>odd<#else>even</#if>">
-                        <div id="comment-611">
-                            <img class="avatar" th:src="${moment.owner.avatar}" th:alt="${moment.owner.displayName}" width="40"
-                                 height="40" src="" alt="">
-                            <div class="tree-hole-box">
-                                <div class="tree-hole-author">
-                                    <a th:href="@{${site.url}}" data-ajax
-                                       rel="external nofollow">
-                                        <span th:text="${moment.owner.displayName}"></span></a>
-                                    <span th:text="${#dates.format(moment.metadata.creationTimestamp, 'yyyy-MM-dd')}"></span>
-                                </div>
-                                <p th:utext="${content.html}"></p>
-                            </div>
-                        </div>
-                    </li>
-                </ol>
             </div>
-        </div>
-    </main>
-</div>
-
-
-
-<div>
-    <ul>
-        <li th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
-            <div th:if="${not #strings.isEmpty(content.html)}" th:utext="${content.html}"></div>
-            <th:block th:if="${not #lists.isEmpty(content.medium)}" th:each="momentItem : ${content.medium}">
-                <img th:if="${momentItem.type.name == 'PHOTO'}" th:src="${momentItem.url}" alt="" src=""/>
-                <video th:if="${momentItem.type.name == 'VIDEO'}" th:src="${momentItem.url}"></video>
-            </th:block>
-        </li>
-    </ul>
-    <div th:if="${moments.hasPrevious() || moments.hasNext()}">
-        <a th:href="@{${moments.prevUrl}}">
-            <span>上一页</span>
-        </a>
-        <span th:text="${moments.page}"></span>
-        <a th:href="@{${moments.nextUrl}}">
-            <span>下一页</span>
-        </a>
+        </main>
     </div>
-</div>
+
+
+
 
 </th:block>
 
