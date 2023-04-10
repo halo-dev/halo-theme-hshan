@@ -7,7 +7,6 @@
     <div id="page" class="site" style="opacity: 1; display: block; transform: translateY(0px);">
         <main class="site-main" id="main">
             <div class="site-content">
-
                 <header class="bg-cover page-header">
                     <div th:if="${theme.config.head_img.archives_patternimg != null and theme.config.head_img.archives_patternimg !=''}">
                         <div class="cover-bg">
@@ -61,6 +60,45 @@
                             </div>
                         </header>
                     </article>
+                    </th:block>
+                </div>
+                <!--                分页-->
+                <div class="comment-page">
+                    <th:block th:if="${archives.totalPages gt 1}">
+                        <th:block th:with="page = ${archives.page}, total = ${archives.totalPages}">
+                            <ol class="page-navigator">
+                                <th:block th:if="${archives.hasPrevious}">
+                                    <li class="prev">
+                                        <a th:href="@{${archives.prevUrl}}" data-ajax>
+                                            <i class="fa fa-angle-left fa-lg"></i>
+                                        </a>
+                                    </li>
+                                </th:block>
+                                <th:block th:each="index:${#numbers.sequence(1, archives.totalPages)}">
+                                    <th:block th:if="${archives.page == index}">
+                                        <li class="current">
+                                            <a data-ajax>
+                                                <span th:text="${index}"></span>
+                                            </a>
+                                        </li>
+                                    </th:block>
+                                    <th:block th:if="${archives.page != index}">
+                                        <li>
+                                            <a data-ajax>
+                                                <span th:text="${index}"></span>
+                                            </a>
+                                        </li>
+                                    </th:block>
+                                </th:block>
+                                <th:block th:if="${archives.hasNext}">
+                                    <li class="next">
+                                        <a th:href="@{${archives.nextUrl}}" data-ajax>
+                                            <i class="fa fa-angle-right fa-lg"></i>
+                                        </a>
+                                    </li>
+                                </th:block>
+                            </ol>
+                        </th:block>
                     </th:block>
                 </div>
             </div>
