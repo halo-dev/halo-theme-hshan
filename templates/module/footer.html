@@ -65,7 +65,7 @@
                 </a>
             </th:block>
             <th:block th:if="${theme.config.general.PublicSecurityRecord != null}">
-                <div th:style="|display: inline-block;background-image: url(/assets/images/beian.png);background-repeat: no-repeat;background-position: top left;background-size: contain;padding-left: 20px;|">
+                <div th:style="|display: inline-block;background-image: url(@{/assets/images/beian.png});background-repeat: no-repeat;background-position: top left;background-size: contain;padding-left: 20px;|">
                     <a th:href="@{http://www.beian.gov.cn}" target="_blank">
                         <span th:text="${theme.config.general.PublicSecurityRecord}"></span>
                     </a>

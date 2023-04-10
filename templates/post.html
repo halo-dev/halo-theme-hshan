@@ -73,14 +73,14 @@
                                 ></article>
                             </div>
                             <div id="tocFlag">
-                                <div th:if="${theme.config.post.post_toc}">
+                                <div th:if="${theme.config.post.post_toc == true}">
                                     <aside id="toc" class="toc"></aside>
                                 </div>
                             </div>
                         </div>
                         <div class="article-info" id="articleInfo">
                             <div class="extra-info extra-info-center">
-                                <div th:unless="${theme.config.post.QR_code_zfb == null && theme.config.post.QR_code_wx == null}">
+                                <div th:if="${theme.config.post.QR_code_zfb != null || theme.config.post.QR_code_wx != null}">
                                     <button type="submit"
                                             class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
