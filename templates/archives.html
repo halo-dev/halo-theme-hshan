@@ -32,14 +32,15 @@
                     <article class="post">
                         <!-- post-header -->
                         <header class="post-header" style="margin-bottom: 0 !important;">
-                            <div class="post-header-wrap">
                                 <th:block th:each="month : ${archive.months}">
+                                    <div class="post-header-wrap">
                                         <div class="post-meta">
                                             <time class="published published-txt" style="font-weight: bolder;"
                                                   th:datetime="${archive.year}"
                                                   th:text="${archive.year + '年' + month.month + '月'}">
                                             </time>
                                         </div>
+
                                         <div class="post-title archives-list" style="margin-bottom: 0 !important;">
                                             <div th:each="post : ${month.posts}">
                                                 <div class="read-more">
@@ -55,9 +56,10 @@
                                                     </a>
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </th:block>
-                            </div>
+
                         </header>
                     </article>
                     </th:block>

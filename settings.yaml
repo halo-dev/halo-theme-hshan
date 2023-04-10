@@ -39,7 +39,7 @@ spec:
         - $formkit: text
           name: header_logo_height
           label: 菜单 Logo 高度
-          placeholder: "比如: 20px"
+          placeholder: 20px
         - $formkit: radio
           name: post_list_style
           label: 首页文章风格
