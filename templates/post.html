@@ -17,7 +17,7 @@
 
 <body>
 <th:block th:fragment="postContent">
-    <div id="page" class="site post-template transform-none" style="opacity: 1; display: block; transform: translateY(0px);">
+    <div id="page" class="site post-template">
         <main class="site-main" id="main">
             <div id="readProgress">
                 <div class="read-progress-bar" role="progressbar" style="width: 0;"></div>
@@ -63,8 +63,6 @@
                             </div>
                         </div>
                     </header>
-
-
                     <div class="post-inner">
                         <div class="article-body">
                             <div class="post-content article-content" id="post-content">
@@ -80,7 +78,7 @@
                         </div>
                         <div class="article-info" id="articleInfo">
                             <div class="extra-info extra-info-center">
-                                <div th:if="${theme.config.post.QR_code_zfb != null || theme.config.post.QR_code_wx != null}">
+                                <div th:if="${theme.config.general.QR_code_zfb != null || theme.config.general.QR_code_wx != null}">
                                     <button type="submit"
                                             class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
@@ -109,8 +107,8 @@
                                     <p>本文由 <a th:href="${post.status.permalink}" th:text="${post.owner.displayName}"></a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a
                                             href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
                                             rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
-                                            th:href="${post.status.permalink}" th:text="${post.owner.displayName}"></a>
-                                        <br>最后更新于：<p th:text="${#dates.format(post.status.lastModifyTime, 'yyyy-MM-dd' 'hh-mm-ss')}"></p>
+                                            th:href="${post.status.permalink}" th:text="${post.status.permalink}"></a>
+                                        <br>最后更新于：<p th:text="${#dates.format(post.status.lastModifyTime, 'yyyy-MM-dd HH:mm:ss')}"></p>
                                 </div>
                             </div>
 <!--                            <th:block th:include="@{module/comment}">-->
@@ -120,13 +118,16 @@
 <!--                                <@comment sheet,"sheet" />-->
 <!--                            </#if>-->
 <!--                            </th:block>-->
-                            <div th:if="${pluginFinder.available('PluginCommentWidget')}">
-                                <halo:comment
-                                        group="content.halo.run"
-                                        kind="Post"
-                                        th:attr="name=${post.metadata.name}"
-                                        colorScheme="window.main.currentColorScheme"
-                                />
+                            <div th:if="${post.spec.allowComment == true}">
+                                <script th:src="@{/assets/libs/vue/vue.min.js}"></script>
+                                <div th:if="${pluginFinder.available('PluginCommentWidget')}">
+                                    <halo:comment
+                                            group="content.halo.run"
+                                            kind="Post"
+                                            th:attr="name=${post.metadata.name}"
+                                            colorScheme="window.main.currentColorScheme"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -186,7 +187,6 @@
                     </nav>
                 </div>
             </div>
-
         </main>
     </div>
     <div class="qr-code-wrap" role="dialog">
@@ -196,14 +196,14 @@
                 <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
         </span>
             <div style="text-align: center;padding: 10px 0;">
-                <div th:if="${theme.config.post.QR_code_zfb != null}">
-                    <img class="qr_code_zfb" th:src="${theme.config.post.QR_code_zfb}" src="" alt=""/>
+                <div th:if="${theme.config.general.QR_code_zfb != null}">
+                    <img class="qr_code_zfb" th:src="@{${theme.config.general.QR_code_zfb}}" src="" alt=""/>
                 </div>
-                <div th:if="${theme.config.post.QR_code_wx != null}">
-                    <img class="qr_code_wx" th:src="@{${theme.config.post.QR_code_wx}}" src="" alt=""/>
+                <div th:if="${theme.config.general.QR_code_wx != null}">
+                    <img class="qr_code_wx" th:src="@{${theme.config.general.QR_code_wx}}" src="" alt=""/>
                 </div>
             </div>
-            <div th:if="${theme.config.post.QR_code_zfb != null and theme.config.post.QR_code_wx != null}">
+            <div th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_wx != null}">
                 <div class="switch-btn">
                     <span class="zfb-btn">支付宝</span>
                     <span class="wx-btn">微信</span>
@@ -218,7 +218,6 @@
     <th:block th:include="@{/module/tocbot/scripts}"></th:block>
     <th:block th:include="@{/module/social-share/scripts}"></th:block>
     <th:block th:include="@{/module/viewer/scripts}"></th:block>
-
     <script>
     $(".qr-code").on("click", function (e) {
         e.stopPropagation();

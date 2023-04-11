@@ -1,5 +1,5 @@
 <script>
-  $('.share-btn').on("click", function (e) {
+  $('.share-btn').on("click", function () {
     var icons = $('#socialShare');
     if (icons.hasClass('show')) {
       $('#socialShare').velocity("transition.slideUpOut", {duration: 300});
@@ -11,7 +11,7 @@
 
   const $config = {
     sites: ['google', 'twitter', 'facebook', 'weibo', 'qq', 'tencent', 'qzone', 'linkedin', 'wechat', 'douban', 'diandian'], // 启用的站点
-    disabled: '${settings.share_disabeld!''}'.split(','), // 禁用的站点
+    disabled: '${settings.share_disabeld}'.split(','), // 禁用的站点
   };
 
   socialShare('.social-share', $config);

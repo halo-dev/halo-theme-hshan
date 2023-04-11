@@ -4,12 +4,12 @@
 >
 <div th:fragment="footer">
 <footer class="site-footer" id="siteFooter">
-    <th:block th:if="${theme.config.other.Aplayer != null and themm.config.other.Aplayer != ''}">
+    <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
         <meting-js
                 server="netease"
                 type="playlist"
                 fixed="true"
-                th:id="${themm.config.other.Aplayer}">
+                th:id="${theme.config.other.Aplayer}">
         </meting-js>
     </th:block>
 

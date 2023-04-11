@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="zh">
 <script>
   (async function () {
     const extraLanguages = "${theme.config.post.highlight_extra_languages!''}".split(",").filter(x => x);
@@ -28,7 +26,7 @@
       script.src = url;
       script.onload = resolve;
       script.onerror = reject;
-      document.head.appendChild(scripts);
+      document.head.appendChild(script);
     });
   }
 </script>
