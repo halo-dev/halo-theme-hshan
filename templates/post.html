@@ -79,16 +79,17 @@
                         <div class="article-info" id="articleInfo">
                             <div class="extra-info extra-info-center">
                                 <div th:if="${theme.config.general.QR_code_zfb != null || theme.config.general.QR_code_wx != null}">
+<!--                                    相比与原版，这里把button里的class="width-47"去掉-->
                                     <button type="submit"
-                                            class="appreciate-btn btn-primary font-bold rounded width-47 height-46 custom-color-solid-bg font-16-to-14"
+                                            class="appreciate-btn btn-primary font-bold rounded height-46 custom-color-solid-bg font-16-to-14"
                                             onclick="">
                                         <img th:src="@{/assets/media/images/cuplogo-sm.png}"
                                              class="right-mrgn-8 support-img" style="height: 16px" alt="支持作者" src=""/>
-                                        <span id="">支持作者</span>
+                                        <span >支持作者</span>
                                     </button>
                                 </div>
                                 <div th:if="${theme.config.post.social_share != null and theme.config.post.social_share != false}">
-                                    <button class="btn-primary btn-primary-light font-bold rounded width-47 height-46 custom-color-secondary-bg share-btn "
+                                    <button class="btn-primary btn-primary-light font-bold rounded height-46 custom-color-secondary-bg share-btn "
                                             onclick="">
                                         <span>分享</span>
                                     </button>
@@ -155,7 +156,7 @@
                                         <span class="nav-title" th:text="${postCursor.previous.spec.title}"></span>
                                         <span class="nav-date">
                                             <time class="published"
-                                                     th:text="${#dates.format(postCursor.previous.metadata.creationTimestamp, 'yyyy-MM-dd')}">
+                                                  th:text="${#dates.format(postCursor.previous.metadata.creationTimestamp, 'yyyy-MM-dd')}">
                                             </time>
                                             </span>
                                     </div>

@@ -15,46 +15,46 @@
 
     <div class="inner">
         <div class="offsite-links">
-            <div th:if="${theme.config.social.sina != null}">
+            <th:block th:if="${theme.config.social.sina != null}">
                 <a th:href="@{${theme.config.social.sina}}" class="circle" target="_blank" rel="noopener">
                     <th:block th:include="@{module/icon/weibo}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.qq != null}">
+            </th:block>
+            <th:block th:if="${theme.config.social.qq != null}">
                 <a th:href="@{'//wpa.qq.com/msgrd?v=3&uin=' + ${theme.config.social.qq} + '&site=qq&menu=yes'}" class="circle" target="_blank" rel="noopener" title="QQ Chat">
                     <th:block th:include="@{module/icon/qq}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.telegram != null}">
+            </th:block>
+            <th:block th:if="${theme.config.social.telegram != null}">
                 <a th:href="@{'https://t.me/' + ${theme.config.social.telegram}}" class="circle" target="_blank" rel="noopener" title="Telegram Chat">
                     <th:block th:include="@{module/icon/telegram}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.twitter != null}">
-                <a th:href="${theme.config.social.twitter}" class="circle" target="_blank" rel="noopener" title="Twitter">
+            </th:block>
+            <th:block th:if="${theme.config.social.twitter != null}">
+                <a th:href="@{${theme.config.social.twitter}}" class="circle" target="_blank" rel="noopener" title="Twitter">
                     <th:block th:include="@{module/icon/twitter}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.github != null}">
-                <a th:href="${theme.config.social.github}" class="circle" target="_blank" rel="noopener" title="Github">
+            </th:block>
+            <th:block th:if="${theme.config.social.github != null}">
+                <a th:href="@{${theme.config.social.github}}" class="circle" target="_blank" rel="noopener" title="Github">
                     <th:block th:include="@{module/icon/github}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.zhihu != null}">
-                <a th:href="${theme.config.social.zhihu}" class="circle" target="_blank" rel="noopener" title="知乎">
+            </th:block>
+            <th:block th:if="${theme.config.social.zhihu != null}">
+                <a th:href="@{${theme.config.social.zhihu}}" class="circle" target="_blank" rel="noopener" title="知乎">
                     <th:block th:include="@{module/icon/zhihu}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.mail != null}">
-                <a th:href="'mailto:' + ${theme.config.social.mail}" class="circle" target="_blank" rel="noopener" title="邮箱">
+            </th:block>
+            <th:block th:if="${theme.config.social.mail != null}">
+                <a th:href="@{'mailto:' + ${theme.config.social.mail}}" class="circle" target="_blank" rel="noopener" title="邮箱">
                     <th:block th:include="@{module/icon/mail}"></th:block>
                 </a>
-            </div>
-            <div th:if="${theme.config.social.rss != null}">
-                <a th:href="'mailto:' + ${theme.config.social.rss}" class="circle" target="_blank" rel="noopener" title="RSS">
+            </th:block>
+            <th:block th:if="${theme.config.social.rss != null}">
+                <a th:href="@{'mailto:' + ${theme.config.social.rss}}" class="circle" target="_blank" rel="noopener" title="RSS">
                     <th:block th:include="@{module/icon/rss}"></th:block>
                 </a>
-            </div>
+            </th:block>
         </div>
 
 

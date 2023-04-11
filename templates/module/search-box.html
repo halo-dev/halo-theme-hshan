@@ -6,11 +6,9 @@
 <div class="searchbox ins-search search-popup">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <form method="get" action="/search">
                 <label>
-                    <input type="text" class="searchbox-input ins-search-input" name="keyword" placeholder="请输入关键字" autocomplete="off"/>
+                    <input type="text" class="searchbox-input ins-search-input" name="keyword" placeholder="请输入关键字" autocomplete="off" onclick="searchAction()"/>
                 </label>
-            </form>
             <span class="searchbox-close ins-close ins-selectable" onclick="closeSearchPanel()"><i class="fa fa-times"></i></span>
         </div>
 
@@ -18,7 +16,7 @@
             <div class="ins-section-container">
                 <section class="ins-section">
                     <header class="ins-section-header">最新文章</header>
-                    <div th:each="post : ${posts.items}">
+                    <div th:with="posts = ${postFinder.list(1,site.post.postPageSize)}" th:each="post : ${posts.items}">
                         <a th:href="@{${post.status.permalink}}">
                             <div class="ins-selectable ins-search-item">
                                 <header><i class="fa fa-file"></i>
@@ -33,17 +31,19 @@
                     <header class="ins-section-header">分类</header>
                     <div class="level">
                         <div class="columns is-multiline">
-                            <div th:each="category : ${categories}">
-                                <a th:href="@{${category.status.permalink}}">
-                                    <div class="ins-selectable ins-search-item">
-                                        <header>
-                                            <i class="fa fa-folder"></i>
-                                            <span th:text="${category.spec.displayName}" class="ins-title"></span>
-                                            <span th:text="${category.spec.slug}" class="ins-slug"></span>
-                                        </header>
-                                    </div>
-                                </a>
-                            </div>
+                            <ul th:with="categories = ${categoryFinder.list(1,site.post.archivePageSize)}">
+                                <li th:each="category : ${categories.items}">
+                                    <a th:href="@{${category.status.permalink}}" >
+                                        <div class="ins-selectable ins-search-item">
+                                            <header>
+                                                <i class="fa fa-folder"></i>
+                                                <span th:text="${category.spec.displayName}" class="ins-title"></span>
+                                                <span th:text="${category.spec.slug}" class="ins-slug"></span>
+                                            </header>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -51,17 +51,19 @@
                     <header class="ins-section-header">标签</header>
                     <div class="level">
                         <div class="columns is-multiline">
-                            <div th:each="tag :${tags}">
-                                <a th:href="@{${tag.status.permalink}}">
-                                    <div class="ins-selectable ins-search-item">
-                                        <header>
-                                            <i class="fa fa-tag"></i>
-                                            <span th:text="${tag.spec.displayName}" class="ins-title"></span>
-                                            <span th:text="${tag.spec.slug}" class="ins-slug"></span>
-                                        </header>
-                                    </div>
-                                </a>
-                            </div>
+                            <ul th:with="tags = ${tagFinder.list(1,site.post.tagPageSize)}">
+                                <li th:each="tag :${tags}">
+                                    <a th:href="@{${tag.status.permalink}}" >
+                                        <div class="ins-selectable ins-search-item">
+                                            <header>
+                                                <i class="fa fa-tag"></i>
+                                                <span th:text="${tag.spec.displayName}" class="ins-title"></span>
+                                                <span th:text="${tag.spec.slug}" class="ins-slug"></span>
+                                            </header>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -77,6 +79,9 @@
 
     function closeSearchPanel() {
         $(".search-popup").velocity("transition.expandOut", { duration: 300 });
+    }
+    function searchAction(){
+        SearchWidget.open();
     }
 </script>
 </div>
