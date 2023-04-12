@@ -27,14 +27,14 @@
             <th:block th:each="index:${#numbers.sequence(1,posts.totalPages)}">
                 <th:block th:if="${posts.page == index}">
                     <span class="page-number">
-                        <a th:href="@{${'/page/'}  + ${index}}" data-scroll data-ajax>
+                        <a th:href="@{'/page/'  + ${index}}" data-scroll data-ajax>
                             <span th:text="${index}"></span>
                         </a>
                     </span>
                 </th:block>
                 <th:block th:if="${posts.page != index}">
                     <span class="page-number">
-                        <a th:href="@{${'/page/'}  + ${index}}" data-scroll data-ajax>
+                        <a th:href="@{'/page/'  + ${index}}" data-scroll data-ajax>
                             <span th:text="${index}"></span>
                         </a>
                     </span>
