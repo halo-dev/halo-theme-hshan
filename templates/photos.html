@@ -31,7 +31,9 @@
                 </header>
                 <div class="photos-box article-content" id="gallery-content">
                     <th:block th:each="group : ${groups}">
-                        <h3 th:text="${group.spec.displayName}" style="width: 100%; margin: 10px;"></h3>
+                        <h3 style="width: 100%; margin: 10px;">
+                            <span th:text="${group.spec.displayName}" ></span>
+                        </h3>
                         <div class="justified-gallery">
                             <th:block th:each="photo : ${group.photos}">
                                 <a class="gallery-item jg-entry entry-visible" href="javascript:void(0)" data-not-pjax>
@@ -50,8 +52,8 @@
 </th:block>
 
 <th:block th:fragment="photosFooter">
-    <th:block th:include="@{/module/viewer/libs-import}"></th:block>
-    <th:block th:include="@{/module/viewer/scripts}"></th:block>
+    <th:block th:include="@{/module/justifiedGallery/libs-import}"></th:block>
+    <th:block th:include="@{/module/justifiedGallery/scripts}"></th:block>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             new Viewer(document.getElementById('gallery-content'), {

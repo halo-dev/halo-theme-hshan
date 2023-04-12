@@ -1,2 +1,0 @@
-<link rel="stylesheet" href="${theme_base!}/assets/libs/JustifiedGallery/dist/css/justifiedGallery.min.css">
-<script src="${theme_base!}/assets/libs/JustifiedGallery/dist/js/jquery.justifiedGallery.min.js"></script>
