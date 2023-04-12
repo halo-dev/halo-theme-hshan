@@ -16,16 +16,19 @@
             <div class="ins-section-container">
                 <section class="ins-section">
                     <header class="ins-section-header">最新文章</header>
-                    <div th:with="posts = ${postFinder.list(1,site.post.postPageSize)}" th:each="post : ${posts.items}">
-                        <a th:href="@{${post.status.permalink}}">
-                            <div class="ins-selectable ins-search-item">
-                                <header><i class="fa fa-file"></i>
-                                    <span th:text="${post.spec.title}" class="ins-title"></span>
-                                </header>
-                                <p th:text="${post.spec.excerpt.raw}" class="ins-search-preview"></p>
-                            </div>
-                        </a>
-                    </div>
+                    <ul th:with="posts = ${postFinder.list(1,site.post.postPageSize)}">
+                        <li th:each="post : ${posts.items}">
+                            <a th:href="@{${post.status.permalink}}" >
+                                <div class="ins-selectable ins-search-item">
+                                    <header>
+                                        <i class="fa fa-file"></i>
+                                        <span th:text="${post.spec.title}" class="ins-title"></span>
+                                        <span th:text="${post.spec.excerpt.raw}" class="ins-search-preview"></span>
+                                    </header>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </section>
                 <section class="ins-section">
                     <header class="ins-section-header">分类</header>
@@ -84,4 +87,7 @@
         SearchWidget.open();
     }
 </script>
+<style>
+    li{ list-style: none;}
+</style>
 </div>

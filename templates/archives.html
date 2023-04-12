@@ -67,7 +67,7 @@
                 <!--                分页-->
                 <div class="comment-page">
                     <th:block th:if="${archives.totalPages gt 1}">
-                        <th:block th:with="page = ${archives.page}, total = ${archives.totalPages}">
+                        <th:block>
                             <ol class="page-navigator">
                                 <th:block th:if="${archives.hasPrevious}">
                                     <li class="prev">

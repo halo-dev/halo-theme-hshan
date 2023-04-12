@@ -63,14 +63,14 @@
                                     <th:block th:each="index:${#numbers.sequence(1, moments.totalPages)}">
                                         <th:block th:if="${moments.page == index}">
                                             <li class="current">
-                                                <a data-ajax>
+                                                <a th:href="@{${path+'/page/'}  + ${index}}" data-ajax>
                                                     <span th:text="${index}"></span>
                                                 </a>
                                             </li>
                                         </th:block>
                                         <th:block th:if="${moments.page != index}">
                                             <li>
-                                                <a data-ajax>
+                                                <a th:href="@{${path+'/page/'}  + ${index}}" data-ajax>
                                                     <span th:text="${index}"></span>
                                                 </a>
                                             </li>
