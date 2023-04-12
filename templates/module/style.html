@@ -3,12 +3,13 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <th:block th:fragment="style">
-<style>
+<style th:with="post_max_wdth = ${theme.config.post.post_max_wdth}, content_font_size = ${theme.config.post.content_font_size},
+content_line_height = ${theme.config.post.content_line_height}, base_color = ${theme.config.general.base_color}">
   :root {
-    --post-max-width: 800px !important;
-    --content-font-size: 1.12rem !important;
-    --content-line-height: 2rem !important;
-    --base-color: #2474b5;
+    --post-max-width: ${post_max_wdth} !important;
+    --content-font-size: ${content_font_size} !important;
+    --content-line-height: ${content_line_height} !important;
+    --base-color: ${base_color};
     --post-head-color: rgb(219, 219, 226);
     --toc-bg-color: #8e8787;
     --night-toc-bg-color: #e5e5e5;
