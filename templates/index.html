@@ -5,7 +5,7 @@
 >
 <th:block th:fragment="indexContent">
 <!--<body class="night">-->
-<div id="page" class="site" style="opacity: 1; display: block; transform: translateY(0px);">
+<div id="page" class="site" >
     <main class="site-main" id="main">
         <div class="site-content home-content">
             <!-- 封面 -->
@@ -23,9 +23,11 @@
                 <div class="cover-content">
                     <!-- 封面内容 -->
                     <div class="inner">
-                        <h2 class="hero-title" th:text="${site.title}"></h2>
-                        <p class="hero-text" id="slogan"></p>
-                        <a href="#postContainer" class="arrow-down" data-scroll=""><span class="screen-reader-text">Scroll Down</span></a>
+                        <h2 class="hero-title" th:text="${theme.config.general.home_title != null} ? ${theme.config.general.home_title} : ${site.title}"></h2>
+                            <p class="hero-text" id="slogan">
+                                <span th:text="${theme.config.general.home_description}"></span>
+                            </p>
+                        <a href="#postContainer" class="arrow-down" data-scroll><span class="screen-reader-text">Scroll Down</span></a>
                     </div>
                 </div>
             </header>

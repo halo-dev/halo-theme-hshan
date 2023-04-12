@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <th:block th:fragment="content">
-    <div
+    <nav
             id="pagination"
             th:if="${posts.total gt 0}"
             th:with="postItems=${posts.items}"
@@ -24,7 +24,22 @@
         <!--            <span>上一页</span>-->
                 </a>
             </div>
-
+            <th:block th:each="index:${#numbers.sequence(1,posts.totalPages)}">
+                <th:block th:if="${posts.page == index}">
+                    <span class="page-number">
+                        <a th:href="@{${'/page/'}  + ${index}}" data-scroll data-ajax>
+                            <span th:text="${index}"></span>
+                        </a>
+                    </span>
+                </th:block>
+                <th:block th:if="${posts.page != index}">
+                    <span class="page-number">
+                        <a th:href="@{${'/page/'}  + ${index}}" data-scroll data-ajax>
+                            <span th:text="${index}"></span>
+                        </a>
+                    </span>
+                </th:block>
+            </th:block>
             <span class="page-number" th:text="|${posts.page} / ${posts.totalPages}|"></span>
             <div  th:if="${posts.hasNext()}">
                 <a
@@ -37,6 +52,6 @@
                 </a>
             </div>
         </div>
-    </div>
+    </nav>
 </th:block>
 </html>

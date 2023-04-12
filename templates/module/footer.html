@@ -82,8 +82,8 @@
             <p><span>Powered by </span><a target="_blank" th:href="@{http://halo.run}">Halo</a> •
                <span>Theme by </span><a target="_blank" th:href="@{https://github.com/GalaxySuze/gridea-theme-subtle-galaxy}">Subtle Galaxy</a> •
                <span>REFERENCE FROM </span><a target="_blank" th:href="@{https://github.com/hshanx/halo-theme-hshan.git}">寒山</a></p>
-            <th:block th:if="${theme.config.custom.TimeStatistics}">
-                <p>本站运行：<span id="span_dt_dt"></span></p>
+            <th:block th:if="${theme.config.custom.TimeStatistics != null}">
+                <p>本站运行：<span id="span_dt_dt" th:text="${theme.config.custom.TimeStatistics}"></span></p>
             </th:block>
         </div>
         <a th:href="@{#page}" class="arrow-up" data-scroll=""><span class="screen-reader-text">Back to the top</span></a>
