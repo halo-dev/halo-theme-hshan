@@ -4,13 +4,13 @@
       th:replace="~{module/layout :: html(title = ${post.spec.title} + '-' + ${site.title}, hero = null, content = ~{::postContent}, head = ~{::postHead}, footer = ~{::postFooter}, sidebar = null, contentClass = null)}"
 >
 <th:block th:fragment="postHead">
-    <th:block th:include="@{/module/highlightjs/libs-import}"></th:block>
-    <th:block th:include="@{/module/tocbot/libs-import}"></th:block>
-    <th:block th:include="@{/module/social-share/libs-import}"></th:block>
-    <th:block th:include="@{/module/viewer/libs-import}"></th:block>
-    <div th:if="${theme.config.post.enabled_katex}">
+    <th:block th:include="@{/module/tocbot/libs-import} :: libs-import"></th:block>
+    <th:block th:include="@{/module/highlightjs/libs-import} :: libs-import"></th:block>
+    <th:block th:include="@{/module/social-share/libs-import} :: libs-import"></th:block>
+    <th:block th:include="@{/module/viewer/libs-import} :: libs-import"></th:block>
+    <th:block th:if="${theme.config.post.enabled_katex}">
         <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css}">
-    </div>
+    </th:block>
 </th:block>
 
 
@@ -134,7 +134,7 @@
                     </div>
                 </article>
 
-                <div th:if="${theme.config.post.post_nepre}">
+                <div th:if="${theme.config.post.post_nepre == true}">
                     <nav class="post-navigation" id="post-navigation">
                         <h2 class="screen-reader-text">Post navigation</h2>
                         <div class="nav-links">
@@ -219,7 +219,7 @@
     <th:block th:include="@{/module/tocbot/scripts}"></th:block>
     <th:block th:include="@{/module/social-share/scripts}"></th:block>
     <th:block th:include="@{/module/viewer/scripts}"></th:block>
-    <script>
+    <script th:inline="javascript">
     $(".qr-code").on("click", function (e) {
         e.stopPropagation();
     });
@@ -249,7 +249,7 @@
 
     function readProgress() {
 
-        const displayReadProgress = true;
+        const displayReadProgress = [(${theme.config.post.open_read_progress != null and theme.config.post.open_read_progress != '' ? theme.config.post.open_read_progress : true})];
 
         // 文章内容
         var $content = $("#main");

@@ -11,11 +11,17 @@
 <script th:src="@{/assets/libs/velocity/velocity.min.js}"></script>
 <script th:src="@{/assets/libs/velocity/velocity.ui.min.js}"></script>
 
+<th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
+    <script th:src="@{/assets/libs/APlayer/dist/APlayer.min.js}"></script>
+    <script th:src="@{/assets/libs/meting/Meting.min.js}"></script>
+</th:block>
 
-<script type="text/javascript">
-  const nightModeStartTime = 18;
-  const nightModeEndTime = 6;
-</script>
+<th:block th:if="${theme.config.general.auto_night_mode == true}">
+    <script th:inline="javascript" type="text/javascript">
+      const nightModeStartTime = [(${theme.config.general.night_mode_start_time != null and theme.config.general.night_mode_start_time != ''? theme.config.general.night_mode_start_time : 18})];
+      const nightModeEndTime = [(${theme.config.general.night_mode_end_time != null and theme.config.general.night_mode_end_time != ''? theme.config.general.night_mode_end_time : 6})];
+    </script>
+</th:block>
 <script th:src="@{/assets/media/scripts/night-mode.min.js?v={version}(version=${theme.spec.version})}"></script>
 
 

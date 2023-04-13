@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
-<div th:if="${theme.config.post.post_toc == true}">
-  <srcipt th:src="@{/assets/libs/tocbot/dist/tocbot.min.js}"></srcipt>
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="libs-import">
+  <th:block th:if="${theme.config.post.post_toc == true}">
+    <script th:src="@{/assets/libs/tocbot/dist/tocbot.min.js}"></script>
+  </th:block>
 </div>
-</html>

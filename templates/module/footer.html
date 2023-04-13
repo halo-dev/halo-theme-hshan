@@ -50,7 +50,7 @@
                     <th:block th:include="@{module/icon/mail}"></th:block>
                 </a>
             </th:block>
-            <th:block th:if="${theme.config.social.rss != null}">
+            <th:block th:if="${theme.config.social.rss == true}">
                 <a th:href="@{'mailto:' + ${theme.config.social.rss}}" class="circle" target="_blank" rel="noopener" title="RSS">
                     <th:block th:include="@{module/icon/rss}"></th:block>
                 </a>

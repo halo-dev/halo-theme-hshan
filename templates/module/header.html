@@ -63,10 +63,12 @@
     <div id="scrollMenu" class="scroll-menu header-inner">
         <div class="menu-items">
             <ul>
-                <li th:if="${site.logo != null}">
-                    <a th:href="@{/}" style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;">
-                        <img th:if="${not #strings.isEmpty(site.logo)}" th:src="@{${site.logo}}" alt="Logo" class="h-full w-full" src=""
-                             style="height: 30px"
+                <li th:if="${theme.config.general.header_logoimg != null and theme.config.general.header_logoimg != ''}">
+                    <a th:href="@{${site.url}}" data-ajax id="headerLogo"
+                       style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;"
+                       onfocus="this.blur();">
+                        <img th:src="@{${theme.config.general.header_logoimg}}" th:alt="${site.title}" class="h-full w-full" src="" alt=""
+                             th:style="${theme.config.general.header_logo_height != null and theme.config.general.header_logo_height != ''} ? 'height:' + ${theme.config.general.header_logo_height} : '' "
                         />
                     </a>
                 </li>

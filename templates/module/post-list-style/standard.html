@@ -31,7 +31,7 @@
                             <time class="published" th:text="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}"
                                   th:datetime="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}">
                             </time>
-                            <th:block th:if="${post.spec.excerpt.raw != null}">
+                            <th:block th:if="${theme.config.general.post_summary != false}">
                                 <p class="post-item-summary" th:text="${post.spec.excerpt.raw}"></p>
                             </th:block>
                         </div>

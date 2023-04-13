@@ -3,13 +3,12 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <th:block th:fragment="style">
-<style th:with="post_max_wdth = ${theme.config.post.post_max_wdth}, content_font_size = ${theme.config.post.content_font_size},
-content_line_height = ${theme.config.post.content_line_height}, base_color = ${theme.config.general.base_color}">
+<style th:inline="css">
   :root {
-    --post-max-width: ${post_max_wdth} !important;
-    --content-font-size: ${content_font_size} !important;
-    --content-line-height: ${content_line_height} !important;
-    --base-color: ${base_color};
+    --post-max-width: [(${theme.config.post.post_max_wdth})] !important;
+    --content-font-size: [(${theme.config.post.content_font_size})] !important;
+    --content-line-height: [(${theme.config.post.content_line_height})] !important;
+    --base-color: [(${theme.config.general.base_color})];
     --post-head-color: rgb(219, 219, 226);
     --toc-bg-color: #8e8787;
     --night-toc-bg-color: #e5e5e5;
@@ -67,6 +66,7 @@ content_line_height = ${theme.config.post.content_line_height}, base_color = ${t
     --code-dark-variable-color: #67cdcc;
   }
 
+  /*[# th:if="${theme.config.general.custom_scroller == true}" ]*/
   /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
   ::-webkit-scrollbar {
     width: 5px;
@@ -88,23 +88,26 @@ content_line_height = ${theme.config.post.content_line_height}, base_color = ${t
   /*定义滑块 内阴影+圆角*/
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #2474b5;
+    background-color: [(${theme.config.general.custom_scroller_color})];
   }
+  /*[/]*/
 
-
+  /*[# th:if="${theme.config.post.enabled_visual_height == true}" ]*/
   @media only screen and (min-width: 861px) {
     .post-template .bg-cover {
       height: 100vh !important;
     }
   }
+  /*[/]*/
 
-
+  /*[# th:if="${theme.config.general.enabled_index_cover_height == true}" ]*/
   @media only screen and (min-width: 861px) {
     .home-content .bg-cover {
       height: 100vh !important;
     }
   }
 
+  /*[/]*/
 
 </style>
 </th:block>
