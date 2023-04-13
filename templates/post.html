@@ -78,7 +78,7 @@
                         </div>
                         <div class="article-info" id="articleInfo">
                             <div class="extra-info extra-info-center">
-                                <div th:if="${theme.config.general.QR_code_zfb != null || theme.config.general.QR_code_wx != null}">
+                                <div th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_zfb != '' || theme.config.general.QR_code_wx != null and theme.config.general.QR_code_wx != ''}">
 <!--                                    相比与原版，这里把button里的class="width-47"去掉-->
                                     <button type="submit"
                                             class="appreciate-btn btn-primary font-bold rounded height-46 custom-color-solid-bg font-16-to-14"
@@ -197,12 +197,12 @@
                 <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
         </span>
             <div style="text-align: center;padding: 10px 0;">
-                <div th:if="${theme.config.general.QR_code_zfb != null}">
+                <th:block th:if="${theme.config.general.QR_code_zfb != null}">
                     <img class="qr_code_zfb" th:src="@{${theme.config.general.QR_code_zfb}}" src="" alt=""/>
-                </div>
-                <div th:if="${theme.config.general.QR_code_wx != null}">
+                </th:block>
+                <th:block th:if="${theme.config.general.QR_code_wx != null}">
                     <img class="qr_code_wx" th:src="@{${theme.config.general.QR_code_wx}}" src="" alt=""/>
-                </div>
+                </th:block>
             </div>
             <div th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_wx != null}">
                 <div class="switch-btn">
@@ -215,10 +215,10 @@
 </th:block>
 
 <th:block th:fragment="postFooter">
-    <th:block th:include="@{/module/highlightjs/scripts}"></th:block>
-    <th:block th:include="@{/module/tocbot/scripts}"></th:block>
-    <th:block th:include="@{/module/social-share/scripts}"></th:block>
-    <th:block th:include="@{/module/viewer/scripts}"></th:block>
+    <th:block th:include="@{/module/highlightjs/scripts} :: scripts"></th:block>
+    <th:block th:include="@{/module/tocbot/scripts} :: scripts"></th:block>
+    <th:block th:include="@{/module/social-share/scripts} :: scripts"></th:block>
+    <th:block th:include="@{/module/viewer/scripts} :: scripts"></th:block>
     <script th:inline="javascript">
     $(".qr-code").on("click", function (e) {
         e.stopPropagation();
