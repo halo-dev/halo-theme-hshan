@@ -23,7 +23,7 @@
                 <div class="cover-content">
                     <!-- 封面内容 -->
                     <div class="inner">
-                        <h2 class="hero-title" th:text="${theme.config.general.home_title != null} ? ${theme.config.general.home_title} : ${site.title}"></h2>
+                        <h2 class="hero-title" th:text="${theme.config.general.home_title != null and theme.config.general.home_title != ''} ? ${theme.config.general.home_title} : ${site.title}"></h2>
                             <p class="hero-text" id="slogan">
                                 <span th:text="${theme.config.general.home_description}"></span>
                             </p>

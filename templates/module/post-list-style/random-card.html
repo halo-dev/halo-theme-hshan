@@ -25,7 +25,7 @@
                                             </div>
                                         </a>
                                     </th:block>
-                                    <th:block th:unless="${post.spec.cover != null and post.spec.cover != null and theme.config.general.card_random_cover != false}">
+                                    <th:block th:unless="${post.spec.cover != null and post.spec.cover != '' and theme.config.general.card_random_cover != false}">
                                         <a data-ajax th:href="${post.status.permalink}" class="thumb hover-effect">
                                             <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
                                         </a>
