@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{module/layout :: html(title = ${singlePage.spec.title} + '-' + ${site.title}, hero = null, content = ~{::singlePageContent}, head = ~{::singlePageHead}, footer = ~{::postFooter}, sidebar = null, contentClass = null)}"
+>
+<th:block th:fragment="singlePageHead">
+  <th:block th:include="@{/module/tocbot/libs-import} :: libs-import"></th:block>
+  <th:block th:include="@{/module/highlightjs/libs-import} :: libs-import"></th:block>
+  <th:block th:include="@{/module/social-share/libs-import} :: libs-import"></th:block>
+  <th:block th:include="@{/module/viewer/libs-import} :: libs-import"></th:block>
+  <th:block th:if="${theme.config.post.enabled_katex}">
+    <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css}">
+  </th:block>
+</th:block>
+
+
+
+<body>
+<th:block th:fragment="singlePageContent">
+  <div id="page" class="site post-template">
+    <main class="site-main" id="main">
+      <div id="readProgress">
+        <div class="read-progress-bar" role="progressbar" style="width: 0;"></div>
+      </div>
+      <div class="site-content post-page">
+        <article class="post tag-getting-started" id="siteContent">
+          <header class="bg-cover post-header" id="postHeader">
+            <div th:if="${singlePage.spec.cover != null and singlePage.spec.cover !=''}">
+              <div class="cover-bg">
+                <img th:src="${singlePage.spec.cover}" th:alt="${singlePage.spec.cover}" src="" alt="">
+              </div>
+            </div>
+            <div th:unless="${singlePage.spec.cover != null and singlePage.spec.cover !=''}">
+              <div class="default-cover-bg">
+              </div>
+            </div>
+
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-tags">
+<!--                  <a-->
+<!--                          th:each="tag : ${sing.tags}"-->
+<!--                          th:href="@{${tag.status.permalink}}"-->
+<!--                          th:title="${tag.spec.displayName}"-->
+<!--                          th:text="|#${tag.spec.displayName}|"-->
+<!--                          class="cursor-pointer text-sm italic text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-500"-->
+<!--                  >-->
+<!--                  </a>-->
+                </div>
+                <h1 class="post-title js-toc-ignore" th:text="${singlePage.spec.title}">Hello Halo</h1>
+                <div class="post-meta">
+                                    <span class="post-meta-wrap">
+                                        <img class="author-avatar" th:srcset="${singlePage.owner.avatar}" th:src="${singlePage.owner.avatar}" alt="" src="">
+                                        <span class="post-author" th:text="${singlePage.stats.visit} + '次访问'"></span>
+                                        <time class="published" th:text="${#dates.format(singlePage.metadata.creationTimestamp, 'yyyy-MM-dd')}">
+                                        </time>
+                                    </span>
+                  <div th:text="${singlePage.owner.displayName}"></div>
+                </div>
+                <div th:if="${theme.config.post.enabled_visual_height}">
+                  <a href="#singlePage-content" class="arrow-down" data-scroll=""><span class="screen-reader-text">Scroll Down</span></a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="post-inner">
+            <div class="article-body" id="singlePage-content">
+                <article
+                        th:utext="${singlePage.content.content}"
+                ></article>
+              <div id="tocFlag">
+                <div th:if="${theme.config.post.post_toc == true}">
+                  <aside id="toc" class="toc"></aside>
+                </div>
+              </div>
+            </div>
+            <div class="article-info" id="articleInfo">
+              <div class="extra-info extra-info-center">
+                <div th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_zfb != '' || theme.config.general.QR_code_wx != null and theme.config.general.QR_code_wx != ''}">
+                  <!--                                    相比与原版，这里把button里的class="width-47"去掉-->
+                  <button type="submit"
+                          class="appreciate-btn btn-primary font-bold rounded height-46 custom-color-solid-bg font-16-to-14"
+                          onclick="">
+                    <img th:src="@{/assets/media/images/cuplogo-sm.png}"
+                         class="right-mrgn-8 support-img" style="height: 16px" alt="支持作者" src=""/>
+                    <span >支持作者</span>
+                  </button>
+                </div>
+                <div th:if="${theme.config.post.social_share != null and theme.config.post.social_share != false}">
+                  <button class="btn-primary btn-primary-light font-bold rounded height-46 custom-color-secondary-bg share-btn "
+                          onclick="">
+                    <span>分享</span>
+                  </button>
+                </div>
+              </div>
+              <div id="socialShare" class="no-show">
+                <div class="social-share" th:data-disabled="${theme.config.post.share_disabeld}"></div>
+              </div>
+              <div th:class="'${theme.config.post.copyright_clean}' ? 'article-copyright-info simple-copyright-info' : 'article-copyright-info full-copyright-info'">
+
+
+                <div th:if="${theme.config.post.copyright_clean}">
+                  <p>© 本文著作权归作者所有，转载前请务必署名</p>
+                </div>
+                <div th:unless="${theme.config.post.copyright_clean}">
+                  <p>本文由 <a th:href="${singlePage.status.permalink}" th:text="${singlePage.owner.displayName}"></a> 创作，如果您觉得本文不错，请随意赞赏<br>采用 <a
+                          href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                          rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>原文链接：<a
+                          th:href="${singlePage.status.permalink}" th:text="${singlePage.status.permalink}"></a>
+                    <br>最后更新于：<p th:text="${#dates.format(singlePage.status.lastModifyTime, 'yyyy-MM-dd HH:mm:ss')}"></p>
+                </div>
+              </div>
+                <script th:src="@{/assets/libs/vue/vue.min.js}"></script>
+                <div th:if="${pluginFinder.available('PluginCommentWidget')}">
+                  <halo:comment
+                          group="content.halo.run"
+                          kind="Post"
+                          th:attr="name=${singlePage.metadata.name}"
+                          colorScheme="window.main.currentColorScheme"
+                  />
+                </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+  <div class="qr-code-wrap" role="dialog">
+    <div role="document" class="qr-code" style="transform-origin: 201px 294px;">
+            <span class="closinglayer">
+                <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                    <path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
+            </span>
+      <div style="text-align: center;padding: 10px 0;">
+        <th:block th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_zfb != ''}">
+          <img class="qr_code_zfb" th:src="@{${theme.config.general.QR_code_zfb}}" src="" alt=""/>
+        </th:block>
+        <th:block th:if="${theme.config.general.QR_code_wx != null and theme.config.general.QR_code_wx != ''}">
+          <img class="qr_code_wx" th:src="@{${theme.config.general.QR_code_wx}}" src="" alt=""/>
+        </th:block>
+      </div>
+      <div th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_zfb != '' and theme.config.general.QR_code_wx != null and theme.config.general.QR_code_wx != ''}">
+        <div class="switch-btn">
+          <span class="zfb-btn">支付宝</span>
+          <span class="wx-btn">微信</span>
+        </div>
+      </div>
+      <div th:unless="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_zfb != '' and theme.config.general.QR_code_wx != null and theme.config.general.QR_code_wx != ''}">
+        <th:block th:if="${theme.config.general.QR_code_zfb != null and theme.config.general.QR_code_zfb != ''}">
+          <div class="switch-btn">
+            <span class="zfb-btn">支付宝</span>
+          </div>
+        </th:block>
+        <th:block th:if="${theme.config.general.QR_code_wx != null and theme.config.general.QR_code_wx != ''}">
+          <div class="switch-btn">
+            <span class="wx-btn">微信</span>
+          </div>
+        </th:block>
+      </div>
+    </div>
+  </div>
+</th:block>
+
+<th:block th:fragment="postFooter">
+  <th:block th:include="@{/module/highlightjs/scripts} :: scripts"></th:block>
+  <th:block th:include="@{/module/tocbot/scripts} :: scripts"></th:block>
+  <th:block th:include="@{/module/social-share/scripts} :: scripts"></th:block>
+  <th:block th:include="@{/module/viewer/scripts} :: scripts"></th:block>
+  <script th:inline="javascript">
+    $(".qr-code").on("click", function (e) {
+      e.stopPropagation();
+    });
+    $(".closinglayer").on("click", function () {
+      // $(".qr-code-wrap").hide();
+      $(".qr-code-wrap").velocity("transition.expandOut", {duration: 300});
+    });
+    $(".zfb-btn").on("click", function () {
+      $(".qr_code_zfb").css("height", "300px");
+      $(".qr_code_wx").css("height", "0");
+    });
+    $(".wx-btn").on("click", function () {
+      $(".qr_code_wx").css("height", "300px");
+      $(".qr_code_zfb").css("height", "0");
+    });
+
+    $(".appreciate-btn").on("click", function (e) {
+      $(".qr-code-wrap").velocity("transition.expandIn", {duration: 300});
+      // $(".qr-code-wrap").show();
+      $(document).one("click", function () {
+        // $(".qr-code-wrap").hide();
+        $(".qr-code-wrap").velocity("transition.expandOut", {duration: 300});
+
+      });
+      e.stopPropagation();
+    });
+
+    function readProgress() {
+
+      const displayReadProgress = [(${theme.config.post.open_read_progress != null and theme.config.post.open_read_progress != '' ? theme.config.post.open_read_progress : true})];
+
+      // 文章内容
+      var $content = $("#main");
+      // 阅读进度条
+      var $readProgressBar = $("#readProgress .read-progress-bar");
+
+      /**
+       * 改变阅读进度条
+       */
+      var changeReadProgress = function () {
+        // contentHeight 实际总阅读高度 = 内容的高度 - 窗口的可视高度
+        var contentHeight = $content.height() - window.innerHeight;
+        if (contentHeight <= 0) return;
+        // readHeight 已经阅读的高度 = 当前页面的垂直偏移量 - 内容元素上边的多余部分
+        var readHeight = window.pageYOffset - $content.offset().top;
+        // 进度条的宽度
+        var progressWidth = readHeight / contentHeight * 100 + '%';
+        $readProgressBar.width(progressWidth);
+      };
+
+      // 改变阅读进度条
+      displayReadProgress && changeReadProgress();
+
+      $(window).on('scroll', function () {
+        // 改变阅读进度条
+        displayReadProgress && changeReadProgress();
+      });
+    }
+
+    $(function () {
+      readProgress()
+    })
+
+  </script>
+</th:block>
+
+</body>
+</html>
