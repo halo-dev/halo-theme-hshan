@@ -2,6 +2,6 @@
       xmlns:th="http://www.thymeleaf.org"
      th:fragment="libs-import"
 >
-    <link rel="stylesheet" th:href="@{/assets/libs/social-share.js/dist/css/share.min.css}">
-    <script th:src="@{/assets/libs/social-share.js/dist/js/social-share.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/assets/libs/social-share.js/dist/css/share.min.css?v={version}(version=${theme.spec.version})}">
+    <script th:src="@{/assets/libs/social-share.js/dist/js/social-share.min.js?v={version}(version=${theme.spec.version})}"></script>
 </div>

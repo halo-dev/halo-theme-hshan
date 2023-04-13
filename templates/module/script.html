@@ -3,17 +3,17 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <div th:fragment="script">
-<script th:src="@{/assets/libs/jquery/jquery.min.js}"></script>
-<script th:src="@{/assets/dist/main.umd.js}"></script>
+<script th:src="@{/assets/libs/jquery/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
+<script th:src="@{/assets/dist/main.umd.js?v={version}(version=${theme.spec.version})}"></script>
 <script th:src="@{/assets/media/scripts/utils.min.js?v={version}(version=${theme.spec.version})}"></script>
 <script th:src="@{/assets/media/scripts/plugins.min.js?v={version}(version=${theme.spec.version})}"></script>
 <script th:src="@{/assets/media/scripts/main.min.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/libs/velocity/velocity.min.js}"></script>
-<script th:src="@{/assets/libs/velocity/velocity.ui.min.js}"></script>
+<script th:src="@{/assets/libs/velocity/velocity.min.js?v={version}(version=${theme.spec.version})}"></script>
+<script th:src="@{/assets/libs/velocity/velocity.ui.min.js?v={version}(version=${theme.spec.version})}"></script>
 
 <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
-    <script th:src="@{/assets/libs/APlayer/dist/APlayer.min.js}"></script>
-    <script th:src="@{/assets/libs/meting/Meting.min.js}"></script>
+    <script th:src="@{/assets/libs/APlayer/dist/APlayer.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/libs/meting/Meting.min.js?v={version}(version=${theme.spec.version})}"></script>
 </th:block>
 
 <th:block th:if="${theme.config.general.auto_night_mode == true}">

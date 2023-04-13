@@ -1,3 +1,3 @@
 
-<link xmlns:th="https://www.thymeleaf.org" rel="stylesheet" th:href="@{/assets/libs/JustifiedGallery/dist/css/justifiedGallery.min.css}">
-<script xmlns:th="https://www.thymeleaf.org"  th:src="@{/assets/libs/JustifiedGallery/dist/js/jquery.justifiedGallery.min.js}"></script>
+<link xmlns:th="https://www.thymeleaf.org" rel="stylesheet" th:href="@{/assets/libs/JustifiedGallery/dist/css/justifiedGallery.min.css?v={version}(version=${theme.spec.version})}">
+<script xmlns:th="https://www.thymeleaf.org"  th:src="@{/assets/libs/JustifiedGallery/dist/js/jquery.justifiedGallery.min.js?v={version}(version=${theme.spec.version})}"></script>

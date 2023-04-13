@@ -1,4 +1,4 @@
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="libs-import">
-    <link  rel="stylesheet" th:href="@{/assets/libs/viewerjs/dist/viewer.min.css}">
-    <script  data-pjax-viewer th:src="@{/assets/libs/viewerjs/dist/viewer.min.js}"></script>
+    <link  rel="stylesheet" th:href="@{/assets/libs/viewerjs/dist/viewer.min.css?v={version}(version=${theme.spec.version})}">
+    <script  data-pjax-viewer th:src="@{/assets/libs/viewerjs/dist/viewer.min.js?v={version}(version=${theme.spec.version})}"></script>
 </div>

@@ -11,13 +11,13 @@
     <meta name="description" content="">
     <meta name="generator" content="Halo 1.6.0">
     <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}">
-    <link rel="stylesheet" th:href="@{/assets/libs/font-awesome/css/font-awesome.min.css}" type="text/css" media="all">
+    <link rel="stylesheet" th:href="@{/assets/libs/font-awesome/css/font-awesome.min.css?v={version}(version=${theme.spec.version})}" type="text/css" media="all">
 
    <title th:text="${title}"></title>
     <th:block th:replace="@{module/style}"></th:block>
 
     <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
-        <link rel="stylesheet" th:href="@{/assets/libs/APlayer/dist/APlayer.min.css}">
+        <link rel="stylesheet" th:href="@{/assets/libs/APlayer/dist/APlayer.min.css?v={version}(version=${theme.spec.version})}">
     </th:block>
 
     <th:block th:if="${head != null}">
