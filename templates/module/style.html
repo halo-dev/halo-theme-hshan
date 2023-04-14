@@ -5,10 +5,10 @@
 <th:block th:fragment="style">
 <style th:inline="css">
   :root {
-    --post-max-width: [(${theme.config.post.post_max_wdth})] !important;
-    --content-font-size: [(${theme.config.post.content_font_size})] !important;
-    --content-line-height: [(${theme.config.post.content_line_height})] !important;
-    --base-color: [(${theme.config.general.base_color})];
+    --post-max-width: /*[(${theme.config.post.post_max_wdth})]*/ 800px !important;
+    --content-font-size: /*[(${theme.config.post.content_font_size})]*/ 1.12rem !important;
+    --content-line-height: /*[(${theme.config.post.content_line_height})]*/ 2rem !important;
+    --base-color: /*[(${theme.config.general.base_color})]*/ #2474b5;
     --post-head-color: rgb(219, 219, 226);
     --toc-bg-color: #8e8787;
     --night-toc-bg-color: #e5e5e5;
@@ -88,7 +88,7 @@
   /*定义滑块 内阴影+圆角*/
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: [(${theme.config.general.custom_scroller_color})];
+    background-color: /*[(${theme.config.general.custom_scroller_color})]*/ #2474b5;
   }
   /*[/]*/
 
@@ -106,7 +106,6 @@
       height: 100vh !important;
     }
   }
-
   /*[/]*/
 
 </style>

@@ -18,8 +18,8 @@
 
 <th:block th:if="${theme.config.general.auto_night_mode == true}">
     <script th:inline="javascript" type="text/javascript">
-      const nightModeStartTime = [(${theme.config.general.night_mode_start_time != null and theme.config.general.night_mode_start_time != ''? theme.config.general.night_mode_start_time : 18})];
-      const nightModeEndTime = [(${theme.config.general.night_mode_end_time != null and theme.config.general.night_mode_end_time != ''? theme.config.general.night_mode_end_time : 6})];
+      const nightModeStartTime = [[${theme.config.general.night_mode_start_time != null and theme.config.general.night_mode_start_time != ''? theme.config.general.night_mode_start_time : 18}]];
+      const nightModeEndTime = [[${theme.config.general.night_mode_end_time != null and theme.config.general.night_mode_end_time != ''? theme.config.general.night_mode_end_time : 6}]];
     </script>
 </th:block>
 <script th:src="@{/assets/media/scripts/night-mode.min.js?v={version}(version=${theme.spec.version})}"></script>

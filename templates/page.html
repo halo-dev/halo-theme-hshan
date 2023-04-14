@@ -2,7 +2,7 @@
 <html lang="zh"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{module/layout :: html(title = ${singlePage.spec.title} + '-' + ${site.title}, hero = null, content = ~{::singlePageContent}, head = ~{::singlePageHead}, footer = ~{::postFooter}, sidebar = null, contentClass = null)}"
->
+      xmlns:halo="http://java.sun.com/xml/ns/javaee">
 <th:block th:fragment="singlePageHead">
   <th:block th:include="@{/module/tocbot/libs-import} :: libs-import"></th:block>
   <th:block th:include="@{/module/highlightjs/libs-import} :: libs-import"></th:block>
@@ -196,7 +196,7 @@
 
     function readProgress() {
 
-      const displayReadProgress = [(${theme.config.post.open_read_progress != null and theme.config.post.open_read_progress != '' ? theme.config.post.open_read_progress : true})];
+      const displayReadProgress = [[${theme.config.post.open_read_progress != null and theme.config.post.open_read_progress != '' ? theme.config.post.open_read_progress : true}]];
 
       // 文章内容
       var $content = $("#main");
