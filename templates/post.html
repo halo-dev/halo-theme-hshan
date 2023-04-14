@@ -119,7 +119,7 @@
 <!--                                <@comment sheet,"sheet" />-->
 <!--                            </#if>-->
 <!--                            </th:block>-->
-                            <div th:if="${post.spec.allowComment == true}">
+                            <div th:if="${post.spec.allowComment == true}" th:style="'margin: auto; width:' + ${theme.config.post.post_max_wdth}">
                                 <script th:src="@{/assets/libs/vue/vue.min.js}"></script>
                                 <div th:if="${pluginFinder.available('PluginCommentWidget')}">
                                     <halo:comment

@@ -21,7 +21,7 @@ spec:
           label: 网站主题色
           placeholder: 网站主题色
           value: "#2474b5"
-        - $formkit: text
+        - $formkit: attachment
           name: home_cover
           label: 首页背景
         - $formkit: radio
@@ -146,46 +146,46 @@ spec:
           name: PublicSecurityRecord
           label: 网安备案号
           placeholder: 填入网安备案号代码，没有则不填
-        - $formkit: text
+        - $formkit: attachment
           name: QR_code_zfb
           label: 支付宝二维码链接
           placeholder:
-        - $formkit: text
+        - $formkit: attachment
           name: QR_code_wx
           label: 微信二维码链接
           placeholder: 微信收款二维码链接，不填不显示
     - group: head_img
       label: 网页首部图片
       formSchema:
-        - $formkit: text
+        - $formkit: attachment
           name: archives_patternimg
           label: 归档页面头部装饰图
-          value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+          value: /themes/theme-earth/assets/images/default-background.png
+        - $formkit: attachment
           name: links_patternimg
           label: 友情链接页面头部装饰图
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+        - $formkit: attachment
           name: tag_patternimg
           label: 标签页面头部装饰图
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+        - $formkit: attachment
           name: categories_patternimg
           label: 分类页面头部装饰图
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+        - $formkit: attachment
           name: journals_patternimg
           label: 日志下文章页面头部装饰图
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+        - $formkit: attachment
           name: photos_patternimg
           label: 相册页面头部装饰图
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+        - $formkit: attachment
           name: links_placeholder
           label: 友情链接默认用户头像
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
-        - $formkit: text
+        - $formkit: attachment
           name: search_patternimg
           label: 搜索页面默认用户头像
           value: https://cdn.jsdelivr.net/gh/hshanx/static@v1.0.2/default-bg.jpeg
