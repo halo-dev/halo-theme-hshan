@@ -9,7 +9,7 @@
     <th:block th:include="@{/module/social-share/libs-import} :: libs-import"></th:block>
     <th:block th:include="@{/module/viewer/libs-import} :: libs-import"></th:block>
     <th:block th:if="${theme.config.post.enabled_katex}">
-        <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css}">
+        <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css?v={version}(version=${theme.spec.version})}">
     </th:block>
 </th:block>
 

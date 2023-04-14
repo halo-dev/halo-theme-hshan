@@ -1,5 +1,5 @@
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="libs-import">
-    <link th:href="@{/assets/libs/highlight.js/styles/{highlight_style}(highlight_style=${theme.config.post.highlight_style})}"
+    <link th:href="@{/assets/libs/highlight.js/styles/{highlight_style}?v={version}(highlight_style=${theme.config.post.highlight_style},version=${theme.spec.version})}"
           rel="stylesheet">
     <script th:src="@{/assets/libs/highlight.js/highlight.min.js?v={version}(version=${theme.spec.version})}"></script>
 </div>

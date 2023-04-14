@@ -9,7 +9,7 @@
   <th:block th:include="@{/module/social-share/libs-import} :: libs-import"></th:block>
   <th:block th:include="@{/module/viewer/libs-import} :: libs-import"></th:block>
   <th:block th:if="${theme.config.post.enabled_katex}">
-    <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css}">
+      <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css?v={version}(version=${theme.spec.version})}">
   </th:block>
 </th:block>
 
@@ -58,13 +58,13 @@
                   <div th:text="${singlePage.owner.displayName}"></div>
                 </div>
                 <div th:if="${theme.config.post.enabled_visual_height}">
-                  <a href="#singlePage-content" class="arrow-down" data-scroll=""><span class="screen-reader-text">Scroll Down</span></a>
+                  <a href="#post-content" class="arrow-down" data-scroll=""><span class="screen-reader-text">Scroll Down</span></a>
                 </div>
               </div>
             </div>
           </header>
           <div class="post-inner">
-            <div class="article-body" id="singlePage-content">
+            <div class="article-body" id="post-content">
                 <article
                         th:utext="${singlePage.content.content}"
                 ></article>
