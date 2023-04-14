@@ -8,12 +8,10 @@
     <th:block th:include="@{/module/highlightjs/libs-import} :: libs-import"></th:block>
     <th:block th:include="@{/module/social-share/libs-import} :: libs-import"></th:block>
     <th:block th:include="@{/module/viewer/libs-import} :: libs-import"></th:block>
-    <th:block th:if="${theme.config.post.enabled_katex}">
-        <link rel="stylesheet" th:href="@{/assets/libs/katex/katex.min.css?v={version}(version=${theme.spec.version})}">
+    <th:block th:if="${theme.config.post.enabled_katex == true}">
+        <th:block th:include="@{/module/katex/libs-import} :: libs-import"></th:block>
     </th:block>
 </th:block>
-
-
 
 <body>
 <th:block th:fragment="postContent">

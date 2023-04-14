@@ -17,7 +17,7 @@
     <th:block th:replace="@{module/style}"></th:block>
 
     <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
-        <link rel="stylesheet" th:href="@{/assets/libs/APlayer/dist/APlayer.min.css?v={version}(version=${theme.spec.version})}">
+        <th:block th:include="@{/module/APlayer/libs-import} :: libs-import"></th:block>
     </th:block>
 
     <th:block th:if="${head != null}">
