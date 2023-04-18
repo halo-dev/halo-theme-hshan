@@ -24,7 +24,7 @@
             <section class="ins-section">
               <header class="ins-section-header">最新文章</header>
               <ul th:with="posts = ${postFinder.list(1,site.post.postPageSize)}">
-                <li th:each="post : ${posts.items}">
+                <li th:each="post : ${posts.items}" style="list-style: none;">
                   <a th:href="@{${post.status.permalink}}">
                     <div class="ins-selectable ins-search-item">
                       <header>
@@ -42,7 +42,7 @@
               <div class="level">
                 <div class="columns is-multiline">
                   <ul th:with="categories = ${categoryFinder.list(1,site.post.archivePageSize)}">
-                    <li th:each="category : ${categories.items}">
+                    <li th:each="category : ${categories.items}" style="list-style: none;">
                       <a th:href="@{${category.status.permalink}}">
                         <div class="ins-selectable ins-search-item">
                           <header>
@@ -62,7 +62,7 @@
               <div class="level">
                 <div class="columns is-multiline">
                   <ul th:with="tags = ${tagFinder.list(1,site.post.tagPageSize)}">
-                    <li th:each="tag :${tags}">
+                    <li th:each="tag :${tags}" style="list-style: none;">
                       <a th:href="@{${tag.status.permalink}}">
                         <div class="ins-selectable ins-search-item">
                           <header>
@@ -94,10 +94,5 @@
         SearchWidget.open();
       }
     </script>
-    <style>
-      li {
-        list-style: none;
-      }
-    </style>
   </div>
 </html>
