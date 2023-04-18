@@ -1,93 +1,126 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
-<div th:fragment="footer">
-<footer class="site-footer" id="siteFooter">
-    <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
-        <meting-js
-                server="netease"
-                type="playlist"
-                fixed="true"
-                th:id="${theme.config.other.Aplayer}">
-        </meting-js>
-    </th:block>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+  <div th:fragment="footer">
+    <footer class="site-footer" id="siteFooter">
+      <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
+        <meting-js server="netease" type="playlist" fixed="true" th:id="${theme.config.other.Aplayer}"> </meting-js>
+      </th:block>
 
-    <div class="inner">
+      <div class="inner">
         <div class="offsite-links">
-            <th:block th:if="${theme.config.social.sina != null and theme.config.social.sina != ''}">
-                <a th:href="@{${theme.config.social.sina}}" class="circle" target="_blank" rel="noopener">
-                    <th:block th:include="@{module/icon/weibo}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.qq != null and theme.config.social.qq != ''}">
-                <a th:href="@{'//wpa.qq.com/msgrd?v=3&uin=' + ${theme.config.social.qq} + '&site=qq&menu=yes'}" class="circle" target="_blank" rel="noopener" title="QQ Chat">
-                    <th:block th:include="@{module/icon/qq}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.telegram != null and theme.config.social.telegram != ''}">
-                <a th:href="@{'https://t.me/' + ${theme.config.social.telegram}}" class="circle" target="_blank" rel="noopener" title="Telegram Chat">
-                    <th:block th:include="@{module/icon/telegram}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.twitter != null and theme.config.social.twitter != ''}">
-                <a th:href="@{${theme.config.social.twitter}}" class="circle" target="_blank" rel="noopener" title="Twitter">
-                    <th:block th:include="@{module/icon/twitter}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.github != null and theme.config.social.github != ''}">
-                <a th:href="@{${theme.config.social.github}}" class="circle" target="_blank" rel="noopener" title="Github">
-                    <th:block th:include="@{module/icon/github}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.zhihu != null and theme.config.social.zhihu != ''}">
-                <a th:href="@{${theme.config.social.zhihu}}" class="circle" target="_blank" rel="noopener" title="知乎">
-                    <th:block th:include="@{module/icon/zhihu}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.mail != null and theme.config.social.mail != ''}">
-                <a th:href="@{'mailto:' + ${theme.config.social.mail}}" class="circle" target="_blank" rel="noopener" title="邮箱">
-                    <th:block th:include="@{module/icon/mail}"></th:block>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.social.rss == true}">
-                <a th:href="@{'mailto:' + ${theme.config.social.rss}}" class="circle" target="_blank" rel="noopener" title="RSS">
-                    <th:block th:include="@{module/icon/rss}"></th:block>
-                </a>
-            </th:block>
+          <th:block th:if="${theme.config.social.sina != null and theme.config.social.sina != ''}">
+            <a th:href="@{${theme.config.social.sina}}" class="circle" target="_blank" rel="noopener">
+              <th:block th:include="@{module/icon/weibo}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.qq != null and theme.config.social.qq != ''}">
+            <a
+              th:href="@{'//wpa.qq.com/msgrd?v=3&uin=' + ${theme.config.social.qq} + '&site=qq&menu=yes'}"
+              class="circle"
+              target="_blank"
+              rel="noopener"
+              title="QQ Chat"
+            >
+              <th:block th:include="@{module/icon/qq}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.telegram != null and theme.config.social.telegram != ''}">
+            <a
+              th:href="@{'https://t.me/' + ${theme.config.social.telegram}}"
+              class="circle"
+              target="_blank"
+              rel="noopener"
+              title="Telegram Chat"
+            >
+              <th:block th:include="@{module/icon/telegram}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.twitter != null and theme.config.social.twitter != ''}">
+            <a
+              th:href="@{${theme.config.social.twitter}}"
+              class="circle"
+              target="_blank"
+              rel="noopener"
+              title="Twitter"
+            >
+              <th:block th:include="@{module/icon/twitter}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.github != null and theme.config.social.github != ''}">
+            <a th:href="@{${theme.config.social.github}}" class="circle" target="_blank" rel="noopener" title="Github">
+              <th:block th:include="@{module/icon/github}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.zhihu != null and theme.config.social.zhihu != ''}">
+            <a th:href="@{${theme.config.social.zhihu}}" class="circle" target="_blank" rel="noopener" title="知乎">
+              <th:block th:include="@{module/icon/zhihu}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.mail != null and theme.config.social.mail != ''}">
+            <a
+              th:href="@{'mailto:' + ${theme.config.social.mail}}"
+              class="circle"
+              target="_blank"
+              rel="noopener"
+              title="邮箱"
+            >
+              <th:block th:include="@{module/icon/mail}"></th:block>
+            </a>
+          </th:block>
+          <th:block th:if="${theme.config.social.rss == true}">
+            <a
+              th:href="@{'mailto:' + ${theme.config.social.rss}}"
+              class="circle"
+              target="_blank"
+              rel="noopener"
+              title="RSS"
+            >
+              <th:block th:include="@{module/icon/rss}"></th:block>
+            </a>
+          </th:block>
         </div>
-
 
         <div class="site-info">
-            <th:block th:if="${theme.config.general.Icp != null and theme.config.general.Icp != ''}">
-                <a th:href="@{http://beian.miit.gov.cn}" target="_blank">
-                    <span th:text="${theme.config.general.Icp}"></span>
-                </a>
-            </th:block>
-            <th:block th:if="${theme.config.general.PublicSecurityRecord != null and theme.config.general.PublicSecurityRecord != ''}">
-                <div th:style="|display: inline-block;background-image: url(@{/assets/images/beian.png});background-repeat: no-repeat;background-position: top left;background-size: contain;padding-left: 20px;|">
-                    <a th:href="@{http://www.beian.gov.cn}" target="_blank">
-                        <span th:text="${theme.config.general.PublicSecurityRecord}"></span>
-                    </a>
-                </div><br>
-            </th:block>
+          <th:block th:if="${theme.config.general.Icp != null and theme.config.general.Icp != ''}">
+            <a th:href="@{http://beian.miit.gov.cn}" target="_blank">
+              <span th:text="${theme.config.general.Icp}"></span>
+            </a>
+          </th:block>
+          <th:block
+            th:if="${theme.config.general.PublicSecurityRecord != null and theme.config.general.PublicSecurityRecord != ''}"
+          >
+            <div
+              th:style="|display: inline-block;background-image: url(@{/assets/images/beian.png});background-repeat: no-repeat;background-position: top left;background-size: contain;padding-left: 20px;|"
+            >
+              <a th:href="@{http://www.beian.gov.cn}" target="_blank">
+                <span th:text="${theme.config.general.PublicSecurityRecord}"></span>
+              </a>
+            </div>
+            <br />
+          </th:block>
 
-            <p>
-                <span th:text="'Copyright &copy; ' + ${#dates.format(#dates.createNow(), 'yyyy')}"></span>
-                <a th:href="${site.url}">
-                    <span th:text="${site.subtitle == null} ? ${site.title} : ${site.title + '-' +site.subtitle}"></span>
-                </a>
-            </p>
-            <!-- 请尊重作者，请务必保留版权 -->
-            <p><span>Powered by </span><a target="_blank" th:href="@{http://halo.run}">Halo</a> •
-               <span>Theme by </span><a target="_blank" th:href="@{https://github.com/GalaxySuze/gridea-theme-subtle-galaxy}">Subtle Galaxy</a> •
-               <span>REFERENCE FROM </span><a target="_blank" th:href="@{https://github.com/hshanx/halo-theme-hshan.git}">寒山</a></p>
-            <th:block th:if="${theme.config.custom.TimeStatistics != null and theme.config.custom.TimeStatistics != '' }">
-                <p>本站运行：<span id="span_dt_dt" th:text="${theme.config.custom.TimeStatistics}"></span></p>
-            </th:block>
+          <p>
+            <span th:text="'Copyright &copy; ' + ${#dates.format(#dates.createNow(), 'yyyy')}"></span>
+            <a th:href="${site.url}">
+              <span th:text="${site.subtitle == null} ? ${site.title} : ${site.title + '-' +site.subtitle}"></span>
+            </a>
+          </p>
+          <!-- 请尊重作者，请务必保留版权 -->
+          <p>
+            <span>Powered by </span><a target="_blank" th:href="@{http://halo.run}">Halo</a> • <span>Theme by </span
+            ><a target="_blank" th:href="@{https://github.com/GalaxySuze/gridea-theme-subtle-galaxy}">Subtle Galaxy</a>
+            • <span>REFERENCE FROM </span
+            ><a target="_blank" th:href="@{https://github.com/hshanx/halo-theme-hshan.git}">寒山</a>
+          </p>
+          <th:block th:if="${theme.config.custom.TimeStatistics != null and theme.config.custom.TimeStatistics != '' }">
+            <p>本站运行：<span id="span_dt_dt" th:text="${theme.config.custom.TimeStatistics}"></span></p>
+          </th:block>
         </div>
-        <a th:href="@{#page}" class="arrow-up" data-scroll=""><span class="screen-reader-text">Back to the top</span></a>
-    </div>
-</footer>
-</div>
-<div th:include="@{module/search-box}"></div>
+        <a th:href="@{#page}" class="arrow-up" data-scroll=""
+          ><span class="screen-reader-text">Back to the top</span></a
+        >
+      </div>
+    </footer>
+  </div>
+  <div th:include="@{module/search-box}"></div>
+</html>

@@ -1,57 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
-<th:block th:fragment="content">
-    <nav
-            id="pagination"
-            th:if="${posts.total gt 0}"
-            th:with="postItems=${posts.items}"
-            class="pagination"
-    >
-        <h2 class="screen-reader-text">Posts Navigation</h2>
-    <div th:if="${posts.total == 0}" class="mt-6 flex items-center justify-center">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+  <th:block th:fragment="content">
+    <nav id="pagination" th:if="${posts.total gt 0}" th:with="postItems=${posts.items}" class="pagination">
+      <h2 class="screen-reader-text">Posts Navigation</h2>
+      <div th:if="${posts.total == 0}" class="mt-6 flex items-center justify-center">
         <span class="text-sm font-light text-gray-600 dark:text-slate-200">没有文章</span>
-    </div>
-        <div class="inner">
-            <div  th:if="${posts.hasPrevious()}">
-                <a
-                    th:href="@{${posts.prevUrl}}"
-                    class="newer-posts arrow-left"
-                    data-scroll data-ajax
-                >
-                    <span class="screen-reader-text"></span>
-        <!--            <span>上一页</span>-->
-                </a>
-            </div>
-            <th:block th:each="index:${#numbers.sequence(1,posts.totalPages)}">
-                <th:block th:if="${posts.page == index}">
-                    <span class="page-number">
-                        <a th:href="@{'/page/'  + ${index}}" data-scroll data-ajax>
-                            <span th:text="${index}"></span>
-                        </a>
-                    </span>
-                </th:block>
-                <th:block th:if="${posts.page != index}">
-                    <span class="page-number">
-                        <a th:href="@{'/page/'  + ${index}}" data-scroll data-ajax>
-                            <span th:text="${index}"></span>
-                        </a>
-                    </span>
-                </th:block>
-            </th:block>
-            <span class="page-number" th:text="|${posts.page} / ${posts.totalPages}|"></span>
-            <div  th:if="${posts.hasNext()}">
-                <a
-                        th:href="@{${posts.nextUrl}}"
-                        class="older-posts arrow-right"
-                        data-ajax data-scroll
-                >
-<!--                    <span>下一页</span>-->
-                    <span class="screen-reader-text"></span>
-                </a>
-            </div>
+      </div>
+      <div class="inner">
+        <div th:if="${posts.hasPrevious()}">
+          <a th:href="@{${posts.prevUrl}}" class="newer-posts arrow-left" data-scroll data-ajax>
+            <span class="screen-reader-text"></span>
+            <!--            <span>上一页</span>-->
+          </a>
         </div>
+        <th:block th:each="index:${#numbers.sequence(1,posts.totalPages)}">
+          <th:block th:if="${posts.page == index}">
+            <span class="page-number">
+              <a th:href="@{'/page/'  + ${index}}" data-scroll data-ajax>
+                <span th:text="${index}"></span>
+              </a>
+            </span>
+          </th:block>
+          <th:block th:if="${posts.page != index}">
+            <span class="page-number">
+              <a th:href="@{'/page/'  + ${index}}" data-scroll data-ajax>
+                <span th:text="${index}"></span>
+              </a>
+            </span>
+          </th:block>
+        </th:block>
+        <span class="page-number" th:text="|${posts.page} / ${posts.totalPages}|"></span>
+        <div th:if="${posts.hasNext()}">
+          <a th:href="@{${posts.nextUrl}}" class="older-posts arrow-right" data-ajax data-scroll>
+            <!--                    <span>下一页</span>-->
+            <span class="screen-reader-text"></span>
+          </a>
+        </div>
+      </div>
     </nav>
-</th:block>
+  </th:block>
 </html>

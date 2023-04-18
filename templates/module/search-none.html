@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
-<section class="no-results not-found">
-  <header class="not-found-header">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <h1 class="not-found-title">没有找到任何东西！</h1>
-  </header><!-- .page-header -->
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+  <section class="no-results not-found">
+    <header class="not-found-header">
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <h1 class="not-found-title">没有找到任何东西！</h1>
+    </header>
+    <!-- .page-header -->
 
-  <div class="page-content">
-<!--    <#if is_search??>-->
-    <div class="sorry">
-      <p>没有找到你想要的，看看其他的吧。</p>
-      <div class="sorry-inner">
-        <ul class="search-no-reasults">
-          <li th:switch="${theme.config.general.post_list_style}">
-            <th:block th:case='standard' th:include="@{module/post-list-style/standard}"></th:block>
-            <th:block th:case='simple' th:include="@{module/post-list-style/simple}"></th:block>
-            <th:block th:case='card' th:include="@{module/post-list-style/random-card}"></th:block>
-          </li>
-      </ul>
+    <div class="page-content">
+      <!--    <#if is_search??>-->
+      <div class="sorry">
+        <p>没有找到你想要的，看看其他的吧。</p>
+        <div class="sorry-inner">
+          <ul class="search-no-reasults">
+            <li th:switch="${theme.config.general.post_list_style}">
+              <th:block th:case="standard" th:include="@{module/post-list-style/standard}"></th:block>
+              <th:block th:case="simple" th:include="@{module/post-list-style/simple}"></th:block>
+              <th:block th:case="card" th:include="@{module/post-list-style/random-card}"></th:block>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-</section>
+  </section>
+</html>

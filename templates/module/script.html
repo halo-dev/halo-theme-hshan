@@ -1,56 +1,51 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
-<div th:fragment="script">
-<script th:src="@{/assets/libs/jquery/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/dist/main.umd.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/media/scripts/utils.min.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/media/scripts/plugins.min.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/media/scripts/main.min.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/libs/velocity/velocity.min.js?v={version}(version=${theme.spec.version})}"></script>
-<script th:src="@{/assets/libs/velocity/velocity.ui.min.js?v={version}(version=${theme.spec.version})}"></script>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+  <div th:fragment="script">
+    <script th:src="@{/assets/libs/jquery/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/dist/main.umd.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/media/scripts/utils.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/media/scripts/plugins.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/media/scripts/main.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/libs/velocity/velocity.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/libs/velocity/velocity.ui.min.js?v={version}(version=${theme.spec.version})}"></script>
 
-<th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
-    <script th:src="@{/assets/libs/APlayer/dist/APlayer.min.js?v={version}(version=${theme.spec.version})}"></script>
-    <script th:src="@{/assets/libs/meting/Meting.min.js?v={version}(version=${theme.spec.version})}"></script>
-</th:block>
+    <th:block th:if="${theme.config.other.Aplayer != null and theme.config.other.Aplayer != ''}">
+      <script th:src="@{/assets/libs/APlayer/dist/APlayer.min.js?v={version}(version=${theme.spec.version})}"></script>
+      <script th:src="@{/assets/libs/meting/Meting.min.js?v={version}(version=${theme.spec.version})}"></script>
+    </th:block>
 
-<th:block th:if="${theme.config.general.auto_night_mode == true}">
-    <script th:inline="javascript" type="text/javascript">
-      const nightModeStartTime = [[${theme.config.general.night_mode_start_time != null and theme.config.general.night_mode_start_time != ''? theme.config.general.night_mode_start_time : 18}]];
-      const nightModeEndTime = [[${theme.config.general.night_mode_end_time != null and theme.config.general.night_mode_end_time != ''? theme.config.general.night_mode_end_time : 6}]];
+    <th:block th:if="${theme.config.general.auto_night_mode == true}">
+      <script th:inline="javascript" type="text/javascript">
+        const nightModeStartTime = [[${theme.config.general.night_mode_start_time != null and theme.config.general.night_mode_start_time != ''? theme.config.general.night_mode_start_time : 18}]];
+        const nightModeEndTime = [[${theme.config.general.night_mode_end_time != null and theme.config.general.night_mode_end_time != ''? theme.config.general.night_mode_end_time : 6}]];
+      </script>
+    </th:block>
+    <script th:src="@{/assets/media/scripts/night-mode.min.js?v={version}(version=${theme.spec.version})}"></script>
+
+    <script>
+      han.initLazyLoad();
+      // 整个页面延迟加载
+      han.lazyLoad();
+
+      // card 延迟加载
+      han.lazyLoadCardItem();
+
+      // 菜单高亮
+      han.highlightMenu();
+
+      // 小屏幕菜单隐藏
+      han.makeMenuInvisible();
+
+      if ($("#page").find(".post-page").length > 0) {
+        han.refreshLazyLoad();
+      } else {
+        han.initLazyLoad();
+      }
     </script>
-</th:block>
-<script th:src="@{/assets/media/scripts/night-mode.min.js?v={version}(version=${theme.spec.version})}"></script>
 
-
-
-<script>
-  han.initLazyLoad();
-  // 整个页面延迟加载
-  han.lazyLoad();
-
-  // card 延迟加载
-  han.lazyLoadCardItem()
-
-  // 菜单高亮
-  han.highlightMenu();
-
-  // 小屏幕菜单隐藏
-  han.makeMenuInvisible();
-
-  if ($("#page").find('.post-page').length > 0) {
-    han.refreshLazyLoad();
-  } else {
-    han.initLazyLoad()
-  }
-
-</script>
-
-
-<script type="text/javascript">
-  console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
-  console.log("%c Version: %c", "background:#24272A; color:#ffffff", "", "1.0");
-</script>
-</div>
+    <script type="text/javascript">
+      console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/hshanx");
+      console.log("%c Version: %c", "background:#24272A; color:#ffffff", "", "1.0");
+    </script>
+  </div>
+</html>

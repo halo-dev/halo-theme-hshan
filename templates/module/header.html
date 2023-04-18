@@ -1,126 +1,125 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org"
->
-<div
-        th:fragment="head"
-        th:with="menu = ${menuFinder.getPrimary()}"
->
-<aside class="sidebar side-bar-val" id="sidebar" style="overflow-y: auto !important; opacity: 0; transform: translateY(0px); display: none;">
-    <div class="inner">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+  <div th:fragment="head" th:with="menu = ${menuFinder.getPrimary()}">
+    <aside
+      class="sidebar side-bar-val"
+      id="sidebar"
+      style="overflow-y: auto !important; opacity: 0; transform: translateY(0px); display: none"
+    >
+      <div class="inner">
         <div class="widget-area">
-            <!-- 菜单 -->
-            <nav class="site-navigation">
-                <ul class="menu">
-                    <li class="menu-item nav-menu-item ">
+          <!-- 菜单 -->
+          <nav class="site-navigation">
+            <ul class="menu">
+              <li class="menu-item nav-menu-item">
+                <!--                        <div th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">-->
+                <!--                            <a th:href="@{/}" data-ajax th:target="_self" class="nav-menu-link" th:text="${menu.spec.displayName}"> <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i></a>-->
+                <!--                        </div>-->
+                <!--                        <div th:unless="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">-->
+                <!--                            <a th:href="@{/}" data-ajax th:target="_self" th:text="${menu.spec.displayName}"></a>-->
+                <!--                        </div>-->
 
-<!--                        <div th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">-->
-<!--                            <a th:href="@{/}" data-ajax th:target="_self" class="nav-menu-link" th:text="${menu.spec.displayName}"> <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i></a>-->
-<!--                        </div>-->
-<!--                        <div th:unless="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">-->
-<!--                            <a th:href="@{/}" data-ajax th:target="_self" th:text="${menu.spec.displayName}"></a>-->
-<!--                        </div>-->
-
-                        <div  th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
-                            <div th:each="menuItem : ${menu.menuItems}" class="nav-sub-menu">
-                            <a
-                                    data-ajax="" target="_self"
-                                    th:href="@{${menuItem.status.href}}"
-                                    th:text="${menuItem.status.displayName}"
-                                    onfocus="this.blur();"
-                            ></a>
-                                <ul th:if="${not #lists.isEmpty(menuItem.children)}" class="nav-sub-menu"  style="display: none;">
-                                    <li
-                                            th:each="childMenuItem : ${menuItem.children}"
-                                    >
-                                        <a
-                                                th:href="@{${childMenuItem.status.href}}"
-                                                th:text="${childMenuItem.status.displayName}"
-                                                onfocus="this.blur();"
-                                        ></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <th:block th:if="${theme.config.general.night_mode == true}">
-                        <li class="menu-item home nav-menu-item">
-                            <i class="fa night-mode fa-lightbulb-o" id="nightModeSmall" aria-hidden="true"></i>
-                        </li>
-                    </th:block>
-                    <th:block th:if="${theme.config.general.top_search == true}">
-                        <li class="menu-item home nav-menu-item">
-                            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true" style="font-size: 20px;"></i>
-                        </li>
-                    </th:block>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</aside>
-
-<header class="site-header" id="siteHeader">
-    <div id="scrollMenu" class="scroll-menu header-inner">
-        <div class="menu-items">
-            <ul>
-                <li th:if="${theme.config.general.header_logoimg != null and theme.config.general.header_logoimg != ''}">
-                    <a th:href="@{${site.url}}" data-ajax id="headerLogo"
-                       style="margin-right: 0; display: inline-block;height: 100%; line-height: 52px;"
-                       onfocus="this.blur();">
-                        <img th:src="@{${theme.config.general.header_logoimg}}" th:alt="${site.title}" class="h-full w-full" src="" alt=""
-                             th:style="${theme.config.general.header_logo_height != null and theme.config.general.header_logo_height != ''} ? 'height:' + ${theme.config.general.header_logo_height} : '' "
-                        />
-                    </a>
-                </li>
-                <li
-                        th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}"
-                        th:each="menuItem : ${menu.menuItems}"
-                        class="menu-scroll-item"
-                >
+                <div th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
+                  <div th:each="menuItem : ${menu.menuItems}" class="nav-sub-menu">
                     <a
-                            data-ajax="" target="_self"
-                            th:href="@{${menuItem.status.href}}"
-                            th:text="${menuItem.status.displayName}"
-                            onfocus="this.blur();"
+                      data-ajax=""
+                      target="_self"
+                      th:href="@{${menuItem.status.href}}"
+                      th:text="${menuItem.status.displayName}"
+                      onfocus="this.blur();"
                     ></a>
-                    <ul
-                            th:if="${not #lists.isEmpty(menuItem.children)}"
-                            class="sub-menu"
-                    >
-                        <li
-                                th:each="childMenuItem : ${menuItem.children}"
-                        >
-                            <a
-                                    data-ajax
-                                    th:href="@{${childMenuItem.status.href}}"
-                                    th:text="${childMenuItem.status.displayName}"
-                                    onfocus="this.blur();"
-                            ></a>
-                        </li>
+                    <ul th:if="${not #lists.isEmpty(menuItem.children)}" class="nav-sub-menu" style="display: none">
+                      <li th:each="childMenuItem : ${menuItem.children}">
+                        <a
+                          th:href="@{${childMenuItem.status.href}}"
+                          th:text="${childMenuItem.status.displayName}"
+                          onfocus="this.blur();"
+                        ></a>
+                      </li>
                     </ul>
+                  </div>
+                </div>
+              </li>
+              <th:block th:if="${theme.config.general.night_mode == true}">
+                <li class="menu-item home nav-menu-item">
+                  <i class="fa night-mode fa-lightbulb-o" id="nightModeSmall" aria-hidden="true"></i>
                 </li>
+              </th:block>
+              <th:block th:if="${theme.config.general.top_search == true}">
+                <li class="menu-item home nav-menu-item">
+                  <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true" style="font-size: 20px"></i>
+                </li>
+              </th:block>
             </ul>
+          </nav>
+        </div>
+      </div>
+    </aside>
+
+    <header class="site-header" id="siteHeader">
+      <div id="scrollMenu" class="scroll-menu header-inner">
+        <div class="menu-items">
+          <ul>
+            <li th:if="${theme.config.general.header_logoimg != null and theme.config.general.header_logoimg != ''}">
+              <a
+                th:href="@{${site.url}}"
+                data-ajax
+                id="headerLogo"
+                style="margin-right: 0; display: inline-block; height: 100%; line-height: 52px"
+                onfocus="this.blur();"
+              >
+                <img
+                  th:src="@{${theme.config.general.header_logoimg}}"
+                  th:alt="${site.title}"
+                  class="h-full w-full"
+                  src=""
+                  alt=""
+                  th:style="${theme.config.general.header_logo_height != null and theme.config.general.header_logo_height != ''} ? 'height:' + ${theme.config.general.header_logo_height} : '' "
+                />
+              </a>
+            </li>
+            <li
+              th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}"
+              th:each="menuItem : ${menu.menuItems}"
+              class="menu-scroll-item"
+            >
+              <a
+                data-ajax=""
+                target="_self"
+                th:href="@{${menuItem.status.href}}"
+                th:text="${menuItem.status.displayName}"
+                onfocus="this.blur();"
+              ></a>
+              <ul th:if="${not #lists.isEmpty(menuItem.children)}" class="sub-menu">
+                <li th:each="childMenuItem : ${menuItem.children}">
+                  <a
+                    data-ajax
+                    th:href="@{${childMenuItem.status.href}}"
+                    th:text="${childMenuItem.status.displayName}"
+                    onfocus="this.blur();"
+                  ></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
         <div class="other-ctl" id="headerCtrl">
-            <th:block th:if="${theme.config.general.top_search == true}">
-                    <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
-            </th:block>
-            <th:block th:if="${theme.config.general.night_mode == true}">
-                    <i class="fa night-mode fa-lightbulb-o" id="nightMode" aria-hidden="true"></i>
-            </th:block>
-            <i>
-                <a
-                    th:href="@{/console}"
-                    target="_blank"
-                >控制台
-                </a>
-            </i>
+          <th:block th:if="${theme.config.general.top_search == true}">
+            <i class="fa fa-search js-toggle-search iconsearch" aria-hidden="true"></i>
+          </th:block>
+          <th:block th:if="${theme.config.general.night_mode == true}">
+            <i class="fa night-mode fa-lightbulb-o" id="nightMode" aria-hidden="true"></i>
+          </th:block>
+          <i>
+            <a th:href="@{/console}" target="_blank">控制台 </a>
+          </i>
         </div>
-    </div>
-    <a class="sidebar-toggle" id="sidebarToggle">
+      </div>
+      <a class="sidebar-toggle" id="sidebarToggle">
         <span class="icon-menu cross">
-            <span class="middle" aria-hidden="true"> </span>
-         </span>
-    </a>
-</header>
-</div>
+          <span class="middle" aria-hidden="true"> </span>
+        </span>
+      </a>
+    </header>
+  </div>
+</html>

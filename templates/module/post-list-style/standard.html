@@ -1,57 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh"
-      xmlns:th="http://www.thymeleaf.org">
-<div id="post-list" class="post-list inner">
-    <div th:if="${posts.total gt 0}" >
-        <div th:each="post : ${posts.items}">
-            <article class="post postItem card-item-vel post-standard-block">
-                <!-- post-header -->
-                <header class="post-header" >
-                    <div class="post-tags">
-                        <th:block th:if="${not #lists.isEmpty(post.categories)} or ${not #lists.isEmpty(post.tags)}">
-                                <a
-                                    th:each="tag : ${post.tags}"
-                                    th:href="@{${tag.status.permalink}}"
-                                    th:title="${tag.spec.displayName}"
-                                    th:text="|#${tag.spec.displayName}|"
-                                    class="cursor-pointer text-sm italic text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-500"
-                                >
-                                </a>
-                        </th:block>
-                    </div>
-                    <div class="post-header-wrap">
-                        <h2 class="post-title">
-                            <a  th:href="${post.status.permalink}" th:text="${post.spec.title}" data-ajax=""></a>
-                        </h2>
-                        <div class="post-meta">
-                            <span class="post-author"><i class="fa fa-eye" ></i><i th:text="${post.stats.visit}"></i> 次访问</span>
-                            <th:block th:if="${post.spec.pinned}">
-                                <span class="tag tag-primary">已置顶</span>
-                            </th:block>
-                            <time class="published" th:text="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}"
-                                  th:datetime="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}">
-                            </time>
-                            <th:block th:if="${theme.config.general.post_summary != false}">
-                                <p class="post-item-summary" th:text="${post.spec.excerpt.raw}"></p>
-                            </th:block>
-                        </div>
-                    </div>
-                </header>
-                <!-- post-content -->
-                <div class="post-content">
-                    <div class="read-more">
-                        <a class="button" th:href="${post.status.permalink}" data-ajax>
-                            Read More
-                            <span aria-hidden="true"></span>
-                            <span class="line left"></span>
-                            <span class="line top"></span>
-                            <span class="line right"></span>
-                            <span class="line bottom"></span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-        </div>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+  <div id="post-list" class="post-list inner">
+    <div th:if="${posts.total gt 0}">
+      <div th:each="post : ${posts.items}">
+        <article class="post postItem card-item-vel post-standard-block">
+          <!-- post-header -->
+          <header class="post-header">
+            <div class="post-tags">
+              <th:block th:if="${not #lists.isEmpty(post.categories)} or ${not #lists.isEmpty(post.tags)}">
+                <a
+                  th:each="tag : ${post.tags}"
+                  th:href="@{${tag.status.permalink}}"
+                  th:title="${tag.spec.displayName}"
+                  th:text="|#${tag.spec.displayName}|"
+                  class="cursor-pointer text-sm italic text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-500"
+                >
+                </a>
+              </th:block>
+            </div>
+            <div class="post-header-wrap">
+              <h2 class="post-title">
+                <a th:href="${post.status.permalink}" th:text="${post.spec.title}" data-ajax=""></a>
+              </h2>
+              <div class="post-meta">
+                <span class="post-author"><i class="fa fa-eye"></i><i th:text="${post.stats.visit}"></i> 次访问</span>
+                <th:block th:if="${post.spec.pinned}">
+                  <span class="tag tag-primary">已置顶</span>
+                </th:block>
+                <time
+                  class="published"
+                  th:text="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}"
+                  th:datetime="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}"
+                >
+                </time>
+                <th:block th:if="${theme.config.general.post_summary != false}">
+                  <p class="post-item-summary" th:text="${post.spec.excerpt.raw}"></p>
+                </th:block>
+              </div>
+            </div>
+          </header>
+          <!-- post-content -->
+          <div class="post-content">
+            <div class="read-more">
+              <a class="button" th:href="${post.status.permalink}" data-ajax>
+                Read More
+                <span aria-hidden="true"></span>
+                <span class="line left"></span>
+                <span class="line top"></span>
+                <span class="line right"></span>
+                <span class="line bottom"></span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
-</div>
+  </div>
 </html>

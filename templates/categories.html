@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html
-        xmlns:th="https://www.thymeleaf.org"
-        th:replace="~{module/layout :: html(title = ${theme.config.title.categories_title + '-' + site.title}, hero = null, content = ~{::categoriesContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${theme.config.title.categories_title + '-' + site.title}, hero = null, content = ~{::categoriesContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
 >
-<th:block th:fragment="categoriesContent">
+  <th:block th:fragment="categoriesContent">
     <div id="page" class="site">
-        <main class="site-main"  id="main">
-            <div class="site-content">
-                <header class="bg-cover page-header">
-                    <div th:if="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}">
-                        <div class="cover-bg">
-                            <img th:src="${theme.config.head_img.categories_patternimg}" th:alt="${theme.config.title.categories_title}" src="" alt="">
-                        </div>
-                    </div>
-                    <div th:unless="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}">
-                        <div class="default-cover-bg"></div>
-                    </div>
-                    <div class="cover-content">
-                        <div class="inner">
-                            <div class="post-count"></div>
-                            <h1 class="page-title" style="font-size: 46px;" th:text="${theme.config.title.categories_title}"></h1>
-                        </div>
-                    </div>
-                </header>
-
-                <div id="post-list" class="post-list inner" style="padding-bottom: 90px;">
-                    <div class="tagcloud tag-page">
-                        <div>
-                            <a
-                                th:each="category : ${categories}"
-                                th:href="@{${category.status.permalink}}"
-                                th:text="${category.spec.displayName}"
-                                class="button" data-ajax>
-                                <span aria-hidden="true">
-                                    <span class="line left"></span>
-                                    <span class="line top"></span>
-                                    <span class="line right"></span>
-                                    <span class="line bottom"></span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      <main class="site-main" id="main">
+        <div class="site-content">
+          <header class="bg-cover page-header">
+            <div
+              th:if="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}"
+            >
+              <div class="cover-bg">
+                <img
+                  th:src="${theme.config.head_img.categories_patternimg}"
+                  th:alt="${theme.config.title.categories_title}"
+                  src=""
+                  alt=""
+                />
+              </div>
             </div>
-        </main>
+            <div
+              th:unless="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}"
+            >
+              <div class="default-cover-bg"></div>
+            </div>
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-count"></div>
+                <h1 class="page-title" style="font-size: 46px" th:text="${theme.config.title.categories_title}"></h1>
+              </div>
+            </div>
+          </header>
+
+          <div id="post-list" class="post-list inner" style="padding-bottom: 90px">
+            <div class="tagcloud tag-page">
+              <div>
+                <a
+                  th:each="category : ${categories}"
+                  th:href="@{${category.status.permalink}}"
+                  th:text="${category.spec.displayName}"
+                  class="button"
+                  data-ajax
+                >
+                  <span aria-hidden="true">
+                    <span class="line left"></span>
+                    <span class="line top"></span>
+                    <span class="line right"></span>
+                    <span class="line bottom"></span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-</th:block>
+  </th:block>
 </html>

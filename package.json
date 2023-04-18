@@ -10,6 +10,7 @@
     "build-night-mode": "uglifyjs templates/assets/media/scripts/night-mode.js -o templates/assets/media/scripts/night-mode.min.js",
     "build-utils": "uglifyjs templates/assets/media/scripts/utils.js -o templates/assets/media/scripts/utils.min.js",
     "build-js": "npm run build-main && npm run build-post && npm run build-plugin && npm run build-night-mode && npm run build-utils",
+    "prettier": "prettier --write './src/**/*.{js,ts,css,json,ml,yaml,html}' './templates/**/*.html'",
     "deploy": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,6 +30,7 @@
     "autoprefixer": "^10.4.7",
     "less": "^3.13.1",
     "postcss": "^8.4.14",
+    "prettier": "^2.8.7",
     "rimraf": "^3.0.2",
     "rollup-plugin-watch": "^1.0.1",
     "typescript": "^4.7.2",
