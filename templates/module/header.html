@@ -11,35 +11,32 @@
           <!-- 菜单 -->
           <nav class="site-navigation">
             <ul class="menu">
-              <li class="menu-item nav-menu-item">
-                <!--                        <div th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">-->
-                <!--                            <a th:href="@{/}" data-ajax th:target="_self" class="nav-menu-link" th:text="${menu.spec.displayName}"> <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i></a>-->
-                <!--                        </div>-->
-                <!--                        <div th:unless="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">-->
-                <!--                            <a th:href="@{/}" data-ajax th:target="_self" th:text="${menu.spec.displayName}"></a>-->
-                <!--                        </div>-->
-
-                <div th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
-                  <div th:each="menuItem : ${menu.menuItems}" class="nav-sub-menu">
+              <th:block th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
+                <div th:each="menuItem : ${menu.menuItems}">
+                  <li class="menu-item nav-menu-item">
                     <a
-                      data-ajax=""
+                      data-ajax
                       target="_self"
                       th:href="@{${menuItem.status.href}}"
                       th:text="${menuItem.status.displayName}"
+                      class="nav-menu-link"
                       onfocus="this.blur();"
-                    ></a>
+                    >
+                      <i class="fa fa-angle-down nav-menu-angle" aria-hidden="true"></i>
+                    </a>
                     <ul th:if="${not #lists.isEmpty(menuItem.children)}" class="nav-sub-menu" style="display: none">
                       <li th:each="childMenuItem : ${menuItem.children}">
                         <a
                           th:href="@{${childMenuItem.status.href}}"
                           th:text="${childMenuItem.status.displayName}"
+                          data-ajax
                           onfocus="this.blur();"
                         ></a>
                       </li>
                     </ul>
-                  </div>
+                  </li>
                 </div>
-              </li>
+              </th:block>
               <th:block th:if="${theme.config.general.night_mode == true}">
                 <li class="menu-item home nav-menu-item">
                   <i class="fa night-mode fa-lightbulb-o" id="nightModeSmall" aria-hidden="true"></i>
