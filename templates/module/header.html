@@ -12,7 +12,7 @@
           <nav class="site-navigation">
             <ul class="menu">
               <th:block th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
-                <div th:each="menuItem : ${menu.menuItems}">
+                <th:block th:each="menuItem : ${menu.menuItems}">
                   <li class="menu-item nav-menu-item">
                     <a
                       data-ajax
@@ -35,7 +35,7 @@
                       </li>
                     </ul>
                   </li>
-                </div>
+                </th:block>
               </th:block>
               <th:block th:if="${theme.config.general.night_mode == true}">
                 <li class="menu-item home nav-menu-item">
