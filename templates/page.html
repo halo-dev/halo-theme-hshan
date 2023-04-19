@@ -74,8 +74,10 @@
                 </div>
               </header>
               <div class="post-inner">
-                <div class="article-body" id="post-content">
-                  <article th:utext="${singlePage.content.content}"></article>
+                <div class="article-body">
+                  <div class="post-content article-content" id="post-content">
+                    <article th:utext="${singlePage.content.content}"></article>
+                  </div>
                   <div id="tocFlag">
                     <div th:if="${theme.config.post.post_toc == true}">
                       <aside id="toc" class="toc"></aside>
@@ -137,14 +139,19 @@
                       ></th:block>
                     </p>
                   </div>
-                  <script th:src="@{/assets/libs/vue/vue.min.js}"></script>
-                  <div th:if="${pluginFinder.available('PluginCommentWidget')}">
-                    <halo:comment
-                      group="content.halo.run"
-                      kind="Post"
-                      th:attr="name=${singlePage.metadata.name}"
-                      colorScheme="window.main.currentColorScheme"
-                    />
+                  <div
+                          th:if="${singlePage.spec.allowComment == true}"
+                          th:style="'margin: auto; width:' + ${theme.config.post.post_max_wdth}"
+                  >
+                    <script th:src="@{/assets/libs/vue/vue.min.js}"></script>
+                    <div th:if="${pluginFinder.available('PluginCommentWidget')}">
+                      <halo:comment
+                        group="content.halo.run"
+                        kind="Post"
+                        th:attr="name=${singlePage.metadata.name}"
+                        colorScheme="window.main.currentColorScheme"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
