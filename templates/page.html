@@ -76,7 +76,7 @@
               <div class="post-inner">
                 <div class="article-body">
                   <div class="post-content article-content" id="post-content">
-                    <article th:utext="${singlePage.content.content}"></article>
+                    <article th:utext="${singlePage.content.content}" style="word-wrap:break-word"></article>
                   </div>
                   <div id="tocFlag">
                     <div th:if="${theme.config.post.post_toc == true}">
