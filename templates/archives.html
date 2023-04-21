@@ -57,7 +57,7 @@
                           <div class="read-more">
                             <a class="button" th:href="@{${post.status.permalink}}" data-ajax>
                               <span
-                                th:text="${#dates.format(post.metadata.creationTimestamp, 'MM-dd') + ' ' + post.spec.title}"
+                                th:text="${#dates.format(post.spec.publishTime, 'MM-dd') + ' ' + post.spec.title}"
                               ></span>
                               <span aria-hidden="true"></span>
                               <span class="line left"></span>
