@@ -5,90 +5,88 @@
     th:style="'${(posts !=null and posts.totalPages < 3)}' ? 'justify-content: space-around; !important;' : 'null' "
   >
     <th:block th:if="${posts !=null and posts.totalPages > 0}">
-      <div th:each="post : ${posts.items}">
-        <article>
-          <!--                        class="post-item grid-32 grid-48 mobile-grid-100 post card postItem mrg-bottom-90 card-item-vel">-->
-          <div class="article-wrapper card-shadow">
-            <header>
-              <div class="post-format-image post-format-wrapper">
-                <div class="featured-image">
-                  <th:block th:if="${post.spec.cover != null and post.spec.cover != null}">
-                    <a
-                      th:href="${post.status.permalink}"
-                      th:style="|background-image: url(${post.spec.cover});background-repeat: no-repeat!important;background-position: center center!important;background-size: cover!important;|"
-                      class="thumb hover-effect"
-                      data-ajax
+      <article
+        th:each="post : ${posts.items}"
+        class="post-item grid-32 grid-48 mobile-grid-100 post card postItem mrg-bottom-90 card-item-vel"
+      >
+        <div class="article-wrapper card-shadow">
+          <header>
+            <div class="post-format-image post-format-wrapper">
+              <div class="featured-image">
+                <th:block th:unless="${#strings.isEmpty(post.spec.cover)}">
+                  <a
+                    th:href="${post.status.permalink}"
+                    th:style="|background-image: url(${post.spec.cover});background-repeat: no-repeat!important;background-position: center center!important;background-size: cover!important;|"
+                    class="thumb hover-effect"
+                    data-ajax
+                  >
+                    <span
+                      class="fullimage cover"
+                      role="img"
+                      aria-label=""
+                      th:style="|background-image: url(${post.spec.cover})|"
+                    ></span>
+                  </a>
+                </th:block>
+                <th:block th:if="${#strings.isEmpty(post.spec.cover) && theme.config.general.card_random_cover}">
+                  <a data-ajax th:href="${post.status.permalink}" class="thumb hover-effect">
+                    <div
+                      th:with="x = ${theme.config.general.card_random_cover_img_num}, coverIndex = ${posts.page % x}"
                     >
                       <span
                         class="fullimage cover"
                         role="img"
                         aria-label=""
-                        th:style="|background-image: url(${post.spec.cover})|"
+                        th:style="|background-image: url(/thumbnail/thumbnail-${coverIndex}.${theme.config.general.card_random_cover_img_suffix})|"
                       ></span>
-                    </a>
-                  </th:block>
-                  <th:block th:if="${theme.config.general.card_random_cover != false}">
-                    <a data-ajax th:href="${post.status.permalink}" class="thumb hover-effect">
-                      <div
-                        th:with="x = ${theme.config.general.card_random_cover_img_num}, coverIndex = ${posts.page % x}"
-                      >
-                        <span
-                          class="fullimage cover"
-                          role="img"
-                          aria-label=""
-                          th:style="|background-image: url(/thumbnail/thumbnail-${coverIndex}.${theme.config.general.card_random_cover_img_suffix})|"
-                        ></span>
-                      </div>
-                    </a>
-                  </th:block>
-                  <th:block
-                    th:unless="${post.spec.cover != null and post.spec.cover != '' and theme.config.general.card_random_cover != false}"
-                  >
-                    <a data-ajax th:href="${post.status.permalink}" class="thumb hover-effect">
-                      <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
-                    </a>
-                  </th:block>
-                  <th:block th:if="${posts.totalPages gt 0}">
-                    <div class="tags absolute">
-                      <a data-ajax th:href="${post.tags[0].status.permalink}" class="ctag ctag-6 ctag-gridea">
-                        <span th:text="${post.tags[0].spec.displayName}"></span>
-                      </a>
                     </div>
-                  </th:block>
-                </div>
+                  </a>
+                </th:block>
+                <th:block th:if="${#strings.isEmpty(post.spec.cover) && !theme.config.general.card_random_cover}">
+                  <a data-ajax th:href="${post.status.permalink}" class="thumb hover-effect">
+                    <span class="fullimage default-cover-bg" role="img" aria-label=""></span>
+                  </a>
+                </th:block>
+                <th:block th:unless="${#lists.isEmpty(post.tags)}">
+                  <div class="tags absolute">
+                    <a data-ajax th:href="${post.tags[0].status.permalink}" class="ctag ctag-6 ctag-gridea">
+                      <span th:text="${post.tags[0].spec.displayName}"></span>
+                    </a>
+                  </div>
+                </th:block>
               </div>
-              <div class="meta">
-                <time th:datetime="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}">
-                  <i class="fa fa-pencil"></i>
-                  <span th:text="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}" class="lately"></span>
-                </time>
-              </div>
-              <h1 class="title main-title gradient-effect">
-                <a th:href="${post.status.permalink}" th:text="${post.spec.title}" data-ajax></a>
-              </h1>
-            </header>
-
-            <div class="post-excerpt">
-              <span th:text="${post.spec.excerpt.raw}"></span>
             </div>
+            <div class="meta">
+              <time th:datetime="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}">
+                <i class="fa fa-pencil"></i>
+                <span th:text="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}" class="lately"></span>
+              </time>
+            </div>
+            <h1 class="title main-title gradient-effect">
+              <a th:href="${post.status.permalink}" th:text="${post.spec.title}" data-ajax></a>
+            </h1>
+          </header>
 
-            <footer class="author-meta">
-              <a href="" class="author" title="" data-ajax>
-                <span class="author-image cover" th:style="|background-image: url(${post.owner.avatar});|"></span>
-                <span class="author-name" th:text="${post.owner.displayName}"></span>
-              </a>
-              <div>
-                <span class="visitors-count" th:text="${post.stats.visit}">
-                  <i class="fa fa-fire"></i>
-                </span>
-                <span th:text="${post.status.commentsCount}" class="visitors-comment" style="margin-left: 10px">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-              </div>
-            </footer>
+          <div class="post-excerpt">
+            <span th:text="${post.spec.excerpt.raw}"></span>
           </div>
-        </article>
-      </div>
+
+          <footer class="author-meta">
+            <a href="" class="author" title="" data-ajax>
+              <span class="author-image cover" th:style="|background-image: url(${post.owner.avatar});|"></span>
+              <span class="author-name" th:text="${post.owner.displayName}"></span>
+            </a>
+            <div>
+              <span class="visitors-count">
+                <th:block th:text="${post.stats.visit}"></th:block> <i class="fa fa-fire"></i>
+              </span>
+              <span class="visitors-comment" style="margin-left: 10px">
+                <th:block th:text="${post.stats.comment}"></th:block> <i class="fa fa-comment-o"></i>
+              </span>
+            </div>
+          </footer>
+        </div>
+      </article>
     </th:block>
   </div>
 </div>
