@@ -1,0 +1,5 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="libs-import">
+  <th:block th:if="${theme.config.post.post_toc == true}">
+    <script th:src="@{/assets/libs/tocbot/dist/tocbot.min.js?v={version}(version=${theme.spec.version})}"></script>
+  </th:block>
+</div>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${theme.config.title.links_title + '-' + site.title}, hero = null, content = ~{::linksContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+  <th:block th:fragment="linksContent">
+    <div id="page" class="site">
+      <main class="site-main" id="main">
+        <div class="site-content">
+          <header class="bg-cover page-header">
+            <th:block
+              th:if="${theme.config.head_img.links_patternimg !=null and theme.config.head_img.links_patternimg != ''}"
+            >
+              <div class="cover-bg">
+                <img
+                  th:src="@{${theme.config.head_img.links_patternimg}}"
+                  th:alt="${theme.config.title.links_title}"
+                  src=""
+                  alt="友链"
+                />
+              </div>
+            </th:block>
+            <th:block
+              th:unless="${theme.config.head_img.links_patternimg !=null and theme.config.head_img.links_patternimg != ''}"
+            >
+              <div class="default-cover-bg"></div>
+            </th:block>
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-count"></div>
+                <h1 class="page-title" style="font-size: 46px">
+                  <span th:text="${theme.config.title.links_title}">友链</span>
+                </h1>
+              </div>
+            </div>
+          </header>
+          <div class="links-box">
+            <div class="links-items">
+              <th:block th:each="group : ${groups}">
+                <h3 style="width: 100%; margin: 10px">
+                  <span th:text="${group.spec.displayName}"></span>
+                </h3>
+                <th:block th:each="link : ${group.links}">
+                  <a
+                    class="links-item card-item-vel"
+                    style="display: block"
+                    th:href="@{${link.spec.url}}"
+                    target="_blank"
+                    onfocus="this.blur();"
+                  >
+                    <div class="media">
+                      <th:block th:if="${link.spec.logo != null and link.spec.logo != ''}">
+                        <div class="media-left">
+                          <figure class="image is-64x64">
+                            <img th:src="@{${link.spec.logo}}" th:alt="${link.spec.displayName}" src="" alt="" />
+                          </figure>
+                        </div>
+                      </th:block>
+                      <div class="media-content">
+                        <p th:text="${link.spec.displayName}" class="link-title"></p>
+                        <p th:text="${link.spec.description}" class="link-desc"></p>
+                      </div>
+                    </div>
+                  </a>
+                </th:block>
+              </th:block>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </th:block>
+</html>

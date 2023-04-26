@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${theme.config.title.tags_title + '-' + site.title}, hero = null, content = ~{::tagsContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+  <th:block th:fragment="tagsContent">
+    <div id="page" class="site">
+      <main class="site-main" id="main">
+        <div class="site-content">
+          <header class="bg-cover page-header">
+            <div th:if="${theme.config.head_img.tag_patternimg != null and theme.config.head_img.tag_patternimg != ''}">
+              <div class="cover-bg">
+                <img
+                  th:src="${theme.config.head_img.tag_patternimg}"
+                  th:alt="${theme.config.title.tags_title}"
+                  src=""
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              th:unless="${theme.config.head_img.tag_patternimg != null and theme.config.head_img.tag_patternimg != ''}"
+            >
+              <div class="default-cover-bg"></div>
+            </div>
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-count"></div>
+                <h1 class="page-title" style="font-size: 46px" th:text="${theme.config.title.tags_title}"></h1>
+              </div>
+            </div>
+          </header>
+
+          <div id="post-list" class="post-list inner" style="padding-bottom: 50px">
+            <div class="tagcloud tag-page" th:with="tags = ${tagFinder.list(1,50)}">
+              <a
+                th:each="tag : ${tags}"
+                th:href="@{${tag.status.permalink}}"
+                th:title="${tag.spec.displayName}"
+                data-ajax
+                class="button"
+              >
+                <th:block th:text="|#${tag.spec.displayName}|" />
+                <sup th:text="${tag.status.visiblePostCount}"></sup>
+                <span aria-hidden="true">
+                  <span class="line left"></span>
+                  <span class="line top"></span>
+                  <span class="line right"></span>
+                  <span class="line bottom"></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </th:block>
+</html>

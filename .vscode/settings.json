@@ -1,10 +1,5 @@
 {
-    "filewatcher.commands": [
-        {
-            "match": "/*.less",
-            "isAsync": true,
-            "cmd": "cd ${workspaceRoot} && npm run build",
-            "event": "onFileChange"
-        }        
+    "i18n-ally.localesPaths": [
+        "templates/assets/libs/highlight.js/languages"
     ]
 }

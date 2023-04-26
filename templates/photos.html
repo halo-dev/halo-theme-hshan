@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${theme.config.title.photos_title}, hero = null, content = ~{::photosContent}, head = ~{::photosHead}, footer = ~{::photosFooter}, sidebar = null, contentClass = null)}"
+>
+  <th:block th:fragment="photosHead">
+    <th:block th:include="@{/module/viewer/libs-import}"></th:block>
+  </th:block>
+
+  <th:block th:fragment="photosContent">
+    <div id="page" class="site">
+      <main class="site-main" id="main">
+        <div class="site-content photos-page">
+          <header class="bg-cover page-header">
+            <th:block
+              th:if="${theme.config.head_img.photos_patternimg != null and theme.config.head_img.photos_patternimg != ''}"
+            >
+              <div class="cover-bg">
+                <img
+                  th:src="@{${theme.config.head_img.photos_patternimg}}"
+                  th:alt="${theme.config.title.photos_title}"
+                  src=""
+                  alt=""
+                />
+              </div>
+            </th:block>
+            <th:block
+              th:unless="${theme.config.head_img.photos_patternimg != null and theme.config.head_img.photos_patternimg != ''}"
+            >
+              <div class="default-cover-bg"></div>
+            </th:block>
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-count"></div>
+                <h1 class="page-title" style="font-size: 46px">
+                  <span th:text="${theme.config.title.photos_title}"></span>
+                </h1>
+              </div>
+            </div>
+          </header>
+          <div class="photos-box article-content" id="gallery-content">
+            <th:block th:each="group : ${groups}">
+              <h3 style="width: 100%; margin: 10px">
+                <span th:text="${group.spec.displayName}"></span>
+              </h3>
+              <div class="justified-gallery">
+                <th:block th:each="photo : ${group.photos}">
+                  <a class="gallery-item jg-entry entry-visible" href="javascript:void(0)" data-not-pjax>
+                    <img
+                      th:src="@{${photo.spec.url}}"
+                      th:data-src="@{${photo.spec.url}}"
+                      th:alt="${photo.spec.displayName}"
+                      src=""
+                      alt=""
+                    />
+                    <p class="has-text-centered is-size-6 caption">
+                      <span th:text="${photo.spec.displayName}"></span>
+                    </p>
+                  </a>
+                </th:block>
+              </div>
+            </th:block>
+          </div>
+        </div>
+      </main>
+    </div>
+  </th:block>
+
+  <th:block th:fragment="photosFooter">
+    <th:block th:include="@{/module/justifiedGallery/libs-import}"></th:block>
+    <th:block th:include="@{/module/justifiedGallery/scripts}"></th:block>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Viewer(document.getElementById("gallery-content"), {
+          toolbar: true,
+        });
+      });
+    </script>
+  </th:block>
+</html>

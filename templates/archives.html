@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${theme.config.title.achieve_title}, hero = null, content = ~{::archivesContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+  <th:block th:fragment="archivesContent">
+    <div id="page" class="site" style="opacity: 1; display: block; transform: translateY(0px)">
+      <main class="site-main" id="main">
+        <div class="site-content">
+          <header class="bg-cover page-header">
+            <div
+              th:if="${theme.config.head_img.archives_patternimg != null and theme.config.head_img.archives_patternimg !=''}"
+            >
+              <div class="cover-bg">
+                <img
+                  th:src="${theme.config.head_img.archives_patternimg}"
+                  th:alt="${theme.config.title.achieve_title}"
+                  src=""
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              th:unless="${theme.config.head_img.archives_patternimg != null and theme.config.head_img.archives_patternimg !=''}"
+            >
+              <div class="default-cover-bg"></div>
+            </div>
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-count"></div>
+                <h1 class="page-title" style="font-size: 46px">
+                  <span th:text="${theme.config.title.achieve_title}">归档</span>
+                </h1>
+              </div>
+            </div>
+          </header>
+
+          <div id="post-list" class="post-list inner" style="padding-top: 30px; margin-bottom: 30px">
+            <th:block th:each="archive : ${archives.items}">
+              <article class="post">
+                <!-- post-header -->
+                <header class="post-header" style="margin-bottom: 0 !important">
+                  <th:block th:each="month : ${archive.months}">
+                    <div class="post-header-wrap">
+                      <div class="post-meta">
+                        <time
+                          class="published published-txt"
+                          style="font-weight: bolder"
+                          th:datetime="${archive.year}"
+                          th:text="${archive.year + '年' + month.month + '月'}"
+                        >
+                        </time>
+                      </div>
+
+                      <div class="post-title archives-list" style="margin-bottom: 0 !important">
+                        <div th:each="post : ${month.posts}">
+                          <div class="read-more">
+                            <a class="button" th:href="@{${post.status.permalink}}" data-ajax>
+                              <span
+                                th:text="${#dates.format(post.spec.publishTime, 'MM-dd') + ' ' + post.spec.title}"
+                              ></span>
+                              <span aria-hidden="true"></span>
+                              <span class="line left"></span>
+                              <span class="line top"></span>
+                              <span class="line right"></span>
+                              <span class="line bottom"></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th:block>
+                </header>
+              </article>
+            </th:block>
+          </div>
+          <!--                分页-->
+          <div class="comment-page">
+            <th:block th:if="${archives.totalPages gt 1}">
+              <th:block>
+                <ol class="page-navigator">
+                  <th:block th:if="${archives.hasPrevious}">
+                    <li class="prev">
+                      <a th:href="@{${archives.prevUrl}}" data-ajax>
+                        <i class="fa fa-angle-left fa-lg"></i>
+                      </a>
+                    </li>
+                  </th:block>
+                  <th:block th:each="index:${#numbers.sequence(1, archives.totalPages)}">
+                    <th:block th:if="${archives.page == index}">
+                      <li class="current">
+                        <a data-ajax>
+                          <span th:text="${index}"></span>
+                        </a>
+                      </li>
+                    </th:block>
+                    <th:block th:if="${archives.page != index}">
+                      <li>
+                        <a data-ajax>
+                          <span th:text="${index}"></span>
+                        </a>
+                      </li>
+                    </th:block>
+                  </th:block>
+                  <th:block th:if="${archives.hasNext}">
+                    <li class="next">
+                      <a th:href="@{${archives.nextUrl}}" data-ajax>
+                        <i class="fa fa-angle-right fa-lg"></i>
+                      </a>
+                    </li>
+                  </th:block>
+                </ol>
+              </th:block>
+            </th:block>
+          </div>
+        </div>
+      </main>
+    </div>
+  </th:block>
+</html>

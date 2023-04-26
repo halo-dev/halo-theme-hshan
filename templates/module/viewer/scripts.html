@@ -1,0 +1,9 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="scripts">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new Viewer(document.getElementById("post-content"), {
+        toolbar: false,
+      });
+    });
+  </script>
+</th:block>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${theme.config.title.categories_title + '-' + site.title}, hero = null, content = ~{::categoryContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+  <th:block th:fragment="categoryContent">
+    <div id="page" class="site">
+      <main class="site-main" id="main">
+        <div class="site-content">
+          <header class="bg-cover page-header">
+            <div
+              th:if="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}"
+            >
+              <div class="cover-bg">
+                <img
+                  th:src="${theme.config.head_img.categories_patternimg}"
+                  th:alt="${theme.config.title.categories_title}"
+                  src=""
+                  alt="分类页图片"
+                />
+              </div>
+            </div>
+            <div
+              th:unless="@{theme.config.head_img.categories_patternimg != null and theme.config.head_img.categories_patternimg != ''}"
+            >
+              <div class="default-cover-bg"></div>
+            </div>
+            <div class="cover-content">
+              <div class="inner">
+                <div class="post-count"></div>
+                <h1 class="page-title" style="font-size: 46px" th:text="${category.spec.displayName}"></h1>
+              </div>
+            </div>
+          </header>
+          <!--文章列表-->
+          <div th:switch="${theme.config.general.post_list_style}">
+            <th:block th:case="standard" th:include="@{module/post-list-style/standard}"></th:block>
+            <th:block th:case="simple" th:include="@{module/post-list-style/simple}"></th:block>
+            <th:block th:case="card" th:include="@{module/post-list-style/random-card}"></th:block>
+          </div>
+          <!--分页-->
+          <div th:if="${posts.totalPages gt 1}">
+            <th:block th:replace="~{module/pagination}" />
+          </div>
+        </div>
+      </main>
+    </div>
+  </th:block>
+</html>

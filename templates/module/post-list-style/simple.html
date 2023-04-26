@@ -1,0 +1,43 @@
+<div id="post-list" class="post-list inner" xmlns:th="https://www.thymeleaf.org">
+  <div th:if="${posts != null and posts.totalPages gt 0}">
+    <ul th:each="post : ${posts.items}">
+      <li>
+        <article class="post-item postItem post-item-simple card-item-vel">
+          <div class="padding-left">
+            <h2 class="post-item-title">
+              <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}" data-ajax>
+                <div th:if="${post.spec.priority != null and post.spec.priority gt 0}">
+                  <span>🔥</span>
+                </div>
+              </a>
+            </h2>
+            <p class="post-item-summary" th:text="${post.spec.excerpt.raw}"></p>
+            <p class="post-item-info">
+              <time class="published" th:datetime="${#dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}">
+                <span th:text="${'发布于' + #dates.format(post.metadata.creationTimestamp, 'yyyy-MM-dd')}"></span>
+              </time>
+            </p>
+
+            <div class="post-item-tags">
+              <div th:if="${not #lists.isEmpty(post.categories)} or ${not #lists.isEmpty(post.tags)}">
+                <a th:each="tag : ${post.tags}" th:href="@{${tag.status.permalink}}" data-ajax>
+                  <span th:text="|#${tag.spec.displayName}|"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <th:block th:if="${post.spec.cover !=null and post.spec.cover != ''}">
+            <a
+              th:href="${post.status.permalink}"
+              data-ajax
+              class="post-feature-image"
+              th:style="|background-image: url(${post.spec.cover})|"
+            >
+            </a>
+          </th:block>
+        </article>
+      </li>
+    </ul>
+  </div>
+</div>

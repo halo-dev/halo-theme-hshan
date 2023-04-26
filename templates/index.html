@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{module/layout :: html(title = ${site.title}, hero = null, content = ~{::indexContent}, head = null, footer = null, sidebar = null, contentClass = null)}"
+>
+  <th:block th:fragment="indexContent">
+    <!--<body class="night">-->
+    <div id="page" class="site">
+      <main class="site-main" id="main">
+        <div class="site-content home-content">
+          <!-- 封面 -->
+          <header class="bg-cover hero">
+            <th:block th:if="${theme.config.general.home_cover != null and theme.config.general.home_cover !=''}">
+              <div class="cover-bg">
+                <img
+                  th:src="${theme.config.general.home_cover}"
+                  th:alt="${theme.config.general.home_cover}"
+                  src=""
+                  alt=""
+                />
+              </div>
+            </th:block>
+            <th:block th:unless="${theme.config.general.home_cover != null and theme.config.general.home_cover != ''}">
+              <div class="default-cover-bg"></div>
+            </th:block>
+
+            <div class="cover-content">
+              <!-- 封面内容 -->
+              <div class="inner">
+                <h2
+                  class="hero-title"
+                  th:text="${theme.config.general.home_title != null and theme.config.general.home_title != ''} ? ${theme.config.general.home_title} : ${site.title}"
+                ></h2>
+                <p class="hero-text" id="slogan">
+                  <span th:text="${theme.config.general.home_description}"></span>
+                </p>
+                <a href="#postContainer" class="arrow-down" data-scroll
+                  ><span class="screen-reader-text">Scroll Down</span></a
+                >
+              </div>
+            </div>
+          </header>
+          <div id="postContainer">
+            <div th:switch="${theme.config.general.post_list_style}">
+              <th:block th:case="standard" th:include="@{module/post-list-style/standard}"></th:block>
+              <th:block th:case="simple" th:include="@{module/post-list-style/simple}"></th:block>
+              <th:block th:case="card" th:include="@{module/post-list-style/random-card}"></th:block>
+            </div>
+          </div>
+
+          <div th:if="${posts.totalPages gt 1}">
+            <th:block th:replace="~{module/pagination}" />
+          </div>
+        </div>
+      </main>
+    </div>
+  </th:block>
+  <!--</body>-->
+</html>
