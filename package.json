@@ -33,7 +33,7 @@
     "rollup-plugin-watch": "^1.0.1",
     "typescript": "^4.7.2",
     "uglify-js": "^3.8.0",
-    "vite": "^2.9.9"
+    "vite": "^2.9.16"
   },
   "dependencies": {
     "nprogress": "^0.2.0"
